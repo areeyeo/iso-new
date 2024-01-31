@@ -243,6 +243,7 @@ $routes->group("permission", ['filter' => 'authGuard'], function ($routes) {
 
 $routes->get('isobjective', 'ISObjectivesController::index');
 $routes->get('planningofchange', 'PlanningofChangeController::index');
+
 $routes->get('competenec', 'CompetenecController::index');
 
 

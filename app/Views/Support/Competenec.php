@@ -93,7 +93,6 @@
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="<?= site_url('/'); ?>">Home</a></li>
                             <li class="breadcrumb-item"><a>IS Competence</a></li>
-                            <li class="breadcrumb-item"><a>IS Competence</a></li>
                         </ol>
                     </div>
                 </div>
