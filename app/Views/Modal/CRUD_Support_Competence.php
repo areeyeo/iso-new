@@ -32,7 +32,7 @@
             <option value="option4">Document Control</option>
             <option value="option5">Other (Working Team)</option>
           </select>
-          <h6 class="gray-text mt-2 p-2" name="evaluation_detail" id="evaluation_detail"></h6>
+          <h6 class="gray-text mt-2 p-2" name="evaluation_detail" id="evaluation_detail">คำอธิบายเพิ่มเติม</h6>
         </div>
         <div class="form-group">
           <h6>Training Plan</h6>

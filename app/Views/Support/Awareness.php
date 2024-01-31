@@ -85,14 +85,15 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Competence
+                        <h1>
+                            Awareness
                             <button type="button" class="btn btn-secondary btn-xs" data-toggle="modal" data-target="#modal-default" id="load-modal-button">Requirement</button>
                         </h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="<?= site_url('/'); ?>">Home</a></li>
-                            <li class="breadcrumb-item"><a>Competence</a></li>
+                            <li class="breadcrumb-item"><a>Awareness</a></li>
                         </ol>
                     </div>
                 </div>
@@ -218,7 +219,6 @@
                     </div>
                 </div>
         </section>
-        <!-- Main content -->
         <section class="content">
             <div class="container-fluid">
                 <div class="row">
@@ -228,10 +228,10 @@
                                 <div class="form-group">
                                     <div class="tab-content" id="tabs-tabContent">
                                         <div class="d-flex justify-content-between align-items-center mb-3">
-                                            <h4>Competence</h4>
-                                            <div id="btn-Competence" name="btn-Competence">
+                                            <h4>Awareness</h4>
+                                            <div id="btn-Awareness" name="btn-Awareness">
                                                 <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#modal-default" onclick="load_modal(2)">
-                                                    <span class="text-nowrap"><i class="fas fa-edit"></i>Create Competence</span>
+                                                    <span class="text-nowrap"><i class="fas fa-edit"></i>Create Awareness</span>
                                                 </button>
                                             </div>
                                         </div>
@@ -241,8 +241,10 @@
                                                 <tr>
                                                     <th class="text-center">ACTION</th>
                                                     <th>No.</th>
-                                                    <th>ROLE</th>
-                                                    <th>TRAINING PLAN</th>
+                                                    <th>COURSE</th>
+                                                    <th>DETAIL</th>
+                                                    <th>DATE</th>
+                                                    <th>FILE</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -265,8 +267,8 @@
         <div id="modal_contextver">
             <?= $this->include("Modal/Context_Ver"); ?>
         </div>
-        <div id="modal_crud_support_competence">
-            <?= $this->include("Modal/CRUD_Support_Competence"); ?>
+        <div id="modal_crud_support_awareness">
+            <?= $this->include("Modal/CRUD_Support_Awareness"); ?>
         </div>
     </div>
 
@@ -305,14 +307,14 @@
             console.log('Function is called with check:', check, 'and check_type:', check_type);
 
             modal_contextver = document.getElementById("modal_contextver");
-            modal_crud_support_competence = document.getElementById("modal_crud_support_competence");
+            modal_crud_support_awareness = document.getElementById("modal_crud_support_awareness");
             $(".modal-body #iss").empty();
 
             if (check == '1') {
                 //--show modal requirment--//
                 console.log('Showing modal 1');
                 modal_contextver.style.display = "block";
-                modal_crud_support_competence.style.display = "none";
+                modal_crud_support_awareness.style.display = "none";
                 $(".modal-body #description").text(element.details);
                 $(".modal-body #status").val(element.status);
                 $(".modal-body #commentTextArea").text(element.comment_reject);
@@ -330,19 +332,24 @@
                 //--show modal requirment--//
                 console.log('Showing modal 2');
                 modal_contextver.style.display = "none";
-                modal_crud_support_competence.style.display = "block";
+                modal_crud_support_awareness.style.display = "block";
             }
         }
     </script>
     <script>
-        var Data = [{
-                "ROLE": "Information Security Management Representative (ISMR)",
-                "TRAININGPLAN": "example.pdf"
+        var Data = [
+            {
+                "COURSE": "Information Security Policy",
+                "DETAIL": "-",
+                "DATE": "01/01/2024",
+                "FILE": "example.pdf"
             },
             {
-                "ROLE": "Other (Working Team)",
-                "TRAININGPLAN": "example.pdf"
-            }
+                "COURSE": "Security Awareness",
+                "DETAIL": "-",
+                "DATE": "01/01/2024",
+                "FILE": "example.pdf"
+            },
         ];
 
         var example1TableBody = document.getElementById("example1").getElementsByTagName("tbody")[0];
@@ -353,6 +360,8 @@
             var cell2 = newRow.insertCell(1);
             var cell3 = newRow.insertCell(2);
             var cell4 = newRow.insertCell(3);
+            var cell5 = newRow.insertCell(4);
+            var cell6 = newRow.insertCell(5);
 
             cell1.innerHTML = `<div class="dropdown">
     <i class="fas fa-ellipsis-v pointer text-primary" id="dropdownMenuButton${index}" data-toggle="dropdown" aria-expanded="false"></i>
@@ -365,7 +374,9 @@
     </ul>
   </div>`;
             cell2.textContent = index + 1;
-            cell3.textContent = row.ROLE;
-            cell4.textContent = row.TRAININGPLAN;
+            cell3.textContent = row.COURSE;
+            cell4.textContent = row.DETAIL;
+            cell5.textContent = row.DATE;
+            cell6.textContent = row.FILE;
         });
     </script>

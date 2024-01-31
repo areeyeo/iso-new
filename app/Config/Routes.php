@@ -242,9 +242,13 @@ $routes->group("permission", ['filter' => 'authGuard'], function ($routes) {
 });
 
 $routes->get('isobjective', 'ISObjectivesController::index');
+
 $routes->get('planningofchange', 'PlanningofChangeController::index');
 
 $routes->get('competenec', 'CompetenecController::index');
+
+$routes->get('awareness', 'AwarenessController::index');
+
 
 
 $routes->match(['get', 'post'], 'openfile/(:num)', 'AllversionController::openfile/$1', ['filter' => 'authGuard']);
