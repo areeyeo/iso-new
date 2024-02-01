@@ -71,7 +71,7 @@
       <i class="fas fa-2x fa-sync fa-spin"></i>
     </div> -->
         <div class="modal-header bg-primary">
-          <h4 class="modal-title" id="title_modal" name="title_modal">Awareness</h4>
+          <h4 class="modal-title" id="title_modal" name="title_modal">Communication</h4>
         </div>
         <div class="modal-body">
           <!-- <div class="progress mb-3" style="display: none;">
@@ -91,29 +91,48 @@
               <h6 class="gray-text" name="description" id="description"></h6>
             </div>
             <div class="form-group mt-2">
-              <h6>Course</h6>
-              <input class="form-control gray-text" type="text" placeholder="Text..." name="course" id="course"></input>
+              <h6>What to communicate</h6>
+              <input class="form-control gray-text" type="text" placeholder="Text..." name="whattocommunicate" id="whattocommunicate"></input>
             </div>
             <div class="form-group mt-2">
               <h6>Detail</h6>
               <textarea class="form-control gray-text" rows="3" placeholder="Text..." name="detail" id="detail"></textarea>
             </div>
-            <div class="form-group mt-2">
-              <h6>Date</h6>
-              <input class="form-control gray-text" type="date" name="date" id="date"></input>
+            <div class="row">
+              <div class="col-6">
+                <div class="form-group mt-2">
+                  <h6>Communicator</h6>
+                  <textarea class="form-control gray-text" rows="3" placeholder="Text..." name="communicator" id="communicator"></textarea>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="form-group mt-2">
+                  <h6>Communicate with whom</h6>
+                  <textarea onInput="handleInput(event)" class="form-control gray-text" rows="3" placeholder="Text..." name="communicatewithwhom" id="communicatewithwhom"></textarea>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-6">
+                <div class="form-group mt-2">
+                  <h6>When to communicate</h6>
+                  <textarea class="form-control gray-text" rows="3" placeholder="Text..." name="whentocommunicate" id="whentocommunicate"></textarea>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="form-group mt-2">
+                  <h6>How to communicate</h6>
+                  <textarea onInput="handleInput(event)" class="form-control gray-text" rows="3" placeholder="Text..." name="howtocommunicate" id="howtocommunicate"></textarea>
+                </div>
+              </div>
             </div>
             <div class="form-group">
-              <div class="d-flex align-items-center">
-                <h6 class="mt-2">Attach Files&nbsp;</h6>
-                <i class="far fa-question-circle text-primary" data-toggle="tooltip" title="Attached files include media, list of names, pre-test and post-test scores."></i>
-              </div>
-              
+              <h6>Attachment file</h6>
               <div class="custom-file">
-                <input type="file" class="custom-file-input" id="exampleInputFiles" accept=".docx, .pdf, .xlsx, .doc" data-max-size="20971520" name="files[]" multiple>
-                <label class="custom-file-label" for="exampleInputFiles">Choose files</label>
+                <input type="file" class="custom-file-input" id="attachmentfile" accept=".docx, .pdf, .xlsx , .doc" data-max-size="20971520" name="attachmentfile">
+                <label class="custom-file-label" for="customFile">Choose file</label>
               </div>
-              <h6 class="gray-text">.doc, .xls, .pdf (20 MB per file)</h6>
-              <div id="fileNamesContainer" class="file-names-container"></div>
+              <h6 class="gray-text">.doc .xls .pdf (20 MB per file)</h6>
             </div>
             <input type="text" id="url_route" name="url_route" hidden>
             <input type="text" id="check_type" name="check_type" hidden>
@@ -150,7 +169,6 @@
         const urlRouteInput = document.getElementById("url_route");
         action_(urlRouteInput.value, 'form_crud');
       });
-
     </script>
     <script>
       document.getElementById('exampleInputFiles').addEventListener('change', function() {
@@ -217,7 +235,26 @@
       }
     </script>
     <script>
-  $(document).ready(function(){
-    $('[data-toggle="tooltip"]').tooltip(); 
-  });
-</script>
+      $(document).ready(function() {
+        $('[data-toggle="tooltip"]').tooltip();
+      });
+    </script>
+    <script>
+      let previousLength = 0;
+
+      const handleInput = (event) => {
+        const bullet = "\u2022";
+        const newLength = event.target.value.length;
+        const characterCode = event.target.value.substr(-1).charCodeAt(0);
+
+        if (newLength > previousLength) {
+          if (characterCode === 10) {
+            event.target.value = `${event.target.value}${bullet} `;
+          } else if (newLength === 1) {
+            event.target.value = `${bullet} ${event.target.value}`;
+          }
+        }
+
+        previousLength = newLength;
+      }
+    </script>

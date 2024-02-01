@@ -260,13 +260,13 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="<?= site_url('/'); ?>" class="nav-link">
+                                    <a href="<?= site_url('/awareness'); ?>" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Awareness</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="<?= site_url('/'); ?>" class="nav-link">
+                                    <a href="<?= site_url('/communication'); ?>" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Communication</p>
                                     </a>
