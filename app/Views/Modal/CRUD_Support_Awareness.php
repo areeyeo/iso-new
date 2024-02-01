@@ -4,37 +4,64 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.19.0/dist/css/bootstrap-icons.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.19.0/dist/css/bootstrap-icons.css">
+
   <style>
-  .custom-file {
-    margin-bottom: 10px;
-  }
+    .custom-file {
+      margin-bottom: 10px;
+    }
 
-  .file-names-container {
-    /* width: 410px; */
-    overflow: hidden;
-  }
+    .file-names-container {
+      overflow: hidden;
+    }
 
-  .file-name {
-    border: 1px solid #007bff;
-    color: #007bff;
-    padding: 8px;
-    border-radius: 5px;
-    background-color: #fff;
-    display: inline-block;
-    margin-right: 10px;
-    margin-bottom: 10px;
-    white-space: nowrap;
-  }
+    .file-name {
+      width: 350px;
+      border: 1px solid #007bff;
+      /* color: #007bff; */
+      padding: 8px;
+      border-radius: 5px;
+      background-color: #fff;
+      display: inline-block;
+      margin-right: 10px;
+      margin-bottom: 10px;
+      white-space: nowrap;
+    }
 
-  .file-info {
-    display: flex;
-    align-items: center;
-  }
+    .file-info {
+      display: flex;
+      align-items: center;
+    }
 
-  .file-icon {
-    margin-right: 5px;
-  }
-</style>
+    .filename {
+      max-width: '200px';
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      margin-right: 5px;
+      color: #495057;
+    }
+
+    .file-icon {
+      margin-right: 3px;
+      color: #007bff;
+
+    }
+
+    .file-icon-bin {
+      margin-left: auto;
+      color: #007bff;
+    }
+
+    .tooltip-inner {
+      background-color: #F8F9FA;
+      border: 1px solid #CED4DA;
+      color: black;
+    }
+  </style>
 
 
   <head>
@@ -76,7 +103,11 @@
               <input class="form-control gray-text" type="date" name="date" id="date"></input>
             </div>
             <div class="form-group">
-              <h6>Attach Files</h6>
+              <div class="d-flex align-items-center">
+                <h6 class="mt-2">Attach Files&nbsp;</h6>
+                <i class="far fa-question-circle text-primary" data-toggle="tooltip" title="Attached files include media, list of names, pre-test and post-test scores."></i>
+              </div>
+              
               <div class="custom-file">
                 <input type="file" class="custom-file-input" id="exampleInputFiles" accept=".docx, .pdf, .xlsx, .doc" data-max-size="20971520" name="files[]" multiple>
                 <label class="custom-file-label" for="exampleInputFiles">Choose files</label>
@@ -120,31 +151,6 @@
         action_(urlRouteInput.value, 'form_crud');
       });
 
-      document.getElementById('objective_evaluation').addEventListener('change', function() {
-        var selectedOption = this.value;
-        var descriptionDetail = document.getElementById('evaluation_detail');
-
-        switch (selectedOption) {
-          case 'option1':
-            descriptionDetail.innerText = 'คำอธิบายสำหรับ Top Management';
-            break;
-          case 'option2':
-            descriptionDetail.innerText = 'คำอธิบายสำหรับ Information Security Management Representative (ISMR)';
-            break;
-          case 'option3':
-            descriptionDetail.innerText = 'คำอธิบายสำหรับ Information Assurance (IA)';
-            break;
-          case 'option4':
-            descriptionDetail.innerText = 'คำอธิบายสำหรับ Document Control';
-            break;
-          case 'option5':
-            descriptionDetail.innerText = 'คำอธิบายสำหรับ Other (Working Team)';
-            break;
-          default:
-            descriptionDetail.innerText = 'รอใส่คำอธิบายเพิ่มเติม';
-            break;
-        }
-      });
     </script>
     <script>
       document.getElementById('exampleInputFiles').addEventListener('change', function() {
@@ -161,25 +167,34 @@
             fileNameContainer.classList.add('file-name');
 
             const fileIcon = document.createElement('span');
-            fileIcon.classList.add('fas', 'fa-file', 'file-icon');
+            fileIcon.innerHTML = '<i class="far fa-file-alt"></i>';
+            fileIcon.classList.add('file-icon');
 
             const fileInfo = document.createElement('span');
             fileInfo.classList.add('file-info');
-            fileInfo.style.fontSize = '10pt'
+            fileInfo.style.fontSize = '10pt';
 
             const fileName = document.createElement('span');
             fileName.textContent = files[i].name;
-            fileName.style.maxWidth = '240px';
-            fileName.style.overflow = 'hidden';
-            fileName.style.textOverflow = 'ellipsis';
-            fileName.style.whiteSpace = 'nowrap'
+            fileName.className = 'filename';
 
             const fileSize = document.createElement('span');
-            fileSize.textContent = formatFileSize(files[i].size);
+            fileSize.classList.add('file-icon');
+            fileSize.textContent = `(${formatFileSize(files[i].size)})`;
+            fileSize.style.color = '#495057'
+
+            const fileIcons = document.createElement('span');
+            fileIcons.innerHTML = '<i class="fas fa-trash"></i>';
+            fileIcons.classList.add('file-icon-bin');
+            fileIcons.addEventListener('click', function() {
+              deleteFile(files[i]);
+            });
 
             fileInfo.appendChild(fileIcon);
             fileInfo.appendChild(fileName);
             fileInfo.appendChild(fileSize);
+            fileInfo.appendChild(fileIcons);
+            console.log('File Name:', files[i].name, 'Size:', files[i].size);
 
             fileNameContainer.appendChild(fileInfo);
             fileNamesContainer.appendChild(fileNameContainer);
@@ -196,4 +211,13 @@
           return mb.toFixed(2) + ' MB';
         }
       }
+
+      function deleteFile(file) {
+        console.log('Delete file:', file.name);
+      }
     </script>
+    <script>
+  $(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip(); 
+  });
+</script>

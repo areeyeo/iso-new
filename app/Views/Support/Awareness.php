@@ -1,4 +1,4 @@
-<title>IS Competence Version</title>
+<title>Awareness Version</title>
 <!-- DataTables -->
 <link rel="stylesheet" href="<?= base_url('plugins/datatables-bs4/css/dataTables.bootstrap4.min.css'); ?>">
 <link rel="stylesheet" href="<?= base_url('plugins/datatables-responsive/css/responsive.bootstrap4.min.css'); ?>">
@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="<?= base_url('plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css'); ?>">
 <!-- summernote -->
 <link rel="stylesheet" href="<?= base_url('plugins/summernote/summernote-bs4.min.css'); ?>">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.19.0/dist/css/bootstrap-icons.min.css" rel="stylesheet">
 <style>
     tr:nth-child(even) {
         background-color: #F5F5F5;
@@ -337,18 +338,17 @@
         }
     </script>
     <script>
-        var Data = [
-            {
+        var Data = [{
                 "COURSE": "Information Security Policy",
                 "DETAIL": "-",
                 "DATE": "01/01/2024",
-                "FILE": "example.pdf"
+                "FILE": ["file1.pdf", "file2.pdf", "file3.pdf"],
             },
             {
                 "COURSE": "Security Awareness",
                 "DETAIL": "-",
                 "DATE": "01/01/2024",
-                "FILE": "example.pdf"
+                "FILE": ["file1.pdf", "file2.pdf"],
             },
         ];
 
@@ -362,6 +362,7 @@
             var cell4 = newRow.insertCell(3);
             var cell5 = newRow.insertCell(4);
             var cell6 = newRow.insertCell(5);
+
 
             cell1.innerHTML = `<div class="dropdown">
     <i class="fas fa-ellipsis-v pointer text-primary" id="dropdownMenuButton${index}" data-toggle="dropdown" aria-expanded="false"></i>
@@ -377,6 +378,14 @@
             cell3.textContent = row.COURSE;
             cell4.textContent = row.DETAIL;
             cell5.textContent = row.DATE;
-            cell6.textContent = row.FILE;
+            displayArrayInCell(cell6, row.FILE);
         });
+
+        function displayArrayInCell(cell, dataArray) {
+            if (Array.isArray(dataArray) && dataArray.length > 1) {
+                cell.innerHTML = dataArray.join('<br>');
+            } else {
+                cell.textContent = Array.isArray(dataArray) ? dataArray[0] : dataArray;
+            }
+        }
     </script>
