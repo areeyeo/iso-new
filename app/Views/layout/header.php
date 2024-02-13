@@ -230,6 +230,12 @@
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                    <a href="<?= site_url('/planningAddressRisksOpp'); ?>" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Address Risks & Opp</p>
+                                    </a>
+                                </li>
                                 <li class="nav-item">
                                     <a href="<?= site_url('/isobjective'); ?>" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
