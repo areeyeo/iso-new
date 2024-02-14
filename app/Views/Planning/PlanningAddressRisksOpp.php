@@ -93,6 +93,10 @@
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="<?= site_url('/'); ?>">Home</a></li>
                             <li class="breadcrumb-item active">Address Risks & Opportunities</li>
+                            <li class="breadcrumb-item active">Context</li>
+                            <li class="breadcrumb-item active" id="version-heaer-path">Version
+                                <?= $data['num_ver'] ?>
+                            </li>
                         </ol>
                     </div>
                 </div>
