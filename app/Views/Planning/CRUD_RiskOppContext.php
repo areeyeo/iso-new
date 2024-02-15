@@ -149,7 +149,7 @@
                     <div class="card-body">
                         <div class="container-fluid">
                             <div class="row">
-                                <div class="col-8">
+                                <div class="col-lg-8">
                                     <div class="form-group mt-2">
                                         <h6>Issue</h6>
                                         <select class="custom-select">
@@ -182,10 +182,10 @@
                             </div>
                             <div id="risk-context">
                                 <div class="row">
-                                    <div class="col-6 mt-3" id="risk-context-consequences">
+                                    <div class="col-lg-6 mt-3" id="risk-context-consequences">
                                         <h6>Consequences</h6>
                                         <div class="row">
-                                            <div class="col-6">
+                                            <div class="col-lg-6">
                                                 <div class="form-group mt-2">
                                                     <h6>Operational</h6>
                                                     <select class="custom-select select-impact-risk" id="operational-select">
@@ -198,7 +198,7 @@
                                                     </select>
                                                 </div>
                                             </div>
-                                            <div class="col-6">
+                                            <div class="col-lg-6">
                                                 <div class="form-group mt-2">
                                                     <h6>Productivity</h6>
                                                     <select class="custom-select select-impact-risk" id="productivity-select">
@@ -211,7 +211,7 @@
                                                     </select>
                                                 </div>
                                             </div>
-                                            <div class="col-6">
+                                            <div class="col-lg-6">
                                                 <div class="form-group mt-2">
                                                     <h6>Reputation</h6>
                                                     <select class="custom-select select-impact-risk" id="reputation-select">
@@ -224,7 +224,7 @@
                                                     </select>
                                                 </div>
                                             </div>
-                                            <div class="col-6">
+                                            <div class="col-lg-6">
                                                 <div class="form-group mt-2">
                                                     <h6>Compliance</h6>
                                                     <select class="custom-select select-impact-risk" id="compliance-select">
@@ -237,7 +237,7 @@
                                                     </select>
                                                 </div>
                                             </div>
-                                            <div class="col-6">
+                                            <div class="col-lg-6">
                                                 <div class="form-group mt-2">
                                                     <h6>Privacy</h6>
                                                     <select class="custom-select select-impact-risk" id="privacy-select">
@@ -252,20 +252,26 @@
                                             </div>
                                         </div>
                                     </div>
-
-                                    <div class="col-6 mt-3" id="risk-context-risk-analysis">
+                                    <div class="col-lg-6 mt-3" id="risk-context-risk-analysis">
                                         <h6>Risk Analysis</h6>
-                                        <div class="form-group col-6 mt-3">
-                                            <h6>Impact</h6>
-                                            <input class="form-control gray-text" type="number" name="impact" id="impact" readonly></input>
-                                        </div>
-                                        <div class="form-group col-6 mt-4">
-                                            <h6>Likelihood</h6>
-                                            <input class="form-control gray-text" type="number" name="likelihood" id="likelihood"></input>
-                                        </div>
-                                        <div class="form-group col-6 mt-3">
-                                            <h6>Risk Level</h6>
-                                            <input class="form-control gray-text" type="number" name="risklevel" id="risklevel" readonly></input>
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <div class="form-group mt-2">
+                                                    <h6>Impact</h6>
+                                                    <input class="form-control gray-text" type="number" name="impact" id="impact" readonly></input>
+                                                </div>
+                                                <div class="form-group mt-4">
+                                                    <h6>Likelihood</h6>
+                                                    <input class="form-control gray-text" type="number" name="likelihood" id="likelihood"></input>
+                                                </div>
+                                                <div class="form-group mt-4">
+                                                    <h6>Risk Level</h6>
+                                                    <input class="form-control gray-text" type="number" name="risklevel" id="risklevel" readonly></input>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 d-flex justify-content-center">
+                                                <img src="<?= base_url('dist/img/risk_criteria.png'); ?>" style="width: 250px;">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -273,7 +279,7 @@
                             <div class="" id="risk-context-risk-treatment-plan" style="display: none;">
                                 <h6>Risk Treatment Plan</h6>
                                 <div class="row">
-                                    <div class="col-6">
+                                    <div class="col-lg-6">
                                         <div class="form-group mt-2">
                                             <h6>Risk Option</h6>
                                             <select class="custom-select" id="risk-option">
@@ -288,25 +294,25 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-6">
+                                    <div class="col-lg-6">
                                         <div class="form-group mt-3">
                                             <h6>Risk Treatment Plan</h6>
                                             <textarea class="form-control gray-text" rows="5" placeholder="Text..." name="risktreatmentplan" id="risktreatmentplan"></textarea>
                                         </div>
                                     </div>
-                                    <div class="col-6 mt-2">
+                                    <div class="col-lg-6 mt-2">
                                         <div class="form-group mt-2">
                                             <h6>Risk Owner</h6>
                                             <input class="form-control gray-text" type="text" placeholder="Text..." name="riskowner" id="riskowner"></input>
                                         </div>
                                         <div class="row">
-                                            <div class="col-6">
+                                            <div class="col-lg-6">
                                                 <div class="form-group mt-3">
                                                     <h6>Start Date</h6>
                                                     <input class="form-control gray-text" type="date" name="startdate" id="startdate"></input>
                                                 </div>
                                             </div>
-                                            <div class="col-6">
+                                            <div class="col-lg-6">
                                                 <div class="form-group mt-3">
                                                     <h6>End Date</h6>
                                                     <input class="form-control gray-text" type="date" name="enddate" id="enddate"></input>
@@ -314,7 +320,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-6">
+                                    <div class="col-lg-6">
                                         <div class="form-group">
                                             <h6>Attach File</h6>
                                             <div class="custom-file">
@@ -329,7 +335,7 @@
                             <div class="mt-3" id="risk-context-consequences-after-treatment" style="display: none;">
                                 <h6>Consequences (After Treatment)</h6>
                                 <div class="row">
-                                    <div class="col-2">
+                                    <div class="col-lg-2">
                                         <div class="form-group mt-2">
                                             <h6>Operational</h6>
                                             <select class="custom-select select-impact-residual" id="operational-select2">
@@ -342,7 +348,7 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col-2">
+                                    <div class="col-lg-2">
                                         <div class="form-group mt-2">
                                             <h6>Productivity</h6>
                                             <select class="custom-select select-impact-residual" id="productivity-select2">
@@ -355,7 +361,7 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col-2">
+                                    <div class="col-lg-2">
                                         <div class="form-group mt-2">
                                             <h6>Reputation</h6>
                                             <select class="custom-select select-impact-residual" id="reputation-select2">
@@ -368,7 +374,7 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col-2">
+                                    <div class="col-lg-2">
                                         <div class="form-group mt-2">
                                             <h6>Compliance</h6>
                                             <select class="custom-select select-impact-residual" id="compliance-select2">
@@ -381,7 +387,7 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col-2">
+                                    <div class="col-lg-2">
                                         <div class="form-group mt-2">
                                             <h6>Privacy</h6>
                                             <select class="custom-select select-impact-residual" id="privacy-select2">
@@ -394,19 +400,19 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col-4">
+                                    <div class="col-lg-4">
                                         <div class="form-group mt-2">
                                             <h6>Impact</h6>
                                             <input class="form-control gray-text" type="number" name="impact2" id="impact2" readonly></input>
                                         </div>
                                     </div>
-                                    <div class="col-4">
+                                    <div class="col-lg-4">
                                         <div class="form-group mt-2">
                                             <h6>Likelihood</h6>
                                             <input class="form-control gray-text" type="number" name="likelihood2" id="likelihood2"></input>
                                         </div>
                                     </div>
-                                    <div class="col-4">
+                                    <div class="col-lg-4">
                                         <div class="form-group mt-2">
                                             <h6>Residual</h6>
                                             <input class="form-control gray-text" type="number" name="residual" id="residual" readonly></input>
@@ -415,27 +421,27 @@
                                 </div>
                             </div>
                         </div>
-                        <div id="opportunities-context">
+                        <div id="opportunities-context" style="padding-left: 10px;">
                             <div class="row">
-                                <div class="col-6">
+                                <div class="col-lg-6">
                                     <div class="form-group mt-3">
                                         <h6>Opportunity planning</h6>
                                         <textarea class="form-control gray-text" rows="5" placeholder="Text..." name="risktreatmentplan" id="risktreatmentplan"></textarea>
                                     </div>
                                 </div>
-                                <div class="col-6 mt-2">
+                                <div class="col-lg-6 mt-2">
                                     <div class="form-group mt-2">
                                         <h6>Opportunities Owner</h6>
                                         <input class="form-control gray-text" type="text" placeholder="Text..." name="riskowner" id="riskowner"></input>
                                     </div>
                                     <div class="row">
-                                        <div class="col-6">
+                                        <div class="col-lg-6">
                                             <div class="form-group mt-3">
                                                 <h6>Start Date</h6>
                                                 <input class="form-control gray-text" type="date" name="startdate" id="startdate"></input>
                                             </div>
                                         </div>
-                                        <div class="col-6">
+                                        <div class="col-lg-6">
                                             <div class="form-group mt-3">
                                                 <h6>End Date</h6>
                                                 <input class="form-control gray-text" type="date" name="enddate" id="enddate"></input>
@@ -443,7 +449,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-6">
+                                <div class="col-lg-6">
                                     <div class="form-group">
                                         <h6>Attach File</h6>
                                         <div class="custom-file">
@@ -457,7 +463,7 @@
                         </div>
 
                     </div>
-                    <div class="d-flex justify-content-center">
+                    <div class="d-flex justify-content-center mb-5">
                         <button type="submit" class="btn btn-success" name="submit" value="Submit">Save</button>
                         <button type="button" class="btn btn-danger" data-dismiss="modal" style="margin-left: 30px;">Cancel</button>
                     </div>

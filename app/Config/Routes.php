@@ -254,6 +254,12 @@ $routes->get('awareness', 'AwarenessController::index');
 
 $routes->get('communication', 'CommunicationController::index');
 
+$routes->get('risk_criteria_context', 'Setting_RiskCriteriaContextController::index');
+$routes->get('risk_Criteria_Context_Consequence', 'Setting_RiskCriteriaContextController::indexConsequence');
+$routes->get('risk_Criteria_Context_Likelihood', 'Setting_RiskCriteriaContextController::indexLikelihood');
+$routes->get('risk_Criteria_Context_Risk_Level', 'Setting_RiskCriteriaContextController::indexRiskLevel');
+$routes->get('risk_Criteria_Context_Risk_Option', 'Setting_RiskCriteriaContextController::indexRiskOption');
+
 
 
 $routes->match(['get', 'post'], 'openfile/(:num)', 'AllversionController::openfile/$1', ['filter' => 'authGuard']);
