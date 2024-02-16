@@ -40,15 +40,13 @@
         <input type="text" id="check_type" name="check_type" hidden>
         <input type="text" id="id_" name="id_" hidden>
         <div class="modal-footer">
-          <button type="submit" class="btn btn-success" name="submit" value="Submit">Save</button>
+          <button type="submit" class="btn btn-success" name="submit" value="Submit">SAVE</button>
           <button type="button" class="btn btn-danger" data-dismiss="modal">CANCEL</button>
         </div>
       </form>
     </div>
   </div>
 </div>
-
-
 
 <script>
   $(document).ready(function() {

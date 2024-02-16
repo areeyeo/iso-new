@@ -1,83 +1,95 @@
 <section class="content-header">
-    <div class="container-fluid">
-        <div class="d-flex justify-content-between">
-            <h4>
-                Likelihood Level
-            </h4>
-            <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#modal-default" onclick="load_modal(1)">
-                <i class="fas fa-edit"></i>&nbsp;&nbsp;Create Likelihood
-            </button>
-        </div>
-        <div class="mt-3">
-        <table id="example3" class="table table-hover">
-                      <thead>
-                        <tr>
-                          <th>No.</th>
-                          <th>OBJECTIVES</th>
-                          <th>EVALUATION</th>
-                          <th>PLANNING</th>
-                          <th>START DATE</th>
-                          <th>END DATE</th>
-                          <th>OWNER</th>
-                          <th>FILE</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                      </tbody>
-                    </table>
-        </div>
+  <div class="container-fluid">
+    <div class="d-flex justify-content-between">
+      <h4>
+        Likelihood Level
+      </h4>
+      <!-- <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#modal-likelihood" onclick="load_modal(1)">
+        <i class="fas fa-edit"></i>&nbsp;&nbsp;Create Likelihood
+      </button> -->
+
     </div>
+    <div class="mt-3">
+      <table id="likelihood" class="table table-hover">
+        <thead>
+          <tr>
+            <th style="width: 50px;">ACTION</th>
+            <th style="width: 100px;">LIKELIHOOD NAME</th>
+            <th style="width: 50px;">LIKELIHOOD LEVEL</th>
+            <th style="width: 100px;">DESCRIPTION</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </section>
+<div class="modal fade" id="modal-likelihood">
+  <div id="modal_crud_criteria_likelihood">
+    <?= $this->include("Modal/CRUD_Criteria_Context_Likelihood"); ?>
+  </div>
+</div>
 <script>
-    var DataSummary = [{
-        "OBJECTIVES": "text1",
-        "EVALUATION": "text1",
-        "PLANNING": ["text1", "text1", "text1"],
-        "START_DATE": ["2024-01-01", "2024-01-01", "2024-01-01"],
-        "END_DATE": ["2024-01-01", "2024-01-01", "2024-01-01"],
-        "OWNER": ["Jane Doe", "Jane Doe", "Jane Doe"],
-        "FILE": ["file1.pdf", "file1.pdf", "file1.pdf"],
-      },
-      {
-        "OBJECTIVES": "text2",
-        "EVALUATION": "text2",
-        "PLANNING": "text2",
-        "START_DATE": "2024-02-01",
-        "END_DATE": "2024-02-29",
-        "OWNER": "Jane Doe",
-        "FILE": "file2.pdf",
-      },
-    ];
+  function load_modal(check, check_type, data_encode) {
+    console.log('Function is called with check:', check, 'and check_type:', check_type);
 
-    var example3TableBody = document.getElementById("example3").getElementsByTagName("tbody")[0];
+    modal_likelihood = document.getElementById("modal-likelihood");
+    $(".modal-body #iss").empty();
 
-    DataSummary.forEach(function(row, index) {
-      var newRow = example3TableBody.insertRow();
-
-      var cell1 = newRow.insertCell(0);
-      var cell2 = newRow.insertCell(1);
-      var cell3 = newRow.insertCell(2);
-      var cell4 = newRow.insertCell(3);
-      var cell5 = newRow.insertCell(4);
-      var cell6 = newRow.insertCell(5);
-      var cell7 = newRow.insertCell(6);
-      var cell8 = newRow.insertCell(7);
-
-      cell1.textContent = index + 1;
-      cell2.textContent = row.OBJECTIVES;
-      cell3.textContent = row.EVALUATION;
-      displayArrayInCell(cell4, row.PLANNING);
-      displayArrayInCell(cell5, row.START_DATE);
-      displayArrayInCell(cell6, row.END_DATE);
-      displayArrayInCell(cell7, row.OWNER);
-      displayArrayInCell(cell8, row.FILE);
-    });
-
-    function displayArrayInCell(cell, dataArray) {
-      if (Array.isArray(dataArray) && dataArray.length > 1) {
-        cell.innerHTML = dataArray.join('<br>');
-      } else {
-        cell.textContent = Array.isArray(dataArray) ? dataArray[0] : dataArray;
-      }
+    if (check == '1') {
+      //--show modal requirment--//
+      console.log('Showing modal 1');
+      modal_likelihood.style.display = "block";
     }
-  </script>
+  }
+</script>
+<script>
+  var Data = [{
+      "LIKELIHOODNAME": "น้อยมาก",
+      "LIKELIHOODLEVEL": 1,
+      "DESCRIPTION": "แทบจะไม่เกิดหรืออย่างมากปีละ 1 ครั้ง",
+    },
+    {
+      "LIKELIHOODNAME": "น้อย",
+      "LIKELIHOODLEVEL": 2,
+      "DESCRIPTION": "โอกาสเกิดน้อยหรืออย่างมากไม่เกินปีละ 2 ครั้ง",
+    },
+    {
+      "LIKELIHOODNAME": "ปานกลาง",
+      "LIKELIHOODLEVEL": 3,
+      "DESCRIPTION": "ปานกลาง ปีละ 3-5 ครั้ง",
+    },
+    {
+      "LIKELIHOODNAME": "สูง",
+      "LIKELIHOODLEVEL": 4,
+      "DESCRIPTION": "ค่อนข้างบ่อย ปีละ 6-10 ครั้ง",
+    },
+    {
+      "LIKELIHOODNAME": "สูงมาก",
+      "LIKELIHOODLEVEL": 5,
+      "DESCRIPTION": "บ่อยครั้ง ปีละ 11-15 ครั้ง",
+    },
+  ];
+
+  var likelihoodTableBody = document.getElementById("likelihood").getElementsByTagName("tbody")[0];
+
+  Data.forEach(function(row, index) {
+    var newRow = likelihoodTableBody.insertRow();
+    var cell1 = newRow.insertCell(0);
+    var cell2 = newRow.insertCell(1);
+    var cell3 = newRow.insertCell(2);
+    var cell4 = newRow.insertCell(3);
+
+    cell1.innerHTML = `<div class="dropdown">
+                          <i class="fas fa-ellipsis-v pointer text-primary" id="dropdownMenuButton${index}" data-toggle="dropdown" aria-expanded="false"></i>
+                              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton${index}">
+                                  <li data-toggle="modal" data-target="#modal-likelihood" onclick="load_modal(1)"><a class="dropdown-item" href="#" >Edit</a></li>
+                                  <li><a class="dropdown-item" href="#">Delete</a></li>
+                              </ul>
+                      </div>`;
+    cell2.textContent = row.LIKELIHOODNAME;
+    cell3.textContent = row.LIKELIHOODLEVEL;
+    cell4.textContent = row.DESCRIPTION;
+  });
+</script>
