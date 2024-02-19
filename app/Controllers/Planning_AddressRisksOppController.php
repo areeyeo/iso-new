@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 use App\Models\RequirementModels;
 
-class Planning_PlanningAddressRisksOppController extends BaseController
+class Planning_AddressRisksOppController extends BaseController
 {
     public function index()
     {

@@ -1,3 +1,4 @@
+<title>Consequence Level</title>
 <script>
     <?php
     $data = [
@@ -136,68 +137,79 @@
         <?= $this->include("Modal/CRUD_Criteria_Context_Consequence_Item"); ?>
     </div>
 </div>
-<section class="content-header">
-    <div class="container-fluid">
-        <div class="d-flex justify-content-between">
-            <h4>
-                Consequence Level
-            </h4>
-            <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#modal-consequence" onclick="load_modal(1)">
-            <i class="fas fa-edit"></i>&nbsp;&nbsp;Create Consequence
-            </button>
-        </div>
-        <nav>
-            <div class="nav nav-tabs mt-3" id="nav-tab" role="tablist">
-                <?php foreach ($data as $item) { ?>
-                    <button class="nav-link <?php echo $item['active'] ? 'active' : ''; ?>" id="nav-<?php echo $item['id']; ?>-tab" data-toggle="tab" data-target="#nav-<?php echo $item['id']; ?>" type="button" role="tab" aria-controls="nav-<?php echo $item['id']; ?>" aria-selected="<?php echo $item['active'] ? 'true' : 'false'; ?>"><?php echo $item['title']; ?></button>
-                <?php } ?>
 
-            </div>
-        </nav>
-        <div class="tab-content mt-3" id="nav-tabContent">
-            <?php foreach ($data as $item) { ?>
-                <div class="tab-pane fade <?php echo $item['active'] ? 'show active' : ''; ?>" id="nav-<?php echo $item['id']; ?>" role="tabpanel" aria-labelledby="nav-<?php echo $item['id']; ?>-tab" style="padding: 10px;">
-                    <div class="d-flex justify-content-between">
-                        <span style="font-size: 15pt;"><?php echo $item['title']; ?></span>
-                        <button type="button" class="btn btn-outline-danger">
-                            <i class="fas fa-trash-alt"></i>&nbsp;&nbsp;Delete this Consequence
-                        </button>
-                    </div>
-                    <table id="consequence" class="table table-hover mt-3">
-                        <thead>
-                            <tr>
-                                <th class="text-center">ACTION</th>
-                                <th>NAME</th>
-                                <th>IMPACT LEVEL</th>
-                                <th>CONTENT</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php foreach ($item['data'] as $index => $row) { ?>
-                                <tr>
-                                    <td>
-                                        <div class="dropdown">
-                                            <i class="fas fa-ellipsis-v pointer text-primary" id="dropdownMenuButtonPlanning<?php echo $index; ?>" data-toggle="dropdown" aria-expanded="false"></i>
-                                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButtonPlanning<?php echo $index; ?>">
-                                                <li data-toggle="modal" data-target="#modal-consequence" onclick="load_modal(2)"><a class="dropdown-item" href="#">Edit</a></li>
-                                                <li><a class="dropdown-item" href="#">Delete</a></li>
-                                                <li>
-                                                    <hr class="dropdown-divider">
-                                                </li>
-                                                <li data-toggle="modal" data-target="#modal-consequence" onclick="load_modal(2)"><a class="dropdown-item" href="#">Create</a></li>
-                                            </ul>
-                                        </div>
-                                    </td>
-                                    <td><?php echo $row['name']; ?></td>
-                                    <td><?php echo $row['impact_level']; ?></td>
-                                    <td><?php echo $row['content']; ?></td>
-                                </tr>
+<body class="hold-transition sidebar-mini">
+    <div class="content-wrapper">
+        <section class="content-header">
+            <div class="container-fluid">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between">
+                            <h4>
+                            Consequence Level
+                        </h4>
+                            <div class="d-flex">
+                               <button type="button" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#modal-consequence" onclick="load_modal(1)">
+                                <i class="fas fa-edit"></i>&nbsp;&nbsp;Create Consequence
+                            </button>
+                            <button type="button" class="btn btn-outline-danger btn-sm" style="margin-left: 10px;">
+                                <i class="fas fa-trash-alt"></i>&nbsp;&nbsp;Delete
+                            </button> 
+                            </div>
+                            
+                        </div>
+                        <nav>
+                            <div class="nav nav-tabs mt-3" id="nav-tab" role="tablist">
+                                <?php foreach ($data as $item) { ?>
+                                    <button class="nav-link <?php echo $item['active'] ? 'active' : ''; ?>" id="nav-<?php echo $item['id']; ?>-tab" data-toggle="tab" data-target="#nav-<?php echo $item['id']; ?>" type="button" role="tab" aria-controls="nav-<?php echo $item['id']; ?>" aria-selected="<?php echo $item['active'] ? 'true' : 'false'; ?>"><?php echo $item['title']; ?></button>
+                                <?php } ?>
+
+                            </div>
+                        </nav>
+                        <div class="tab-content mt-3" id="nav-tabContent">
+                            <?php foreach ($data as $item) { ?>
+                                <div class="tab-pane fade <?php echo $item['active'] ? 'show active' : ''; ?>" id="nav-<?php echo $item['id']; ?>" role="tabpanel" aria-labelledby="nav-<?php echo $item['id']; ?>-tab" style="padding: 10px;">
+
+                                    <span style="font-size: 15pt;"><?php echo $item['title']; ?></span>
+                                    <table id="consequence" class="table table-hover mt-3">
+                                        <thead>
+                                            <tr>
+                                                <th class="text-center">ACTION</th>
+                                                <th>NAME</th>
+                                                <th>IMPACT LEVEL</th>
+                                                <th>CONTENT</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php foreach ($item['data'] as $index => $row) { ?>
+                                                <tr>
+                                                    <td>
+                                                        <div class="dropdown">
+                                                            <i class="fas fa-ellipsis-v pointer text-primary" id="dropdownMenuButtonPlanning<?php echo $index; ?>" data-toggle="dropdown" aria-expanded="false"></i>
+                                                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButtonPlanning<?php echo $index; ?>">
+                                                                <li data-toggle="modal" data-target="#modal-consequence" onclick="load_modal(2)"><a class="dropdown-item" href="#">Edit</a></li>
+                                                                <li><a class="dropdown-item" href="#">Delete</a></li>
+                                                                <li>
+                                                                    <hr class="dropdown-divider">
+                                                                </li>
+                                                                <li data-toggle="modal" data-target="#modal-consequence" onclick="load_modal(2)"><a class="dropdown-item" href="#">Create</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </td>
+                                                    <td><?php echo $row['name']; ?></td>
+                                                    <td><?php echo $row['impact_level']; ?></td>
+                                                    <td><?php echo $row['content']; ?></td>
+                                                </tr>
+                                            <?php } ?>
+
+                                        </tbody>
+                                    </table>
+                                </div>
                             <?php } ?>
-
-                        </tbody>
-                    </table>
+                        </div>
+                    </div>
                 </div>
-            <?php } ?>
-        </div>
+            </div>
+        </section>
     </div>
-</section>
+</body>

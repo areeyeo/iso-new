@@ -245,8 +245,9 @@ $routes->get('isobjective', 'ISObjectivesController::index');
 
 $routes->get('planningofchange', 'PlanningofChangeController::index');
 
-$routes->get('planningAddressRisksOpp', 'Planning_PlanningAddressRisksOppController::index');
+$routes->get('planningAddressRisksOpp', 'Planning_AddressRisksOppController::index');
 $routes->get('crud_context_risk_opp', 'Planning_CRUD_Context_Risk_Opp_Controller::index');
+$routes->get('crud_is_risk_opp', 'Planning_CRUD_IS_Risk_Opp_Controller::index');
 
 $routes->get('competenec', 'CompetenecController::index');
 

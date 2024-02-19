@@ -1,4 +1,4 @@
-<title>ISMS Process Version</title>
+<title>Address risks & opportunities</title>
 <!-- DataTables -->
 <link rel="stylesheet" href="<?= base_url('plugins/datatables-bs4/css/dataTables.bootstrap4.min.css'); ?>">
 <link rel="stylesheet" href="<?= base_url('plugins/datatables-responsive/css/responsive.bootstrap4.min.css'); ?>">
@@ -93,7 +93,6 @@
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="<?= site_url('/'); ?>">Home</a></li>
                             <li class="breadcrumb-item active">Address Risks & Opportunities</li>
-                            <li class="breadcrumb-item active">Context</li>
                             <li class="breadcrumb-item active" id="version-heaer-path">Version
                                 <?= $data['num_ver'] ?>
                             </li>

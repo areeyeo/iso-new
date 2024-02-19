@@ -1,4 +1,4 @@
-<title>Awareness Version</title>
+<title>Risk Criteria Context</title>
 <!-- DataTables -->
 <link rel="stylesheet" href="<?= base_url('plugins/datatables-bs4/css/dataTables.bootstrap4.min.css'); ?>">
 <link rel="stylesheet" href="<?= base_url('plugins/datatables-responsive/css/responsive.bootstrap4.min.css'); ?>">
@@ -114,6 +114,7 @@
     .nav-link.active {
         background-color: #E2F0FF;
         color: #007BFF;
+        border-radius: 4px;
     }
 </style>
 
@@ -144,28 +145,24 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-lg-3 col-md-4">
-                                <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                                    <a class="nav-link active" id="v-pills-consequence-tab" data-toggle="pill" href="#v-pills-consequence" aria-controls="v-pills-consequence" aria-selected="true" data-url="risk_Criteria_Context_Consequence">
-                                        <i class="fas fa-list-ul"></i>
-                                        &nbsp;&nbsp;&nbsp;Consequence Level
-                                    </a>
-                                    <a class="nav-link mt-3" id="v-pills-likelihood-tab" data-toggle="pill" href="#v-pills-likelihood" aria-controls="v-pills-likelihood" aria-selected="false" data-url="risk_Criteria_Context_Likelihood">
-                                        <i class="fas fa-chart-line"></i>
-                                        &nbsp;&nbsp;&nbsp;Likelihood Level
-                                    </a>
-                                    <a class="nav-link mt-3" id="v-pills-risk-level-tab" data-toggle="pill" href="#v-pills-risk-level" aria-controls="v-pills-risk-level" aria-selected="false" data-url="risk_Criteria_Context_Risk_Level">
-                                        <i class="fas fa-exclamation-triangle"></i>
-                                        &nbsp;&nbsp;&nbsp;Risk Level
-                                    </a>
-                                    <a class="nav-link mt-3" id="v-pills-risk-option-tab" data-toggle="pill" href="#v-pills-risk-option" aria-controls="v-pills-risk-option" aria-selected="false" data-url="risk_Criteria_Context_Risk_Option">
-                                        <i class="fas fa-sliders-h"></i>
-                                        &nbsp;&nbsp;&nbsp;Risk Options
-                                    </a>
-
-                                </div>
+                            <div class="nav flex-column " id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                                <a class="nav-link active" id="v-pills-consequence-tab" data-toggle="pill" href="#v-pills-consequence" aria-controls="v-pills-consequence" aria-selected="true" data-url="risk_Criteria_Context_Consequence">
+                                    <i class="fas fa-list-ul"></i>
+                                    &nbsp;&nbsp;&nbsp;Consequence Level
+                                </a>
+                                <a class="nav-link mt-3" id="v-pills-likelihood-tab" data-toggle="pill" href="#v-pills-likelihood" aria-controls="v-pills-likelihood" aria-selected="false" data-url="risk_Criteria_Context_Likelihood">
+                                    <i class="fas fa-chart-line"></i>
+                                    &nbsp;&nbsp;&nbsp;Likelihood Level
+                                </a>
+                                <a class="nav-link mt-3" id="v-pills-risk-level-tab" data-toggle="pill" href="#v-pills-risk-level" aria-controls="v-pills-risk-level" aria-selected="false" data-url="risk_Criteria_Context_Risk_Level">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                    &nbsp;&nbsp;&nbsp;Risk Level
+                                </a>
+                                <a class="nav-link mt-3" id="v-pills-risk-option-tab" data-toggle="pill" href="#v-pills-risk-option" aria-controls="v-pills-risk-option" aria-selected="false" data-url="risk_Criteria_Context_Risk_Option">
+                                    <i class="fas fa-sliders-h"></i>
+                                    &nbsp;&nbsp;&nbsp;Risk Options
+                                </a>
                             </div>
-
                             <div class="col-lg col-md">
                                 <div class="tab-content" id="v-pills-tabContent">
                                     <div class="tab-pane fade show active" id="v-pills-consequence" role="tabpanel" aria-labelledby="v-pills-consequence-tab">
@@ -179,6 +176,7 @@
                                 </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
         </section>

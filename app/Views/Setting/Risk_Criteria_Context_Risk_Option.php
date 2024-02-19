@@ -24,7 +24,7 @@
   </div>
 </section>
 <div class="modal fade" id="modal-risk-option">
-  <div id="modal_crud_criteria_consequence">
+  <div id="modal_crud_criteria_risk_option">
     <?= $this->include("Modal/CRUD_Criteria_Context_Risk_Option"); ?>
   </div>
 </div>
@@ -32,13 +32,13 @@
   function load_modal(check, check_type, data_encode) {
     console.log('Function is called with check:', check, 'and check_type:', check_type);
 
-    modal_crud_criteria_consequence = document.getElementById("modal_crud_criteria_consequence");
+    modal_crud_criteria_risk_option = document.getElementById("modal_crud_criteria_risk_option");
     $(".modal-body #iss").empty();
 
     if (check == '1') {
       //--show modal requirment--//
       console.log('Showing modal 1');;
-      modal_crud_criteria_consequence.style.display = "block";
+      modal_crud_criteria_risk_option.style.display = "block";
     }
   }
 </script>

@@ -144,16 +144,38 @@
             <div class="container-fluid">
                 <div class="card">
                     <div class="card-header">
-                        <h2 class="card-title">Create Context Risk & Opportunities</h2>
+                        <h2 class="card-title">Create Information Security Risk & Opportunities</h2>
                     </div>
                     <div class="card-body">
                         <div class="container-fluid">
                             <div class="row">
-                                <div class="col-lg-8">
+                                <div class="col-lg-4">
                                     <div class="form-group mt-2">
-                                        <h6>Issue</h6>
+                                        <h6>Type</h6>
                                         <select class="custom-select">
-                                            <option selected>Select Issue</option>
+                                            <option selected>Select Type</option>
+                                            <option value="1">Hardware</option>
+                                            <option value="2">Software</option>
+                                            <option value="3">Information</option>
+                                            <option value="4">People</option>
+                                            <option value="5">Service</option>
+                                            <option value="6">Virtual Machine</option>
+                                            <option value="7">Location</option>
+                                            <option value="8">Other (please specify)</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4" id="input-othertype">
+                                    <div class="form-group mt-2">
+                                        <h6>Other Types</h6>
+                                        <input class="form-control gray-text" type="text" placeholder="Text..." name="othertype" id="othertype"></input>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="form-group mt-2">
+                                        <h6>Asset Group</h6>
+                                        <select class="custom-select">
+                                            <option selected>Select Asset Group</option>
                                             <option value="1">item1</option>
                                             <option value="2">item1</option>
                                             <option value="3">item1</option>
@@ -180,16 +202,36 @@
                                     </div>
                                 </div>
                             </div>
-                            <div id="risk-context">
+                            <div id="risk-is">
+                                <div class="row" id="risk-is">
+                                    <div class="col-lg-4">
+                                        <div class="form-group mt-3">
+                                            <h6>Threat</h6>
+                                            <textarea class="form-control gray-text" rows="3" placeholder="Text..." name="threat" id="threat"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-group mt-3">
+                                            <h6>Vulnerability</h6>
+                                            <textarea class="form-control gray-text" rows="3" placeholder="Text..." name="threat" id="threat"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-group mt-3">
+                                            <h6>Existing Controls</h6>
+                                            <textarea class="form-control gray-text" rows="3" placeholder="Text..." name="threat" id="threat"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="row">
-                                    <div class="col-lg-6 mt-3" id="risk-context-consequences">
+                                    <div class="col-lg-6 mt-3" id="risk-is-consequences">
                                         <h6>Consequences</h6>
                                         <div class="row">
                                             <div class="col-lg-6">
                                                 <div class="form-group mt-2">
-                                                    <h6>Operational</h6>
+                                                    <h6>Confidentiality</h6>
                                                     <select class="custom-select select-impact-risk" id="operational-select">
-                                                        <option selected>Select Operational</option>
+                                                        <option selected>Select Confidentiality</option>
                                                         <option value="1">1</option>
                                                         <option value="2">2</option>
                                                         <option value="3">3</option>
@@ -200,9 +242,9 @@
                                             </div>
                                             <div class="col-lg-6">
                                                 <div class="form-group mt-2">
-                                                    <h6>Productivity</h6>
+                                                    <h6>Integrity</h6>
                                                     <select class="custom-select select-impact-risk" id="productivity-select">
-                                                        <option selected>Select Productivity</option>
+                                                        <option selected>Select Integrity</option>
                                                         <option value="1">1</option>
                                                         <option value="2">2</option>
                                                         <option value="3">3</option>
@@ -213,35 +255,9 @@
                                             </div>
                                             <div class="col-lg-6">
                                                 <div class="form-group mt-2">
-                                                    <h6>Reputation</h6>
+                                                    <h6>Availability</h6>
                                                     <select class="custom-select select-impact-risk" id="reputation-select">
-                                                        <option selected>Select Reputation</option>
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                        <option value="5">5</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6">
-                                                <div class="form-group mt-2">
-                                                    <h6>Compliance</h6>
-                                                    <select class="custom-select select-impact-risk" id="compliance-select">
-                                                        <option selected>Select Compliance</option>
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                        <option value="5">5</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6">
-                                                <div class="form-group mt-2">
-                                                    <h6>Privacy</h6>
-                                                    <select class="custom-select select-impact-risk" id="privacy-select">
-                                                        <option selected>Select Privacy</option>
+                                                        <option selected>Select Availability</option>
                                                         <option value="1">1</option>
                                                         <option value="2">2</option>
                                                         <option value="3">3</option>
@@ -252,7 +268,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-6 mt-3" id="risk-context-risk-analysis">
+                                    <div class="col-lg-6 mt-3" id="risk-is-risk-analysis">
                                         <h6>Risk Analysis</h6>
                                         <div class="row">
                                             <div class="col-lg-6">
@@ -275,7 +291,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="" id="risk-context-risk-treatment-plan" style="display: none;">
+                                <div class="" id="risk-is-risk-treatment-plan" style="display: none;">
                                     <h6>Risk Treatment Plan</h6>
                                     <div class="row">
                                         <div class="col-lg-6">
@@ -331,14 +347,14 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="mt-3" id="risk-context-consequences-after-treatment" style="display: none;">
+                                <div class="mt-3" id="risk-is-consequences-after-treatment" style="display: none;">
                                     <h6>Consequences (After Treatment)</h6>
                                     <div class="row">
                                         <div class="col-lg-2">
                                             <div class="form-group mt-2">
-                                                <h6>Operational</h6>
+                                                <h6>Confidentiality</h6>
                                                 <select class="custom-select select-impact-residual" id="operational-select2">
-                                                    <option selected>Select Operational</option>
+                                                    <option selected>Select Confidentiality</option>
                                                     <option value="1">1</option>
                                                     <option value="2">2</option>
                                                     <option value="3">3</option>
@@ -349,9 +365,9 @@
                                         </div>
                                         <div class="col-lg-2">
                                             <div class="form-group mt-2">
-                                                <h6>Productivity</h6>
+                                                <h6>Integrity</h6>
                                                 <select class="custom-select select-impact-residual" id="productivity-select2">
-                                                    <option selected>Select Productivity</option>
+                                                    <option selected>Select Integrity</option>
                                                     <option value="1">1</option>
                                                     <option value="2">2</option>
                                                     <option value="3">3</option>
@@ -362,35 +378,9 @@
                                         </div>
                                         <div class="col-lg-2">
                                             <div class="form-group mt-2">
-                                                <h6>Reputation</h6>
+                                                <h6>Availability</h6>
                                                 <select class="custom-select select-impact-residual" id="reputation-select2">
-                                                    <option selected>Select Reputation</option>
-                                                    <option value="1">1</option>
-                                                    <option value="2">2</option>
-                                                    <option value="3">3</option>
-                                                    <option value="4">4</option>
-                                                    <option value="5">5</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-2">
-                                            <div class="form-group mt-2">
-                                                <h6>Compliance</h6>
-                                                <select class="custom-select select-impact-residual" id="compliance-select2">
-                                                    <option selected>Select Compliance</option>
-                                                    <option value="1">1</option>
-                                                    <option value="2">2</option>
-                                                    <option value="3">3</option>
-                                                    <option value="4">4</option>
-                                                    <option value="5">5</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-2">
-                                            <div class="form-group mt-2">
-                                                <h6>Privacy</h6>
-                                                <select class="custom-select select-impact-residual" id="privacy-select2">
-                                                    <option selected>Select Privacy</option>
+                                                    <option selected>Select Availability</option>
                                                     <option value="1">1</option>
                                                     <option value="2">2</option>
                                                     <option value="3">3</option>
@@ -422,9 +412,7 @@
                                     </div>
                                 </div>
                             </div>
-
-
-                            <div id="opportunities-context" style="padding-left: 10px;">
+                            <div id="opportunities-is">
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="form-group mt-3">
@@ -479,8 +467,8 @@
             document.addEventListener("DOMContentLoaded", function() {
                 var riskRadio = document.getElementById("riskRadio");
                 var opportunitiesRadio = document.getElementById("oppRadio");
-                var riskContext = document.getElementById("risk-context");
-                var opportunitiesContext = document.getElementById("opportunities-context");
+                var riskContext = document.getElementById("risk-is");
+                var opportunitiesContext = document.getElementById("opportunities-is");
 
                 riskRadio.addEventListener("change", function() {
                     if (riskRadio.checked) {
@@ -543,8 +531,8 @@
 
                 document.getElementById("risklevel").value = riskLevel;
 
-                var riskPlanDiv = document.getElementById("risk-context-risk-treatment-plan");
-                var riskAfterDiv = document.getElementById("risk-context-consequences-after-treatment");
+                var riskPlanDiv = document.getElementById("risk-is-risk-treatment-plan");
+                var riskAfterDiv = document.getElementById("risk-is-consequences-after-treatment");
 
                 if (riskLevel > 16) {
                     document.getElementById("risklevel").style.backgroundColor = "#FF5757";
@@ -571,7 +559,7 @@
                 }
             }
         </script>
-        <!-- ถ้าหาก risk level มีการเปลี่ยนแปลง การซ่อนและแสดง risk-context-risk-treatment-plan และ risk-context-consequences-after-treatment จะเปลี่ยนแปลงไปด้วย -->
+        <!-- ถ้าหาก risk level มีการเปลี่ยนแปลง การซ่อนและแสดง risk-is-risk-treatment-plan และ risk-is-consequences-after-treatment จะเปลี่ยนแปลงไปด้วย -->
         <!-- risk-level-not-over -->
         <script>
             document.addEventListener("DOMContentLoaded", function() {
@@ -624,4 +612,22 @@
                     document.getElementById("residual").style.backgroundColor = "";
                 }
             }
+        </script>
+        <script>
+            $(document).ready(function() {
+                // ซ่อน input เมื่อโหลดหน้าเว็บ
+                $('#input-othertype').hide();
+
+                // เมื่อเปลี่ยนการเลือกของเมนู dropdown
+                $('select.custom-select').change(function() {
+                    // ถ้าเลือกตัวเลือก "Other (please specify)"
+                    if ($(this).val() == '8') {
+                        // แสดง input
+                        $('#input-othertype').show();
+                    } else {
+                        // ซ่อน input
+                        $('#input-othertype').hide();
+                    }
+                });
+            });
         </script>

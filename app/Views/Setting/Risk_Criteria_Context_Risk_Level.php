@@ -21,6 +21,7 @@
         <div class="d-flex justify-content-between">
             <h4>Risk Level</h4>
         </div>
+        <!-- <div class="d-flex justify-content-center mb-3" id="risklevelmaxtrix-test"></div> -->
         <div class="d-flex justify-content-center mb-3" id="risklevelmaxtrix"></div>
         <div class="risklevel">
             <table id="risklevel1" class="table table-hover">
@@ -36,7 +37,9 @@
         </div>
         <div class="risklevel-management">
             <div class="d-flex justify-content-end">
-                <button type="button" class="btn btn-outline-primary mt-3 mb-3">Risk Level</button>
+                <button type="button" class="btn btn-outline-primary mt-3 mb-3" data-toggle="modal" data-target="#modal-risk-option" onclick="load_modal(1)">
+                <i class="fas fa-edit"></i>&nbsp;&nbsp;Create Risk Level
+            </button>
             </div>
             <table id="risklevel2" class="table table-hover">
                 <thead>
@@ -55,7 +58,25 @@
         </div>
     </div>
 </section>
+<div class="modal fade" id="modal-risk-option">
+  <div id="modal_crud_criteria_risk_level">
+    <?= $this->include("Modal/CRUD_Criteria_Context_Risk_Level"); ?>
+  </div>
+</div>
+<script>
+  function load_modal(check, check_type, data_encode) {
+    console.log('Function is called with check:', check, 'and check_type:', check_type);
 
+    modal_crud_criteria_risk_level = document.getElementById("modal_crud_criteria_risk_level");
+    $(".modal-body #iss").empty();
+
+    if (check == '1') {
+      //--show modal requirment--//
+      console.log('Showing modal 1');;
+      modal_crud_criteria_risk_level.style.display = "block";
+    }
+  }
+</script>
 <script>
     var Data = [{
             "RISK LEVEL": "น้อยมาก",
@@ -133,7 +154,8 @@
         cell6_2.textContent = row["MAXIMUM"];
         cell7_2.innerHTML = `<input type="radio" id="radio${index}_1" name="riskAssessment" value="${index}">`;
     });
-
+</script>
+<script>    
     var likelihoodData = [
         ["น้อยมาก", 1],
         ["น้อย", 2],
@@ -160,7 +182,7 @@
             var cell = document.createElement("td");
 
             if (i === 0 && j === 0) {
-                cell.textContent = "ผลกระทบ";
+                cell.textContent = "Impact/Likelihood";
             } else if (i === 0) {
                 cell.textContent = likelihoodData[j - 1][0] + " (" + (j) + ")";
             } else if (j === 0) {
@@ -192,3 +214,92 @@
         }
     }
 </script>
+<!-- <script>
+    var likelihoodData = [
+        ["", ""],
+        ["น้อยมาก", 1],
+        ["น้อย", 2],
+        ["ปาดกลาง", 3],
+        ["สูง", 4],
+        ["สูงมาก", 5]
+    ];
+
+    var impactData = [
+        ["", ""],
+        ["", ""],
+        ["น้อยมาก", 1],
+        ["น้อย", 2],
+        ["ปาดกลาง", 3],
+        ["สูง", 4],
+        ["สูงมาก", 5]
+    ];
+
+    var riskMatrixTable = document.createElement("table");
+    riskMatrixTable.className = "risk-matrix";
+
+    var likelihoodHeaderRow = document.createElement("tr");
+    var likelihoodHeaderCell = document.createElement("td");
+    likelihoodHeaderCell.setAttribute("colspan", impactData.length + 1);
+    likelihoodHeaderCell.textContent = "ผลกระทบ";
+    likelihoodHeaderRow.appendChild(likelihoodHeaderCell);
+    riskMatrixTable.appendChild(likelihoodHeaderRow);
+
+
+    var likelihoodHeaderRow = document.createElement("tr");
+    var likelihoodHeaderCell = document.createElement("td");
+    likelihoodHeaderCell.setAttribute("rowspan", likelihoodData.length);
+    likelihoodHeaderCell.textContent = "โอกาสเกิด";
+    likelihoodHeaderRow.appendChild(likelihoodHeaderCell);
+
+    for (var i = 0; i < impactData.length; i++) {
+        var emptyCell = document.createElement("td");
+        likelihoodHeaderRow.appendChild(emptyCell);
+    }
+
+    riskMatrixTable.appendChild(likelihoodHeaderRow);
+
+    likelihoodData.forEach(function(likelihood, likelihoodIndex) {
+        var row = document.createElement("tr");
+        if (likelihoodIndex === 0) {
+            var emptyCell = document.createElement("td");
+            row.appendChild(emptyCell);
+        } else {
+            var likelihoodCell = document.createElement("td");
+            likelihoodCell.textContent = likelihood[0] + " " + "(" + likelihood[1] + ")";
+            row.appendChild(likelihoodCell);
+        }
+
+        impactData.forEach(function(impact, impactIndex) {
+            var cell = document.createElement("td");
+            if (likelihoodIndex === 0 && impactIndex === 0) {
+                cell.textContent = "";
+            } else if (likelihoodIndex === 0) {
+                cell.textContent = impact[0];
+            } else if (impactIndex === 0) {
+                cell.textContent = likelihood[0];
+            } else {
+                var riskScore = impact[1] * likelihood[1];
+                cell.textContent = riskScore;
+                cell.style.backgroundColor = getRiskColor(riskScore);
+            }
+            row.appendChild(cell);
+        });
+
+        riskMatrixTable.appendChild(row);
+    });
+
+    var risklevelMatrixDiv = document.getElementById("risklevelmaxtrix-test");
+    risklevelMatrixDiv.appendChild(riskMatrixTable);
+
+    function getRiskColor(riskScore) {
+        if (riskScore <= 5) {
+            return "#92D050";
+        } else if (riskScore <= 10) {
+            return "#FFFF00";
+        } else if (riskScore <= 15) {
+            return "#FFC000";
+        } else {
+            return "#FD2B2B";
+        }
+    }
+</script> -->

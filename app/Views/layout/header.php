@@ -14,8 +14,8 @@
 
     <!-- overlayScrollbars -->
     <link rel="stylesheet" href="<?= base_url('plugins/overlayScrollbars/css/OverlayScrollbars.min.css'); ?>">
-        <!-- DataTables -->
-        <link rel="stylesheet" href="<?= base_url('plugins/datatables-bs4/css/dataTables.bootstrap4.min.css'); ?>">
+    <!-- DataTables -->
+    <link rel="stylesheet" href="<?= base_url('plugins/datatables-bs4/css/dataTables.bootstrap4.min.css'); ?>">
     <link rel="stylesheet" href="<?= base_url('plugins/datatables-responsive/css/responsive.bootstrap4.min.css'); ?>">
     <link rel="stylesheet" href="<?= base_url('plugins/datatables-buttons/css/buttons.bootstrap4.min.css'); ?>">
 </head>
@@ -89,14 +89,11 @@
                 </li> -->
                 <li class="nav-item dropdown">
                     <div class="user-block">
-                        <a class="nav-link " href="#" id="userDropdown" role="button" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
-                            <?php if (session()->get('profile_image') == null): ?>
+                        <a class="nav-link " href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <?php if (session()->get('profile_image') == null) : ?>
                                 <img class="img-circle" src="<?= base_url('dist/img/avatar6.png'); ?>" alt="User Image">
-                            <?php else: ?>
-                                <img class="img-circle"
-                                    src="data:image/png;base64, <?php echo session()->get('profile_image'); ?>"
-                                    alt="User Image">
+                            <?php else : ?>
+                                <img class="img-circle" src="data:image/png;base64, <?php echo session()->get('profile_image'); ?>" alt="User Image">
                             <?php endif; ?>
                             <span class="username">
                                 <?php echo session()->get('name'); ?>
@@ -131,8 +128,7 @@
         <aside class="main-sidebar sidebar-light-primary elevation-4">
             <!-- Brand Logo -->
             <a href="<?= site_url('/'); ?>" class="brand-link">
-                <img src="<?= base_url('dist/img/AdminLTELogo.png'); ?>" alt="AdminLTE Logo"
-                    class="brand-image img-circle elevation-3" style="opacity: .8">
+                <img src="<?= base_url('dist/img/AdminLTELogo.png'); ?>" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
                 <span class="brand-text font-weight-light">ISO OPTIMIZE</span>
             </a>
 
@@ -140,8 +136,7 @@
             <div class="sidebar">
                 <!-- Sidebar Menu -->
                 <nav class="mt-2">
-                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
-                        data-accordion="false">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <li class="nav-header">Home</li>
                         <li class="nav-item">
                             <a href="<?= site_url('/under_construction'); ?>" class="nav-link">
@@ -230,7 +225,7 @@
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
-                            <li class="nav-item">
+                                <li class="nav-item">
                                     <a href="<?= site_url('/planningAddressRisksOpp'); ?>" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Address Risks & Opp</p>
@@ -361,6 +356,42 @@
                         <div>
                             <hr>
                         </div>
+                        <li class="nav-header">Management setting</li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-database"></i>
+                                <p>
+                                    Risk Criteria Context
+                                    <i class="right fas fa-angle-right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="<?= site_url('risk_Criteria_Context_Consequence'); ?>" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Consequence Level</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="<?= site_url('risk_Criteria_Context_Likelihood'); ?>" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Likelihood Level</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="<?= site_url('risk_Criteria_Context_Risk_Level'); ?>" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Risk Level</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="<?= site_url('risk_Criteria_Context_Risk_Option'); ?>" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Risk Options</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->
@@ -404,6 +435,7 @@
     <script src="<?= base_url('plugins/datatables-buttons/js/buttons.html5.min.js'); ?>"></script>
     <script src="<?= base_url('plugins/datatables-buttons/js/buttons.print.min.js'); ?>"></script>
     <script src="<?= base_url('plugins/datatables-buttons/js/buttons.colVis.min.js'); ?>"></script>
+
     <body>
 
 </html>
