@@ -223,70 +223,69 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-lg-6 mt-3" id="risk-is-consequences">
-                                        <h6>Consequences</h6>
-                                        <div class="row">
-                                            <div class="col-lg-6">
-                                                <div class="form-group mt-2">
-                                                    <h6>Confidentiality</h6>
-                                                    <select class="custom-select select-impact-risk" id="operational-select">
-                                                        <option selected>Select Confidentiality</option>
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                        <option value="5">5</option>
-                                                    </select>
-                                                </div>
+                                <div class="mt-3" id="risk-context-consequences">
+                                    <h6>Consequences</h6>
+                                    <div class="row">
+                                        <div class="col-lg-4">
+                                            <div class="form-group mt-2">
+                                                <h6>Confidentiality</h6>
+                                                <select class="custom-select select-impact-risk" id="operational-select">
+                                                    <option selected>Select Confidentiality</option>
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                    <option value="4">4</option>
+                                                    <option value="5">5</option>
+                                                </select>
                                             </div>
-                                            <div class="col-lg-6">
-                                                <div class="form-group mt-2">
-                                                    <h6>Integrity</h6>
-                                                    <select class="custom-select select-impact-risk" id="productivity-select">
-                                                        <option selected>Select Integrity</option>
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                        <option value="5">5</option>
-                                                    </select>
-                                                </div>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="form-group mt-2">
+                                                <h6>Integrity</h6>
+                                                <select class="custom-select select-impact-risk" id="productivity-select">
+                                                    <option selected>Select Integrity</option>
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                    <option value="4">4</option>
+                                                    <option value="5">5</option>
+                                                </select>
                                             </div>
-                                            <div class="col-lg-6">
-                                                <div class="form-group mt-2">
-                                                    <h6>Availability</h6>
-                                                    <select class="custom-select select-impact-risk" id="reputation-select">
-                                                        <option selected>Select Availability</option>
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                        <option value="5">5</option>
-                                                    </select>
-                                                </div>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="form-group mt-2">
+                                                <h6>Availability</h6>
+                                                <select class="custom-select select-impact-risk" id="reputation-select">
+                                                    <option selected>Select Availability</option>
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                    <option value="4">4</option>
+                                                    <option value="5">5</option>
+                                                </select>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-6 mt-3" id="risk-is-risk-analysis">
-                                        <h6>Risk Analysis</h6>
-                                        <div class="row">
-                                            <div class="col-lg-6">
-                                                <div class="form-group mt-2">
-                                                    <h6>Impact</h6>
-                                                    <input class="form-control gray-text" type="number" name="impact" id="impact" readonly></input>
-                                                </div>
-                                                <div class="form-group mt-4">
-                                                    <h6>Likelihood</h6>
-                                                    <input class="form-control gray-text" type="number" name="likelihood" id="likelihood"></input>
-                                                </div>
-                                                <div class="form-group mt-4">
-                                                    <h6>Risk Level</h6>
-                                                    <input class="form-control gray-text" type="number" name="risklevel" id="risklevel" readonly></input>
-                                                </div>
+                                </div>
+                                <div class="mt-3" id="risk-context-analysis">
+                                    <h6>Risk Analysis</h6>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="form-group mt-2">
+                                                <h6>Impact</h6>
+                                                <input class="form-control gray-text" type="number" name="impact" id="impact" readonly></input>
                                             </div>
-                                            <div class="col-lg-6 d-flex justify-content-center">
-                                                <img src="<?= base_url('dist/img/risk_criteria.png'); ?>" style="width: 250px;">
+                                            <div class="form-group mt-4">
+                                                <h6>Likelihood</h6>
+                                                <input class="form-control gray-text" type="number" name="likelihood" id="likelihood"></input>
+                                            </div>
+                                            <div class="form-group mt-4">
+                                                <h6>Risk Level</h6>
+                                                <input class="form-control gray-text" type="number" name="risklevel" id="risklevel" readonly></input>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 d-flex justify-content-center">
+                                            <div id="risklevelmaxtrix_placeholder">
                                             </div>
                                         </div>
                                     </div>
@@ -460,9 +459,12 @@
                     </div>
                 </div>
             </div>
-
-
         </section>
+        <script>
+            $(document).ready(function() {
+                $("#risklevelmaxtrix_placeholder").load("<?php echo base_url('risk_Criteria_Context_Risk_Level'); ?> #risklevelmaxtrix");
+            });
+        </script>
         <script>
             document.addEventListener("DOMContentLoaded", function() {
                 var riskRadio = document.getElementById("riskRadio");

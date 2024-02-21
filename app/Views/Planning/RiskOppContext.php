@@ -38,6 +38,9 @@
         margin-bottom: 10px;
     }
 </style>
+<?php
+$consequenceData = ["OPERATIONAL", "PRODUCTIVITY", "REPUTATION", "COMPLIANCE", "PRIVACY"];
+?>
 <!-- Main content -->
 <div class="card">
     <div class="card-header">
@@ -212,11 +215,11 @@
                                 <th class="text-center">ACTION</th>
                                 <th>NO.</th>
                                 <th>ISSUE</th>
-                                <th>O</th>
-                                <th>PROD.</th>
-                                <th>R</th>
-                                <th>C</th>
-                                <th>PRIV.</th>
+                                <?php
+                                foreach ($consequenceData as $consequenceData) {
+                                    echo "<th>$consequenceData</th>";
+                                }
+                                ?>
                                 <th>CONSEQUENCE</th>
                                 <th>LIKELIHOOD</th>
                                 <th>RISK LEVEL</th>
@@ -229,16 +232,19 @@
                                 <th>APPROVE</th>
                                 <th>RTP STATUS</th>
                                 <th>FILE</th>
-                                <th>O</th>
-                                <th>PROD.</th>
-                                <th>R</th>
-                                <th>C</th>
-                                <th>PRIV.</th>
+                                <th>OPERATIONAL</th>
+                                <th>PRODUCTIVITY</th>
+                                <th>REPUTATION</th>
+                                <th>COMPLIANCE</th>
+                                <th>PRIVACY</th>
                                 <th>CONSEQUENCE</th>
                                 <th>LIKELIHOOD</th>
                                 <th>RESIDUAL</th>
                             </tr>
                         </thead>
+                        <tbody>
+                        </tbody>
+
                         <tbody>
                         </tbody>
                     </table>
@@ -625,6 +631,7 @@
         cell8.textContent = row.PRIVACY;
         cell9.textContent = row.CONSEQUENCE;
         cell10.textContent = row.LIKELIHOOD;
+        cell11.style.backgroundColor = getRiskColor(parseInt(row.RISK_LEVEL));
         cell11.textContent = row.RISK_LEVEL;
         cell12.textContent = row.RISK_ASSESSMENT_LEVEL;
         cell13.textContent = row.RISK_OPTIONS;
@@ -642,9 +649,25 @@
         cell25.textContent = row.PRIVACY2;
         cell26.textContent = row.CONSEQUENCE2;
         cell27.textContent = row.LIKELIHOOD2;
+        cell28.style.backgroundColor = row.RESIDUAL ? getRiskColor(parseInt(row.RESIDUAL)) : "";
         cell28.textContent = row.RESIDUAL;
-
     });
+
+    // ดึงข้อมูลมาจากตาราง risk level minimum maximum color  
+    function getRiskColor(result) {
+    if (result <= 4 ) {
+        return "#92D050";
+    } else if (result <= 9) {
+        return "#FFFF00";
+    } else if (result <= 19) {
+        return "#FFC000";
+    } else if (result > 19){
+        return "#FD2B2B";
+    } else {
+        return ""; // คืนค่าว่างให้กลับไป
+    }
+}
+
 </script>
 <script>
     var Data = [{
@@ -705,11 +728,12 @@
         cell4.textContent = row.CONSEQUENCE;
         cell5.textContent = row.LIKELIHOOD;
         cell6.textContent = row.RISK_LEVEL;
+        cell6.style.backgroundColor = getRiskColor(parseInt(row.RISK_LEVEL));
         cell7.textContent = row.RISK_OPTIONS;
         cell8.textContent = row.RISK_TREATMENT_PLAN;
         cell9.textContent = row.RISK_OWNNER;
         cell10.textContent = row.RESIDUAL;
-
+        cell10.style.backgroundColor = row.RESIDUAL ? getRiskColor(parseInt(row.RESIDUAL)) : "";
     });
 </script>
 <script>

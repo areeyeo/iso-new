@@ -1,4 +1,4 @@
-<title>Risk Criteria Context</title>
+<title>Risk Criteria Information Security</title>
 <!-- DataTables -->
 <link rel="stylesheet" href="<?= base_url('plugins/datatables-bs4/css/dataTables.bootstrap4.min.css'); ?>">
 <link rel="stylesheet" href="<?= base_url('plugins/datatables-responsive/css/responsive.bootstrap4.min.css'); ?>">
@@ -180,7 +180,7 @@ function getRiskColor($result)
         <section class="content-header">
             <div class="container-fluid">
                 <div class="">
-                    <h3>&nbsp;Risk Criteria Context</h3>
+                    <h3>&nbsp;Risk Criteria Information Security</h3>
                 </div>
             </div>
         </section>
@@ -276,7 +276,7 @@ function getRiskColor($result)
 </body>
 <div class="modal fade" id="modal-risk-level">
     <div id="modal_crud_criteria_risk_level">
-        <?= $this->include("Modal/CRUD_Criteria_Context_Risk_Level"); ?>
+        <?= $this->include("Modal/CRUD_Criteria_IS_Risk_Level"); ?>
     </div>
 </div>
 <script>

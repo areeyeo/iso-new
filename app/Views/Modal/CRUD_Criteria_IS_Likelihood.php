@@ -1,8 +1,7 @@
-<div class="modal-dialog modal-lg">
+<div class="modal-dialog modal-md">
   <div class="modal-content">
     <div class="modal-header bg-primary">
-      <!-- title ชื่อเดียวกับ Tap -->
-      <h5 class="modal-title" id="title_modal" name="title_modal">Opportunity</h5>
+      <h5 class="modal-title" id="title_modal" name="title_modal">Likelihood Level</h5>
     </div>
     <div class="modal-body">
       <form class="mb-3" id="form_crud" action="javascript:void(0)" method="post" enctype="multipart/form-data">
@@ -15,24 +14,24 @@
           </h6>
         </div>
         <div>
+          <h6 class="gray-text" name="description_detail" id="description_detail">
+          </h6>
+        </div>
+        <div>
           <h6 class="gray-text" name="description" id="description"></h6>
         </div>
         <div class="form-group">
           <div class="form-group mt-3">
-            <h6>Consequence Name</h6>
-            <input class="form-control gray-text" type="text" name="consequencename" id="consequencename" disabled></input>
+            <h6>Likelihood Name</h6>
+            <input class="form-control gray-text" type="text" name="likelihoodname" id="likelihoodname"></input>
           </div>
           <div class="form-group mt-3">
-            <h6>Impact Level</h6>
-            <input class="form-control gray-text" type="number" name="impactlevel" id="impactlevel" disabled></input>
+            <h6>Likelihood Level</h6>
+            <input class="form-control gray-text" type="number" value="1" name="likelihoodlevel" id="likelihoodlevel" readonly></input>
           </div>
           <div class="form-group mt-3">
-            <h6>Name</h6>
-            <input class="form-control gray-text" type="text" name="name" id="name"></input>
-          </div>
-          <div class="form-group mt-3">
-            <h6>Content</h6>
-            <textarea class="form-control" type="text" name="content" id="content"></textarea>
+            <h6>Description</h6>
+            <textarea class="form-control" type="text" name="description" id="description"></textarea>
           </div>
         </div>
         <input type="text" id="url_route" name="url_route" hidden>

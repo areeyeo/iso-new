@@ -1,10 +1,10 @@
-<title>Risk Criteria Context</title>
+<title>Risk Criteria Information Security</title>
 <script>
     <?php
     $data = [
         [
-            'id' => 'opportunity',
-            'title' => 'Opportunity',
+            'id' => 'confidentiality',
+            'title' => 'Confidentiality',
             'active' => true,
             'data' => [
                 ['action' => 'Action 1', 'name' => 'Name 1', 'impact_level' => 1, 'description' => 'Description 1'],
@@ -15,8 +15,8 @@
             ]
         ],
         [
-            'id' => 'productivity',
-            'title' => 'Productivity',
+            'id' => 'integrity',
+            'title' => 'Integrity',
             'active' => false,
             'data' => [
                 ['action' => 'Action 1', 'name' => 'Name 1', 'impact_level' => 1, 'description' => 'Description 1'],
@@ -27,20 +27,8 @@
             ]
         ],
         [
-            'id' => 'reputation',
-            'title' => 'Reputation',
-            'active' => false,
-            'data' => [
-                ['action' => 'Action 1', 'name' => 'Name 1', 'impact_level' => 1, 'description' => 'Content 1'],
-                ['action' => 'Action 2', 'name' => 'Name 2', 'impact_level' => 2, 'description' => 'Content 2'],
-                ['action' => 'Action 3', 'name' => 'Name 3', 'impact_level' => 3, 'description' => 'Content 3'],
-                ['action' => 'Action 4', 'name' => 'Name 4', 'impact_level' => 4, 'description' => 'Content 4'],
-                ['action' => 'Action 5', 'name' => 'Name 5', 'impact_level' => 5, 'description' => 'Content 5'],
-            ]
-        ],
-        [
-            'id' => 'compliance',
-            'title' => 'Compliance',
+            'id' => 'availability',
+            'title' => 'Availability',
             'active' => false,
             'data' => [
                 ['action' => 'Action 1', 'name' => 'Name 1', 'impact_level' => 1, 'description' => 'Description 1'],
@@ -50,18 +38,6 @@
                 ['action' => 'Action 5', 'name' => 'Name 5', 'impact_level' => 5, 'description' => 'Description 5'],
             ]
         ],
-        [
-            'id' => 'privacy',
-            'title' => 'Privacy',
-            'active' => false,
-            'data' => [
-                ['action' => 'Action 1', 'name' => 'Name 1', 'impact_level' => 1, 'description' => 'Description 1'],
-                ['action' => 'Action 2', 'name' => 'Name 2', 'impact_level' => 2, 'description' => 'Description 2'],
-                ['action' => 'Action 3', 'name' => 'Name 3', 'impact_level' => 3, 'description' => 'Description 3'],
-                ['action' => 'Action 4', 'name' => 'Name 4', 'impact_level' => 4, 'description' => 'Description 4'],
-                ['action' => 'Action 5', 'name' => 'Name 5', 'impact_level' => 5, 'description' => 'Description 5'],
-            ]
-        ]
     ];
 
     function generateTabsAndTables($data)
@@ -131,10 +107,10 @@
 </script>
 <div class="modal fade" id="modal-consequence">
     <div id="modal_crud_criteria_consequence">
-        <?= $this->include("Modal/CRUD_Criteria_Context_Consequence"); ?>
+        <?= $this->include("Modal/CRUD_Criteria_IS_Consequence"); ?>
     </div>
     <div id="modal_crud_criteria_consequence_item">
-        <?= $this->include("Modal/CRUD_Criteria_Context_Consequence_Item"); ?>
+        <?= $this->include("Modal/CRUD_Criteria_IS_Consequence_Item"); ?>
     </div>
 </div>
 
@@ -144,7 +120,7 @@
         <section class="content-header">
             <div class="container-fluid">
                 <div class="">
-                    <h3>&nbsp;Risk Criteria Context</h3>
+                    <h3>&nbsp;Risk Criteria Information Security</h3>
                 </div>
             </div>
         </section>
@@ -178,10 +154,9 @@
                                     <div class="d-flex justify-content-between">
                                         <span style="font-size: 15pt;"><?php echo $item['title']; ?></span>
                                         <button type="button" class="btn btn-outline-danger btn-sm" style="margin-left: 10px;">
-                                    <i class="fas fa-trash-alt"></i>&nbsp;&nbsp;Delete
-                                </button>
+                                            <i class="fas fa-trash-alt"></i>&nbsp;&nbsp;Delete
+                                        </button>
                                     </div>
-
                                     <table id="consequence" class="table table-hover mt-3">
                                         <thead>
                                             <tr>

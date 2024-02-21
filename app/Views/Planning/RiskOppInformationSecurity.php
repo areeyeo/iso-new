@@ -38,6 +38,9 @@
         margin-bottom: 10px;
     }
 </style>
+<?php
+$consequenceData = ["CENTRAL", "INTELLIGENCE", "AGENCY"];
+?>
 <!-- Main content -->
 <div class="card">
     <div class="card-header">
@@ -190,13 +193,13 @@
                     <div class="col-4 d-flex">
                         <select class="custom-select" id="select-content">
                             <option selected>Select Content</option>
-                            <option>item</option>
-                            <option>item</option>
-                            <option>item</option>
-                            <option>item</option>
+                            <option value="1">Risks that must be prepared as a risk treatment plan.</option>
+                            <option value="2">Risks that do not have risks exceeding the risk assessment level.</option>
+                            <option value="3">Risks that are being done risk treatment.</option>
+                            <option value="4">Risks that have completed risk treatment</option>
+                            <option value="5">All risk context.</option>
                         </select>
                     </div>
-
                     <div class="col-2">
                         <select class="custom-select" id="table-is-display-select">
                             <option value="full-table-is">Full Table</option>
@@ -213,11 +216,13 @@
                                 <th>TYPE</th>
                                 <th>ASSET GROUP</th>
                                 <th>THREAT</th>
-                                <th>VULNERABILITY</th>
+                                <th style="max-width: 200px;">VULNERABILITY</th>
                                 <th>EXISTING CONTROLS</th>
-                                <th>C</th>
-                                <th>I</th>
-                                <th>A</th>
+                                <?php
+                                foreach ($consequenceData as $consequenceData) {
+                                    echo "<th>$consequenceData</th>";
+                                }
+                                ?>
                                 <th>CONSEQUENCE</th>
                                 <th>LIKELIHOOD</th>
                                 <th>RISK LEVEL</th>
@@ -273,7 +278,7 @@
                             <th>ASSET GROUP</th>
                             <th>QUANTITY OF PLANNING</th>
                             <th>OPPORTUNITY PLANNINGS</th>
-                            <th>RISK OWNNER</th>
+                            <th>OPPORTUNITIES OWNNER</th>
                             <th>START DATE</th>
                             <th>END DATE</th>
                             <th>FILE</th>
@@ -468,17 +473,15 @@
         var fullTable = document.getElementById('risk-information-security-table-full');
         var shortTable = document.getElementById('risk-information-security-table-short');
 
-        // ตรวจสอบให้แน่ใจว่าอิเล็กเมนต์ที่เชื่อมโยงถูกต้อง
-        console.log(selectElement); // ตรวจสอบว่า selectElement ถูกต้องหรือไม่
-        console.log(fullTable); // ตรวจสอบว่า fullTable ถูกต้องหรือไม่
-        console.log(shortTable); // ตรวจสอบว่า shortTable ถูกต้องหรือไม่
+        console.log(selectElement);
+        console.log(fullTable);
+        console.log(shortTable);
 
         if (!selectElement || !fullTable || !shortTable) {
-            console.error('อิเล็กเมนต์หรือตารางไม่ถูกต้อง'); // แสดงข้อความลงใน console หากมีปัญหา
-            return; // ออกจากฟังก์ชันถ้ามีปัญหา
+            console.error('อิเล็กเมนต์หรือตารางไม่ถูกต้อง');
+            return;
         }
 
-        // ตั้งค่าเริ่มต้นแสดงผลของตาราง
         fullTable.style.display = 'block';
         shortTable.style.display = 'none';
 
@@ -518,32 +521,32 @@
 </script>
 <script>
     var Data = [{
-        "TYPE": "TYPE",
-        "ASSET_GROUP": "ASSET_GROUP",
-        "THREAT": "THREAT",
-        "VULNERABILITY": "VULNERABILITY",
-        "EXISTING_CONTROLS": "EXISTING_CONTROLS",
-        "CONFIDENTIALITY": "CONFIDENTIALITY",
-        "INTEGRITY": "INTEGRITY",
-        "AVAILABILITY": "AVAILABILITY",
-        "CONSEQUENCE": "CONSEQUENCE",
-        "LIKELIHOOD": "LIKELIHOOD",
-        "RISK_LEVEL": "RISK_LEVEL",
-        "RISK_ASSESSMENT_LEVEL": "RISK_ASSESSMENT_LEVEL",
-        "RISK_OPTIONS": "RISK_OPTIONS",
-        "RISK_TREATMENT_PLAN": "RISK_TREATMENT_PLAN",
-        "RISK_OWNNER": "RISK_OWNNER",
-        "START_DATE": "START_DATE",
-        "END_DATE": "END_DATE",
-        "APPROVE": "APPROVE",
-        "RTP_STATUS": "RTP_STATUS",
+        "TYPE": "Hardward",
+        "ASSET_GROUP": "Computer",
+        "THREAT": "	การขอความยินยอมไม่ถูกต้อง",
+        "VULNERABILITY": "ขาดการขอความยินยอมข้อมูลส่วนบุคคลแบบเป็นลายลักษณ์อักษร",
+        "EXISTING_CONTROLS": "มีกระบวนการดำเนินการในการขอความยินยอมข้อมูลส่วนบุคคลแบบเป็นลายลักษณ์อักษร",
+        "CONFIDENTIALITY": "3",
+        "INTEGRITY": "2",
+        "AVAILABILITY": "1",
+        "CONSEQUENCE": "3",
+        "LIKELIHOOD": "2",
+        "RISK_LEVEL": "6",
+        "RISK_ASSESSMENT_LEVEL": "2",
+        "RISK_OPTIONS": "การยอมรับความเสี่ยง",
+        "RISK_TREATMENT_PLAN": "จัดทำเอกสาร Configuration baseline",
+        "OPP_OWNNER": "Areeya.D",
+        "START_DATE": "01/01/2024",
+        "END_DATE": "01/01/2024",
+        "APPROVE": "Areeya.D",
+        "RTP_STATUS": "รอดำเนินการ",
         "FILE": "FILE",
-        "CONFIDENTIALITY2": "CONFIDENTIALITY2",
-        "INTEGRITY2": "INTEGRITY2",
-        "AVAILABILITY2": "AVAILABILITY2",
-        "CONSEQUENCE2": "CONSEQUENCE2",
-        "LIKELIHOOD2": "LIKELIHOOD2",
-        "RESIDUAL": "RESIDUAL",
+        "CONFIDENTIALITY2": "1",
+        "INTEGRITY2": "2",
+        "AVAILABILITY2": "2",
+        "CONSEQUENCE2": "2",
+        "LIKELIHOOD2": "2",
+        "RESIDUAL": "4",
     }, ];
 
     var riskcontextfull = document.getElementById("risk-information-security-table-full").getElementsByTagName("tbody")[0];
@@ -601,10 +604,11 @@
         cell11.textContent = row.CONSEQUENCE;
         cell12.textContent = row.LIKELIHOOD;
         cell13.textContent = row.RISK_LEVEL;
+        cell13.style.backgroundColor = getRiskColor(parseInt(row.RISK_LEVEL));
         cell14.textContent = row.RISK_ASSESSMENT_LEVEL;
         cell15.textContent = row.RISK_OPTIONS;
         cell16.textContent = row.RISK_TREATMENT_PLAN;
-        cell17.textContent = row.RISK_OWNNER;
+        cell17.textContent = row.OPP_OWNNER;
         cell18.textContent = row.START_DATE;
         cell19.textContent = row.END_DATE;
         cell20.textContent = row.APPROVE;
@@ -616,40 +620,21 @@
         cell26.textContent = row.CONSEQUENCE2;
         cell27.textContent = row.LIKELIHOOD2;
         cell28.textContent = row.RESIDUAL;
-
+        cell28.style.backgroundColor = row.RESIDUAL ? getRiskColor(parseInt(row.RESIDUAL)) : "";
     });
 </script>
 <script>
     var Data = [{
-            "TYPE": "TYPE",
-            "ASSET_GROUP": "ASSET_GROUP",
-            "CONSEQUENCE": "4",
-            "LIKELIHOOD": "2",
-            "RISK_LEVEL": "8",
-            "RISK_OPTIONS": "การลดความเสี่ยง",
-            "RISK_TREATMENT_PLAN": "จัดทำขั้นตอนการวิเคราะห์ภัยคุกคามทางไซเบอร์ (Cyber Threat Intelligence Procedure)",
-            "RISK_OWNNER": "Areeya Dengjaroen",
-            "RESIDUAL": "4",
-        },
-        {
-            "TYPE": "TYPE",
-            "ASSET_GROUP": "ASSET_GROUP",
-            "CONSEQUENCE": "3",
-            "LIKELIHOOD": "2",
-            "RISK_LEVEL": "6",
-            "RISK_OPTIONS": "การลดความเสี่ยง",
-            "RISK_TREATMENT_PLAN": "จัดทำขั้นตอนการวิเคราะห์ภัยคุกคามทางไซเบอร์ (Cyber Threat Intelligence Procedure)",
-            "RISK_OWNNER": "Areeya Dengjaroen",
-            "RESIDUAL": "4",
-        },
-        {
-            "TYPE": "TYPE",
-            "ASSET_GROUP": "ASSET_GROUP",
-            "CONSEQUENCE": "1",
-            "LIKELIHOOD": "2",
-            "RISK_LEVEL": "2",
-        },
-    ];
+        "TYPE": "Hardward",
+        "ASSET_GROUP": "Computer",
+        "CONSEQUENCE": "3",
+        "LIKELIHOOD": "2",
+        "RISK_LEVEL": "6",
+        "RISK_OPTIONS": "การลดความเสี่ยง",
+        "RISK_TREATMENT_PLAN": "ดำเนินการจัดทำเอกสาร Configuration baseline",
+        "OPP_OWNNER": "Areeya.D",
+        "RESIDUAL": "4",
+    }, ];
 
     var riskinformationsecurityshort = document.getElementById("risk-information-security-table-short").getElementsByTagName("tbody")[0];
 
@@ -683,11 +668,12 @@
         cell5.textContent = row.CONSEQUENCE;
         cell6.textContent = row.LIKELIHOOD;
         cell7.textContent = row.RISK_LEVEL;
+        cell7.style.backgroundColor = getRiskColor(parseInt(row.RISK_LEVEL));
         cell8.textContent = row.RISK_OPTIONS;
         cell9.textContent = row.RISK_TREATMENT_PLAN;
-        cell10.textContent = row.RISK_OWNNER;
+        cell10.textContent = row.OPP_OWNNER;
         cell11.textContent = row.RESIDUAL;
-
+        cell11.style.backgroundColor = row.RESIDUAL ? getRiskColor(parseInt(row.RESIDUAL)) : "";
     });
 </script>
 <script>
@@ -696,7 +682,7 @@
         "ASSET_GROUP": "text",
         "QUANTITY_PLANNING": "1",
         "OPPORTUNITY_PLANNINGS": ["OPPORTUNITY PLANNINGS1", "OPPORTUNITY PLANNINGS2"],
-        "RISK_OWNNER": ["Areeya", "Jennifer"],
+        "OPP_OWNNER": ["Areeya", "Jennifer"],
         "START_DATE": ["01/01/2024", "01/01/2024"],
         "END_DATE": ["01/01/2024", "01/01/2024"],
         "ATTACHMENTFILE": ["file1.pdf", "file1.pdf"],
@@ -733,7 +719,7 @@
         cell4.textContent = row.ASSET_GROUP;
         displayArrayInCell(cell5, row.QUANTITY_PLANNING);
         displayArrayInCell(cell6, row.OPPORTUNITY_PLANNINGS);
-        displayArrayInCell(cell7, row.RISK_OWNNER);
+        displayArrayInCell(cell7, row.OPP_OWNNER);
         displayArrayInCell(cell8, row.START_DATE);
         displayArrayInCell(cell9, row.END_DATE);
         displayArrayInCell(cell10, row.ATTACHMENTFILE);
