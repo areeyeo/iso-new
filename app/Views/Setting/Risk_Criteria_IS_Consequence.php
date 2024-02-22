@@ -105,6 +105,11 @@
         }
     }
 </script>
+<script>
+    function deleteConsequence(index) {
+        console.log('delete item with index:', index);
+    }
+</script>
 <div class="modal fade" id="modal-consequence">
     <div id="modal_crud_criteria_consequence">
         <?= $this->include("Modal/CRUD_Criteria_IS_Consequence"); ?>
@@ -138,7 +143,6 @@
                                     <i class="fas fa-plus"></i>&nbsp;&nbsp;Consequence
                                 </button>
                             </div>
-
                         </div>
                         <nav>
                             <div class="nav nav-tabs mt-3" id="nav-tab" role="tablist">
@@ -153,7 +157,7 @@
                                 <div class="tab-pane fade <?php echo $item['active'] ? 'show active' : ''; ?>" id="nav-<?php echo $item['id']; ?>" role="tabpanel" aria-labelledby="nav-<?php echo $item['id']; ?>-tab" style="padding: 10px;">
                                     <div class="d-flex justify-content-between">
                                         <span style="font-size: 15pt;"><?php echo $item['title']; ?></span>
-                                        <button type="button" class="btn btn-outline-danger btn-sm" style="margin-left: 10px;">
+                                        <button type="button" class="btn btn-outline-danger btn-sm" style="margin-left: 10px;" onclick="deleteConsequence()">
                                             <i class="fas fa-trash-alt"></i>&nbsp;&nbsp;Delete
                                         </button>
                                     </div>

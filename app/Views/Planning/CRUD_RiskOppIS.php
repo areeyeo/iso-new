@@ -174,12 +174,7 @@
                                 <div class="col-lg-4">
                                     <div class="form-group mt-2">
                                         <h6>Asset Group</h6>
-                                        <select class="custom-select">
-                                            <option selected>Select Asset Group</option>
-                                            <option value="1">item1</option>
-                                            <option value="2">item1</option>
-                                            <option value="3">item1</option>
-                                        </select>
+                                        <input class="form-control gray-text" type="text" name="assetgroup" id="assetgroup"></input>
                                     </div>
                                 </div>
                                 <div class="col">

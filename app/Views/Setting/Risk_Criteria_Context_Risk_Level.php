@@ -100,6 +100,7 @@
     .table-wrapper::-webkit-scrollbar-thumb:hover {
         background-color: #6C757D;
     }
+    
 
     .table th,
     .table td {
@@ -235,7 +236,7 @@ function getRiskColor($result)
                             </table>
                         </div>
 
-                        <div class="risklevel">
+                        <div class="risklevel table-wrapper">
                             <table id="risklevel1" class="table table-hover">
                                 <thead>
                                     <tr>
@@ -296,7 +297,7 @@ function getRiskColor($result)
 <script>
     var Data = [{
             "RISK LEVEL": "น้อยมาก",
-            "DESCRIPTION": "การรักษาความเสี่ยง",
+            "DESCRIPTION": "ระดับความเสี่ยงที่องค์กรยอมรับ (Acceptable) อาจมีมาตรการที่มีอยู่แล้วป้องกันหรือไม่ก็ได้",
             "RISK COLOR": "#92D050",
             "TEXT COLOR": "#000000",
             "MINIMUM": 1,
@@ -305,7 +306,7 @@ function getRiskColor($result)
         },
         {
             "RISK LEVEL": "น้อย",
-            "DESCRIPTION": "การปรับเปลี่ยนความเสี่ยง",
+            "DESCRIPTION": "ระดับความเสี่ยงที่องค์กรสามารถยอมรับได้ แต่ต้องมีการควบคุม เพื่อป้องกันไม่ให้ความเสี่ยงมีค่าสูงขึ้นไปยังระดับที่ไม่สามารถยอมรับได้",
             "RISK COLOR": "#FFF700",
             "TEXT COLOR": "#000000",
             "MINIMUM": 5,
@@ -314,7 +315,7 @@ function getRiskColor($result)
         },
         {
             "RISK LEVEL": "ปานกลาง",
-            "DESCRIPTION": "การหลีกเลี่ยงความเสี่ยง",
+            "DESCRIPTION": "ระดับความเสี่ยงที่องค์กรไม่สามารถยอมรับได้ โดยต้องจัดการความเสี่ยงเพื่อให้อยู่ในระดับที่สามารถยอมรับหรือยอมรับได้ต่อไป",
             "RISK COLOR": "#FFC000",
             "TEXT COLOR": "#000000",
             "MINIMUM": 10,
@@ -323,7 +324,7 @@ function getRiskColor($result)
         },
         {
             "RISK LEVEL": "สูง",
-            "DESCRIPTION": "การแบ่งปันความเสี่ยง",
+            "DESCRIPTION": "ระดับความเสี่ยงที่องค์กรไม่สามารถยอมรับได้ และต้องจำเป็นต้องเร่งจัดการความเสี่ยงจนกระทั่งให้อยู่ในระดับที่สามารถยอมรับได้ทันที",
             "RISK COLOR": "#FD2B2B",
             "TEXT COLOR": "#ffffff",
             "MINIMUM": 17,
@@ -341,6 +342,8 @@ function getRiskColor($result)
 
         cell1_1.textContent = index + 1;
         cell2_1.textContent = row["RISK LEVEL"];
+        cell2_1.style.backgroundColor = row["RISK COLOR"];
+        cell2_1.style.color = row["TEXT COLOR"];
         cell3_1.textContent = row["DESCRIPTION"];
     });
 
@@ -355,14 +358,15 @@ function getRiskColor($result)
         var cell6_2 = newRow2.insertCell(5);
         var cell7_2 = newRow2.insertCell(6);
 
-        cell1_2.innerHTML = `
-            <div class="dropdown">
-                <i class="fas fa-ellipsis-v pointer text-primary" id="dropdownMenuButton${index}" data-toggle="dropdown" aria-expanded="false"></i>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton${index}">
-                    <li data-toggle="modal" data-target="#modal-likelihood" onclick="load_modal(1)"><a class="dropdown-item" href="#">Edit</a></li>
-                    <li><a class="dropdown-item" href="#">Delete</a></li>
-                </ul>
-            </div>`;
+        cell1_2.innerHTML =`<div class="dropdown">
+                                <i class="fas fa-ellipsis-v pointer text-primary" id="dropdownMenuButton${index}" data-toggle="dropdown" aria-expanded="false"></i>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton${index}">
+                                <li data-toggle="modal" data-target="#modal-context " onclick="load_modal(2)"><a class="dropdown-item" href="#">Edit</a></li>
+                                <li><a class="dropdown-item" href="#">Delete</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li data-toggle="modal" data-target="#modal-context " onclick="load_modal(2)"><a class="dropdown-item" href="#">Create</a></li>
+                                </ul>
+                            </div>`;
         cell2_2.textContent = row["RISK LEVEL"];
         cell3_2.style.backgroundColor = row["RISK COLOR"];
         cell4_2.style.backgroundColor = row["TEXT COLOR"];

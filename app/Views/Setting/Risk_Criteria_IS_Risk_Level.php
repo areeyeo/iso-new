@@ -83,6 +83,14 @@
         overflow-y: auto;
     }
 
+    .table-wrapper .table {
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: 1rem;
+        background-color: transparent;
+        border-collapse: collapse;
+    }
+
     .table-wrapper::-webkit-scrollbar {
         width: 10px;
     }
@@ -235,7 +243,7 @@ function getRiskColor($result)
                             </table>
                         </div>
 
-                        <div class="risklevel">
+                        <div class="risklevelr table-wrappe">
                             <table id="risklevel1" class="table table-hover">
                                 <thead>
                                     <tr>
