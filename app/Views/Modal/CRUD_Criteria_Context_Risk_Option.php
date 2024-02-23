@@ -1,7 +1,7 @@
 <div class="modal-dialog modal-md">
   <div class="modal-content">
     <div class="modal-header bg-primary">
-      <h5 class="modal-title" id="title_modal" name="title_modal">Risk Option</h5>
+      <h5 class="modal-title" id="title_modal" name="title_modal">Risk Options</h5>
     </div>
     <div class="modal-body">
       <form class="mb-3" id="form_crud" action="javascript:void(0)" method="post" enctype="multipart/form-data">

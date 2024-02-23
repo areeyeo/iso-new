@@ -117,14 +117,13 @@
     border-radius: 4px;
   }
 </style>
-
 <body class="hold-transition sidebar-mini">
   <div class="content-wrapper">
     <!-- Page header -->
     <section class="content-header">
       <div class="container-fluid">
         <div class="">
-          <h3>&nbsp;Risk Criteria Information Security</h3>
+          <h3>&nbsp;Risk Criteria Context</h3>
         </div>
       </div>
     </section>
@@ -135,10 +134,10 @@
           <div class="card-body">
             <div class="d-flex justify-content-between">
               <h4>
-                Risk Option
+                Risk Options
               </h4>
               <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#modal-risk-option" onclick="load_modal(1)">
-                <i class="fas fa-plus"></i>&nbsp;&nbsp;Risk Option
+                <i class="fas fa-plus"></i>&nbsp;&nbsp;Risk Options
               </button>
             </div>
             <div class="mt-3">
@@ -162,7 +161,7 @@
 </body>
 <div class="modal fade" id="modal-risk-option">
   <div id="modal_crud_criteria_risk_option">
-    <?= $this->include("Modal/CRUD_Criteria_IS_Risk_Option"); ?>
+    <?= $this->include("Modal/CRUD_Criteria_Context_Risk_Option"); ?>
   </div>
 </div>
 <script>

@@ -135,10 +135,10 @@
           <div class="card-body">
             <div class="d-flex justify-content-between">
               <h4>
-                Risk Option
+                Risk Options
               </h4>
               <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#modal-risk-option" onclick="load_modal(1)">
-                <i class="fas fa-plus"></i>&nbsp;&nbsp;Risk Option
+                <i class="fas fa-plus"></i>&nbsp;&nbsp;Risk Options
               </button>
             </div>
             <div class="mt-3">
