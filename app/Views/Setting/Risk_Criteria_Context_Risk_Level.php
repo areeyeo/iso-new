@@ -145,11 +145,11 @@
 <?php
 // ข้อมูลจากหน้า likelihood
 $likelihoodData = [
-    ["น้อยมาก", 1],
-    ["น้อย", 2],
-    ["ปานกลาง", 3],
+    ["สูงมาก", 5],
     ["สูง", 4],
-    ["สูงมาก", 5]
+    ["ปานกลาง", 3],
+    ["น้อย", 2],
+    ["น้อยมาก", 1]
 ];
 
 // ข้อมูลจากหน้า Consequenc
@@ -181,7 +181,7 @@ function getRiskColor($result)
         <section class="content-header">
             <div class="container-fluid">
                 <div class="">
-                    <h3>&nbsp;Risk Criteria Context</h3>
+                    <h3>&nbsp;Risk Criteria Information Security</h3>
                 </div>
             </div>
         </section>

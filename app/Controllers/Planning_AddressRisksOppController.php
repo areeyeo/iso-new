@@ -26,4 +26,16 @@ class Planning_AddressRisksOppController extends BaseController
         echo view('Planning/PlanningAddressRisksOpp', $data);
     }
 
+    public function indexCrudContext()
+    {
+        echo view('layout/header');
+        echo view('Planning/CRUD_RiskOppContext');
+    }
+
+    public function indexCrudIS()
+    {
+        echo view('layout/header');
+        echo view('Planning/CRUD_RiskOppIS');
+    }
+
 }

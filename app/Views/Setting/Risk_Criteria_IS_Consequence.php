@@ -138,8 +138,23 @@
                             <h4>
                                 Consequence Level
                             </h4>
-                            <div class="d-flex">
-                                <button type="button" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#modal-consequence" onclick="load_modal(1)">
+                            <div class="d-flex align-items-center">
+                                <span>Impact Level:</span>
+                                <div class="" style="margin-left: 10px; margin-right: 10px;">
+                                    <select class="custom-select" id="select-content">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5" selected>5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                    </select>
+                                </div>
+                                <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#modal-consequence" onclick="load_modal(1)">
                                     <i class="fas fa-plus"></i>&nbsp;&nbsp;Consequence
                                 </button>
                             </div>
@@ -179,10 +194,6 @@
                                                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButtonPlanning<?php echo $index; ?>">
                                                                 <li data-toggle="modal" data-target="#modal-consequence" onclick="load_modal(2)"><a class="dropdown-item" href="#">Edit</a></li>
                                                                 <li><a class="dropdown-item" href="#">Delete</a></li>
-                                                                <li>
-                                                                    <hr class="dropdown-divider">
-                                                                </li>
-                                                                <li data-toggle="modal" data-target="#modal-consequence" onclick="load_modal(2)"><a class="dropdown-item" href="#">Create</a></li>
                                                             </ul>
                                                         </div>
                                                     </td>
@@ -191,7 +202,6 @@
                                                     <td><?php echo $row['description']; ?></td>
                                                 </tr>
                                             <?php } ?>
-
                                         </tbody>
                                     </table>
                                 </div>

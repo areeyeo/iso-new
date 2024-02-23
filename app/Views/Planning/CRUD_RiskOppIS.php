@@ -117,7 +117,38 @@
         /* ระยะห่างระหว่างเส้นแต่ละเส้น */
     }
 </style>
+<?php
+// ข้อมูลจากหน้า likelihood
+$likelihoodData = [
+    ["สูงมาก", 5],
+    ["สูง", 4],
+    ["ปานกลาง", 3],
+    ["น้อย", 2],
+    ["น้อยมาก", 1]
+];
 
+// ข้อมูลจากหน้า Consequenc
+$impactData = [
+    ["น้อยมาก", 1],
+    ["น้อย", 2],
+    ["ปานกลาง", 3],
+    ["สูง", 4],
+    ["สูงมาก", 5]
+];
+
+function getRiskColor($result)
+{
+    if ($result <= 4) {
+        return "#92D050";
+    } else if ($result <= 9) {
+        return "#FFFF00";
+    } else if ($result <= 19) {
+        return "#FFC000";
+    } else {
+        return "#FD2B2B";
+    }
+}
+?>
 <body class="hold-transition sidebar-mini">
     <div class="content-wrapper">
         <!-- Page header -->
@@ -279,9 +310,47 @@
                                                 <input class="form-control gray-text" type="number" name="risklevel" id="risklevel" readonly></input>
                                             </div>
                                         </div>
-                                        <div class="col-lg-6 d-flex justify-content-center">
-                                            <div id="risklevelmaxtrix_placeholder">
-                                            </div>
+                                        <div class="col-lg-6" style="overflow-x:auto;">
+                                                <table class="table table-bordered" style="font-size: 8pt">
+                                                    <thead>
+                                                        <tr>
+                                                            <th style="width: 10px;background-color: #fff;" class="text-center" rowspan="2" colspan="2"></th>
+                                                            <th style="width: 130px; background-color: #658ABF;color: floralwhite; font-weight: 500;" class="text-center" colspan="8">
+                                                                <div>ผลกระทบ</div>
+                                                                <div style="font-size:90%;">(Impact)</div>
+                                                            </th>
+                                                        </tr>
+                                                        <tr>
+                                                            <?php foreach ($impactData as $impact) : ?>
+                                                                <th class="text-center " style="background-color: #E2EEFF; font-weight: 400;">
+                                                                    <?= $impact[0] ?> (<?= $impact[1] ?>)
+                                                                </th>
+                                                            <?php endforeach; ?>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <th rowspan="6" style="background-color: #658ABF; color: floralwhite; font-weight: 500; text-align: center;">
+                                                                <div>โอกาสเกิด</div>
+                                                                <div style="font-size:90%;">(Likelihood)</div>
+                                                            </th>
+                                                        </tr>
+
+                                                        <?php foreach ($likelihoodData as $likelihood) : ?>
+                                                            <tr>
+                                                                <th class="text-center" style="background-color: #E2EEFF; font-weight: 400;">
+                                                                    <?= $likelihood[0] ?> (<?= $likelihood[1] ?>)
+                                                                </th>
+                                                                <?php foreach ($impactData as $impact) : ?>
+                                                                    <?php $result = $impact[1] * $likelihood[1] ?>
+                                                                    <td class="text-center" style="background-color: <?= getRiskColor($result) ?>">
+                                                                        <?= $result ?>
+                                                                    </td>
+                                                                <?php endforeach; ?>
+                                                            </tr>
+                                                        <?php endforeach; ?>
+                                                    </tbody>
+                                                </table>
                                         </div>
                                     </div>
                                 </div>

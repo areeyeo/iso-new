@@ -583,15 +583,15 @@ $consequenceData = ["CENTRAL", "INTELLIGENCE", "AGENCY"];
         var cell28 = newRow.insertCell(27);
 
         cell1.innerHTML = `<div class="dropdown">
-    <i class="fas fa-ellipsis-v pointer text-primary" id="dropdownMenuButton${index}" data-toggle="dropdown" aria-expanded="false"></i>
-    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton${index}">
-      <li data-toggle="modal" data-target="#modal-default-context " onclick="load_modal(2)"><a class="dropdown-item" href="#">Edit</a></li>
-      <li><a class="dropdown-item" href="#">View</a></li>
-      <li><a class="dropdown-item" href="#">Delete</a></li>
-      <li><hr class="dropdown-divider"></li>
-      <li data-toggle="modal" data-target="#modal-default-context " onclick="load_modal(2)"><a class="dropdown-item" href="#">Create</a></li>
-    </ul>
-  </div>`;
+                                <i class="fas fa-ellipsis-v pointer text-primary" id="dropdownMenuButton${index}" data-toggle="dropdown" aria-expanded="false"></i>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton${index}">
+                                <li data-toggle="modal" data-target="#modal-default-context " onclick="load_modal(2)"><a class="dropdown-item" href="#">Edit</a></li>
+                                <li><a class="dropdown-item" href="#">View</a></li>
+                                <li><a class="dropdown-item" href="#">Delete</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li data-toggle="modal" data-target="#modal-default-context " onclick="load_modal(2)"><a class="dropdown-item" href="#">Create</a></li>
+                                </ul>
+                            </div>`;
         cell2.textContent = index + 1;
         cell3.textContent = row.TYPE;
         cell4.textContent = row.ASSET_GROUP;
