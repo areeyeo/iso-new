@@ -11,7 +11,7 @@ class Planning_AddressRisksOppController extends BaseController
         $RequirementModels = new RequirementModels();
         $data['data_requirement'] = $RequirementModels->where('id_standard', 2)->first();
 
-        $data['data'] = [
+        $data['data_context'] = [
             'id_version' => 1,
             'modified_date' => date('D/M/Y'),
             'review_date' => date('D/M/Y'),
@@ -20,6 +20,17 @@ class Planning_AddressRisksOppController extends BaseController
             'status' => 1,
             'type_version' => 1,
             'num_ver' => 1,
+        ];
+
+        $data['data_is'] = [
+            'id_version' => 2,
+            'modified_date' => date('D/M/Y'),
+            'review_date' => date('D/M/Y'),
+            'approved_date' => date('D/M/Y'),
+            'announce_date' => date('D/M/Y'),
+            'status' => 2,
+            'type_version' => 2,
+            'num_ver' => 2,
         ];
 
         echo view('layout/header');

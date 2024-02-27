@@ -86,7 +86,7 @@
                 <div class="row mb-2">
                     <div class="col-sm-6">
                         <h1>Address Risks & Opportunities
-                            <button type="button" class="btn btn-secondary btn-xs" data-toggle="modal" data-target="#modal-default" id="load-modal-button">Requirement</button>
+                            <button type="button" class="btn btn-secondary btn-xs" data-toggle="modal" data-target="#modal-default" onclick="load_modal(1)">Requirement</button>
                         </h1>
                     </div>
                     <div class="col-sm-6">
@@ -94,7 +94,6 @@
                             <li class="breadcrumb-item"><a href="<?= site_url('/'); ?>">Home</a></li>
                             <li class="breadcrumb-item active">Address Risks & Opportunities</li>
                             <li class="breadcrumb-item active" id="version-heaer-path">Version
-                                <?= $data['num_ver'] ?>
                             </li>
                         </ol>
                     </div>
@@ -124,12 +123,28 @@
 
                 </div>
             </div>
-
         </section>
-
-
     </div>
-
+    <div class="modal fade" id="modal-default">
+        <div id="modal1">
+            <?= $this->include("Modal/Requirement_Modal"); ?>
+        </div>
+        <div id="modal2">
+            <?= $this->include("Modal/Context_Ver"); ?>
+        </div>
+        <div id="modal3">
+            <?= $this->include("Modal/CRUD_Leadership_modal"); ?>
+        </div>
+        <div id="modal4">
+            <?= $this->include("Modal/CRUD_Note"); ?>
+        </div>
+        <div id="modal5">
+            <?= $this->include("Modal/Reject_Modal"); ?>
+        </div>
+        <div id="modal6">
+            <?= $this->include("Modal/File_Rename_Modal"); ?>
+        </div>
+    </div>
     <!-- DataTables  & Plugins -->
     <script src="<?= base_url('plugins/datatables/jquery.dataTables.min.js'); ?>"></script>
     <script src="<?= base_url('plugins/datatables-bs4/js/dataTables.bootstrap4.min.js'); ?>"></script>
@@ -158,3 +173,156 @@
     <script src="<?= base_url('plugins/codemirror/mode/css/css.js'); ?>"></script>
     <script src="<?= base_url('plugins/codemirror/mode/xml/xml.js'); ?>"></script>
     <script src="<?= base_url('plugins/codemirror/mode/htmlmixed/htmlmixed.js'); ?>"></script>
+    <script>
+        function load_modal(check, data_, status) {
+            modal1 = document.getElementById("modal1");
+            modal2 = document.getElementById("modal2");
+            modal3 = document.getElementById("modal3");
+            modal4 = document.getElementById("modal4");
+            modal5 = document.getElementById("modal5");
+            modal6 = document.getElementById("modal6");
+
+            if (check == '1') {
+                //--show modal requirment--//
+                modal1.style.display = "block";
+                modal2.style.display = "none";
+                modal3.style.display = "none";
+                modal4.style.display = "none";
+                modal5.style.display = "none";
+                modal6.style.display = "none";
+            } else if (check == '2') {
+                //--show modal Version Control--//
+                modal1.style.display = "none";
+                modal2.style.display = "block";
+                modal3.style.display = "none";
+                modal4.style.display = "none";
+                modal5.style.display = "none";
+                modal6.style.display = "none";
+
+                var element = <?php echo json_encode($data); ?>;
+                $(".modal-body #description").text(element.details);
+                $(".modal-body #status").val(element.status);
+                $(".modal-body #commentTextArea").text(element.comment_reject);
+                $(".modal-body #id_").val(element.id_version);
+                var modified_day = "";
+                var reviewed_day = "";
+                var approved_day = "";
+                var announce_date = "";
+                $(".modal-body #modified").val(element.modified_date);
+                $(".modal-body #reviewed").val(element.review_date);
+                $(".modal-body #approved").val(element.approved_date);
+                $(".modal-body #announce").val(element.announce_date);
+                check_status(element.status);
+            } else if (check == '3') {
+                //--show modal file create--//
+                const formGroupFile = document.getElementById("form-group-file");
+                const formGroupText = document.getElementById("form-group-text");
+                modal1.style.display = "none";
+                modal2.style.display = "none";
+                modal3.style.display = "block";
+                modal4.style.display = "none";
+                modal5.style.display = "none";
+                modal6.style.display = "none";
+
+                formGroupFile.style.display = "block";
+                formGroupText.style.display = "none";
+                $(".modal-header #title_modal").text("File Organizational Strategy");
+                $(".modal-body #url_route").val("leadership/file_ls/create/" + data_);
+            } else if (check == '4') {
+                //--show modal objective create--//
+                const formGroupFile = document.getElementById("form-group-file");
+                const formGroupText = document.getElementById("form-group-text");
+                modal1.style.display = "none";
+                modal2.style.display = "none";
+                modal3.style.display = "block";
+                modal4.style.display = "none";
+                modal5.style.display = "none";
+                modal6.style.display = "none";
+
+                formGroupFile.style.display = "none";
+                formGroupText.style.display = "block";
+                $(".modal-body #text").val('');
+
+                var data = <?php echo json_encode($data); ?>;
+                $(".modal-header #title_modal").text("IS Objective");
+                $(".modal-body #url_route").val("leadership/commitment/is_objective/create/" + data.id_version + "/" +
+                    status);
+            } else if (check == '5') {
+                //--show modal objective edit--//
+                const formGroupFile = document.getElementById("form-group-file");
+                const formGroupText = document.getElementById("form-group-text");
+                modal1.style.display = "none";
+                modal2.style.display = "none";
+                modal3.style.display = "block";
+                modal4.style.display = "none";
+                modal5.style.display = "none";
+                modal6.style.display = "none";
+
+                formGroupFile.style.display = "none";
+                formGroupText.style.display = "block";
+                const rowData = JSON.parse(decodeURIComponent(data_));
+                $(".modal-header #title_modal").text("IS Objective");
+                $(".modal-body #text").val(rowData.text);
+                $(".modal-body #url_route").val("leadership/commitment/is_objective/edit/" + rowData.id_is_objective + "/" +
+                    rowData.id_version + "/" + status);
+            } else if (check == '6') {
+                //--show modal create note--//
+
+                modal1.style.display = "none";
+                modal2.style.display = "none";
+                modal3.style.display = "none";
+                modal4.style.display = "block";
+                modal5.style.display = "none";
+                modal6.style.display = "none";
+
+                var data = <?php echo json_encode($data); ?>;
+                $(".modal-header #title_modal").text("Note");
+                $(".modal-body #modified").val(data.modified_date);
+                $(".modal-body #check").val(10);
+                $(".modal-body #params").val(10);
+            } else if (check == '7') {
+                //--show modal Reject--//
+                modal1.style.display = "none";
+                modal2.style.display = "none";
+                modal3.style.display = "none";
+                modal4.style.display = "none";
+                modal5.style.display = "block";
+                modal6.style.display = "none";
+
+                $(".modal-body #status").val(data_);
+                var element = <?php echo json_encode($data); ?>;
+                $(".modal-body #modified_date").val(element.modified_date);
+            } else if (check == '8') {
+                //--show modal Rename File--//
+                modal1.style.display = "none";
+                modal2.style.display = "none";
+                modal3.style.display = "none";
+                modal4.style.display = "none";
+                modal5.style.display = "none";
+                modal6.style.display = "block";
+
+                const rowData = JSON.parse(decodeURIComponent(data_));
+                // แบ่งข้อความด้วยจุด (.)
+                var parts = rowData.name_file.split('.');
+
+                // นับจำนวนส่วนหลังจากการแบ่งด้วยจุด
+                var numberOfParts = parts.length;
+
+                // สร้างตัวแปรเพื่อเก็บส่วนทั้งหมดยกเว้นส่วนสุดท้าย
+                var exceptLastPart = "";
+
+                for (var i = 0; i < numberOfParts - 1; i++) {
+                    exceptLastPart += parts[i];
+                    if (i < numberOfParts - 2) {
+                        exceptLastPart += "."; // เพิ่มจุด (.) หลังจากทุกส่วนยกเว้นส่วนสุดท้าย
+                    }
+                }
+
+                // กำหนดค่าให้กับองค์ประกอบที่มี ID "namefile" ใน Modal Body
+                $(".modal-body #oldname").val(rowData.name_file);
+                $(".modal-body #oldnameFile").val(exceptLastPart);
+                $(".modal-body #namefile").val(exceptLastPart);
+                $(".modal-body #url_route").val("leadership/file_ls/rename/" + rowData.id_ls_file);
+            }
+        }
+    </script>

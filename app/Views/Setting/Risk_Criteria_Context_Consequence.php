@@ -7,11 +7,11 @@
             'title' => 'Confidentiality',
             'active' => true,
             'data' => [
-                ['action' => 'Action 1', 'name' => 'Name 1', 'impact_level' => 1, 'description' => 'Description 1'],
-                ['action' => 'Action 2', 'name' => 'Name 2', 'impact_level' => 2, 'description' => 'Description 2'],
-                ['action' => 'Action 3', 'name' => 'Name 3', 'impact_level' => 3, 'description' => 'Description 3'],
-                ['action' => 'Action 4', 'name' => 'Name 4', 'impact_level' => 4, 'description' => 'Description 4'],
-                ['action' => 'Action 5', 'name' => 'Name 5', 'impact_level' => 5, 'description' => 'Description 5'],
+                ['action' => 'Action 1', 'name' => 'น้อยมาก', 'impact_level' => 1, 'description' => 'Description 1'],
+                ['action' => 'Action 2', 'name' => 'น้อย', 'impact_level' => 2, 'description' => 'Description 2'],
+                ['action' => 'Action 3', 'name' => 'ปานกลาง', 'impact_level' => 3, 'description' => 'Description 3'],
+                ['action' => 'Action 4', 'name' => 'สูง', 'impact_level' => 4, 'description' => 'Description 4'],
+                ['action' => 'Action 5', 'name' => 'สูงมาก', 'impact_level' => 5, 'description' => 'Description 5'],
             ]
         ],
         [
@@ -19,11 +19,11 @@
             'title' => 'Integrity',
             'active' => false,
             'data' => [
-                ['action' => 'Action 1', 'name' => 'Name 1', 'impact_level' => 1, 'description' => 'Description 1'],
-                ['action' => 'Action 2', 'name' => 'Name 2', 'impact_level' => 2, 'description' => 'Description 2'],
-                ['action' => 'Action 3', 'name' => 'Name 3', 'impact_level' => 3, 'description' => 'Description 3'],
-                ['action' => 'Action 4', 'name' => 'Name 4', 'impact_level' => 4, 'description' => 'Description 4'],
-                ['action' => 'Action 5', 'name' => 'Name 5', 'impact_level' => 5, 'description' => 'Description 5'],
+                ['action' => 'Action 1', 'name' => 'น้อยมาก', 'impact_level' => 1, 'description' => 'Description 1'],
+                ['action' => 'Action 2', 'name' => 'น้อย', 'impact_level' => 2, 'description' => 'Description 2'],
+                ['action' => 'Action 3', 'name' => 'ปานกลาง', 'impact_level' => 3, 'description' => 'Description 3'],
+                ['action' => 'Action 4', 'name' => 'สูง', 'impact_level' => 4, 'description' => 'Description 4'],
+                ['action' => 'Action 5', 'name' => 'สูงมาก', 'impact_level' => 5, 'description' => 'Description 5'],
             ]
         ],
         [
@@ -31,11 +31,11 @@
             'title' => 'Availability',
             'active' => false,
             'data' => [
-                ['action' => 'Action 1', 'name' => 'Name 1', 'impact_level' => 1, 'description' => 'Description 1'],
-                ['action' => 'Action 2', 'name' => 'Name 2', 'impact_level' => 2, 'description' => 'Description 2'],
-                ['action' => 'Action 3', 'name' => 'Name 3', 'impact_level' => 3, 'description' => 'Description 3'],
-                ['action' => 'Action 4', 'name' => 'Name 4', 'impact_level' => 4, 'description' => 'Description 4'],
-                ['action' => 'Action 5', 'name' => 'Name 5', 'impact_level' => 5, 'description' => 'Description 5'],
+                ['action' => 'Action 1', 'name' => 'น้อยมาก', 'impact_level' => 1, 'description' => 'Description 1'],
+                ['action' => 'Action 2', 'name' => 'น้อย', 'impact_level' => 2, 'description' => 'Description 2'],
+                ['action' => 'Action 3', 'name' => 'ปานกลาง', 'impact_level' => 3, 'description' => 'Description 3'],
+                ['action' => 'Action 4', 'name' => 'สูง', 'impact_level' => 4, 'description' => 'Description 4'],
+                ['action' => 'Action 5', 'name' => 'สูงมาก', 'impact_level' => 5, 'description' => 'Description 5'],
             ]
         ],
     ];
