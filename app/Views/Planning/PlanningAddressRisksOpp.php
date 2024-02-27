@@ -86,14 +86,38 @@
                 <div class="row mb-2">
                     <div class="col-sm-6">
                         <h1>Address Risks & Opportunities
-                            <button type="button" class="btn btn-secondary btn-xs" data-toggle="modal" data-target="#modal-default" onclick="load_modal(1)">Requirement</button>
+                            <button type="button" class="btn btn-secondary btn-xs" data-toggle="modal" data-target="#modal-default" id="load-modal-button" onclick="load_modal(1)">Requirement</button>
                         </h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="<?= site_url('/'); ?>">Home</a></li>
                             <li class="breadcrumb-item active">Address Risks & Opportunities</li>
-                            <li class="breadcrumb-item active" id="version-heaer-path">Version
+                            <li class="breadcrumb-item topic active">
+                                <?php
+                                $active_tab = 'context';
+                                if (isset($_GET['active_tab'])) {
+                                    $active_tab = $_GET['active_tab'];
+                                }
+                                if ($active_tab == 'context') {
+                                    echo 'Context';
+                                } elseif ($active_tab == 'is') {
+                                    echo 'Information Security';
+                                }
+                                ?>
+                            </li>
+                            <li class="breadcrumb-item aaa active">
+                                <?php
+                                $version_info = '';
+
+                                if ($active_tab == 'context' && isset($data_context['num_ver'])) {
+                                    $version_info = $data_context['num_ver'];
+                                    echo 'Context: Version ' . $version_info;
+                                } elseif ($active_tab == 'is' && isset($data_is['num_ver'])) {
+                                    $version_info = $data_is['num_ver'];
+                                    echo 'Information Security: Version ' . $version_info;
+                                }
+                                ?>
                             </li>
                         </ol>
                     </div>
@@ -109,7 +133,7 @@
                             Context</a>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link btn" id="pills-information-security-tab" data-toggle="pill" data-target="#pills-information-security" type="button" role="tab" aria-controls="pills-information-security" aria-selected="false">
+                        <button class="nav-link btn" id="pills-is-tab" data-toggle="pill" data-target="#pills-is" type="button" role="tab" aria-controls="pills-is" aria-selected="false">
                             Information Security</button>
                     </li>
                 </ul>
@@ -117,10 +141,9 @@
                     <div class="tab-pane fade show active" id="pills-context" role="tabpanel" aria-labelledby="pills-context-tab">
                         <?php include("RiskOppContext.php"); ?>
                     </div>
-                    <div class="tab-pane fade" id="pills-information-security" role="tabpanel" aria-labelledby="pills-information-security-tab">
+                    <div class="tab-pane fade" id="pills-is" role="tabpanel" aria-labelledby="pills-is-tab">
                         <?php include("RiskOppInformationSecurity.php"); ?>
                     </div>
-
                 </div>
             </div>
         </section>
@@ -326,3 +349,20 @@
             }
         }
     </script>
+    <script>
+    $('.nav-link').on('click', function() {
+        var tabText = $(this).text();
+        $('.topic.active').text(tabText);
+        var versionInfo = '';
+        if (tabText === 'Context') {
+            if (<?php echo isset($data_context['num_ver']) ? 'true' : 'false'; ?>) {
+                versionInfo = 'Version <?php echo $data_context['num_ver']; ?>';
+            }
+        } else if (tabText === 'Information Security') {
+            if (<?php echo isset($data_is['num_ver']) ? 'true' : 'false'; ?>) {
+                versionInfo = 'Version <?php echo $data_is['num_ver']; ?>';
+            }
+        }
+        $('.topic.active').text(tabText + ' ' + versionInfo);
+    });
+</script>

@@ -66,7 +66,7 @@ $consequenceData = ["CENTRAL", "INTELLIGENCE", "AGENCY"];
                         <a class="dropdown-item" href="#" onclick="confirm_Alert('ต้องการที่จะ Review หรือไม่', 'context/status_update/<?= $data_is['id_version'] ?>/2')">Review</a>
                         <div class="dropdown-divider"></div>
 
-                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-is" id="load-modal-button" onclick="load_modal(7,5)">Reject Review</a>
+                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-default" id="load-modal-button" onclick="load_modal(7,5)">Reject Review</a>
 
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="#" onclick="confirm_Alert('ต้องการที่จะ Pending Approve หรือไม่', 'context/status_update/<?= $data_is['id_version'] ?>/3')">Pending
@@ -76,7 +76,7 @@ $consequenceData = ["CENTRAL", "INTELLIGENCE", "AGENCY"];
                         <a class="dropdown-item" href="#" onclick="confirm_Alert('ต้องการที่จะ Approved หรือไม่', 'context/status_update/<?= $data_is['id_version'] ?>/4')">Approved</a>
                         <div class="dropdown-divider"></div>
 
-                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-is" id="load-modal-button" onclick="load_modal(7,6)">Reject
+                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-default" id="load-modal-button" onclick="load_modal(7,6)">Reject
                             Approved</a>
                     </div>
                 </div>
@@ -91,10 +91,10 @@ $consequenceData = ["CENTRAL", "INTELLIGENCE", "AGENCY"];
                     </div>
                 </div>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" data-toggle="modal" data-target="#modal-is" id="load-modal-button" href="#" onclick="load_modal(4)">Create Note</a>
+                <a class="dropdown-item" data-toggle="modal" data-target="#modal-default" id="load-modal-button" href="#" onclick="load_modal(4)">Create Note</a>
             </div>
 
-            <i class="fas fa-cog" data-toggle="modal" data-target="#modal-is" id="load-modal-button" onclick="load_modal(2)"></i>
+            <i class="fas fa-cog" data-toggle="modal" data-target="#modal-default" id="load-modal-button" onclick="load_modal(2)"></i>
         </div>
     </div>
     <div class="card-body">
@@ -414,11 +414,11 @@ $consequenceData = ["CENTRAL", "INTELLIGENCE", "AGENCY"];
         cell1.innerHTML = `<div class="dropdown">
                                 <i class="fas fa-ellipsis-v pointer text-primary" id="dropdownMenuButton${index}" data-toggle="dropdown" aria-expanded="false"></i>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton${index}">
-                                <li data-toggle="modal" data-target="#modal-is" onclick="load_modal(2)"><a class="dropdown-item" href="#">Edit</a></li>
+                                <li data-toggle="modal" data-target="#modal-default" onclick="load_modal(2)"><a class="dropdown-item" href="#">Edit</a></li>
                                 <li><a class="dropdown-item" href="#">View</a></li>
                                 <li><a class="dropdown-item" href="#">Delete</a></li>
                                 <li><hr class="dropdown-divider"></li>
-                                <li data-toggle="modal" data-target="#modal-is" onclick="load_modal(2)"><a class="dropdown-item" href="#">Create</a></li>
+                                <li data-toggle="modal" data-target="#modal-default" onclick="load_modal(2)"><a class="dropdown-item" href="#">Create</a></li>
                                 </ul>
                             </div>`;
         cell2.textContent = index + 1;
@@ -484,11 +484,11 @@ $consequenceData = ["CENTRAL", "INTELLIGENCE", "AGENCY"];
         cell1.innerHTML = `<div class="dropdown">
     <i class="fas fa-ellipsis-v pointer text-primary" id="dropdownMenuButton${index}" data-toggle="dropdown" aria-expanded="false"></i>
     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton${index}">
-      <li data-toggle="modal" data-target="#modal-is" onclick="load_modal(2)"><a class="dropdown-item" href="#">Edit</a></li>
+      <li data-toggle="modal" data-target="#modal-default" onclick="load_modal(2)"><a class="dropdown-item" href="#">Edit</a></li>
       <li><a class="dropdown-item" href="#">View</a></li>
       <li><a class="dropdown-item" href="#">Delete</a></li>
       <li><hr class="dropdown-divider"></li>
-      <li data-toggle="modal" data-target="#modal-is" onclick="load_modal(2)"><a class="dropdown-item" href="#">Create</a></li>
+      <li data-toggle="modal" data-target="#modal-default" onclick="load_modal(2)"><a class="dropdown-item" href="#">Create</a></li>
     </ul>
   </div>`;
         cell2.textContent = index + 1;
@@ -536,11 +536,11 @@ $consequenceData = ["CENTRAL", "INTELLIGENCE", "AGENCY"];
         cell1.innerHTML = `<div class="dropdown">
     <i class="fas fa-ellipsis-v pointer text-primary" id="dropdownMenuButton${index}" data-toggle="dropdown" aria-expanded="false"></i>
     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton${index}">
-      <li data-toggle="modal" data-target="#modal-is" onclick="load_modal(2)"><a class="dropdown-item" href="#">Edit</a></li>
+      <li data-toggle="modal" data-target="#modal-default" onclick="load_modal(2)"><a class="dropdown-item" href="#">Edit</a></li>
       <li><a class="dropdown-item" href="#">Copy</a></li>
       <li><a class="dropdown-item" href="#">Delete</a></li>
       <li><hr class="dropdown-divider"></li>
-      <li data-toggle="modal" data-target="#modal-is" onclick="load_modal(2)"><a class="dropdown-item" href="#">Create</a></li>
+      <li data-toggle="modal" data-target="#modal-default" onclick="load_modal(2)"><a class="dropdown-item" href="#">Create</a></li>
     </ul>
   </div>`;
         cell2.textContent = index + 1;
