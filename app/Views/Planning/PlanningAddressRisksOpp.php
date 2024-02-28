@@ -106,16 +106,13 @@
                                 }
                                 ?>
                             </li>
-                            <li class="breadcrumb-item aaa active">
+                            <li class="breadcrumb-item version active">
                                 <?php
-                                $version_info = '';
-
+                                $active_tab = isset($_GET['active_tab']) ? $_GET['active_tab'] : 'context';
                                 if ($active_tab == 'context' && isset($data_context['num_ver'])) {
-                                    $version_info = $data_context['num_ver'];
-                                    echo 'Context: Version ' . $version_info;
+                                    echo ' Version ' . $data_context['num_ver'];
                                 } elseif ($active_tab == 'is' && isset($data_is['num_ver'])) {
-                                    $version_info = $data_is['num_ver'];
-                                    echo 'Information Security: Version ' . $version_info;
+                                    echo ' Version ' . $data_is['num_ver'];
                                 }
                                 ?>
                             </li>
@@ -129,11 +126,11 @@
             <div class="container-fluid">
                 <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                     <li class="nav-item" role="presentation">
-                        <a class="nav-link active" id="pills-context-tab" data-toggle="pill" data-target="#pills-context" type="button" role="tab" aria-controls="pills-context" aria-selected="true">
+                        <a class="nav-link title-topic active" id="pills-context-tab" data-toggle="pill" data-target="#pills-context" type="button" role="tab" aria-controls="pills-context" aria-selected="true">
                             Context</a>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link btn" id="pills-is-tab" data-toggle="pill" data-target="#pills-is" type="button" role="tab" aria-controls="pills-is" aria-selected="false">
+                        <button class="nav-link title-topic btn" id="pills-is-tab" data-toggle="pill" data-target="#pills-is" type="button" role="tab" aria-controls="pills-is" aria-selected="false">
                             Information Security</button>
                     </li>
                 </ul>
@@ -350,19 +347,35 @@
         }
     </script>
     <script>
-    $('.nav-link').on('click', function() {
-        var tabText = $(this).text();
-        $('.topic.active').text(tabText);
-        var versionInfo = '';
-        if (tabText === 'Context') {
-            if (<?php echo isset($data_context['num_ver']) ? 'true' : 'false'; ?>) {
-                versionInfo = 'Version <?php echo $data_context['num_ver']; ?>';
+        $('.title-topic').on('click', function() {
+            var tabText = $(this).text();
+            $('.topic.active').text(tabText);
+        });
+    </script>
+    <script>
+        function updateVersion(activeTab) {
+            var versionElement = document.querySelector('.breadcrumb-item.version.active');
+            var versionText = '';
+
+            if (activeTab === 'context' && <?= isset($data_context['num_ver']) ? 'true' : 'false'; ?>) {
+                versionText = ' Version <?= $data_context['num_ver']; ?>';
+            } else if (activeTab === 'is' && <?= isset($data_is['num_ver']) ? 'true' : 'false'; ?>) {
+                versionText = ' Version <?= $data_is['num_ver']; ?>';
             }
-        } else if (tabText === 'Information Security') {
-            if (<?php echo isset($data_is['num_ver']) ? 'true' : 'false'; ?>) {
-                versionInfo = 'Version <?php echo $data_is['num_ver']; ?>';
-            }
+
+            versionElement.textContent = versionText;
         }
-        $('.topic.active').text(tabText + ' ' + versionInfo);
-    });
-</script>
+
+        document.getElementById("pills-context-tab").addEventListener("click", function() {
+            updateVersion('context');
+        });
+
+        document.getElementById("pills-is-tab").addEventListener("click", function() {
+            updateVersion('is');
+        });
+
+        window.addEventListener('DOMContentLoaded', function() {
+            var activeTab = '<?= isset($_GET['active_tab']) ? $_GET['active_tab'] : 'context'; ?>';
+            updateVersion(activeTab);
+        });
+    </script>

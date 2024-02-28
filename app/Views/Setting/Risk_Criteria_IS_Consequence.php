@@ -193,7 +193,6 @@
                                                             <i class="fas fa-ellipsis-v pointer text-primary" id="dropdownMenuButtonPlanning<?php echo $index; ?>" data-toggle="dropdown" aria-expanded="false"></i>
                                                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButtonPlanning<?php echo $index; ?>">
                                                                 <li data-toggle="modal" data-target="#modal-consequence" onclick="load_modal(2)"><a class="dropdown-item" href="#">Edit</a></li>
-                                                                <li><a class="dropdown-item" href="#">Delete</a></li>
                                                             </ul>
                                                         </div>
                                                     </td>

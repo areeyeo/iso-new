@@ -40,10 +40,12 @@
 </style>
 <?php
 $consequenceData = ["CENTRAL", "INTELLIGENCE", "AGENCY"];
+$consequenceData2 = ["CENTRAL", "INTELLIGENCE", "AGENCY"];
 ?>
+
 <!-- Main content -->
 <div class="card">
-<div class="card-header">
+    <div class="card-header">
         <h2 class="card-title">Details</h2>
         <div class="card-tools">
             <button type="button" class="btn btn-tool" data-card-widget="collapse">
@@ -219,8 +221,8 @@ $consequenceData = ["CENTRAL", "INTELLIGENCE", "AGENCY"];
                                 <th style="max-width: 200px;">VULNERABILITY</th>
                                 <th>EXISTING CONTROLS</th>
                                 <?php
-                                foreach ($consequenceData as $consequenceData) {
-                                    echo "<th>$consequenceData</th>";
+                                foreach ($consequenceData as $data) {
+                                    echo "<th>$data</th>";
                                 }
                                 ?>
                                 <th>CONSEQUENCE</th>
@@ -235,13 +237,16 @@ $consequenceData = ["CENTRAL", "INTELLIGENCE", "AGENCY"];
                                 <th>APPROVE</th>
                                 <th>RTP STATUS</th>
                                 <th>FILE</th>
-                                <th>C</th>
-                                <th>I</th>
-                                <th>A</th>
+                                <?php
+                                foreach ($consequenceData2 as $data) {
+                                    echo "<th>$data</th>";
+                                }
+                                ?>
                                 <th>CONSEQUENCE</th>
                                 <th>LIKELIHOOD</th>
                                 <th>RESIDUAL</th>
                             </tr>
+
                         </thead>
                         <tbody>
                         </tbody>
@@ -350,33 +355,62 @@ $consequenceData = ["CENTRAL", "INTELLIGENCE", "AGENCY"];
 </script>
 <script>
     var Data = [{
-        "TYPE": "Hardward",
-        "ASSET_GROUP": "Computer",
-        "THREAT": "	การขอความยินยอมไม่ถูกต้อง",
-        "VULNERABILITY": "ขาดการขอความยินยอมข้อมูลส่วนบุคคลแบบเป็นลายลักษณ์อักษร",
-        "EXISTING_CONTROLS": "มีกระบวนการดำเนินการในการขอความยินยอมข้อมูลส่วนบุคคลแบบเป็นลายลักษณ์อักษร",
-        "CONFIDENTIALITY": "3",
-        "INTEGRITY": "2",
-        "AVAILABILITY": "1",
-        "CONSEQUENCE": "3",
-        "LIKELIHOOD": "2",
-        "RISK_LEVEL": "6",
-        "RISK_ASSESSMENT_LEVEL": "2",
-        "RISK_OPTIONS": "การยอมรับความเสี่ยง",
-        "RISK_TREATMENT_PLAN": "จัดทำเอกสาร Configuration baseline",
-        "OPP_OWNNER": "Areeya.D",
-        "START_DATE": "01/01/2024",
-        "END_DATE": "01/01/2024",
-        "APPROVE": "Areeya.D",
-        "RTP_STATUS": "รอดำเนินการ",
-        "FILE": "FILE",
-        "CONFIDENTIALITY2": "1",
-        "INTEGRITY2": "2",
-        "AVAILABILITY2": "2",
-        "CONSEQUENCE2": "2",
-        "LIKELIHOOD2": "2",
-        "RESIDUAL": "4",
-    }, ];
+            "TYPE": "Hardward",
+            "ASSET_GROUP": "Computer",
+            "THREAT": "	การขอความยินยอมไม่ถูกต้อง",
+            "VULNERABILITY": "ขาดการขอความยินยอมข้อมูลส่วนบุคคลแบบเป็นลายลักษณ์อักษร",
+            "EXISTING_CONTROLS": "มีกระบวนการดำเนินการในการขอความยินยอมข้อมูลส่วนบุคคลแบบเป็นลายลักษณ์อักษร",
+            "CONFIDENTIALITY": "3",
+            "INTEGRITY": "2",
+            "AVAILABILITY": "1",
+            "CONSEQUENCE": "3",
+            "LIKELIHOOD": "2",
+            "RISK_LEVEL": "6",
+            "RISK_ASSESSMENT_LEVEL": "2",
+            "RISK_OPTIONS": "การยอมรับความเสี่ยง",
+            "RISK_TREATMENT_PLAN": "จัดทำเอกสาร Configuration baseline",
+            "OPP_OWNNER": "Areeya.D",
+            "START_DATE": "01/01/2024",
+            "END_DATE": "01/01/2024",
+            "APPROVE": "Areeya.D",
+            "RTP_STATUS": "รอดำเนินการ",
+            "FILE": "FILE",
+            "CONFIDENTIALITY2": "1",
+            "INTEGRITY2": "2",
+            "AVAILABILITY2": "2",
+            "CONSEQUENCE2": "2",
+            "LIKELIHOOD2": "2",
+            "RESIDUAL": "4",
+        },
+        {
+            "TYPE": "Hardward",
+            "ASSET_GROUP": "Computer",
+            "THREAT": "	การขอความยินยอมไม่ถูกต้อง",
+            "VULNERABILITY": "ขาดการขอความยินยอมข้อมูลส่วนบุคคลแบบเป็นลายลักษณ์อักษร",
+            "EXISTING_CONTROLS": "มีกระบวนการดำเนินการในการขอความยินยอมข้อมูลส่วนบุคคลแบบเป็นลายลักษณ์อักษร",
+            "CONFIDENTIALITY": "3",
+            "INTEGRITY": "2",
+            "AVAILABILITY": "1",
+            "CONSEQUENCE": "3",
+            "LIKELIHOOD": "2",
+            "RISK_LEVEL": "6",
+            "RISK_ASSESSMENT_LEVEL": "2",
+            "RISK_OPTIONS": "การยอมรับความเสี่ยง",
+            "RISK_TREATMENT_PLAN": "จัดทำเอกสาร Configuration baseline",
+            "OPP_OWNNER": "Areeya.D",
+            "START_DATE": "01/01/2024",
+            "END_DATE": "01/01/2024",
+            "APPROVE": "Areeya.D",
+            "RTP_STATUS": "กำลังดำเนินการ",
+            "FILE": "FILE",
+            "CONFIDENTIALITY2": "1",
+            "INTEGRITY2": "2",
+            "AVAILABILITY2": "2",
+            "CONSEQUENCE2": "2",
+            "LIKELIHOOD2": "2",
+            "RESIDUAL": "4",
+        },
+    ];
 
     var riskcontextfull = document.getElementById("risk-information-security-table-full").getElementsByTagName("tbody")[0];
 
@@ -414,11 +448,11 @@ $consequenceData = ["CENTRAL", "INTELLIGENCE", "AGENCY"];
         cell1.innerHTML = `<div class="dropdown">
                                 <i class="fas fa-ellipsis-v pointer text-primary" id="dropdownMenuButton${index}" data-toggle="dropdown" aria-expanded="false"></i>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton${index}">
-                                <li data-toggle="modal" data-target="#modal-default" onclick="load_modal(2)"><a class="dropdown-item" href="#">Edit</a></li>
+                                <li data-toggle="modal" data-target="#modal-default" onclick="CRUDInformationSecurityRiskOpp()"><a class="dropdown-item" href="#">Edit</a></li>
                                 <li><a class="dropdown-item" href="#">View</a></li>
                                 <li><a class="dropdown-item" href="#">Delete</a></li>
                                 <li><hr class="dropdown-divider"></li>
-                                <li data-toggle="modal" data-target="#modal-default" onclick="load_modal(2)"><a class="dropdown-item" href="#">Create</a></li>
+                                <li data-toggle="modal" data-target="#modal-default" onclick="CRUDInformationSecurityRiskOpp()"><a class="dropdown-item" href="#">Create</a></li>
                                 </ul>
                             </div>`;
         cell2.textContent = index + 1;
@@ -453,7 +487,8 @@ $consequenceData = ["CENTRAL", "INTELLIGENCE", "AGENCY"];
     });
 </script>
 <script>
-    var Data = [{
+    var Data = [
+        {
         "TYPE": "Hardward",
         "ASSET_GROUP": "Computer",
         "CONSEQUENCE": "3",
@@ -484,11 +519,11 @@ $consequenceData = ["CENTRAL", "INTELLIGENCE", "AGENCY"];
         cell1.innerHTML = `<div class="dropdown">
     <i class="fas fa-ellipsis-v pointer text-primary" id="dropdownMenuButton${index}" data-toggle="dropdown" aria-expanded="false"></i>
     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton${index}">
-      <li data-toggle="modal" data-target="#modal-default" onclick="load_modal(2)"><a class="dropdown-item" href="#">Edit</a></li>
+      <li data-toggle="modal" data-target="#modal-default" onclick="CRUDInformationSecurityRiskOpp()"><a class="dropdown-item" href="#">Edit</a></li>
       <li><a class="dropdown-item" href="#">View</a></li>
       <li><a class="dropdown-item" href="#">Delete</a></li>
       <li><hr class="dropdown-divider"></li>
-      <li data-toggle="modal" data-target="#modal-default" onclick="load_modal(2)"><a class="dropdown-item" href="#">Create</a></li>
+      <li data-toggle="modal" data-target="#modal-default" onclick="CRUDInformationSecurityRiskOpp()"><a class="dropdown-item" href="#">Create</a></li>
     </ul>
   </div>`;
         cell2.textContent = index + 1;
@@ -506,7 +541,8 @@ $consequenceData = ["CENTRAL", "INTELLIGENCE", "AGENCY"];
     });
 </script>
 <script>
-    var Data = [{
+    var Data = [
+        {
         "TYPE": "text",
         "ASSET_GROUP": "text",
         "QUANTITY_PLANNING": "1",
@@ -515,7 +551,28 @@ $consequenceData = ["CENTRAL", "INTELLIGENCE", "AGENCY"];
         "START_DATE": ["01/01/2024", "01/01/2024"],
         "END_DATE": ["01/01/2024", "01/01/2024"],
         "ATTACHMENTFILE": ["file1.pdf", "file1.pdf"],
-    }, ];
+    }, 
+    {
+        "TYPE": "text",
+        "ASSET_GROUP": "text",
+        "QUANTITY_PLANNING": "1",
+        "OPPORTUNITY_PLANNINGS": ["OPPORTUNITY PLANNINGS1", "OPPORTUNITY PLANNINGS2"],
+        "OPP_OWNNER": ["Areeya", "Jennifer"],
+        "START_DATE": ["01/01/2024", "01/01/2024"],
+        "END_DATE": ["01/01/2024", "01/01/2024"],
+        "ATTACHMENTFILE": ["file1.pdf", "file1.pdf"],
+    }, 
+    {
+        "TYPE": "text",
+        "ASSET_GROUP": "text",
+        "QUANTITY_PLANNING": "1",
+        "OPPORTUNITY_PLANNINGS": ["OPPORTUNITY PLANNINGS1", "OPPORTUNITY PLANNINGS2"],
+        "OPP_OWNNER": ["Areeya", "Jennifer"],
+        "START_DATE": ["01/01/2024", "01/01/2024"],
+        "END_DATE": ["01/01/2024", "01/01/2024"],
+        "ATTACHMENTFILE": ["file1.pdf", "file1.pdf"],
+    }, 
+];
 
     var oppisTableBody = document.getElementById("opp-information-security-table").getElementsByTagName("tbody")[0];
 
@@ -536,11 +593,11 @@ $consequenceData = ["CENTRAL", "INTELLIGENCE", "AGENCY"];
         cell1.innerHTML = `<div class="dropdown">
     <i class="fas fa-ellipsis-v pointer text-primary" id="dropdownMenuButton${index}" data-toggle="dropdown" aria-expanded="false"></i>
     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton${index}">
-      <li data-toggle="modal" data-target="#modal-default" onclick="load_modal(2)"><a class="dropdown-item" href="#">Edit</a></li>
+      <li data-toggle="modal" data-target="#modal-default" onclick="CRUDInformationSecurityRiskOpp()"><a class="dropdown-item" href="#">Edit</a></li>
       <li><a class="dropdown-item" href="#">Copy</a></li>
       <li><a class="dropdown-item" href="#">Delete</a></li>
       <li><hr class="dropdown-divider"></li>
-      <li data-toggle="modal" data-target="#modal-default" onclick="load_modal(2)"><a class="dropdown-item" href="#">Create</a></li>
+      <li data-toggle="modal" data-target="#modal-default" onclick="CRUDInformationSecurityRiskOpp()"><a class="dropdown-item" href="#">Create</a></li>
     </ul>
   </div>`;
         cell2.textContent = index + 1;

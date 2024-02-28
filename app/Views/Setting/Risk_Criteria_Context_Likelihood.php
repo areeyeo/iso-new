@@ -222,7 +222,6 @@
                           <i class="fas fa-ellipsis-v pointer text-primary" id="dropdownMenuButton${index}" data-toggle="dropdown" aria-expanded="false"></i>
                               <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton${index}">
                                   <li data-toggle="modal" data-target="#modal-likelihood" onclick="load_modal(1)"><a class="dropdown-item" href="#" >Edit</a></li>
-                                  <li><a class="dropdown-item" href="#">Delete</a></li>
                               </ul>
                       </div>`;
     cell2.textContent = row.LIKELIHOODNAME;

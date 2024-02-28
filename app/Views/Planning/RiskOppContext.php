@@ -40,6 +40,7 @@
 </style>
 <?php
 $consequenceData = ["OPERATIONAL", "PRODUCTIVITY", "REPUTATION", "COMPLIANCE", "PRIVACY"];
+$consequenceData2 = ["OPERATIONAL", "PRODUCTIVITY", "REPUTATION", "COMPLIANCE", "PRIVACY"];
 ?>
 <!-- Main content -->
 <div class="card">
@@ -232,11 +233,11 @@ $consequenceData = ["OPERATIONAL", "PRODUCTIVITY", "REPUTATION", "COMPLIANCE", "
                                 <th>APPROVE</th>
                                 <th>RTP STATUS</th>
                                 <th>FILE</th>
-                                <th>OPERATIONAL</th>
-                                <th>PRODUCTIVITY</th>
-                                <th>REPUTATION</th>
-                                <th>COMPLIANCE</th>
-                                <th>PRIVACY</th>
+                                <?php
+                                foreach ($consequenceData2 as $consequenceData) {
+                                    echo "<th>$consequenceData</th>";
+                                }
+                                ?>
                                 <th>CONSEQUENCE</th>
                                 <th>LIKELIHOOD</th>
                                 <th>RESIDUAL</th>
@@ -443,11 +444,11 @@ $consequenceData = ["OPERATIONAL", "PRODUCTIVITY", "REPUTATION", "COMPLIANCE", "
         cell1.innerHTML = `<div class="dropdown">
     <i class="fas fa-ellipsis-v pointer text-primary" id="dropdownMenuButton${index}" data-toggle="dropdown" aria-expanded="false"></i>
     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton${index}">
-      <li data-toggle="modal" data-target="#modal-default " onclick="load_modal(2)"><a class="dropdown-item" href="#">Edit</a></li>
-      <li><a class="dropdown-item" href="#">View</a></li>
+      <li onclick="CRUDContextRiskOpp()"><a class="dropdown-item" href="#">Edit</a></li>
+      <li><a class="dropdown-item" href="#" onclick="CRUDContextRiskOpp()">View</a></li>
       <li><a class="dropdown-item" href="#">Delete</a></li>
       <li><hr class="dropdown-divider"></li>
-      <li data-toggle="modal" data-target="#modal-default " onclick="load_modal(2)"><a class="dropdown-item" href="#">Create</a></li>
+      <li onclick="CRUDContextRiskOpp()"><a class="dropdown-item" href="#">Create</a></li>
     </ul>
   </div>`;
         cell2.textContent = index + 1;
@@ -483,19 +484,18 @@ $consequenceData = ["OPERATIONAL", "PRODUCTIVITY", "REPUTATION", "COMPLIANCE", "
 
     // ดึงข้อมูลมาจากตาราง risk level minimum maximum color  
     function getRiskColor(result) {
-    if (result <= 4 ) {
-        return "#92D050";
-    } else if (result <= 9) {
-        return "#FFFF00";
-    } else if (result <= 19) {
-        return "#FFC000";
-    } else if (result > 19){
-        return "#FD2B2B";
-    } else {
-        return ""; // คืนค่าว่างให้กลับไป
+        if (result <= 4) {
+            return "#92D050";
+        } else if (result <= 9) {
+            return "#FFFF00";
+        } else if (result <= 19) {
+            return "#FFC000";
+        } else if (result > 19) {
+            return "#FD2B2B";
+        } else {
+            return ""; // คืนค่าว่างให้กลับไป
+        }
     }
-}
-
 </script>
 <script>
     var Data = [{
@@ -544,11 +544,11 @@ $consequenceData = ["OPERATIONAL", "PRODUCTIVITY", "REPUTATION", "COMPLIANCE", "
         cell1.innerHTML = `<div class="dropdown">
     <i class="fas fa-ellipsis-v pointer text-primary" id="dropdownMenuButton${index}" data-toggle="dropdown" aria-expanded="false"></i>
     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton${index}">
-      <li data-toggle="modal" data-target="#modal-default " onclick="load_modal(2)"><a class="dropdown-item" href="#">Edit</a></li>
-      <li><a class="dropdown-item" href="#">View</a></li>
+      <li onclick="CRUDContextRiskOpp()"><a class="dropdown-item" href="#">Edit</a></li>
+      <li><a class="dropdown-item" href="#" onclick="CRUDContextRiskOpp()">View</a></li>
       <li><a class="dropdown-item" href="#">Delete</a></li>
       <li><hr class="dropdown-divider"></li>
-      <li data-toggle="modal" data-target="#modal-default " onclick="load_modal(2)"><a class="dropdown-item" href="#">Create</a></li>
+      <li onclick="CRUDContextRiskOpp()"><a class="dropdown-item" href="#">Create</a></li>
     </ul>
   </div>`;
         cell2.textContent = index + 1;
@@ -565,7 +565,8 @@ $consequenceData = ["OPERATIONAL", "PRODUCTIVITY", "REPUTATION", "COMPLIANCE", "
     });
 </script>
 <script>
-    var Data = [{
+    var Data = [
+        {
         "ISSUES": "กระบวนการตัดสินใจ (decision making processes)",
         "QUANTITY_PLANNING": "1",
         "OPPORTUNITY_PLANNINGS": ["OPPORTUNITY PLANNINGS1", "OPPORTUNITY PLANNINGS2"],
@@ -573,7 +574,26 @@ $consequenceData = ["OPERATIONAL", "PRODUCTIVITY", "REPUTATION", "COMPLIANCE", "
         "START_DATE": ["01/01/2024", "01/01/2024"],
         "END_DATE": ["01/01/2024", "01/01/2024"],
         "ATTACHMENTFILE": ["file1.pdf", "file1.pdf"],
-    }, ];
+    }, 
+    {
+        "ISSUES": "กระบวนการตัดสินใจ (decision making processes)",
+        "QUANTITY_PLANNING": "1",
+        "OPPORTUNITY_PLANNINGS": ["OPPORTUNITY PLANNINGS1", "OPPORTUNITY PLANNINGS2"],
+        "RISK_OWNNER": ["Areeya", "Jennifer"],
+        "START_DATE": ["01/01/2024", "01/01/2024"],
+        "END_DATE": ["01/01/2024", "01/01/2024"],
+        "ATTACHMENTFILE": ["file1.pdf", "file1.pdf"],
+    }, 
+    {
+        "ISSUES": "กระบวนการตัดสินใจ (decision making processes)",
+        "QUANTITY_PLANNING": "1",
+        "OPPORTUNITY_PLANNINGS": ["OPPORTUNITY PLANNINGS1", "OPPORTUNITY PLANNINGS2"],
+        "RISK_OWNNER": ["Areeya", "Jennifer"],
+        "START_DATE": ["01/01/2024", "01/01/2024"],
+        "END_DATE": ["01/01/2024", "01/01/2024"],
+        "ATTACHMENTFILE": ["file1.pdf", "file1.pdf"],
+    }, 
+];
 
     var oppContextTableBody = document.getElementById("opp-context-table").getElementsByTagName("tbody")[0];
 
@@ -589,15 +609,14 @@ $consequenceData = ["OPERATIONAL", "PRODUCTIVITY", "REPUTATION", "COMPLIANCE", "
         var cell8 = newRow.insertCell(7);
         var cell9 = newRow.insertCell(8);
 
-
         cell1.innerHTML = `<div class="dropdown">
     <i class="fas fa-ellipsis-v pointer text-primary" id="dropdownMenuButton${index}" data-toggle="dropdown" aria-expanded="false"></i>
     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton${index}">
-      <li data-toggle="modal" data-target="#modal-default " onclick="load_modal(2)"><a class="dropdown-item" href="#">Edit</a></li>
-      <li><a class="dropdown-item" href="#">Copy</a></li>
+      <li onclick="CRUDContextRiskOpp()"><a class="dropdown-item" href="#">Edit</a></li>
+      <li><a class="dropdown-item" href="#" onclick="CRUDContextRiskOpp()">View</a></li>
       <li><a class="dropdown-item" href="#">Delete</a></li>
       <li><hr class="dropdown-divider"></li>
-      <li data-toggle="modal" data-target="#modal-default " onclick="load_modal(2)"><a class="dropdown-item" href="#">Create</a></li>
+      <li onclick="CRUDContextRiskOpp()"><a class="dropdown-item" href="#">Create</a></li>
     </ul>
   </div>`;
         cell2.textContent = index + 1;

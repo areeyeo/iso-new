@@ -3,8 +3,8 @@
     <?php
     $data = [
         [
-            'id' => 'confidentiality',
-            'title' => 'Confidentiality',
+            'id' => 'operational',
+            'title' => 'Operational',
             'active' => true,
             'data' => [
                 ['action' => 'Action 1', 'name' => 'น้อยมาก', 'impact_level' => 1, 'description' => 'Description 1'],
@@ -15,8 +15,8 @@
             ]
         ],
         [
-            'id' => 'integrity',
-            'title' => 'Integrity',
+            'id' => 'productivity',
+            'title' => 'Productivity',
             'active' => false,
             'data' => [
                 ['action' => 'Action 1', 'name' => 'น้อยมาก', 'impact_level' => 1, 'description' => 'Description 1'],
@@ -27,8 +27,32 @@
             ]
         ],
         [
-            'id' => 'availability',
-            'title' => 'Availability',
+            'id' => 'reputation',
+            'title' => 'Reputation',
+            'active' => false,
+            'data' => [
+                ['action' => 'Action 1', 'name' => 'น้อยมาก', 'impact_level' => 1, 'description' => 'Description 1'],
+                ['action' => 'Action 2', 'name' => 'น้อย', 'impact_level' => 2, 'description' => 'Description 2'],
+                ['action' => 'Action 3', 'name' => 'ปานกลาง', 'impact_level' => 3, 'description' => 'Description 3'],
+                ['action' => 'Action 4', 'name' => 'สูง', 'impact_level' => 4, 'description' => 'Description 4'],
+                ['action' => 'Action 5', 'name' => 'สูงมาก', 'impact_level' => 5, 'description' => 'Description 5'],
+            ]
+        ],
+        [
+            'id' => 'compliance',
+            'title' => 'Compliance',
+            'active' => false,
+            'data' => [
+                ['action' => 'Action 1', 'name' => 'น้อยมาก', 'impact_level' => 1, 'description' => 'Description 1'],
+                ['action' => 'Action 2', 'name' => 'น้อย', 'impact_level' => 2, 'description' => 'Description 2'],
+                ['action' => 'Action 3', 'name' => 'ปานกลาง', 'impact_level' => 3, 'description' => 'Description 3'],
+                ['action' => 'Action 4', 'name' => 'สูง', 'impact_level' => 4, 'description' => 'Description 4'],
+                ['action' => 'Action 5', 'name' => 'สูงมาก', 'impact_level' => 5, 'description' => 'Description 5'],
+            ]
+        ],
+        [
+            'id' => 'privacy',
+            'title' => 'Privacy',
             'active' => false,
             'data' => [
                 ['action' => 'Action 1', 'name' => 'น้อยมาก', 'impact_level' => 1, 'description' => 'Description 1'],
@@ -193,7 +217,6 @@
                                                             <i class="fas fa-ellipsis-v pointer text-primary" id="dropdownMenuButtonPlanning<?php echo $index; ?>" data-toggle="dropdown" aria-expanded="false"></i>
                                                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButtonPlanning<?php echo $index; ?>">
                                                                 <li data-toggle="modal" data-target="#modal-consequence" onclick="load_modal(2)"><a class="dropdown-item" href="#">Edit</a></li>
-                                                                <li><a class="dropdown-item" href="#">Delete</a></li>
                                                             </ul>
                                                         </div>
                                                     </td>

@@ -31,7 +31,7 @@
             <input class="form-control gray-text" type="text" name="name" id="name"></input>
           </div>
           <div class="form-group mt-3">
-            <h6>Content</h6>
+            <h6>Description</h6>
             <textarea class="form-control" type="text" name="content" id="content"></textarea>
           </div>
         </div>
