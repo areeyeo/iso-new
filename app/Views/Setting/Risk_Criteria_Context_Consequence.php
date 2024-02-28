@@ -1,4 +1,10 @@
 <title>Risk Criteria Information Security</title>
+<style>
+    .table th,
+    .table td {
+        text-align: center;
+    }
+</style>
 <script>
     <?php
     $data = [
@@ -83,7 +89,7 @@
             $html .= '<table id="consequence" class="table table-hover mt-3">';
             $html .= '<thead>';
             $html .= '<tr>';
-            $html .= '<th class="text-center">ACTION</th>';
+            $html .= '<th>ACTION</th>';
             $html .= '<th>NAME</th>';
             $html .= '<th>IMPACT LEVEL</th>';
             $html .= '<th>DESCRIPTION</th>';
@@ -203,7 +209,7 @@
                                     <table id="consequence" class="table table-hover mt-3">
                                         <thead>
                                             <tr>
-                                                <th class="text-center">ACTION</th>
+                                                <th>ACTION</th>
                                                 <th>NAME</th>
                                                 <th>IMPACT LEVEL</th>
                                                 <th>DESCRIPTION</th>
