@@ -265,6 +265,8 @@ $routes->get('risk_Criteria_IS_Likelihood', 'Setting_RiskCriteriaISController::i
 $routes->get('risk_Criteria_IS_Risk_Level', 'Setting_RiskCriteriaISController::indexRiskLevel');
 $routes->get('risk_Criteria_IS_Risk_Option', 'Setting_RiskCriteriaISController::indexRiskOption');
 
+$routes->get('soa', 'SOAController::index');
+
 $routes->match(['get', 'post'], 'openfile/(:num)', 'AllversionController::openfile/$1', ['filter' => 'authGuard']);
 $routes->match(['get', 'post'], 'renamefile/(:num)', 'AllversionController::renamefile/$1', ['filter' => 'authGuard']);
 $routes->match(['get', 'post'], 'dowloadfile/(:num)', 'AllversionController::dowloadfile/$1', ['filter' => 'authGuard']);
