@@ -232,6 +232,12 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
+                                    <a href="<?= site_url('/soa'); ?>" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>SOA</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
                                     <a href="<?= site_url('/isobjective'); ?>" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>IS Objectives</p>
@@ -270,6 +276,12 @@
                                     <a href="<?= site_url('/communication'); ?>" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Communication</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="<?= site_url('/documented_information'); ?>" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Documented</p>
                                     </a>
                                 </li>
                             </ul>
