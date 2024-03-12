@@ -216,8 +216,6 @@
                     </div>
                   </div>
                 </div>
-
-                <hr>
                 <div class="tab-content">
                   <div class="tab-pane fade show active" id="Objectives" role="tabpanel" aria-labelledby="org-strategy-tab">
                     <table id="example1" class="table table-hover">
@@ -386,8 +384,6 @@
       } 
     }
   </script>
-
-
   <script>
     $('#Objectives-tab').on('click', function() {
       console.log('Objectives-tab');

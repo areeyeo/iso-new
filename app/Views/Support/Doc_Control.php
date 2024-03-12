@@ -1,3 +1,4 @@
+<title>Documented Information Version</title>
 <div class="card">
     <div class="card-header">
         <h2 class="card-title">Details</h2>

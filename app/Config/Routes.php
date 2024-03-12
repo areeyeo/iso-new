@@ -256,6 +256,7 @@ $routes->get('awareness', 'AwarenessController::index');
 $routes->get('communication', 'CommunicationController::index');
 
 $routes->get('documented_information', 'DocumentedController::index');
+$routes->get('crud_documented_create_update', 'DocumentedController::indexCrudCreateUpdate');
 
 $routes->get('risk_Criteria_Context_Consequence', 'Setting_RiskCriteriaContextController::indexConsequence');
 $routes->get('risk_Criteria_Context_Likelihood', 'Setting_RiskCriteriaContextController::indexLikelihood');

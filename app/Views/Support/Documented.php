@@ -113,10 +113,10 @@
                 </ul>
                 <div class="tab-content" id="pills-tabContent">
                     <div class="tab-pane fade show active" id="pills-create-update" role="tabpanel" aria-labelledby="pills-create-update-tab">
-                    <?php include("Doc_Create_Update.php"); ?>
+                        <?php include("Doc_Create_Update.php"); ?>
                     </div>
                     <div class="tab-pane fade" id="pills-control" role="tabpanel" aria-labelledby="pills-control-tab">
-                    <?php include("Doc_Control.php"); ?>
+                        <?php include("Doc_Control.php"); ?>
                     </div>
                 </div>
             </div>

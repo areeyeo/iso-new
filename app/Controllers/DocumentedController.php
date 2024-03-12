@@ -48,4 +48,10 @@ class DocumentedController extends BaseController
         echo view('layout/header');
         echo view('Support/Documented', $data);
     }
+    
+    public function indexCrudCreateUpdate()
+    {
+        echo view('layout/header');
+        echo view('Support/CRUD_Create_Update');
+    }
     }
