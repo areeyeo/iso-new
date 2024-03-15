@@ -166,7 +166,7 @@
                 </ul>
             </div>
             <div id="btn-Docurement" name="btn-Docurement">
-                <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#modal-default" onclick="CRUDDocumentCreateUpdate()">
+                <button type="button" class="btn btn-outline-primary" onclick="CRUDDocumentCreateUpdate()">
                     <span class="text-nowrap"><i class="fas fa-edit"></i>Create Docurement</span>
             </div>
         </div>
@@ -182,7 +182,7 @@
                                 <th>DOCUMENT ABBREVIATION</th>
                                 <th>NAME TH</th>
                                 <th>NAME ENG</th>
-                                <th>SECRET LEVEL</th>
+                                <th>Secret Level</th>
                                 <th>CREATE/UPDATE/UPLOAD</th>
                                 <th>REVIEW</th>
                                 <th>APPROVAL</th>
@@ -206,7 +206,7 @@
                                 <th>DOCUMENT ABBREVIATION</th>
                                 <th>NAME TH</th>
                                 <th>NAME ENG</th>
-                                <th>SECRET LEVEL</th>
+                                <th>Secret Level</th>
                                 <th>MANAGEMENT PERMISSIONS</th>
                                 <th>STATUS</th>
                                 <th>FILE</th>
@@ -227,54 +227,81 @@
 <!-- data -->
 <script>
     var Data = [{
-        "DOCUREMENT_TYPE": "Procedure",
-        "DOCUMENT_ABBREVIATION": "PR_001",
-        "NAME_TH": "ขั้นตอน...",
-        "NAME_ENG": "Procedure...",
-        "SECRET_LEVEL": "Top secret",
-        "CREATE_UPDATE_UPLOAD": ["Amelia Smith", "Olivia Williams"],
-        "REVIEW": ["Isla Taylor"],
-        "APPROVAL": ["Amelia Smith"],
-        "MANAGEMENT_PERMISSIONS": ["Create/Update/Upload"],
-        "STATUS": "Draft",
-        "FILE": "test.pdf",
-    }, {
-        "DOCUREMENT_TYPE": "Form",
-        "DOCUMENT_ABBREVIATION": "FM_001",
-        "NAME_TH": "ฟอร์ม...",
-        "NAME_ENG": "Form...",
-        "SECRET_LEVEL": "Internal Use",
-        "CREATE_UPDATE_UPLOAD": ["Olivia Williams", "Poppy Brown"],
-        "REVIEW": ["Isla Taylor"],
-        "APPROVAL": ["Amelia Smith"],
-        "MANAGEMENT_PERMISSIONS": ["Review", "Approve"],
-        "STATUS": "Rejected",
-        "FILE": "test.pdf",
-    }, {
-        "DOCUREMENT_TYPE": "Policy",
-        "DOCUMENT_ABBREVIATION": "PO_001",
-        "NAME_TH": "นโยบาย...",
-        "NAME_ENG": "Policy...",
-        "SECRET_LEVEL": "Confidential",
-        "CREATE_UPDATE_UPLOAD": ["Oscar Davis"],
-        "REVIEW": ["Oscar Davis"],
-        "APPROVAL": ["Amelia Smith"],
-        "MANAGEMENT_PERMISSIONS": ["Approve"],
-        "STATUS": "Approved",
-        "FILE": "test.pdf",
-    }, {
-        "DOCUREMENT_TYPE": "Plan",
-        "DOCUMENT_ABBREVIATION": "PL_001",
-        "NAME_TH": "แผน...",
-        "NAME_ENG": "Plan...",
-        "SECRET_LEVEL": "Secret",
-        "CREATE_UPDATE_UPLOAD": ["Amelia Smith"],
-        "REVIEW": ["Amelia Smith"],
-        "APPROVAL": ["Amelia Smith"],
-        "MANAGEMENT_PERMISSIONS": ["Review"],
-        "STATUS": "Pending Approval",
-        "FILE": "test.pdf",
-    }, ];
+            "DOCUREMENT_TYPE": "Procedure",
+            "DOCUMENT_ABBREVIATION": "PR_001",
+            "NAME_TH": "ขั้นตอน...",
+            "NAME_ENG": "Procedure...",
+            "SECRET_LEVEL": "Top secret",
+            "CREATE_UPDATE_UPLOAD": ["Amelia Smith", "Olivia Williams"],
+            "REVIEW": ["Isla Taylor"],
+            "APPROVAL": ["Amelia Smith"],
+            "MANAGEMENT_PERMISSIONS": ["Create/Update/Upload"],
+            "STATUS": "Draft",
+            "FILE": "test.pdf",
+        }, {
+            "DOCUREMENT_TYPE": "Form",
+            "DOCUMENT_ABBREVIATION": "FM_001",
+            "NAME_TH": "ฟอร์ม...",
+            "NAME_ENG": "Form...",
+            "SECRET_LEVEL": "Internal Use",
+            "CREATE_UPDATE_UPLOAD": ["Olivia Williams", "Poppy Brown"],
+            "REVIEW": ["Isla Taylor"],
+            "APPROVAL": ["Amelia Smith"],
+            "MANAGEMENT_PERMISSIONS": ["Review", "Approve"],
+            "STATUS": "Rejected",
+            "FILE": "test.pdf",
+        }, {
+            "DOCUREMENT_TYPE": "Policy",
+            "DOCUMENT_ABBREVIATION": "PO_001",
+            "NAME_TH": "นโยบาย...",
+            "NAME_ENG": "Policy...",
+            "SECRET_LEVEL": "Confidential",
+            "CREATE_UPDATE_UPLOAD": ["Oscar Davis"],
+            "REVIEW": ["Oscar Davis"],
+            "APPROVAL": ["Amelia Smith"],
+            "MANAGEMENT_PERMISSIONS": ["Approve"],
+            "STATUS": "Pending Review",
+            "FILE": "test.pdf",
+        }, {
+            "DOCUREMENT_TYPE": "Plan",
+            "DOCUMENT_ABBREVIATION": "PL_001",
+            "NAME_TH": "แผน...",
+            "NAME_ENG": "Plan...",
+            "SECRET_LEVEL": "Secret",
+            "CREATE_UPDATE_UPLOAD": ["Amelia Smith"],
+            "REVIEW": ["Amelia Smith"],
+            "APPROVAL": ["Amelia Smith"],
+            "MANAGEMENT_PERMISSIONS": ["Review"],
+            "STATUS": "Pending Approval",
+            "FILE": "test.pdf",
+        },
+        {
+            "DOCUREMENT_TYPE": "Plan",
+            "DOCUMENT_ABBREVIATION": "PL_002",
+            "NAME_TH": "แผน...",
+            "NAME_ENG": "Plan...",
+            "SECRET_LEVEL": "Secret",
+            "CREATE_UPDATE_UPLOAD": ["Amelia Smith"],
+            "REVIEW": ["Amelia Smith"],
+            "APPROVAL": ["Amelia Smith"],
+            "MANAGEMENT_PERMISSIONS": ["Review"],
+            "STATUS": "Approved",
+            "FILE": "test.pdf",
+        },
+        {
+            "DOCUREMENT_TYPE": "Plan",
+            "DOCUMENT_ABBREVIATION": "PL_003",
+            "NAME_TH": "แผน...",
+            "NAME_ENG": "Plan...",
+            "SECRET_LEVEL": "Secret",
+            "CREATE_UPDATE_UPLOAD": ["Amelia Smith"],
+            "REVIEW": ["Amelia Smith"],
+            "APPROVAL": ["Amelia Smith"],
+            "MANAGEMENT_PERMISSIONS": ["Review"],
+            "STATUS": "Request Modification",
+            "FILE": "test.pdf",
+        },
+    ];
 
     var table1TableBody = document.getElementById("table-craete-update").getElementsByTagName("tbody")[0];
 
@@ -296,11 +323,11 @@
         cell1_1.innerHTML = `<div class="dropdown">
     <i class="fas fa-ellipsis-v pointer text-primary" id="dropdownMenuButton${index}" data-toggle="dropdown" aria-expanded="false"></i>
     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton${index}">
-      <li data-toggle="modal" data-target="#modal-default " onclick="CRUDDocumentCreateUpdate()"><a class="dropdown-item" href="#">Edit</a></li>
+      <li onclick="CRUDDocumentCreateUpdate()"><a class="dropdown-item" href="#">Edit</a></li>
       <li><a class="dropdown-item" href="#" onclick="CRUDDocumentCreateUpdate()">View</a></li>
       <li><a class="dropdown-item" href="#">Delete</a></li>
       <li><hr class="dropdown-divider"></li>
-      <li data-toggle="modal" data-target="#modal-default" onclick="CRUDDocumentCreateUpdate()"><a class="dropdown-item" href="#">Create</a></li>
+      <li onclick="CRUDDocumentCreateUpdate()"><a class="dropdown-item" href="#">Create</a></li>
     </ul>
   </div>`;
         cell2_1.textContent = index + 1;
@@ -315,7 +342,12 @@
         cell9_1.style.textAlign = 'left';
         displayArrayInCell(cell10_1, row.APPROVAL);
         cell10_1.style.textAlign = 'left';
-        cell11_1.textContent = row.STATUS;
+        cell11_1.innerHTML = row.STATUS === 'Draft' ? '<span class="badge rounded-pill" style="background-color: #343A40; color: #fff;">Draft</span>' :
+            row.STATUS === 'Rejected' ? '<span class="badge rounded-pill" style="background-color: #D40000; color: #fff;">Rejected</span>' :
+            row.STATUS === 'Pending Review' ? '<span class="badge rounded-pill" style="background-color: #D4EDDA; color: #28A745;">Pending Review</span>' :
+            row.STATUS === 'Pending Approval' ? '<span class="badge rounded-pill" style="background-color: #E2F0FF; color: #0062FF;">Pending Approval</span>' :
+            row.STATUS === 'Approved' ? '<span class="badge rounded-pill" style="background-color: #28A745; color: #fff;">Approved</span>' :
+            row.STATUS === 'Request Modification' ? '<span class="badge rounded-pill" style="background-color: #FBCB0A; color: #fff;">Request Modification</span>' : '';
         cell12_1.textContent = row.FILE;
     });
 
@@ -334,7 +366,7 @@
         var cell9_2 = newRow.insertCell(8);
         var cell10_2 = newRow.insertCell(9);
 
-        cell1_2.innerHTML = `<i class="fas fa-edit pointer text-primary" aria-expanded="false"></i>`;
+        cell1_2.innerHTML = `<div onclick="CRUDDocumentManagementDocurement()"><i class="fas fa-edit pointer text-primary" aria-expanded="false"></i></div>`;
         cell2_2.textContent = index + 1;
         cell3_2.textContent = row.DOCUREMENT_TYPE;
         cell4_2.textContent = row.DOCUMENT_ABBREVIATION;
@@ -343,7 +375,12 @@
         cell7_2.textContent = row.SECRET_LEVEL;
         displayArrayInCell(cell8_2, row.MANAGEMENT_PERMISSIONS);
         cell8_2.style.textAlign = 'left';
-        cell9_2.textContent = row.STATUS;
+        cell9_2.innerHTML = row.STATUS === 'Draft' ? '<span class="badge rounded-pill" style="background-color: #343A40; color: #fff;">Draft</span>' :
+            row.STATUS === 'Rejected' ? '<span class="badge rounded-pill" style="background-color: #D40000; color: #fff;">Rejected</span>' :
+            row.STATUS === 'Pending Review' ? '<span class="badge rounded-pill" style="background-color: #D4EDDA; color: #28A745;">Pending Review</span>' :
+            row.STATUS === 'Pending Approval' ? '<span class="badge rounded-pill" style="background-color: #E2F0FF; color: #0062FF;">Pending Approval</span>' :
+            row.STATUS === 'Approved' ? '<span class="badge rounded-pill" style="background-color: #28A745; color: #fff;">Approved</span>' :
+            row.STATUS === 'Request Modification' ? '<span class="badge rounded-pill" style="background-color: #FBCB0A; color: #fff;">Request Modification</span>' : '';
         cell10_2.textContent = row.FILE;
     });
 
@@ -360,6 +397,10 @@
 <script>
     function CRUDDocumentCreateUpdate() {
         window.location.href = "crud_documented_create_update";
+    }
+
+    function CRUDDocumentManagementDocurement() {
+        window.location.href = "crud_documented_management_docurement";
     }
 </script>
 <script>

@@ -6,13 +6,13 @@
     }
 
     .select2-selection__choice {
-        background-color: #E2F0FF !important;
-        border: 1px solid #E2F0FF !important;
-        color: #0062FF !important;
+        background-color: #1D2124 !important;
+        border: 1px solid #1D2124 !important;
+        color: #fff !important;
     }
 
     .select2-selection__choice__remove {
-        color: #0062FF !important;
+        color: #fff !important;
     }
 </style>
 
@@ -24,12 +24,10 @@
     <!-- Select2 CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
     <style>
-        /* Style the container */
         .select2-container {
             width: 100%;
         }
 
-        /* Style the tags */
         .select2-selection__choice {
             background-color: #343A40;
             color: #fff;
@@ -68,7 +66,7 @@ $statuses = [
     "Request Modification" => ["background-color" => "#FBCB0A", "color" => "#fff"]
 ];
 
-$status = "Pending Approval";
+$status = "Rejected";
 $badgeStyle = $statuses[$status];
 ?>
 
@@ -97,8 +95,44 @@ $badgeStyle = $statuses[$status];
             <div class="container-fluid">
                 <div class="card">
                     <div class="card-header">
-                        <div>
-                            <h2 class="card-title">Create Creating & Updating</h2>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h2 class="card-title">Management Control</h2>
+                            </div>
+                            <div>
+                                <button type="button" class="btn btn-outline-dark btn-sm btn-save-draft" onclick="confirm_Alert('ต้องการที่จะ Save Draft หรือไม่', 'context/status_update/<?= $data['id_version'] ?>/1')">
+                                    <i class="fas fa-save"></i>
+                                    &nbsp;Save Draft
+                                </button>
+                                <button type="button" class="btn btn-outline-primary btn-sm btn-send-review" onclick="confirm_Alert('ต้องการที่จะ Send Review หรือไม่', 'context/status_update/<?= $data['id_version'] ?>/1')">
+                                    <i class="fas fa-user-check"></i>
+                                    &nbsp;Send Review
+                                </button>
+                                <button type="button" class="btn btn-outline-success btn-sm btn-send-approval" onclick="confirm_Alert('ต้องการที่จะ Send Approval หรือไม่', 'context/status_update/<?= $data['id_version'] ?>/1')">
+                                    <i class="fas fa-paper-plane"></i>
+                                    &nbsp;Send Approval
+                                </button>
+                                <button type="button" class="btn btn-success btn-sm btn-approved" onclick="confirm_Alert('ต้องการที่จะ Approved หรือไม่', 'context/status_update/<?= $data['id_version'] ?>/1')">
+                                    <i class="fas fa-check-circle"></i>
+                                    &nbsp;Approved
+                                </button>
+                                <button type="button" class="btn btn-danger btn-sm btn-rejected" data-toggle="modal" data-target="#modal-default" id="load-modal-button" onclick="load_modal(2)">
+                                    <i class="fas fa-times-circle"></i>
+                                    &nbsp;Rejected
+                                </button>
+                                <button type="button" class="btn btn-outline-danger btn-sm btn-view-rejection-details" id="view-rejection-details-button">
+                                    <i class="fas fa-eye"></i>
+                                    &nbsp;View Rejection Details
+                                </button>
+                                <button type="button" class="btn btn-warning btn-sm btn-request-modification" data-toggle="modal" data-target="#modal-default" id="load-modal-button" onclick="load_modal(1)">
+                                    <i class="fas fa-sync-alt"></i>
+                                    &nbsp;Request Modification
+                                </button>
+                                <button type="button" class="btn btn-outline-warning btn-sm btn-view-request-details" id="view-request-details-button">
+                                    <i class="fas fa-eye"></i>
+                                    &nbsp;View Request Modification Details
+                                </button>
+                            </div>
                         </div>
                     </div>
                     <div class="card-body">
@@ -155,26 +189,13 @@ $badgeStyle = $statuses[$status];
                                     </select>
                                 </div>
                             </div>
+
                         </div>
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="form-group mt-3">
-                                    <h6>Create/Update/Upload</h6>
-                                    <select id="tags-create" multiple="multiple" class="form-control select2tags">
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="form-group mt-3">
-                                    <h6>Review</h6>
-                                    <select id="tags-review" multiple="multiple" class="form-control">
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="form-group mt-3">
-                                    <h6>Approve</h6>
-                                    <select id="tags-approve" multiple="multiple" class="form-control">
+                                    <h6>Management Permissions</h6>
+                                    <select id="tags-management-doc" multiple="multiple" class="form-control select2tags" disabled>
                                     </select>
                                 </div>
                             </div>
@@ -182,8 +203,8 @@ $badgeStyle = $statuses[$status];
                                 <div class="form-group">
                                     <h6>Attach File</h6>
                                     <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="risk-file" accept=".docx, .pdf, .xlsx , .doc" data-max-size="20971520" name="file">
-                                        <label class="custom-file-label" for="risk-file">Choose file</label>
+                                        <input type="file" class="custom-file-input" id="doc-file" accept=".docx, .pdf, .xlsx , .doc" data-max-size="20971520" name="file">
+                                        <label class="custom-file-label" for="doc-file">Choose file</label>
                                     </div>
                                     <h6 class="gray-text">.doc .xls .pdf (20 MB per file)</h6>
                                 </div>
@@ -218,6 +239,7 @@ $badgeStyle = $statuses[$status];
                             </div>
                         </div>
                     </div>
+
                     <div class="d-flex justify-content-center mb-5">
                         <button type="submit" class="btn btn-success" name="submit" value="Submit">Save</button>
                         <button type="button" class="btn btn-danger" data-dismiss="modal" style="margin-left: 30px;">Cancel</button>
@@ -226,7 +248,14 @@ $badgeStyle = $statuses[$status];
             </div>
     </div>
     </section>
-
+    <div class="modal fade" id="modal-default">
+        <div id="request_modification_modal">
+            <?= $this->include("Modal/Request_Modification"); ?>
+        </div>
+        <div id="reject_modal">
+            <?= $this->include("Modal/Reject_Modal"); ?>
+        </div>
+    </div>
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- Select2 JavaScript -->
@@ -234,26 +263,83 @@ $badgeStyle = $statuses[$status];
     <!-- Your JavaScript -->
     <script>
         $(document).ready(function() {
-            $('#tags-create').select2({
-                data: ["Amelia Smith", "Olivia Williams", "Isla Taylor", "Poppy Brown", "Oscar Davis", "James Wilson", "Daniel Martin"],
+            $('#tags-management-doc').select2({
+                data: ["Create/Update/Upload", "Review", "Approval"],
                 placeholder: "Select Tags",
                 tags: false,
                 tokenSeparators: [',', ' '],
-                width: '100%'
+                width: '100%',
             });
-            $('#tags-review').select2({
-                data: ["Amelia Smith", "Olivia Williams", "Isla Taylor", "Poppy Brown", "Oscar Davis", "James Wilson", "Daniel Martin"],
-                placeholder: "Select Tags",
-                tags: false,
-                tokenSeparators: [',', ' '],
-                width: '100%'
+
+            $('#tags-management-doc').val(["Create/Update/Upload", "Review", "Approval"]).trigger('change');
+        });
+    </script>
+    <script>
+        var documentStatus = "<?php echo $status; ?>";
+
+        $("button.btn").hide();
+
+        if (documentStatus === "Draft") {
+            $("button.btn-save-draft").show();
+            $("button.btn-send-review").show();
+        } else if (documentStatus === "Rejected") {
+            $("button.btn-save-draft").show();
+            $("button.btn-send-review").show();
+            $("button.btn-view-rejection-details").show();
+        } else if (documentStatus === "Pending Review") {
+            $("button.btn-send-approval").show();
+            $("button.btn-rejected").show();
+        } else if (documentStatus === "Pending Approval") {
+            $("button.btn-approved").show();
+            $("button.btn-rejected").show();
+        } else if (documentStatus === "Approved") {
+            $("button.btn-request-modification").show();
+        } else if (documentStatus === "Request Modification") {
+            $("button.btn-save-draft").show();
+            $("button.btn-send-review").show();
+            $("button.btn-view-request-details").show();
+        }
+    </script>
+    <script>
+        function load_modal(check, data_, status) {
+            request_modification_modal = document.getElementById("request_modification_modal");
+            reject_modal = document.getElementById("reject_modal");
+
+            if (check == '1') {
+                //--show modal Request_Modification--//
+                request_modification_modal.style.display = "block";
+                reject_modal.style.display = "none";
+
+                $(".modal-body #status").val(data_);
+                var element = <?php echo json_encode($data); ?>;
+                $(".modal-body #modified_date").val(element.modified_date);
+            } else if (check == '2') {
+                //--show modal Request_Modification--//
+                request_modification_modal.style.display = "none";
+                reject_modal.style.display = "block";
+
+                $(".modal-body #status").val(data_);
+                var element = <?php echo json_encode($data); ?>;
+                $(".modal-body #modified_date").val(element.modified_date);
+            }
+        }
+    </script>
+    <script>
+        $('#view-request-details-button').click(function() {
+            Swal.fire({
+                title: 'Request Modification Details',
+                html: '<p>Example of a short message Example of a short message Example of a short message Example of a short message.</p>',
+                icon: 'info',
+                confirmButtonText: 'Close'
             });
-            $('#tags-approve').select2({
-                data: ["Amelia Smith", "Olivia Williams", "Isla Taylor", "Poppy Brown", "Oscar Davis", "James Wilson", "Daniel Martin"],
-                placeholder: "Select Tags",
-                tags: false,
-                tokenSeparators: [',', ' '],
-                width: '100%'
+        });
+
+        $('#view-rejection-details-button').click(function() {
+            Swal.fire({
+                title: 'Rejection Details',
+                html: '<p>Example of a short message Example of a short message Example of a short message Example of a short message.</p>',
+                icon: 'info',
+                confirmButtonText: 'Close'
             });
         });
     </script>

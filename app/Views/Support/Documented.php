@@ -92,7 +92,30 @@
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="<?= site_url('/'); ?>">Home</a></li>
-                            <li class="breadcrumb-item"><a>Documented Information</a></li>
+                            <li class="breadcrumb-item active">Documented Information</li>
+                            <li class="breadcrumb-item topic active">
+                                <?php
+                                $active_tab = 'create-update';
+                                if (isset($_GET['active_tab'])) {
+                                    $active_tab = $_GET['active_tab'];
+                                }
+                                if ($active_tab == 'create-update') {
+                                    echo 'Creating & Updating';
+                                } elseif ($active_tab == 'control') {
+                                    echo 'Document Control';
+                                }
+                                ?>
+                            </li>
+                            <li class="breadcrumb-item version active">
+                                <?php
+                                $active_tab = isset($_GET['active_tab']) ? $_GET['active_tab'] : 'create-update';
+                                if ($active_tab == 'create-update' && isset($data_createup['num_ver'])) {
+                                    echo ' Version ' . $data_createup['num_ver'];
+                                } elseif ($active_tab == 'control' && isset($data_control['num_ver'])) {
+                                    echo ' Version ' . $data_control['num_ver'];
+                                }
+                                ?>
+                            </li>
                         </ol>
                     </div>
                 </div>
@@ -322,4 +345,37 @@
                 $(".modal-body #url_route").val("leadership/file_ls/rename/" + rowData.id_ls_file);
             }
         }
+    </script>
+    <script>
+        $('.title-topic').on('click', function() {
+            var tabText = $(this).text();
+            $('.topic.active').text(tabText);
+        });
+    </script>
+    <script>
+        function updateVersion(activeTab) {
+            var versionElement = document.querySelector('.breadcrumb-item.version.active');
+            var versionText = '';
+
+            if (activeTab === 'create-update' && <?= isset($data_createup['num_ver']) ? 'true' : 'false'; ?>) {
+                versionText = ' Version <?= $data_createup['num_ver']; ?>';
+            } else if (activeTab === 'control' && <?= isset($data_control['num_ver']) ? 'true' : 'false'; ?>) {
+                versionText = ' Version <?= $data_control['num_ver']; ?>';
+            }
+
+            versionElement.textContent = versionText;
+        }
+
+        document.getElementById("pills-create-update-tab").addEventListener("click", function() {
+            updateVersion('create-update');
+        });
+
+        document.getElementById("pills-control-tab").addEventListener("click", function() {
+            updateVersion('control');
+        });
+
+        window.addEventListener('DOMContentLoaded', function() {
+            var activeTab = '<?= isset($_GET['active_tab']) ? $_GET['active_tab'] : 'create-update'; ?>';
+            updateVersion(activeTab);
+        });
     </script>

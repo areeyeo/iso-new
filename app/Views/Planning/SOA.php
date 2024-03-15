@@ -460,57 +460,57 @@
         var Data = [{
                 "SEC": "5",
                 "CONTROL": "Organizational controls",
-                "JUST_EXCLUSION": "",
-                "REASON": "",
+                "EXCLUSION": "",
+                "JUSTIFICATION": "",
                 "HOWTO": "",
             },
             {
                 "SEC": "5.1",
                 "CONTROL": "Policies for information security",
-                "JUST_EXCLUSION": "Yes",
-                "REASON": "Example of a short message.",
+                "EXCLUSION": "Yes",
+                "JUSTIFICATION": "Example of a short message.",
                 "HOWTO": "Example of a short message.",
             },
             {
                 "SEC": "5.2",
                 "CONTROL": "Information security roles and responsibilities",
-                "JUST_EXCLUSION": "No",
-                "REASON": "Example of a short message.",
+                "EXCLUSION": "No",
+                "JUSTIFICATION": "Example of a short message.",
                 "HOWTO": "Example of a short message.",
             },
             {
                 "SEC": "5.3",
                 "CONTROL": "Segregation of duties",
-                "JUST_EXCLUSION": "Yes",
-                "REASON": "Example of a short message.",
+                "EXCLUSION": "Yes",
+                "JUSTIFICATION": "Example of a short message.",
                 "HOWTO": "Example of a short message.",
             },
             {
                 "SEC": "6",
                 "CONTROL": "People controls",
-                "JUST_EXCLUSION": "",
-                "REASON": "",
+                "EXCLUSION": "",
+                "JUSTIFICATION": "",
                 "HOWTO": "",
             },
             {
                 "SEC": "6.1",
                 "CONTROL": "Screening",
-                "JUST_EXCLUSION": "No",
-                "REASON": "Example of a short message.",
+                "EXCLUSION": "No",
+                "JUSTIFICATION": "Example of a short message.",
                 "HOWTO": "Example of a short message.",
             },
             {
                 "SEC": "6.2",
                 "CONTROL": "Terms and conditions of employment",
-                "JUST_EXCLUSION": "No",
-                "REASON": "Example of a short message.",
+                "EXCLUSION": "No",
+                "JUSTIFICATION": "Example of a short message.",
                 "HOWTO": "Example of a short message.",
             },
             {
                 "SEC": "LC001",
                 "CONTROL": "text",
-                "JUST_EXCLUSION": "Yes",
-                "REASON": "Example of a short message.",
+                "EXCLUSION": "Yes",
+                "JUSTIFICATION": "Example of a short message.",
                 "HOWTO": "Example of a short message.",
             },
         ];
@@ -538,8 +538,8 @@
   </div>`;
             cell2.textContent = row.SEC;
             cell3.textContent = row.CONTROL;
-            cell4.textContent = row.JUST_EXCLUSION;
-            cell5.textContent = row.REASON;
+            cell4.textContent = row.EXCLUSION;
+            cell5.textContent = row.JUSTIFICATION;
             cell6.textContent = row.HOWTO;
 
             if (Number.isInteger(Number(row.SEC))) {
