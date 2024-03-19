@@ -257,7 +257,7 @@ $routes->get('communication', 'CommunicationController::index');
 
 $routes->get('documented_information', 'DocumentedController::index');
 $routes->get('crud_documented_create_update', 'DocumentedController::indexCrudCreateUpdate');
-$routes->get('crud_documented_management_docurement', 'DocumentedController::indexCrudManagementDoc');
+$routes->get('crud_documented_management_document', 'DocumentedController::indexCrudManagementDoc');
 $routes->get('crud_documented_control', 'DocumentedController::indexCrudControl');
 
 $routes->get('risk_Criteria_Context_Consequence', 'Setting_RiskCriteriaContextController::indexConsequence');

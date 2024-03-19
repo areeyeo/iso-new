@@ -159,7 +159,7 @@ $badgeStyle = $statuses[$status];
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="form-group mt-3">
-                                    <h6>Create/Update/Upload</h6>
+                                    <h6>Create / Update / Upload</h6>
                                     <select id="tags-create" multiple="multiple" class="form-control select2tags">
                                     </select>
                                 </div>

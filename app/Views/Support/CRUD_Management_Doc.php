@@ -14,6 +14,20 @@
     .select2-selection__choice__remove {
         color: #fff !important;
     }
+
+    .input-group button {
+        padding: 5px 10px;
+        background-color: transparent;
+        color: #007bff;
+        border: 1px solid #007bff;
+        border-radius: 0px 4px 4px 0px;
+        cursor: pointer;
+    }
+
+    .input-group button:hover {
+        background-color: #007bff;
+        color: #fff;
+    }
 </style>
 
 <head>
@@ -66,7 +80,7 @@ $statuses = [
     "Request Modification" => ["background-color" => "#FBCB0A", "color" => "#fff"]
 ];
 
-$status = "Rejected";
+$status = "Pending Review";
 $badgeStyle = $statuses[$status];
 ?>
 
@@ -200,13 +214,20 @@ $badgeStyle = $statuses[$status];
                                 </div>
                             </div>
                             <div class="col-lg-6 mt-3">
-                                <div class="form-group">
+                                <div class="form-group user-upload">
                                     <h6>Attach File</h6>
                                     <div class="custom-file">
                                         <input type="file" class="custom-file-input" id="doc-file" accept=".docx, .pdf, .xlsx , .doc" data-max-size="20971520" name="file">
                                         <label class="custom-file-label" for="doc-file">Choose file</label>
                                     </div>
                                     <h6 class="gray-text">.doc .xls .pdf (20 MB per file)</h6>
+                                </div>
+                                <div class="form-group user-view">
+                                    <h6>File</h6>
+                                    <div class="input-group">
+                                        <input class="form-control gray-text" type="text" name="file" id="file" disabled></input>
+                                        <button type="button" id="button-addon2"><i class="fas fa-search"></i>&nbsp;View</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -278,26 +299,39 @@ $badgeStyle = $statuses[$status];
         var documentStatus = "<?php echo $status; ?>";
 
         $("button.btn").hide();
+        $(".user-upload, .user-view").hide();
 
         if (documentStatus === "Draft") {
             $("button.btn-save-draft").show();
             $("button.btn-send-review").show();
+            $(".user-upload").show();
+            $(".user-view").hide();
         } else if (documentStatus === "Rejected") {
             $("button.btn-save-draft").show();
             $("button.btn-send-review").show();
             $("button.btn-view-rejection-details").show();
+            $(".user-upload").show();
+            $(".user-view").hide();
         } else if (documentStatus === "Pending Review") {
             $("button.btn-send-approval").show();
             $("button.btn-rejected").show();
+            $(".user-upload").hide();
+            $(".user-view").show();
         } else if (documentStatus === "Pending Approval") {
             $("button.btn-approved").show();
             $("button.btn-rejected").show();
+            $(".user-upload").hide();
+            $(".user-view").show();
         } else if (documentStatus === "Approved") {
             $("button.btn-request-modification").show();
+            $(".user-upload").hide();
+            $(".user-view").show();
         } else if (documentStatus === "Request Modification") {
             $("button.btn-save-draft").show();
             $("button.btn-send-review").show();
             $("button.btn-view-request-details").show();
+            $(".user-upload").show();
+            $(".user-view").hide();
         }
     </script>
     <script>

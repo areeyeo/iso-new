@@ -162,7 +162,7 @@
                         <tr>
                             <th class="text-center">ACTION</th>
                             <th>NO.</th>
-                            <th>DOCUREMENT TYPE</th>
+                            <th>DOCUMENT TYPE</th>
                             <th>DOCUMENT ABBREVIATION</th>
                             <th>NAME TH</th>
                             <th>NAME ENG</th>
@@ -186,7 +186,7 @@
 <!-- data -->
 <script>
     var Data = [{
-            "DOCUREMENT_TYPE": "Procedure",
+            "DOCUMENT_TYPE": "Procedure",
             "DOCUMENT_ABBREVIATION": "PR_001",
             "NAME_TH": "ขั้นตอน...",
             "NAME_ENG": "Procedure...",
@@ -196,7 +196,7 @@
             "REVIEW_DATE": "01/01/01",
             "FILE": "test.pdf",
         }, {
-            "DOCUREMENT_TYPE": "Form",
+            "DOCUMENT_TYPE": "Form",
             "DOCUMENT_ABBREVIATION": "FM_001",
             "NAME_TH": "ฟอร์ม...",
             "NAME_ENG": "Form...",
@@ -206,7 +206,7 @@
             "REVIEW_DATE": "01/01/01",
             "FILE": "test.pdf",
         }, {
-            "DOCUREMENT_TYPE": "Policy",
+            "DOCUMENT_TYPE": "Policy",
             "DOCUMENT_ABBREVIATION": "PO_001",
             "NAME_TH": "นโยบาย...",
             "NAME_ENG": "Policy...",
@@ -216,7 +216,7 @@
             "REVIEW_DATE": "01/01/01",
             "FILE": "test.pdf",
         }, {
-            "DOCUREMENT_TYPE": "Plan",
+            "DOCUMENT_TYPE": "Plan",
             "DOCUMENT_ABBREVIATION": "PL_001",
             "NAME_TH": "แผน...",
             "NAME_ENG": "Plan...",
@@ -227,7 +227,7 @@
             "FILE": "test.pdf",
         },
         {
-            "DOCUREMENT_TYPE": "Plan",
+            "DOCUMENT_TYPE": "Plan",
             "DOCUMENT_ABBREVIATION": "PL_002",
             "NAME_TH": "แผน...",
             "NAME_ENG": "Plan...",
@@ -238,7 +238,7 @@
             "FILE": "test.pdf",
         },
         {
-            "DOCUREMENT_TYPE": "Plan",
+            "DOCUMENT_TYPE": "Plan",
             "DOCUMENT_ABBREVIATION": "PL_003",
             "NAME_TH": "แผน...",
             "NAME_ENG": "Plan...",
@@ -274,7 +274,7 @@
     </ul>
   </div>`;
         cell2.textContent = index + 1;
-        cell3.textContent = row.DOCUREMENT_TYPE;
+        cell3.textContent = row.DOCUMENT_TYPE;
         cell4.textContent = row.DOCUMENT_ABBREVIATION;
         cell5.textContent = row.NAME_TH;
         cell6.textContent = row.NAME_ENG;

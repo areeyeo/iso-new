@@ -160,14 +160,14 @@
                     </li>
                     <li class="nav-item-tab">
                         <a class="nav-link" id="Management-Doc-tab" data-toggle="pill" href="#Management-Doc" role="tab" aria-controls="Management-Doc" aria-selected="false" onclick="getTableData2();">
-                            Management Docurement
+                            Management Document
                         </a>
                     </li>
                 </ul>
             </div>
-            <div id="btn-Docurement" name="btn-Docurement">
+            <div id="btn-Document" name="btn-Document">
                 <button type="button" class="btn btn-outline-primary" onclick="CRUDDocumentCreateUpdate()">
-                    <span class="text-nowrap"><i class="fas fa-edit"></i>Create Docurement</span>
+                    <span class="text-nowrap"><i class="fas fa-edit"></i>&nbsp;&nbsp;Create Document</span>
             </div>
         </div>
         <div class="tab-content">
@@ -178,12 +178,12 @@
                             <tr>
                                 <th class="text-center">ACTION</th>
                                 <th>NO.</th>
-                                <th>DOCUREMENT TYPE</th>
+                                <th>DOCUMENT TYPE</th>
                                 <th>DOCUMENT ABBREVIATION</th>
                                 <th>NAME TH</th>
                                 <th>NAME ENG</th>
                                 <th>Secret Level</th>
-                                <th>CREATE/UPDATE/UPLOAD</th>
+                                <th>CREATE / UPDATE / UPLOAD</th>
                                 <th>REVIEW</th>
                                 <th>APPROVAL</th>
                                 <th>STATUS</th>
@@ -202,7 +202,7 @@
                             <tr>
                                 <th>ACTION</th>
                                 <th>NO.</th>
-                                <th>DOCUREMENT TYPE</th>
+                                <th>DOCUMENT TYPE</th>
                                 <th>DOCUMENT ABBREVIATION</th>
                                 <th>NAME TH</th>
                                 <th>NAME ENG</th>
@@ -227,7 +227,7 @@
 <!-- data -->
 <script>
     var Data = [{
-            "DOCUREMENT_TYPE": "Procedure",
+            "DOCUMENT_TYPE": "Procedure",
             "DOCUMENT_ABBREVIATION": "PR_001",
             "NAME_TH": "ขั้นตอน...",
             "NAME_ENG": "Procedure...",
@@ -239,7 +239,7 @@
             "STATUS": "Draft",
             "FILE": "test.pdf",
         }, {
-            "DOCUREMENT_TYPE": "Form",
+            "DOCUMENT_TYPE": "Form",
             "DOCUMENT_ABBREVIATION": "FM_001",
             "NAME_TH": "ฟอร์ม...",
             "NAME_ENG": "Form...",
@@ -251,7 +251,7 @@
             "STATUS": "Rejected",
             "FILE": "test.pdf",
         }, {
-            "DOCUREMENT_TYPE": "Policy",
+            "DOCUMENT_TYPE": "Policy",
             "DOCUMENT_ABBREVIATION": "PO_001",
             "NAME_TH": "นโยบาย...",
             "NAME_ENG": "Policy...",
@@ -263,7 +263,7 @@
             "STATUS": "Pending Review",
             "FILE": "test.pdf",
         }, {
-            "DOCUREMENT_TYPE": "Plan",
+            "DOCUMENT_TYPE": "Plan",
             "DOCUMENT_ABBREVIATION": "PL_001",
             "NAME_TH": "แผน...",
             "NAME_ENG": "Plan...",
@@ -276,7 +276,7 @@
             "FILE": "test.pdf",
         },
         {
-            "DOCUREMENT_TYPE": "Plan",
+            "DOCUMENT_TYPE": "Plan",
             "DOCUMENT_ABBREVIATION": "PL_002",
             "NAME_TH": "แผน...",
             "NAME_ENG": "Plan...",
@@ -289,7 +289,7 @@
             "FILE": "test.pdf",
         },
         {
-            "DOCUREMENT_TYPE": "Plan",
+            "DOCUMENT_TYPE": "Plan",
             "DOCUMENT_ABBREVIATION": "PL_003",
             "NAME_TH": "แผน...",
             "NAME_ENG": "Plan...",
@@ -331,7 +331,7 @@
     </ul>
   </div>`;
         cell2_1.textContent = index + 1;
-        cell3_1.textContent = row.DOCUREMENT_TYPE;
+        cell3_1.textContent = row.DOCUMENT_TYPE;
         cell4_1.textContent = row.DOCUMENT_ABBREVIATION;
         cell5_1.textContent = row.NAME_TH;
         cell6_1.textContent = row.NAME_ENG;
@@ -366,9 +366,9 @@
         var cell9_2 = newRow.insertCell(8);
         var cell10_2 = newRow.insertCell(9);
 
-        cell1_2.innerHTML = `<div onclick="CRUDDocumentManagementDocurement()"><i class="fas fa-edit pointer text-primary" aria-expanded="false"></i></div>`;
+        cell1_2.innerHTML = `<div onclick="CRUDDocumentManagementDocument()"><i class="fas fa-edit pointer text-primary" aria-expanded="false"></i></div>`;
         cell2_2.textContent = index + 1;
-        cell3_2.textContent = row.DOCUREMENT_TYPE;
+        cell3_2.textContent = row.DOCUMENT_TYPE;
         cell4_2.textContent = row.DOCUMENT_ABBREVIATION;
         cell5_2.textContent = row.NAME_TH;
         cell6_2.textContent = row.NAME_ENG;
@@ -399,17 +399,17 @@
         window.location.href = "crud_documented_create_update";
     }
 
-    function CRUDDocumentManagementDocurement() {
-        window.location.href = "crud_documented_management_docurement";
+    function CRUDDocumentManagementDocument() {
+        window.location.href = "crud_documented_management_document";
     }
 </script>
 <script>
     $('#Create-Update-tab').on('click', function() {
         console.log('Create-Update-tab');
-        $('#btn-Docurement').show();
+        $('#btn-Document').show();
     });
     $('#Management-Doc-tab').on('click', function() {
         console.log('Management-Doc-tab');
-        $('#btn-Docurement').hide();
+        $('#btn-Document').hide();
     })
 </script>

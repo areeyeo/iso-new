@@ -33,7 +33,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Document Control
+                        <h1>Documented Information 
                             <button type="button" class="btn btn-secondary btn-xs" data-toggle="modal" data-target="#modal-default" id="load-modal-button" onclick="load_modal(1)">Requirement</button>
                         </h1>
                     </div>
@@ -52,7 +52,7 @@
                 <div class="card">
                     <div class="card-header">
                         <div>
-                            <h2 class="card-title">Management Control</h2>
+                            <h2 class="card-title">Document Control</h2>
                         </div>
                     </div>
                     <div class="card-body">
