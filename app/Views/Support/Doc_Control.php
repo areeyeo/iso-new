@@ -156,26 +156,30 @@
                 <div class="d-flex justify-content-between align-items-center mb-3">
                     <h4>Document control</h4>
                 </div>
+                <div class="tab-pane fade show active" id="Create-Update" role="tabpanel" aria-labelledby="org-strategy-tab">
+                    <div class="table-wrapper">
+                        <table id="example1" class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">ACTION</th>
+                                    <th>NO.</th>
+                                    <th>DOCUMENT TYPE</th>
+                                    <th>DOCUMENT ABBREVIATION</th>
+                                    <th>NAME TH</th>
+                                    <th>NAME ENG</th>
+                                    <th>Secret Level</th>
+                                    <th>VERSION</th>
+                                    <th>RELEASE DATE</th>
+                                    <th>REVIEW DATE</th>
+                                    <th>FILE</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
 
-                <table id="example1" class="table table-hover">
-                    <thead>
-                        <tr>
-                            <th class="text-center">ACTION</th>
-                            <th>NO.</th>
-                            <th>DOCUMENT TYPE</th>
-                            <th>DOCUMENT ABBREVIATION</th>
-                            <th>NAME TH</th>
-                            <th>NAME ENG</th>
-                            <th>Secret Level</th>
-                            <th>VERSION</th>
-                            <th>RELEASE DATE</th>
-                            <th>REVIEW DATE</th>
-                            <th>FILE</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                </table>
             </div>
         </div>
     </div>
