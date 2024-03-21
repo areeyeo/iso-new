@@ -1,3 +1,4 @@
+<title>Documented Information Version</title>
 <!DOCTYPE html>
 <html lang="en">
 <style>
@@ -97,8 +98,8 @@
                         <div class="row">
                             <div class="col-lg-4">
                                 <div class="form-group mt-3">
-                                    <h6>Document owner</h6>
-                                    <input class="form-control gray-text" type="text" name="nameen" id="nameen"></input>
+                                    <h6>Document Owner</h6>
+                                    <input class="form-control gray-text" type="text" name="docown" id="docown"></input>
                                 </div>
                             </div>
                             <div class="col-lg-4">
@@ -124,10 +125,46 @@
                                     <input class="form-control gray-text" type="date" name="reviewdate" id="reviewdate"></input>
                                 </div>
                             </div>
-                            <div class="col-lg-4">
+                        </div>
+                        <div class="row mt-3 d-flex justify-content-end">
+                            <div class="col-lg-3">
                                 <div class="form-group mt-3">
-                                    <h6>Note</h6>
-                                    <textarea class="form-control gray-text" rows="3" placeholder="Text..." name="note" id="note"></textarea>
+                                    <h6>Created By</h6>
+                                    <input class="form-control gray-text" type="text" name="createdby" id="createdby" disabled></input>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="form-group mt-3">
+                                    <h6>Creation Date</h6>
+                                    <input class="form-control gray-text" type="datetime-local" name="creationtime" id="creationtime" disabled></input>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-end">
+                            <div class="col-lg-3">
+                                <div class="form-group mt-3">
+                                    <h6>Last Modified By</h6>
+                                    <input class="form-control gray-text" type="text" name="lastmodifiedby" id="lastmodifiedby" disabled></input>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="form-group mt-3">
+                                    <h6>Last Modified Date</h6>
+                                    <input class="form-control gray-text" type="datetime-local" name="lastmodifiedtime" id="lastmodifiedtime" disabled></input>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-end">
+                            <div class="col-lg-3">
+                                <div class="form-group mt-3">
+                                    <h6>Approved By</h6>
+                                    <input class="form-control gray-text" type="text" name="approvedby" id="approvedby" disabled></input>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="form-group mt-3">
+                                    <h6>Approval Date</h6>
+                                    <input class="form-control gray-text" type="datetime-local" name="approvaldate" id="approvaldate" disabled></input>
                                 </div>
                             </div>
                         </div>

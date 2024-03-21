@@ -167,7 +167,7 @@
                                     <th>DOCUMENT ABBREVIATION</th>
                                     <th>NAME TH</th>
                                     <th>NAME ENG</th>
-                                    <th>Secret Level</th>
+                                    <th>SECRET LEVEL</th>
                                     <th>VERSION</th>
                                     <th>RELEASE DATE</th>
                                     <th>REVIEW DATE</th>
@@ -196,7 +196,7 @@
             "NAME_ENG": "Procedure...",
             "SECRET_LEVEL": "Top secret",
             "RELEASE_DATE": "01/01/01 10:00",
-            "VERSION": "v 0.0.1",
+            "VERSION": "v.0.0.1",
             "REVIEW_DATE": "01/01/01",
             "FILE": "test.pdf",
         }, {
@@ -206,7 +206,7 @@
             "NAME_ENG": "Form...",
             "SECRET_LEVEL": "Internal Use",
             "RELEASE_DATE": "01/01/01 10:00",
-            "VERSION": "v 0.0.1",
+            "VERSION": "v.0.0.1",
             "REVIEW_DATE": "01/01/01",
             "FILE": "test.pdf",
         }, {
@@ -216,7 +216,7 @@
             "NAME_ENG": "Policy...",
             "SECRET_LEVEL": "Confidential",
             "RELEASE_DATE": "01/01/01 10:00",
-            "VERSION": "v 0.0.1",
+            "VERSION": "v.0.0.1",
             "REVIEW_DATE": "01/01/01",
             "FILE": "test.pdf",
         }, {
@@ -226,7 +226,7 @@
             "NAME_ENG": "Plan...",
             "SECRET_LEVEL": "Secret",
             "RELEASE_DATE": "01/01/01 10:00",
-            "VERSION": "v 0.0.1",
+            "VERSION": "v.0.0.1",
             "REVIEW_DATE": "01/01/01",
             "FILE": "test.pdf",
         },
@@ -237,7 +237,7 @@
             "NAME_ENG": "Plan...",
             "SECRET_LEVEL": "Secret",
             "RELEASE_DATE": "01/01/01 10:00",
-            "VERSION": "v 0.0.1",
+            "VERSION": "v.0.0.1",
             "REVIEW_DATE": "01/01/01",
             "FILE": "test.pdf",
         },
@@ -248,7 +248,7 @@
             "NAME_ENG": "Plan...",
             "SECRET_LEVEL": "Secret",
             "RELEASE_DATE": "01/01/01 10:00",
-            "VERSION": "v 0.0.1",
+            "VERSION": "v.0.0.1",
             "REVIEW_DATE": "01/01/01",
             "FILE": "test.pdf",
         },

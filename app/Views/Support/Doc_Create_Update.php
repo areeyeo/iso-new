@@ -182,10 +182,11 @@
                                 <th>DOCUMENT ABBREVIATION</th>
                                 <th>NAME TH</th>
                                 <th>NAME ENG</th>
-                                <th>Secret Level</th>
+                                <th>SECRET LEVEL</th>
                                 <th>CREATE / UPDATE / UPLOAD</th>
                                 <th>REVIEW</th>
                                 <th>APPROVAL</th>
+                                <th>VERSION</th>
                                 <th>STATUS</th>
                                 <th>FILE</th>
                             </tr>
@@ -206,7 +207,7 @@
                                 <th>DOCUMENT ABBREVIATION</th>
                                 <th>NAME TH</th>
                                 <th>NAME ENG</th>
-                                <th>Secret Level</th>
+                                <th>SECRET LEVEL</th>
                                 <th>MANAGEMENT PERMISSIONS</th>
                                 <th>STATUS</th>
                                 <th>FILE</th>
@@ -238,6 +239,7 @@
             "MANAGEMENT_PERMISSIONS": ["Create/Update/Upload"],
             "STATUS": "Draft",
             "FILE": "test.pdf",
+            "VERSION": "v.0.0.1",
         }, {
             "DOCUMENT_TYPE": "Form",
             "DOCUMENT_ABBREVIATION": "FM_001",
@@ -250,6 +252,7 @@
             "MANAGEMENT_PERMISSIONS": ["Review", "Approve"],
             "STATUS": "Rejected",
             "FILE": "test.pdf",
+            "VERSION": "v.0.0.1",
         }, {
             "DOCUMENT_TYPE": "Policy",
             "DOCUMENT_ABBREVIATION": "PO_001",
@@ -262,6 +265,7 @@
             "MANAGEMENT_PERMISSIONS": ["Approve"],
             "STATUS": "Pending Review",
             "FILE": "test.pdf",
+            "VERSION": "v.0.0.1",
         }, {
             "DOCUMENT_TYPE": "Plan",
             "DOCUMENT_ABBREVIATION": "PL_001",
@@ -274,6 +278,7 @@
             "MANAGEMENT_PERMISSIONS": ["Review"],
             "STATUS": "Pending Approval",
             "FILE": "test.pdf",
+            "VERSION": "v.0.0.1",
         },
         {
             "DOCUMENT_TYPE": "Plan",
@@ -287,6 +292,7 @@
             "MANAGEMENT_PERMISSIONS": ["Review"],
             "STATUS": "Approved",
             "FILE": "test.pdf",
+            "VERSION": "v.0.0.1",
         },
         {
             "DOCUMENT_TYPE": "Plan",
@@ -300,6 +306,7 @@
             "MANAGEMENT_PERMISSIONS": ["Review"],
             "STATUS": "Request Modification",
             "FILE": "test.pdf",
+            "VERSION": "v.0.0.1",
         },
     ];
 
@@ -319,6 +326,7 @@
         var cell10_1 = newRow.insertCell(9);
         var cell11_1 = newRow.insertCell(10);
         var cell12_1 = newRow.insertCell(11);
+        var cell13_1 = newRow.insertCell(12);
 
         cell1_1.innerHTML = `<div class="dropdown">
     <i class="fas fa-ellipsis-v pointer text-primary" id="dropdownMenuButton${index}" data-toggle="dropdown" aria-expanded="false"></i>
@@ -342,13 +350,14 @@
         cell9_1.style.textAlign = 'left';
         displayArrayInCell(cell10_1, row.APPROVAL);
         cell10_1.style.textAlign = 'left';
-        cell11_1.innerHTML = row.STATUS === 'Draft' ? '<span class="badge rounded-pill" style="background-color: #343A40; color: #fff;">Draft</span>' :
+        cell11_1.textContent = row.VERSION;
+        cell12_1.innerHTML = row.STATUS === 'Draft' ? '<span class="badge rounded-pill" style="background-color: #343A40; color: #fff;">Draft</span>' :
             row.STATUS === 'Rejected' ? '<span class="badge rounded-pill" style="background-color: #D40000; color: #fff;">Rejected</span>' :
             row.STATUS === 'Pending Review' ? '<span class="badge rounded-pill" style="background-color: #D4EDDA; color: #28A745;">Pending Review</span>' :
             row.STATUS === 'Pending Approval' ? '<span class="badge rounded-pill" style="background-color: #E2F0FF; color: #0062FF;">Pending Approval</span>' :
             row.STATUS === 'Approved' ? '<span class="badge rounded-pill" style="background-color: #28A745; color: #fff;">Approved</span>' :
             row.STATUS === 'Request Modification' ? '<span class="badge rounded-pill" style="background-color: #FBCB0A; color: #fff;">Request Modification</span>' : '';
-        cell12_1.textContent = row.FILE;
+        cell13_1.textContent = row.FILE;
     });
 
     var table2TableBody = document.getElementById("table-management-doc").getElementsByTagName("tbody")[0];

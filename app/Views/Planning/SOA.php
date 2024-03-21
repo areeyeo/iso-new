@@ -526,16 +526,27 @@
             var cell5 = newRow.insertCell(4);
             var cell6 = newRow.insertCell(5);
 
-            cell1.innerHTML = `<div class="dropdown">
-    <i class="fas fa-ellipsis-v pointer text-primary" id="dropdownMenuButton${index}" data-toggle="dropdown" aria-expanded="false"></i>
-    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton${index}">
-      <li data-toggle="modal" data-target="#modal-default " onclick="load_modal(3)"><a class="dropdown-item" href="#">Edit</a></li>
-      <li><a class="dropdown-item" href="#">Copy</a></li>
-      <li><a class="dropdown-item" href="#">Delete</a></li>
-      <li><hr class="dropdown-divider"></li>
-      <li data-toggle="modal" data-target="#modal-default " onclick="load_modal(3)"><a class="dropdown-item" href="#">Create</a></li>
-    </ul>
-  </div>`;
+            if (row.SEC.startsWith("LC")) {
+                cell1.innerHTML = `
+                <div class="dropdown">
+                    <i class="fas fa-ellipsis-v pointer text-primary" id="dropdownMenuButton${index}" data-toggle="dropdown" aria-expanded="false"></i>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton${index}">
+                            <li data-toggle="modal" data-target="#modal-default" onclick="load_modal(3)"><a class="dropdown-item" href="#">Edit</a></li>
+                            <li><a class="dropdown-item" href="#">Copy</a></li>
+                            <li><a class="dropdown-item" href="#">Delete</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li data-toggle="modal" data-target="#modal-default" onclick="load_modal(3)"><a class="dropdown-item" href="#">Create</a></li>
+                        </ul>
+                </div>`;
+            } else {
+                cell1.innerHTML = `
+                <div class="dropdown">
+                    <i class="fas fa-ellipsis-v pointer text-primary" id="dropdownMenuButton${index}" data-toggle="dropdown" aria-expanded="false"></i>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton${index}">
+                            <li data-toggle="modal" data-target="#modal-default " onclick="load_modal(3)"><a class="dropdown-item" href="#">Edit</a></li>
+                        </ul>
+                </div>`;
+            }
             cell2.textContent = row.SEC;
             cell3.textContent = row.CONTROL;
             cell4.textContent = row.EXCLUSION;

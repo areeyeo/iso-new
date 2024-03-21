@@ -1,3 +1,4 @@
+<title>Documented Information Version</title>
 <!DOCTYPE html>
 <html lang="en">
 <style>
@@ -198,7 +199,7 @@ $badgeStyle = $statuses[$status];
                             </div>
                             <div class="col-lg-3">
                                 <div class="form-group mt-3">
-                                    <h6>Creation Time</h6>
+                                    <h6>Creation Date</h6>
                                     <input class="form-control gray-text" type="datetime-local" name="creationtime" id="creationtime" disabled></input>
                                 </div>
                             </div>
@@ -212,8 +213,22 @@ $badgeStyle = $statuses[$status];
                             </div>
                             <div class="col-lg-3">
                                 <div class="form-group mt-3">
-                                    <h6>Last Modified Time</h6>
+                                    <h6>Last Modified Date</h6>
                                     <input class="form-control gray-text" type="datetime-local" name="lastmodifiedtime" id="lastmodifiedtime" disabled></input>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-end">
+                            <div class="col-lg-3">
+                                <div class="form-group mt-3">
+                                    <h6>Approved By</h6>
+                                    <input class="form-control gray-text" type="text" name="approvedby" id="approvedby" disabled></input>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="form-group mt-3">
+                                    <h6>Approval Date</h6>
+                                    <input class="form-control gray-text" type="datetime-local" name="approvaldate" id="approvaldate" disabled></input>
                                 </div>
                             </div>
                         </div>
@@ -234,23 +249,24 @@ $badgeStyle = $statuses[$status];
     <!-- Your JavaScript -->
     <script>
         $(document).ready(function() {
+            var selectData = ["Amelia Smith", "Olivia Williams", "Isla Taylor", "Poppy Brown", "Oscar Davis", "James Wilson", "Daniel Martin"];
             $('#tags-create').select2({
-                data: ["Amelia Smith", "Olivia Williams", "Isla Taylor", "Poppy Brown", "Oscar Davis", "James Wilson", "Daniel Martin"],
-                placeholder: "Select Tags",
+                data: selectData,
+                placeholder: "Select or Search",
                 tags: false,
                 tokenSeparators: [',', ' '],
                 width: '100%'
             });
             $('#tags-review').select2({
-                data: ["Amelia Smith", "Olivia Williams", "Isla Taylor", "Poppy Brown", "Oscar Davis", "James Wilson", "Daniel Martin"],
-                placeholder: "Select Tags",
+                data: selectData,
+                placeholder: "Select or Search",
                 tags: false,
                 tokenSeparators: [',', ' '],
                 width: '100%'
             });
             $('#tags-approve').select2({
-                data: ["Amelia Smith", "Olivia Williams", "Isla Taylor", "Poppy Brown", "Oscar Davis", "James Wilson", "Daniel Martin"],
-                placeholder: "Select Tags",
+                data: selectData,
+                placeholder: "Select or Search",
                 tags: false,
                 tokenSeparators: [',', ' '],
                 width: '100%'
