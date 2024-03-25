@@ -1,4 +1,17 @@
 <title>Documented Information Version</title>
+<!-- DataTables -->
+<link rel="stylesheet" href="<?= base_url('plugins/datatables-bs4/css/dataTables.bootstrap4.min.css'); ?>">
+<link rel="stylesheet" href="<?= base_url('plugins/datatables-responsive/css/responsive.bootstrap4.min.css'); ?>">
+<link rel="stylesheet" href="<?= base_url('plugins/datatables-buttons/css/buttons.bootstrap4.min.css'); ?>">
+<!-- daterange picker -->
+<link rel="stylesheet" href="<?= base_url('plugins/daterangepicker/daterangepicker.css'); ?>">
+<!-- Tempusdominus Bootstrap 4 -->
+<link rel="stylesheet" href="<?= base_url('plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css'); ?>">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit:300,400,400i,700&display=swap">
+<!-- SweetAlert2 -->
+<link rel="stylesheet" href="<?= base_url('plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css'); ?>">
+<!-- summernote -->
+<link rel="stylesheet" href="<?= base_url('plugins/summernote/summernote-bs4.min.css'); ?>">
 <!DOCTYPE html>
 <html lang="en">
 <style>
@@ -81,7 +94,8 @@ $statuses = [
     "Request Modification" => ["background-color" => "#FBCB0A", "color" => "#fff"]
 ];
 
-$status = "Pending Review";
+// $status = "Pending Review";
+$status = "Approved";
 $badgeStyle = $statuses[$status];
 ?>
 
@@ -93,7 +107,9 @@ $badgeStyle = $statuses[$status];
                 <div class="row mb-2">
                     <div class="col-sm-6">
                         <h1>Documented Information
-                            <button type="button" class="btn btn-secondary btn-xs" data-toggle="modal" data-target="#modal-default" id="load-modal-button" onclick="load_modal(1)">Requirement</button>
+                            <button type="button" class="btn btn-secondary btn-xs btn-requirement" data-toggle="modal" data-target="#modal-default" id="load-modal-button" onclick="load_modal(2)">
+                                Requirement
+                            </button>
                         </h1>
                     </div>
                     <div class="col-sm-6">
@@ -131,7 +147,7 @@ $badgeStyle = $statuses[$status];
                                     <i class="fas fa-check-circle"></i>
                                     &nbsp;Approved
                                 </button>
-                                <button type="button" class="btn btn-danger btn-sm btn-rejected" data-toggle="modal" data-target="#modal-default" id="load-modal-button" onclick="load_modal(2)">
+                                <button type="button" class="btn btn-danger btn-sm btn-rejected" data-toggle="modal" data-target="#modal-default" id="load-modal-button" onclick="load_modal(1)">
                                     <i class="fas fa-times-circle"></i>
                                     &nbsp;Rejected
                                 </button>
@@ -143,6 +159,7 @@ $badgeStyle = $statuses[$status];
                                     <i class="fas fa-sync-alt"></i>
                                     &nbsp;Request Modification
                                 </button>
+
                                 <button type="button" class="btn btn-outline-warning btn-sm btn-view-request-details" id="view-request-details-button">
                                     <i class="fas fa-eye"></i>
                                     &nbsp;View Request Modification Details
@@ -285,11 +302,11 @@ $badgeStyle = $statuses[$status];
     </div>
     </section>
     <div class="modal fade" id="modal-default">
-        <div id="request_modification_modal">
-            <?= $this->include("Modal/Request_Modification"); ?>
+        <div id="requirement_modal">
+            <?= $this->include("Modal/Requirement_Modal"); ?>
         </div>
-        <div id="reject_modal">
-            <?= $this->include("Modal/Reject_Modal"); ?>
+        <div id="doc_status_modal">
+            <?= $this->include("Modal/Doc_Status_Modal"); ?>
         </div>
     </div>
     <!-- jQuery -->
@@ -315,6 +332,7 @@ $badgeStyle = $statuses[$status];
 
         $("button.btn").hide();
         $(".user-upload, .user-view").hide();
+        $(".btn-requirement").show();
 
         if (documentStatus === "Draft") {
             $("button.btn-save-draft").show();
@@ -351,28 +369,18 @@ $badgeStyle = $statuses[$status];
     </script>
     <script>
         function load_modal(check, data_, status) {
-            request_modification_modal = document.getElementById("request_modification_modal");
-            reject_modal = document.getElementById("reject_modal");
-
-            if (check == '1') {
-                //--show modal Request_Modification--//
-                request_modification_modal.style.display = "block";
-                reject_modal.style.display = "none";
-
-                $(".modal-body #status").val(data_);
-                var element = <?php echo json_encode($data); ?>;
-                $(".modal-body #modified_date").val(element.modified_date);
-            } else if (check == '2') {
-                //--show modal Request_Modification--//
-                request_modification_modal.style.display = "none";
-                reject_modal.style.display = "block";
-
-                $(".modal-body #status").val(data_);
-                var element = <?php echo json_encode($data); ?>;
-                $(".modal-body #modified_date").val(element.modified_date);
+            doc_status_modal = document.getElementById("doc_status_modal");
+            requirement_modal = document.getElementById("requirement_modal");
+            if (check == 1) {
+                doc_status_modal.style.display = "block";
+                requirement_modal.style.display = "none";
+            } else if (check == 2) {
+                doc_status_modal.style.display = "none";
+                requirement_modal.style.display = "block";
             }
         }
     </script>
+
     <script>
         $('#view-request-details-button').click(function() {
             Swal.fire({
