@@ -30,7 +30,6 @@ if (isset($_GET['check'])) {
                 <div class="input-group date" id="reservationdat_modified_request_modify" data-target-input="nearest" hidden>
                     <input type="text" class="form-control datetimepicker-input gray-text" data-target="#reservationdat_modified" name="modified_date_request_modify" id="modified_date_request_modify" />
                 </div>
-
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-success" name="submit" value="Submit">CONFIRM</button>
                     <button type="button" class="btn btn-danger" data-dismiss="modal">CANCEL</button>
@@ -38,9 +37,6 @@ if (isset($_GET['check'])) {
             </form>
         </div>
     </div>
-</div>
-
-<!-- /.modal-content -->
 </div>
 <script src="<?= base_url('plugins/moment/moment.min.js'); ?>"></script>
 <!-- date-range-picker -->
@@ -58,7 +54,7 @@ if (isset($_GET['check'])) {
             "color": "bg-warning"
         },
         {
-            "title": "ไม่ได้ๆๆๆๆๆๆๆๆ",
+            "title": "Test Title",
             "color": "bg-dark"
         }
     ];
@@ -72,7 +68,7 @@ if (isset($_GET['check'])) {
         selectedHeader = modalHeaderData[1];
     } else if (check === 3) {
         selectedHeader = modalHeaderData[2];
-    } 
+    }
 
     var modalTitle = selectedHeader.title;
     var modalColor = selectedHeader.color;

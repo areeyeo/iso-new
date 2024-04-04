@@ -287,13 +287,27 @@
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= site_url('/under_construction'); ?>" class="nav-link">
+                            <a href="<?= site_url(''); ?>" class="nav-link">
                                 <i class="fas fa-circle fa-lg nav-icon"></i>
                                 <p>
                                     Operation
                                     <i class="right fas fa-angle-right"></i>
                                 </p>
                             </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="<?= site_url('/operations_management'); ?>" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Operations Mana...</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="<?= site_url('/'); ?>" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>RA & RTP Result</p>
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
                         <li class="nav-item">
                             <a href="<?= site_url('/under_construction'); ?>" class="nav-link">

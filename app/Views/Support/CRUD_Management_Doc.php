@@ -380,7 +380,6 @@ $badgeStyle = $statuses[$status];
             }
         }
     </script>
-
     <script>
         $('#view-request-details-button').click(function() {
             Swal.fire({
