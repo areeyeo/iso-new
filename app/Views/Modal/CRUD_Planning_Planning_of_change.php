@@ -4,7 +4,7 @@
       <i class="fas fa-2x fa-sync fa-spin"></i>
     </div> -->
     <div class="modal-header bg-primary">
-      <h4 class="modal-title" id="title_modal" name="title_modal">File</h4>
+      <h4 class="modal-title" id="title_modal" name="title_modal">Planning of Changes ISMS</h4>
     </div>
     <div class="modal-body">
       <!-- <div class="progress mb-3" style="display: none;">
@@ -22,6 +22,36 @@
         </div>
         <div>
           <h6 class="gray-text" name="description" id="description"></h6>
+        </div>
+        <div class="form-group mt-2">
+          <h6>Name Planning of Change ISMS</h6>
+          <input class="form-control gray-text" type="text" placeholder="Text..." name="nameplan" id="nameplan"></input>
+        </div>
+        <div class="form-group mt-2">
+          <h6>Plan Origin</h6>
+          <textarea class="form-control gray-text" rows="2" placeholder="Text..." name="planorigin" id="planorigin"></textarea>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <div class="form-group">
+              <h6>Start date</h6>
+              <input class="form-control gray-text" type="date" name="start_date" id="start_date"></input>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="form-group">
+              <h6>End date</h6>
+              <input class="form-control gray-text" type="date" name="end_date" id="end_date"></input>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <h6>Owner</h6>
+          <input class="form-control gray-text" type="text" placeholder="Text..." name="owner" id="owner"></input>
+        </div>
+        <div class="form-group">
+          <h6>Evaluation</h6>
+          <textarea class="form-control gray-text" rows="3" placeholder="Text..." name="evaluation" id="evaluation"></textarea>
         </div>
         <div class="form-group">
           <h6>Attach File</h6>

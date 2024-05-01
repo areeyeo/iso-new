@@ -381,7 +381,7 @@
         modal_requirement.style.display = "none";
         modal_reject.style.display = "none";
 
-      } 
+      }
     }
   </script>
   <script>
