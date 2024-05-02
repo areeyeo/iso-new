@@ -360,7 +360,7 @@
             displayArrayInCell(cell13, row.FILE);
 
             if (Number.isInteger(Number(row.NO))) {
-                cell14.textContent = row.NO;;
+                cell1.textContent = row.NO;;
                 newRow.style.backgroundColor = '#E2F0FF';
                 for (var i = 0; i < newRow.cells.length; i++) {
                     newRow.cells[i].style.backgroundColor = '#E2F0FF';
@@ -369,7 +369,7 @@
             }
 
             if (row["Data"] === "1") {
-                cell1.innerHTML = `<span style="color:#007BFF; cursor:pointer;" data-toggle="modal" data-target="#modal-default" onclick="load_modal(2)"><i class="fas fa-user-edit"></i></span>`;
+                cell14.innerHTML = `<span style="color:#007BFF; cursor:pointer;" data-toggle="modal" data-target="#modal-default" onclick="load_modal(2)"><i class="fas fa-user-edit"></i></span>`;
             }
         });
 

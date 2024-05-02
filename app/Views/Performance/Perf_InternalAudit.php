@@ -83,27 +83,7 @@
         border-color: transparent;
         background-color: transparent;
     }
-
-    /* เลือกสีสำหรับปุ่มควบคุมด้านบนของปฏิทิน */
-    .fc-header-toolbar .fc-button {
-        background-color: #BBDCFF;
-        color: #ffffff;
-        border-color: transparent;
-    }
 </style>
-<?php
-$data = [
-    ['no' => 'AP001', 'projectname' => 'test1', 'period' => '01  Jan 2024 - 31 Dec 2024'],
-    ['no' => 'AP001', 'projectname' => 'test1', 'period' => '01  Jan 2024 - 31 Dec 2024'],
-    ['no' => 'AP001', 'projectname' => 'test1', 'period' => '01  Jan 2024 - 31 Dec 2024'],
-    ['no' => 'AP001', 'projectname' => 'test1', 'period' => '01  Jan 2024 - 31 Dec 2024'],
-    ['no' => 'AP001', 'projectname' => 'test1', 'period' => '01  Jan 2024 - 31 Dec 2024'],
-    ['no' => 'AP001', 'projectname' => 'test1', 'period' => '01  Jan 2024 - 31 Dec 2024'],
-    ['no' => 'AP001', 'projectname' => 'test1', 'period' => '01  Jan 2024 - 31 Dec 2024'],
-    ['no' => 'AP001', 'projectname' => 'test1', 'period' => '01  Jan 2024 - 31 Dec 2024'],
-];
-?>
-
 <body class="hold-transition sidebar-mini">
     <div class="content-wrapper">
         <!-- Page header -->
@@ -162,52 +142,7 @@ $data = [
                 </ul>
                 <div class="tab-content" id="pills-tabContent">
                     <div class="tab-pane fade show active" id="pills-audit-management" role="tabpanel" aria-labelledby="pills-audit-management-tab">
-
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="container-fluid">
-                                    <h4>Summary Audit Program</h4>
-                                    <hr>
-                                    <div class="row">
-                                        <div class="col-md-8">
-                                            <div id='calendar'></div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="card">
-                                                <div class="p-4" style="background-color: #ccc; height: 80px; display: flex; align-items: center; justify-content: space-between;">
-                                                    <div style="display: flex; align-items: center;">
-                                                        <h5 style="margin-right: 10px;">Audit Program</h5>
-                                                    </div>
-                                                    <div>
-                                                        <a href="https://www.w3schools.com">All</a>
-                                                    </div>
-                                                </div>
-                                                <div class="card-body" style="overflow-y: auto; max-height: 600px;">
-                                                    <?php foreach ($data as $item) : ?>
-                                                        <div class="card-body mt-3" style="background-color: #E2F0FF; border-radius: 4px;">
-                                                            <div>
-                                                                <span style="color: #666666;">AP No.&nbsp;</span>
-                                                                <span id="no" style="color: #007BFF; font-weight: 600;"><?php echo $item['no']; ?></span>
-                                                            </div>
-                                                            <div>
-                                                                <span style="color: #666666;">Project Name:&nbsp;</span>
-                                                                <span id="projectname" style="color: #007BFF;"><?php echo $item['projectname']; ?></span>
-                                                            </div>
-                                                            <div>
-                                                                <span style="color: #666666;">Period:&nbsp;</span>
-                                                                <span id="period" style="color: #007BFF;"><?php echo $item['period']; ?></span>
-                                                            </div>
-                                                        </div>
-                                                    <?php endforeach; ?>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
+                        <?php include("Perf_AuditManagement.php"); ?>
                     </div>
                     <div class="tab-pane fade" id="pills-follow-up" role="tabpanel" aria-labelledby="pills-follow-up-tab">
                         ทดสอบ
@@ -224,7 +159,7 @@ $data = [
             <?= $this->include("Modal/Context_Ver"); ?>
         </div>
         <div id="modal3">
-            <?= $this->include("Modal/CRUD_Leadership_modal"); ?>
+            <?= $this->include("Modal/CRUD_Perf_Audit_Program"); ?>
         </div>
         <div id="modal4">
             <?= $this->include("Modal/CRUD_Note"); ?>
@@ -234,6 +169,9 @@ $data = [
         </div>
         <div id="modal6">
             <?= $this->include("Modal/File_Rename_Modal"); ?>
+        </div>
+        <div id="modal7">
+            <?= $this->include("Modal/CRUD_Perf_Audit_Plan"); ?>
         </div>
     </div>
     <!-- DataTables  & Plugins -->
@@ -272,6 +210,7 @@ $data = [
             modal4 = document.getElementById("modal4");
             modal5 = document.getElementById("modal5");
             modal6 = document.getElementById("modal6");
+            modal7 = document.getElementById("modal6");
 
             if (check == '1') {
                 //--show modal requirment--//
@@ -281,6 +220,7 @@ $data = [
                 modal4.style.display = "none";
                 modal5.style.display = "none";
                 modal6.style.display = "none";
+                modal7.style.display = "none";
             } else if (check == '2') {
                 //--show modal Version Control--//
                 modal1.style.display = "none";
@@ -289,6 +229,7 @@ $data = [
                 modal4.style.display = "none";
                 modal5.style.display = "none";
                 modal6.style.display = "none";
+                modal7.style.display = "none";
 
                 var element = <?php echo json_encode($data); ?>;
                 $(".modal-body #description").text(element.details);
@@ -305,20 +246,14 @@ $data = [
                 $(".modal-body #announce").val(element.announce_date);
                 check_status(element.status);
             } else if (check == '3') {
-                //--show modal file create--//
-                const formGroupFile = document.getElementById("form-group-file");
-                const formGroupText = document.getElementById("form-group-text");
+                //--show modal audit program-//
                 modal1.style.display = "none";
                 modal2.style.display = "none";
                 modal3.style.display = "block";
                 modal4.style.display = "none";
                 modal5.style.display = "none";
                 modal6.style.display = "none";
-
-                formGroupFile.style.display = "block";
-                formGroupText.style.display = "none";
-                $(".modal-header #title_modal").text("File Organizational Strategy");
-                $(".modal-body #url_route").val("leadership/file_ls/create/" + data_);
+                modal7.style.display = "none";
             } else if (check == '4') {
                 //--show modal objective create--//
                 const formGroupFile = document.getElementById("form-group-file");
@@ -329,6 +264,7 @@ $data = [
                 modal4.style.display = "none";
                 modal5.style.display = "none";
                 modal6.style.display = "none";
+                modal7.style.display = "none";
 
                 formGroupFile.style.display = "none";
                 formGroupText.style.display = "block";
@@ -348,6 +284,7 @@ $data = [
                 modal4.style.display = "none";
                 modal5.style.display = "none";
                 modal6.style.display = "none";
+                modal7.style.display = "none";
 
                 formGroupFile.style.display = "none";
                 formGroupText.style.display = "block";
@@ -358,13 +295,13 @@ $data = [
                     rowData.id_version + "/" + status);
             } else if (check == '6') {
                 //--show modal create note--//
-
                 modal1.style.display = "none";
                 modal2.style.display = "none";
                 modal3.style.display = "none";
                 modal4.style.display = "block";
                 modal5.style.display = "none";
                 modal6.style.display = "none";
+                modal7.style.display = "none";
 
                 var data = <?php echo json_encode($data); ?>;
                 $(".modal-header #title_modal").text("Note");
@@ -379,6 +316,7 @@ $data = [
                 modal4.style.display = "none";
                 modal5.style.display = "block";
                 modal6.style.display = "none";
+                modal7.style.display = "none";
 
                 $(".modal-body #status").val(data_);
                 var element = <?php echo json_encode($data); ?>;
@@ -391,6 +329,7 @@ $data = [
                 modal4.style.display = "none";
                 modal5.style.display = "none";
                 modal6.style.display = "block";
+                modal7.style.display = "none";
 
                 const rowData = JSON.parse(decodeURIComponent(data_));
                 // แบ่งข้อความด้วยจุด (.)
@@ -414,68 +353,18 @@ $data = [
                 $(".modal-body #oldnameFile").val(exceptLastPart);
                 $(".modal-body #namefile").val(exceptLastPart);
                 $(".modal-body #url_route").val("leadership/file_ls/rename/" + rowData.id_ls_file);
+            } else if (check == '9') {
+                //--show modal audit program-//
+                modal1.style.display = "none";
+                modal2.style.display = "none";
+                modal3.style.display = "none";
+                modal4.style.display = "none";
+                modal5.style.display = "none";
+                modal6.style.display = "none";
+                modal7.style.display = "none";
+                modal8.style.display = "block";
             }
         }
-    </script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var calendarEl = document.getElementById('calendar');
-            var calendar = new FullCalendar.Calendar(calendarEl, {
-                initialView: 'dayGridMonth', // การแสดงปฏิทินเริ่มต้นในมุมมอง 'เดย์กริดเดือน'
-                headerToolbar: { // ปุ่มควบคุมด้านบนของปฏิทิน
-                    left: 'prev,next today', // ปุ่มเลื่อนไปข้างหน้า, ปุ่มเลื่อนไปข้างหลัง, ปุ่มวันปัจจุบัน
-                    center: 'title', // หัวข้อปฏิทิน
-                    right: 'dayGridYear,dayGridMonth,timeGridWeek,timeGridDay,listWeek' // ปุ่มเปลี่ยนมุมมอง: เดือน, สัปดาห์แบบกำหนด, วันแบบกำหนด, รายการสัปดาห์
-                },
-                navLinks: true, // อนุญาตให้กดที่ช่องวันเพื่อไปยังวันนั้นๆ
-                selectable: true, // ทำให้สามารถเลือกวันได้
-                selectMirror: true, // แสดงการเลือกเป็นส่วนของวิวหลัก
-                select: function(arg) { // ฟังก์ชันที่เรียกเมื่อเลือกวัน
-                    var title = prompt('Event Title:');
-                    if (title) {
-                        calendar.addEvent({
-                            title: title,
-                            start: arg.start,
-                            end: arg.end,
-                            allDay: arg.allDay
-                        });
-                    }
-                    calendar.unselect();
-                },
-                editable: true, // ทำให้สามารถย้าย/ปรับขนาดกิจกรรมได้
-                dayMaxEvents: true, // allow "more" link when too many events
-                events: [ // กำหนดกิจกรรมตัวอย่าง
-                    {
-                        title: 'All Day Event',
-                        start: '2024-05-01',
-                        backgroundColor: '#82B4FF',
-                        borderColor: '#F5F6FA'
-                    },
-                    {
-                        title: 'Long Event',
-                        start: '2024-05-07',
-                        end: '2024-05-29',
-                        backgroundColor: '#82B4FF',
-                        borderColor: '#F5F6FA'
-                    },
-                    {
-                        title: 'Conference',
-                        start: '2024-05-11',
-                        end: '2024-05-13',
-                        backgroundColor: '#82B4FF',
-                        borderColor: '#F5F6FA'
-                    },
-                    {
-                        title: 'Click for Google',
-                        url: 'http://google.com/',
-                        start: '2024-05-28',
-                        backgroundColor: '#82B4FF',
-                        borderColor: '#F5F6FA'
-                    }
-                ]
-            });
-            calendar.render(); // แสดงปฏิทิน
-        });
     </script>
 </body>
 

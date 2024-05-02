@@ -260,8 +260,6 @@ $routes->get('crud_documented_create_update', 'DocumentedController::indexCrudCr
 $routes->get('crud_documented_management_document', 'DocumentedController::indexCrudManagementDoc');
 $routes->get('crud_documented_control', 'DocumentedController::indexCrudControl');
 
-$routes->get('operations_management', 'OP_OperationsManagementController::index');
-
 $routes->get('performance_evaluation', 'Perf_PerformanceEvaluationController::index');
 $routes->get('internal_audit', 'Perf_InternalAuditController::index');
 $routes->get('management_review', 'Perf_ManagementReviewController::index');

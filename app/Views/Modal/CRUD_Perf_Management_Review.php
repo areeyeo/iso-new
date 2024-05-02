@@ -83,7 +83,7 @@
                 <div class="form-group">
                     <div class="d-flex align-items-center">
                         <h6 class="mt-2">Meeting Documents&nbsp;</h6>
-                        <i class="far fa-question-circle text-primary" data-toggle="tooltip" title="Attached files include media, list of names, pre-test and post-test scores."></i>
+                        <i class="far fa-question-circle text-primary" data-toggle="tooltip" title="More than 1 file can be attached."></i>
                     </div>
 
                     <div class="custom-file">
