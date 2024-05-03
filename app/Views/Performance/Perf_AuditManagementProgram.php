@@ -54,7 +54,6 @@
             <div class="container-fluid">
                 <div class="d-flex justify-content-between">
                     <h4>Audit Management Program</h4>
-                    <button type="button" class="btn btn-dark" onclick="load_modal(9)" data-toggle="modal" data-target="#modal-default"><i class="fas fa-book"></i>&nbsp;&nbsp;Audit testtt</button>
                     <button type="button" class="btn btn-dark" onclick="OpenAuditManagement()"><i class="fas fa-book"></i>&nbsp;&nbsp;Audit Program Main</button>
                 </div>
                 <hr>
@@ -72,20 +71,23 @@
                         </div>
                         <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
                             <div class="card-body">
-                                <table id="example1" class="table table-hover">
-                                    <thead>
-                                        <tr>
-                                            <th class="text-center">ACTION</th>
-                                            <th>NO.</th>
-                                            <th>AP NO.</th>
-                                            <th>PROGRAM NAME</th>
-                                            <th>START DATE</th>
-                                            <th>END DATE</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                    </tbody>
-                                </table>
+                                <div class="table-wrapper">
+                                    <table id="example1" class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th class="text-center">ACTION</th>
+                                                <th>NO.</th>
+                                                <th>AP NO.</th>
+                                                <th>PROGRAM NAME</th>
+                                                <th>START DATE</th>
+                                                <th>END DATE</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -99,23 +101,25 @@
                         </div>
                         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
                             <div class="card-body">
-                                <table id="example2" class="table table-hover">
-                                    <thead>
-                                        <tr>
-                                            <th class="text-center">ACTION</th>
-                                            <th>AP NO.</th>
-                                            <th>PROGRAM NAME</th>
-                                            <th>SCOPE</th>
-                                            <th>OBJECTIVE</th>
-                                            <th>CRITERIA</th>
-                                            <th>AUDIT LEAD</th>
-                                            <th>AUDIT TEAM</th>
-                                            <th>FILE</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                    </tbody>
-                                </table>
+                                <div class="table-wrapper">
+                                    <table id="example2" class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th class="text-center">ACTION</th>
+                                                <th>AP NO.</th>
+                                                <th>PROGRAM NAME</th>
+                                                <th>SCOPE</th>
+                                                <th>OBJECTIVE</th>
+                                                <th>CRITERIA</th>
+                                                <th>AUDIT LEAD</th>
+                                                <th>AUDIT TEAM</th>
+                                                <th>FILE</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -126,23 +130,28 @@
                                     <i class="fas fa-chevron-right"></i>&nbsp;&nbsp;Audit Checklist
                                 </button>
                             </h5>
-                            <button type="button" class="btn btn-outline-primary" style=" margin-inline-start: auto;"><i class="fas fa-edit"></i>&nbsp;&nbsp;Create Checklist</button>
+                            <button type="button" class="btn btn-outline-primary" style=" margin-inline-start: auto;" data-toggle="modal" data-target="#modal-default" onclick="load_modal(10)">
+                                <i class="fas fa-edit"></i>&nbsp;&nbsp;Create Checklist
+                            </button>
                         </div>
                         <div id="collapsethree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
                             <div class="card-body">
-                                <table id="example3" class="table table-hover">
-                                    <thead>
-                                        <tr>
-                                            <th class="text-center">ACTION</th>
-                                            <th>NO.</th>
-                                            <th>NAME</th>
-                                            <th>FILE</th>
-                                            <th>UPLOAD DATE</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                    </tbody>
-                                </table>
+                                <div class="table-wrapper">
+                                    <table id="example3" class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th class="text-center">ACTION</th>
+                                                <th>NO.</th>
+                                                <th>NAME</th>
+                                                <th>FILE</th>
+                                                <th>UPLOAD DATE</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -153,7 +162,9 @@
                                     <i class="fas fa-chevron-right"></i>&nbsp;&nbsp;Audit Report
                                 </button>
                             </h5>
-                            <button type="button" class="btn btn-outline-primary" style=" margin-inline-start: auto;"><i class="fas fa-edit"></i>&nbsp;&nbsp;Create Report</button>
+                            <button type="button" class="btn btn-outline-primary" style=" margin-inline-start: auto;" data-toggle="modal" data-target="#modal-default" onclick="load_modal(11)">
+                                <i class="fas fa-edit"></i>&nbsp;&nbsp;Create Report
+                            </button>
                         </div>
                         <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
                             <div class="card-body">
@@ -239,7 +250,7 @@
       <li><a class="dropdown-item" href="#">Copy</a></li>
       <li><a class="dropdown-item" href="#">Delete</a></li>
       <li><hr class="dropdown-divider"></li>
-      <li data-toggle="modal" data-target="#modal-default" onclick=""><a class="dropdown-item" href="#">Create</a></li>
+      <li data-toggle="modal" data-target="#modal-default" onclick="load_modal(3)"><a class="dropdown-item" href="#">Create</a></li>
     </ul>
   </div>`;
             cell2.textContent = index + 1;
@@ -332,11 +343,11 @@
             cell1.innerHTML = `<div class="dropdown">
     <i class="fas fa-ellipsis-v pointer text-primary" id="dropdownMenuButton${index}" data-toggle="dropdown" aria-expanded="false"></i>
     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton${index}">
-      <li data-toggle="modal" data-target="#modal-default" onclick=""><a class="dropdown-item" href="#">Edit</a></li>
+      <li data-toggle="modal" data-target="#modal-default" onclick="load_modal(10)"><a class="dropdown-item" href="#">Edit</a></li>
       <li><a class="dropdown-item" href="#">Copy</a></li>
       <li><a class="dropdown-item" href="#">Delete</a></li>
       <li><hr class="dropdown-divider"></li>
-      <li data-toggle="modal" data-target="#modal-default" onclick=""><a class="dropdown-item" href="#">Create</a></li>
+      <li data-toggle="modal" data-target="#modal-default" onclick="load_modal(10)"><a class="dropdown-item" href="#">Create</a></li>
     </ul>
   </div>`;
             cell2.textContent = index + 1;
@@ -371,11 +382,11 @@
             cell1.innerHTML = `<div class="dropdown">
     <i class="fas fa-ellipsis-v pointer text-primary" id="dropdownMenuButton${index}" data-toggle="dropdown" aria-expanded="false"></i>
     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton${index}">
-      <li data-toggle="modal" data-target="#modal-default" onclick=""><a class="dropdown-item" href="#">Edit</a></li>
+      <li data-toggle="modal" data-target="#modal-default" onclick="load_modal(11)"><a class="dropdown-item" href="#">Edit</a></li>
       <li><a class="dropdown-item" href="#">Copy</a></li>
       <li><a class="dropdown-item" href="#">Delete</a></li>
       <li><hr class="dropdown-divider"></li>
-      <li data-toggle="modal" data-target="#modal-default" onclick=""><a class="dropdown-item" href="#">Create</a></li>
+      <li data-toggle="modal" data-target="#modal-default" onclick="load_modal(11)"><a class="dropdown-item" href="#">Create</a></li>
     </ul>
   </div>`;
             cell2.textContent = index + 1;

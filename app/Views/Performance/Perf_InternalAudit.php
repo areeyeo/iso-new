@@ -84,6 +84,7 @@
         background-color: transparent;
     }
 </style>
+
 <body class="hold-transition sidebar-mini">
     <div class="content-wrapper">
         <!-- Page header -->
@@ -145,7 +146,7 @@
                         <?php include("Perf_AuditManagement.php"); ?>
                     </div>
                     <div class="tab-pane fade" id="pills-follow-up" role="tabpanel" aria-labelledby="pills-follow-up-tab">
-                        ทดสอบ
+                        <?php include("Perf_Followup.php"); ?>
                     </div>
                 </div>
             </div>
@@ -172,6 +173,15 @@
         </div>
         <div id="modal7">
             <?= $this->include("Modal/CRUD_Perf_Audit_Plan"); ?>
+        </div>
+        <div id="modal8">
+            <?= $this->include("Modal/CRUD_Perf_Audit_Checklist"); ?>
+        </div>
+        <div id="modal9">
+            <?= $this->include("Modal/CRUD_Perf_Audit_Report"); ?>
+        </div>
+        <div id="modal10">
+            <?= $this->include("Modal/CRUD_Perf_Audit_Followup"); ?>
         </div>
     </div>
     <!-- DataTables  & Plugins -->
@@ -210,7 +220,10 @@
             modal4 = document.getElementById("modal4");
             modal5 = document.getElementById("modal5");
             modal6 = document.getElementById("modal6");
-            modal7 = document.getElementById("modal6");
+            modal7 = document.getElementById("modal7");
+            modal8 = document.getElementById("modal8");
+            modal9 = document.getElementById("modal9");
+            modal10 = document.getElementById("modal10");
 
             if (check == '1') {
                 //--show modal requirment--//
@@ -221,6 +234,10 @@
                 modal5.style.display = "none";
                 modal6.style.display = "none";
                 modal7.style.display = "none";
+                modal8.style.display = "none";
+                modal9.style.display = "none";
+                modal10.style.display = "none";
+
             } else if (check == '2') {
                 //--show modal Version Control--//
                 modal1.style.display = "none";
@@ -230,6 +247,9 @@
                 modal5.style.display = "none";
                 modal6.style.display = "none";
                 modal7.style.display = "none";
+                modal8.style.display = "none";
+                modal9.style.display = "none";
+                modal10.style.display = "none";
 
                 var element = <?php echo json_encode($data); ?>;
                 $(".modal-body #description").text(element.details);
@@ -247,6 +267,7 @@
                 check_status(element.status);
             } else if (check == '3') {
                 //--show modal audit program-//
+                console.log('open modal audit program')
                 modal1.style.display = "none";
                 modal2.style.display = "none";
                 modal3.style.display = "block";
@@ -254,6 +275,10 @@
                 modal5.style.display = "none";
                 modal6.style.display = "none";
                 modal7.style.display = "none";
+                modal8.style.display = "none";
+                modal9.style.display = "none";
+                modal10.style.display = "none";
+
             } else if (check == '4') {
                 //--show modal objective create--//
                 const formGroupFile = document.getElementById("form-group-file");
@@ -265,6 +290,9 @@
                 modal5.style.display = "none";
                 modal6.style.display = "none";
                 modal7.style.display = "none";
+                modal8.style.display = "none";
+                modal9.style.display = "none";
+                modal10.style.display = "none";
 
                 formGroupFile.style.display = "none";
                 formGroupText.style.display = "block";
@@ -285,6 +313,9 @@
                 modal5.style.display = "none";
                 modal6.style.display = "none";
                 modal7.style.display = "none";
+                modal8.style.display = "none";
+                modal9.style.display = "none";
+                modal10.style.display = "none";
 
                 formGroupFile.style.display = "none";
                 formGroupText.style.display = "block";
@@ -302,6 +333,9 @@
                 modal5.style.display = "none";
                 modal6.style.display = "none";
                 modal7.style.display = "none";
+                modal8.style.display = "none";
+                modal9.style.display = "none";
+                modal10.style.display = "none";
 
                 var data = <?php echo json_encode($data); ?>;
                 $(".modal-header #title_modal").text("Note");
@@ -317,6 +351,9 @@
                 modal5.style.display = "block";
                 modal6.style.display = "none";
                 modal7.style.display = "none";
+                modal8.style.display = "none";
+                modal9.style.display = "none";
+                modal10.style.display = "none";
 
                 $(".modal-body #status").val(data_);
                 var element = <?php echo json_encode($data); ?>;
@@ -330,6 +367,9 @@
                 modal5.style.display = "none";
                 modal6.style.display = "block";
                 modal7.style.display = "none";
+                modal8.style.display = "none";
+                modal9.style.display = "none";
+                modal10.style.display = "none";
 
                 const rowData = JSON.parse(decodeURIComponent(data_));
                 // แบ่งข้อความด้วยจุด (.)
@@ -347,7 +387,6 @@
                         exceptLastPart += "."; // เพิ่มจุด (.) หลังจากทุกส่วนยกเว้นส่วนสุดท้าย
                     }
                 }
-
                 // กำหนดค่าให้กับองค์ประกอบที่มี ID "namefile" ใน Modal Body
                 $(".modal-body #oldname").val(rowData.name_file);
                 $(".modal-body #oldnameFile").val(exceptLastPart);
@@ -361,8 +400,51 @@
                 modal4.style.display = "none";
                 modal5.style.display = "none";
                 modal6.style.display = "none";
+                modal7.style.display = "block";
+                modal8.style.display = "none";
+                modal9.style.display = "none";
+                modal10.style.display = "none";
+
+            } else if (check == '10') {
+                //--show modal audit program-//
+                modal1.style.display = "none";
+                modal2.style.display = "none";
+                modal3.style.display = "none";
+                modal4.style.display = "none";
+                modal5.style.display = "none";
+                modal6.style.display = "none";
                 modal7.style.display = "none";
                 modal8.style.display = "block";
+                modal9.style.display = "none";
+                modal10.style.display = "none";
+
+            } else if (check == '11') {
+                //--show modal audit program-//
+                modal1.style.display = "none";
+                modal2.style.display = "none";
+                modal3.style.display = "none";
+                modal4.style.display = "none";
+                modal5.style.display = "none";
+                modal6.style.display = "none";
+                modal7.style.display = "none";
+                modal8.style.display = "none";
+                modal9.style.display = "block";
+                modal10.style.display = "none";
+
+            }
+            else if (check == '12') {
+                //--show modal audit program-//
+                modal1.style.display = "none";
+                modal2.style.display = "none";
+                modal3.style.display = "none";
+                modal4.style.display = "none";
+                modal5.style.display = "none";
+                modal6.style.display = "none";
+                modal7.style.display = "none";
+                modal8.style.display = "none";
+                modal9.style.display = "none";
+                modal10.style.display = "block";
+
             }
         }
     </script>

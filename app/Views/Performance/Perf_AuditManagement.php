@@ -8,6 +8,19 @@
     #section2 {
         display: none;
     }
+
+    .fc-event-main {
+        cursor: pointer;
+    }
+
+    .fc-toolbar-title {
+        cursor: pointer;
+    }
+
+    :hover.fc-event-main {
+        background-color: #3384FF;
+        border-radius: 8%;
+    }
 </style>
 <?php
 $data = [
@@ -27,7 +40,9 @@ $data = [
         <div class="container-fluid">
             <div class="d-flex justify-content-between">
                 <h4>Summary Audit Program</h4>
-                <button type="button" class="btn btn-dark" onclick="OpenAuditManagementProgram()"><i class="fas fa-book"></i>&nbsp;&nbsp;Audit Management Program</button>
+                <button type="button" class="btn btn-dark" onclick="OpenAuditManagementProgram()">
+                    <i class="fas fa-book"></i>&nbsp;&nbsp;Audit Management Program
+                </button>
             </div>
             <hr>
             <div class="row">
@@ -41,15 +56,29 @@ $data = [
                                 <h5 style="margin-right: 10px;">Audit Program</h5>
                             </div>
                             <div>
-                                <a href="https://www.w3schools.com">All</a>
+                                <button type="button" class="btn btn-dark btn-sm" onclick="OpenAuditManagementProgram()">All</button>
                             </div>
                         </div>
                         <div class="card-body" style="overflow-y: auto; max-height: 600px;">
+                            <div style="display: flex;justify-content: flex-end;align-items: center;">
+                                <span>Program Today:&nbsp;</span>
+                                <span style="font-size: smaller; color: #007bff;">
+                                    Tuesday, 01 January 2024
+                                </span>
+                            </div>
+
                             <?php foreach ($data as $item) : ?>
                                 <div class="card-body mt-3" style="background-color: #E2F0FF; border-radius: 4px;">
-                                    <div>
-                                        <span style="color: #666666;">AP No.&nbsp;</span>
-                                        <span id="no" style="color: #007BFF; font-weight: 600;"><?php echo $item['no']; ?></span>
+                                    <div class="d-flex justify-content-between">
+                                        <div>
+                                            <span style="color: #666666;">AP No.&nbsp;</span>
+                                            <span id="no" style="color: #007BFF; font-weight: 600;"><?php echo $item['no']; ?></span>
+                                        </div>
+                                        <div>
+                                            <span style="color: #007BFF; cursor: pointer;" data-toggle="modal" data-target="#modal-default" id="load-modal-button" onclick="load_modal(9)">
+                                                <i class="fas fa-ellipsis-h"></i>
+                                            </span>
+                                        </div>
                                     </div>
                                     <div>
                                         <span style="color: #666666;">Project Name:&nbsp;</span>
@@ -78,31 +107,27 @@ $data = [
     document.addEventListener('DOMContentLoaded', function() {
         var calendarEl = document.getElementById('calendar');
         var calendar = new FullCalendar.Calendar(calendarEl, {
-            initialView: 'dayGridMonth', // การแสดงปฏิทินเริ่มต้นในมุมมอง 'เดย์กริดเดือน'
+            initialView: 'dayGridMonth',
             headerToolbar: { // ปุ่มควบคุมด้านบนของปฏิทิน
-                left: 'prev,next today', // ปุ่มเลื่อนไปข้างหน้า, ปุ่มเลื่อนไปข้างหลัง, ปุ่มวันปัจจุบัน
-                center: 'title', // หัวข้อปฏิทิน
-                right: 'dayGridYear,dayGridMonth,timeGridWeek,timeGridDay,listWeek' // ปุ่มเปลี่ยนมุมมอง: เดือน, สัปดาห์แบบกำหนด, วันแบบกำหนด, รายการสัปดาห์
+                left: 'prev,next today',
+                center: 'title',
+                right: 'dayGridYear,dayGridMonth,timeGridWeek,timeGridDay,listWeek'
             },
-            navLinks: true, // อนุญาตให้กดที่ช่องวันเพื่อไปยังวันนั้นๆ
-            // selectable: true, // ทำให้สามารถเลือกวันได้
-            selectMirror: true, // แสดงการเลือกเป็นส่วนของวิวหลัก
+            navLinks: true,
+            selectable: true,
+            selectMirror: true,
             select: function(arg) { // ฟังก์ชันที่เรียกเมื่อเลือกวัน
-                var title = prompt('Event Title:');
-                if (title) {
-                    calendar.addEvent({
-                        title: title,
-                        start: arg.start,
-                        end: arg.end,
-                        allDay: arg.allDay
-                    });
-                }
-                calendar.unselect();
+                console.log('Clicked create program', );
+                $("#modal-default").modal('toggle');
+                load_modal(3);
             },
-            // editable: true, // ทำให้สามารถย้าย/ปรับขนาดกิจกรรมได้
-            dayMaxEvents: true, // allow "more" link when too many events
-            events: [ // กำหนดกิจกรรมตัวอย่าง
-                {
+            eventClick: function(info) { // ฟังก์ชันที่เรียกเมื่อเลือก Event
+                console.log('Clicked on event: ', info.event.title);
+                $("#modal-default").modal('toggle');
+                load_modal(9);
+            },
+            dayMaxEvents: true,
+            events: [{
                     title: 'Example Event',
                     start: '2024-05-01',
                     end: '2024-05-01',
@@ -130,9 +155,9 @@ $data = [
                     backgroundColor: '#82B4FF',
                     borderColor: '#F5F6FA'
                 }
-            ]
+            ],
         });
-        calendar.render(); // แสดงปฏิทิน
+        calendar.render();
     });
 </script>
 <script>

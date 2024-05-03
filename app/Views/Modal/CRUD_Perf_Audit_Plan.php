@@ -60,7 +60,7 @@
         </div>
         <div class="form-group mt-3">
           <h6>Audit Team</h6>
-          <textarea class="form-control gray-text" rows="3" placeholder="Text..." name="auditteam" id="auditteam"></textarea>
+          <textarea onInput="handleInput(event)" class="form-control gray-text" rows="3" placeholder="Text..." name="auditteam" id="auditteam"></textarea>
         </div>
         <div class="form-group">
           <h6>Attach File</h6>
@@ -74,16 +74,13 @@
         <input type="text" id="check_type" name="check_type" hidden>
         <input type="text" id="id_" name="id_" hidden>
         <div class="modal-footer">
-          <button type="submit" class="btn btn-success" name="submit" value="Submit">Save</button>
+          <button type="submit" class="btn btn-success" name="submit" value="Submit">SAVE</button>
           <button type="button" class="btn btn-danger" data-dismiss="modal">CANCEL</button>
         </div>
       </form>
     </div>
   </div>
 </div>
-
-
-
 <script>
   $(document).ready(function() {
     $(".overlay").hide();
@@ -94,4 +91,23 @@
     const urlRouteInput = document.getElementById("url_route");
     action_(urlRouteInput.value, 'form_crud');
   });
+</script>
+<script>
+  let previousLength = 0;
+
+  const handleInput = (event) => {
+    const bullet = "\u2022";
+    const newLength = event.target.value.length;
+    const characterCode = event.target.value.substr(-1).charCodeAt(0);
+
+    if (newLength > previousLength) {
+      if (characterCode === 10) {
+        event.target.value = `${event.target.value}${bullet} `;
+      } else if (newLength === 1) {
+        event.target.value = `${bullet} ${event.target.value}`;
+      }
+    }
+
+    previousLength = newLength;
+  }
 </script>
