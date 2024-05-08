@@ -17,6 +17,10 @@
         cursor: pointer;
     }
 
+    .fc .fc-daygrid-day-frame {
+        cursor: copy;
+    }
+
     :hover.fc-event-main {
         background-color: #3384FF;
         border-radius: 8%;
@@ -25,13 +29,13 @@
 <?php
 $data = [
     ['no' => 'AP001', 'projectname' => 'test1', 'period' => '01  Jan 2024 - 31 Dec 2024'],
-    ['no' => 'AP001', 'projectname' => 'test1', 'period' => '01  Jan 2024 - 31 Dec 2024'],
-    ['no' => 'AP001', 'projectname' => 'test1', 'period' => '01  Jan 2024 - 31 Dec 2024'],
-    ['no' => 'AP001', 'projectname' => 'test1', 'period' => '01  Jan 2024 - 31 Dec 2024'],
-    ['no' => 'AP001', 'projectname' => 'test1', 'period' => '01  Jan 2024 - 31 Dec 2024'],
-    ['no' => 'AP001', 'projectname' => 'test1', 'period' => '01  Jan 2024 - 31 Dec 2024'],
-    ['no' => 'AP001', 'projectname' => 'test1', 'period' => '01  Jan 2024 - 31 Dec 2024'],
-    ['no' => 'AP001', 'projectname' => 'test1', 'period' => '01  Jan 2024 - 31 Dec 2024'],
+    ['no' => 'AP002', 'projectname' => 'test1', 'period' => '01  Jan 2024 - 31 Dec 2024'],
+    ['no' => 'AP003', 'projectname' => 'test1', 'period' => '01  Jan 2024 - 31 Dec 2024'],
+    ['no' => 'AP004', 'projectname' => 'test1', 'period' => '01  Jan 2024 - 31 Dec 2024'],
+    ['no' => 'AP005', 'projectname' => 'test1', 'period' => '01  Jan 2024 - 31 Dec 2024'],
+    ['no' => 'AP006', 'projectname' => 'test1', 'period' => '01  Jan 2024 - 31 Dec 2024'],
+    ['no' => 'AP007', 'projectname' => 'test1', 'period' => '01  Jan 2024 - 31 Dec 2024'],
+    ['no' => 'AP008', 'projectname' => 'test1', 'period' => '01  Jan 2024 - 31 Dec 2024'],
 ];
 ?>
 <!-- Section 1 -->
@@ -116,8 +120,7 @@ $data = [
             navLinks: true,
             selectable: true,
             selectMirror: true,
-            select: function(arg) { // ฟังก์ชันที่เรียกเมื่อเลือกวัน
-                console.log('Clicked create program', );
+            select: function(arg) {
                 $("#modal-default").modal('toggle');
                 load_modal(3);
             },
@@ -137,12 +140,12 @@ $data = [
                 {
                     title: 'Long Event',
                     start: '2024-05-07',
-                    end: '2024-05-29',
+                    end: '2024-05-15',
                     backgroundColor: '#82B4FF',
                     borderColor: '#F5F6FA'
                 },
                 {
-                    title: 'Conference',
+                    title: 'test',
                     start: '2024-05-11',
                     end: '2024-05-13',
                     backgroundColor: '#82B4FF',

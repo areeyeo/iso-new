@@ -123,7 +123,6 @@
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="<?= site_url('/'); ?>">Home</a></li>
                             <li class="breadcrumb-item active">Performance Evaluation</li>
-                            <li class="breadcrumb-item active"><a>Version <?php echo $data['num_ver']; ?></a></li>
                         </ol>
                     </div>
                 </div>
@@ -166,14 +165,12 @@
                                                 <th>OBJECTIVE</th>
                                                 <th>EVALUATION</th>
                                                 <th>PLANNING</th>
-                                                <th>START DATE</th>
-                                                <th>END DATE</th>
                                                 <th>WHEN TO EVALUATED</th>
+                                                <th>ACTUAL</th>
                                                 <th>WHO SHALL MONITOR</th>
                                                 <th>METHODS FOR MONITORING</th>
                                                 <th>CRITERIA</th>
                                                 <th>RESULT</th>
-                                                <th>FILE</th>
                                                 <th>ACTION</th>
                                             </tr>
                                         </thead>
@@ -261,26 +258,22 @@
             {
                 "Data": "1",
                 "PLANNING": "planning1",
-                "STARTDATE": "10/01/2024",
-                "ENDDATE": "10/01/2024",
+                "ACTUAL": "10/01/2024",
                 "WHENEVALUATED": "10/01/2024",
                 "WHOSHALLMONITOR": "text",
                 "METHODSFORMONITORING": "text",
                 "CRITERIA": "text",
                 "RESULT": "text",
-                "FILE": "text",
             },
             {
                 "Data": "1",
                 "PLANNING": "planning2",
-                "STARTDATE": "10/01/2024",
-                "ENDDATE": "10/01/2024",
+                "ACTUAL": "10/01/2024",
                 "WHENEVALUATED": "10/01/2024",
                 "WHOSHALLMONITOR": "text",
                 "METHODSFORMONITORING": "text",
                 "CRITERIA": "text",
                 "RESULT": "text",
-                "FILE": "text",
             },
             {
                 "NO": "2",
@@ -292,38 +285,32 @@
             {
                 "Data": "1",
                 "PLANNING": "planning3",
-                "STARTDATE": "10/01/2024",
-                "ENDDATE": "10/01/2024",
+                "ACTUAL": "10/01/2024",
                 "WHENEVALUATED": "10/01/2024",
                 "WHOSHALLMONITOR": "text",
                 "METHODSFORMONITORING": "text",
                 "CRITERIA": "text",
                 "RESULT": "text",
-                "FILE": "text",
             },
             {
                 "Data": "1",
                 "PLANNING": "planning4",
-                "STARTDATE": "10/01/2024",
-                "ENDDATE": "10/01/2024",
+                "ACTUAL": "10/01/2024",
                 "WHENEVALUATED": "10/01/2024",
                 "WHOSHALLMONITOR": "text",
                 "METHODSFORMONITORING": "text",
                 "CRITERIA": "text",
                 "RESULT": "text",
-                "FILE": "text",
             },
             {
                 "Data": "1",
                 "PLANNING": "planning5",
-                "STARTDATE": "10/01/2024",
-                "ENDDATE": "10/01/2024",
+                "ACTUAL": "10/01/2024",
                 "WHENEVALUATED": "10/01/2024",
                 "WHOSHALLMONITOR": "text",
                 "METHODSFORMONITORING": "text",
                 "CRITERIA": "text",
                 "RESULT": "text",
-                "FILE": "text",
             },
         ];
         var example1TableBody = document.getElementById("example1").getElementsByTagName("tbody")[0];
@@ -342,22 +329,18 @@
             var cell10 = newRow.insertCell(9);
             var cell11 = newRow.insertCell(10);
             var cell12 = newRow.insertCell(11);
-            var cell13 = newRow.insertCell(12);
-            var cell14 = newRow.insertCell(13);
 
             cell1.textContent = row.NO;
             cell2.textContent = row.OBJNO;
             cell3.textContent = row.OBJECTIVE;
             cell4.textContent = row.EVALUATION;
             displayArrayInCell(cell5, row.PLANNING);
-            displayArrayInCell(cell6, row.STARTDATE);
-            displayArrayInCell(cell7, row.ENDDATE);
-            displayArrayInCell(cell8, row.WHENEVALUATED);
-            displayArrayInCell(cell9, row.WHOSHALLMONITOR);
-            displayArrayInCell(cell10, row.METHODSFORMONITORING);
-            displayArrayInCell(cell11, row.CRITERIA);
-            displayArrayInCell(cell12, row.RESULT);
-            displayArrayInCell(cell13, row.FILE);
+            displayArrayInCell(cell6, row.ACTUAL);
+            displayArrayInCell(cell7, row.WHENEVALUATED);
+            displayArrayInCell(cell8, row.WHOSHALLMONITOR);
+            displayArrayInCell(cell9, row.METHODSFORMONITORING);
+            displayArrayInCell(cell10, row.CRITERIA);
+            displayArrayInCell(cell11, row.RESULT);
 
             if (Number.isInteger(Number(row.NO))) {
                 cell1.textContent = row.NO;;
@@ -369,7 +352,7 @@
             }
 
             if (row["Data"] === "1") {
-                cell14.innerHTML = `<span style="color:#007BFF; cursor:pointer;" data-toggle="modal" data-target="#modal-default" onclick="load_modal(2)"><i class="fas fa-user-edit"></i></span>`;
+                cell12.innerHTML = `<span style="color:#007BFF; cursor:pointer;" data-toggle="modal" data-target="#modal-default" onclick="load_modal(2)"><i class="fas fa-user-edit"></i></span>`;
             }
         });
 

@@ -142,110 +142,113 @@
 </style>
 
 <body>
-    <div class="card">
-        <div class="card-body">
-            <div class="container-fluid">
-                <div class="d-flex justify-content-between">
-                    <h4>Follow-up</h4>
-                    <button type="button" class="btn btn-outline-primary" style="margin-inline-start: auto;" data-toggle="modal" data-target="#modal-default" onclick="load_modal(12)">
-                        <i class="fas fa-edit"></i>&nbsp;&nbsp;Create Follow-up
-                    </button>
-                </div>
-                <hr>
-                <div id="accordion">
-                    <div class="card">
-                        <div class="card-header d-flex" id="headingOneFollow" style="background-color: #E2F0FF;">
-                            <h5 class="mb-0">
-                                <button class="btn btn-link btn-lg collapsed" data-toggle="collapse" data-target="#collapseOneFollow" aria-expanded="false" aria-controls="collapseOneFollow" onclick="toggleAccordion(this.querySelector('i'))">
-                                    <i class="fas fa-chevron-right"></i>&nbsp;&nbsp;Inconsistent
-                                </button>
-                            </h5>
-                        </div>
-                        <div id="collapseOneFollow" class="collapse show" aria-labelledby="headingOneFollow" data-parent="#accordion">
-                            <div class="card-body">
-                                <div class="table-wrapper">
-                                    <table id="examplefollow1" class="table table-hover">
-                                        <thead>
-                                            <tr>
-                                                <th class="text-center">ACTION</th>
-                                                <th>NO.</th>
-                                                <th>NON-INCONSISTENT ISSUE</th>
-                                                <th>CORRECTIVE ACTION</th>
-                                                <th>RESPONSIBLE PERSON</th>
-                                                <th>START DATE</th>
-                                                <th>END DATE</th>
-                                                <th>STATUS</th>
-                                                <th>ANNUAL</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                        </tbody>
-                                    </table>
-                                </div>
+    <span style="color: red; font-size: 15pt;">เดี๋ยวคุมเวอร์ชั่นด้วยจ้า</span>
+    <section>
+        <div class="card">
+            <div class="card-body">
+                <div class="container-fluid">
+                    <div class="d-flex justify-content-between">
+                        <h4>Follow-up</h4>
+                        <button type="button" class="btn btn-outline-primary" style="margin-inline-start: auto;" data-toggle="modal" data-target="#modal-default" onclick="load_modal(12)">
+                            <i class="fas fa-edit"></i>&nbsp;&nbsp;Create Follow-up
+                        </button>
+                    </div>
+                    <hr>
+                    <div id="accordion">
+                        <div class="card">
+                            <div class="card-header d-flex" id="headingOneFollow" style="background-color: #E2F0FF;">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link btn-lg collapsed" data-toggle="collapse" data-target="#collapseOneFollow" aria-expanded="false" aria-controls="collapseOneFollow" onclick="toggleAccordion(this.querySelector('i'))">
+                                        <i class="fas fa-chevron-down"></i>&nbsp;&nbsp;Inconsistent
+                                    </button>
+                                </h5>
+                            </div>
+                            <div id="collapseOneFollow" class="collapse show" aria-labelledby="headingOneFollow" data-parent="#accordion">
+                                <div class="card-body">
+                                    <div class="table-wrapper">
+                                        <table id="examplefollow1" class="table table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th class="text-center">ACTION</th>
+                                                    <th>NO.</th>
+                                                    <th>NON-INCONSISTENT ISSUE</th>
+                                                    <th>CORRECTIVE ACTION</th>
+                                                    <th>RESPONSIBLE PERSON</th>
+                                                    <th>START DATE</th>
+                                                    <th>END DATE</th>
+                                                    <th>STATUS</th>
+                                                    <th>ANNUAL</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            </tbody>
+                                        </table>
+                                    </div>
 
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-header" id="headingTwoFollow" style="background-color: #E2F0FF;">
-                            <h5 class="mb-0">
-                                <button class="btn btn-link btn-lg collapsed" data-toggle="collapse" data-target="#collapseTwoFollow" aria-expanded="false" aria-controls="collapseTwoFollow" onclick="toggleAccordion(this.querySelector('i'))">
-                                    <i class="fas fa-chevron-right"></i>&nbsp;&nbsp;Observation
-                                </button>
-                            </h5>
-                        </div>
-                        <div id="collapseTwoFollow" class="collapse" aria-labelledby="headingTwoFollow" data-parent="#accordion">
-                            <div class="card-body">
-                                <div class="table-wrapper">
-                                    <table id="examplefollow2" class="table table-hover">
-                                        <thead>
-                                            <tr>
-                                                <th class="text-center">ACTION</th>
-                                                <th>NO.</th>
-                                                <th>NON-OBSERVATION ISSUE</th>
-                                                <th>CORRECTIVE ACTION</th>
-                                                <th>RESPONSIBLE PERSON</th>
-                                                <th>START DATE</th>
-                                                <th>END DATE</th>
-                                                <th>STATUS</th>
-                                                <th>ANNUAL</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                        </tbody>
-                                    </table>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-header d-flex" id="headingThreeFollow" style="background-color: #E2F0FF;">
-                            <h5 class="mb-0">
-                                <button class="btn btn-link btn-lg collapsed" data-toggle="collapse" data-target="#collapsethreefollow" aria-expanded="false" aria-controls="collapsethreefollow" onclick="toggleAccordion(this.querySelector('i'))">
-                                    <i class="fas fa-chevron-right"></i>&nbsp;&nbsp;Opportunity
-                                </button>
-                            </h5>
+                        <div class="card">
+                            <div class="card-header" id="headingTwoFollow" style="background-color: #E2F0FF;">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link btn-lg collapsed" data-toggle="collapse" data-target="#collapseTwoFollow" aria-expanded="false" aria-controls="collapseTwoFollow" onclick="toggleAccordion(this.querySelector('i'))">
+                                        <i class="fas fa-chevron-down"></i>&nbsp;&nbsp;Observation
+                                    </button>
+                                </h5>
+                            </div>
+                            <div id="collapseTwoFollow" class="collapse" aria-labelledby="headingTwoFollow" data-parent="#accordion">
+                                <div class="card-body">
+                                    <div class="table-wrapper">
+                                        <table id="examplefollow2" class="table table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th class="text-center">ACTION</th>
+                                                    <th>NO.</th>
+                                                    <th>NON-OBSERVATION ISSUE</th>
+                                                    <th>CORRECTIVE ACTION</th>
+                                                    <th>RESPONSIBLE PERSON</th>
+                                                    <th>START DATE</th>
+                                                    <th>END DATE</th>
+                                                    <th>STATUS</th>
+                                                    <th>ANNUAL</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div id="collapsethreefollow" class="collapse" aria-labelledby="headingThreeFollow" data-parent="#accordion">
-                            <div class="card-body">
-                                <div class="table-wrapper">
-                                    <table id="examplefollow3" class="table table-hover">
-                                        <thead>
-                                            <tr>
-                                                <th class="text-center">ACTION</th>
-                                                <th>NO.</th>
-                                                <th>NON-OPPORTUNITY ISSUE</th>
-                                                <th>CORRECTIVE ACTION</th>
-                                                <th>RESPONSIBLE PERSON</th>
-                                                <th>START DATE</th>
-                                                <th>END DATE</th>
-                                                <th>STATUS</th>
-                                                <th>ANNUAL</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                        </tbody>
-                                    </table>
+                        <div class="card">
+                            <div class="card-header d-flex" id="headingThreeFollow" style="background-color: #E2F0FF;">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link btn-lg collapsed" data-toggle="collapse" data-target="#collapsethreefollow" aria-expanded="false" aria-controls="collapsethreefollow" onclick="toggleAccordion(this.querySelector('i'))">
+                                        <i class="fas fa-chevron-down"></i>&nbsp;&nbsp;Opportunity
+                                    </button>
+                                </h5>
+                            </div>
+                            <div id="collapsethreefollow" class="collapse" aria-labelledby="headingThreeFollow" data-parent="#accordion">
+                                <div class="card-body">
+                                    <div class="table-wrapper">
+                                        <table id="examplefollow3" class="table table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th class="text-center">ACTION</th>
+                                                    <th>NO.</th>
+                                                    <th>NON-OPPORTUNITY ISSUE</th>
+                                                    <th>CORRECTIVE ACTION</th>
+                                                    <th>RESPONSIBLE PERSON</th>
+                                                    <th>START DATE</th>
+                                                    <th>END DATE</th>
+                                                    <th>STATUS</th>
+                                                    <th>ANNUAL</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -253,7 +256,8 @@
                 </div>
             </div>
         </div>
-    </div>
+    </section>
+
     <script>
         var Data = [{
                 "INCONSISTENT": "-",

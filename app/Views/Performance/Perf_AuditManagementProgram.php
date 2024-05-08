@@ -62,7 +62,7 @@
                         <div class="card-header d-flex" id="headingOne" style="background-color: #E2F0FF;">
                             <h5 class="mb-0">
                                 <button class="btn btn-link btn-lg collapsed" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne" onclick="toggleAccordion(this.querySelector('i'))">
-                                    <i class="fas fa-chevron-right"></i>&nbsp;&nbsp;Audit Program
+                                    <i class="fas fa-chevron-down"></i>&nbsp;&nbsp;Audit Program
                                 </button>
                             </h5>
                             <button type="button" class="btn btn-outline-primary" style="margin-inline-start: auto;" data-toggle="modal" data-target="#modal-default" onclick="load_modal(3)">
@@ -95,7 +95,7 @@
                         <div class="card-header" id="headingTwo" style="background-color: #E2F0FF;">
                             <h5 class="mb-0">
                                 <button class="btn btn-link btn-lg collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" onclick="toggleAccordion(this.querySelector('i'))">
-                                    <i class="fas fa-chevron-right"></i>&nbsp;&nbsp;Audit Plan
+                                    <i class="fas fa-chevron-down"></i>&nbsp;&nbsp;Audit Plan
                                 </button>
                             </h5>
                         </div>
@@ -127,7 +127,7 @@
                         <div class="card-header d-flex" id="headingThree" style="background-color: #E2F0FF;">
                             <h5 class="mb-0">
                                 <button class="btn btn-link btn-lg collapsed" data-toggle="collapse" data-target="#collapsethree" aria-expanded="false" aria-controls="collapsethree" onclick="toggleAccordion(this.querySelector('i'))">
-                                    <i class="fas fa-chevron-right"></i>&nbsp;&nbsp;Audit Checklist
+                                    <i class="fas fa-chevron-down"></i>&nbsp;&nbsp;Audit Checklist
                                 </button>
                             </h5>
                             <button type="button" class="btn btn-outline-primary" style=" margin-inline-start: auto;" data-toggle="modal" data-target="#modal-default" onclick="load_modal(10)">
@@ -141,10 +141,10 @@
                                         <thead>
                                             <tr>
                                                 <th class="text-center">ACTION</th>
-                                                <th>NO.</th>
-                                                <th>NAME</th>
+                                                <th>LIST</th>
+                                                <th>AP NO.</th>
+                                                <th>PROGRAM NAME</th>
                                                 <th>FILE</th>
-                                                <th>UPLOAD DATE</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -159,7 +159,7 @@
                         <div class="card-header d-flex" id="headingFour" style="background-color: #E2F0FF;">
                             <h5 class="mb-0">
                                 <button class="btn btn-link btn-lg collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour" onclick="toggleAccordion(this.querySelector('i'))">
-                                    <i class="fas fa-chevron-right"></i>&nbsp;&nbsp;Audit Report
+                                    <i class="fas fa-chevron-down"></i>&nbsp;&nbsp;Audit Report
                                 </button>
                             </h5>
                             <button type="button" class="btn btn-outline-primary" style=" margin-inline-start: auto;" data-toggle="modal" data-target="#modal-default" onclick="load_modal(11)">
@@ -172,10 +172,10 @@
                                     <thead>
                                         <tr>
                                             <th class="text-center">ACTION</th>
-                                            <th>NO.</th>
-                                            <th>NAME</th>
+                                            <th>RPT NO.</th>
+                                            <th>AP NO.</th>
+                                            <th>PROGRAM NAME</th>
                                             <th>FILE</th>
-                                            <th>UPLOAD DATE</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -199,17 +199,6 @@
         document.addEventListener('DOMContentLoaded', function() {
             collapseAll();
         });
-    </script>
-    <script>
-        function toggleAccordion(iconElement) {
-            if (iconElement.classList.contains('fa-chevron-right')) {
-                iconElement.classList.remove('fa-chevron-right');
-                iconElement.classList.add('fa-chevron-down');
-            } else {
-                iconElement.classList.remove('fa-chevron-down');
-                iconElement.classList.add('fa-chevron-right');
-            }
-        }
     </script>
     <script>
         function OpenAuditManagement() {
@@ -319,14 +308,16 @@
     </script>
     <script>
         var Data = [{
-                "NAME": "-",
+                "LIST": "รายการตรวจที่ 1",
+                "APNO": "AP_001",
+                "PROGRAMNAME": "-",
                 "FILE": "-",
-                "UPLOADDATE": "01/01/2024",
             },
             {
-                "NAME": "-",
+                "LIST": "รายการตรวจที่ 2",
+                "APNO": "AP_001",
+                "PROGRAMNAME": "-",
                 "FILE": "-",
-                "UPLOADDATE": "01/01/2024",
             },
         ];
 
@@ -350,22 +341,24 @@
       <li data-toggle="modal" data-target="#modal-default" onclick="load_modal(10)"><a class="dropdown-item" href="#">Create</a></li>
     </ul>
   </div>`;
-            cell2.textContent = index + 1;
-            cell3.textContent = row.NAME;
-            cell4.textContent = row.FILE;
-            cell5.textContent = row.UPLOADDATE;
+            cell2.textContent = row.LIST;
+            cell3.textContent = row.APNO;
+            cell4.textContent = row.PROGRAMNAME;
+            cell5.textContent = row.FILE;
         });
     </script>
     <script>
         var Data = [{
-                "NAME": "-",
+                "RPTNO": "RPT_001",
+                "APNO": "RPT_001",
+                "PROGRAMNAME": "-",
                 "FILE": "-",
-                "UPLOADDATE": "01/01/2024",
             },
             {
-                "NAME": "-",
+                "RPTNO": "RPT_002",
+                "APNO": "RPT_002",
+                "PROGRAMNAME": "-",
                 "FILE": "-",
-                "UPLOADDATE": "01/01/2024",
             },
         ];
 
@@ -389,10 +382,10 @@
       <li data-toggle="modal" data-target="#modal-default" onclick="load_modal(11)"><a class="dropdown-item" href="#">Create</a></li>
     </ul>
   </div>`;
-            cell2.textContent = index + 1;
-            cell3.textContent = row.NAME;
-            cell4.textContent = row.FILE;
-            cell5.textContent = row.UPLOADDATE;
+            cell2.textContent = row.RPTNO;
+            cell3.textContent = row.APNO;
+            cell4.textContent = row.PROGRAMNAME;
+            cell5.textContent = row.FILE;
         });
     </script>
 </body>

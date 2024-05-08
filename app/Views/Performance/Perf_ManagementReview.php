@@ -149,7 +149,7 @@
                                         <thead>
                                             <tr>
                                                 <th class="text-center">ACTION</th>
-                                                <th>MEETING SESSION</th>
+                                                <th>MEETING ID</th>
                                                 <th>MEETING DATE</th>
                                                 <th>MEETING DOCUMENTS</th>
                                                 <th>MEETING MINUTES DOCUMENTS</th>
@@ -230,19 +230,19 @@
     </script>
     <script>
         var Data = [{
-            "MEETINGSESSION": "1/2024",
+            "MEETINGID": "1/2024",
             "MEETINGDATE": "1 Jan 2024",
             "MEETINGDOCUMENTS": "เอกสารหนังสือเชิญประชุมครั้งที่ 1",
             "MMDOCUMENTS": "MOM_Project_Update_25042024.pdf",
         }, 
         {
-            "MEETINGSESSION": "2/2024",
+            "MEETINGID": "2/2024",
             "MEETINGDATE": "1 Jan 2024",
             "MEETINGDOCUMENTS": "เอกสารหนังสือเชิญประชุมครั้งที่ 2",
             "MMDOCUMENTS": "MOM_Project_Update_25042024.pdf",
         },
         {
-            "MEETINGSESSION": "3/2024",
+            "MEETINGID": "3/2024",
             "MEETINGDATE": "1 Jan 2024",
             "MEETINGDOCUMENTS": "เอกสารหนังสือเชิญประชุมครั้งที่ 3",
             "MMDOCUMENTS": "MOM_Project_Update_25042024.pdf",
@@ -267,7 +267,7 @@
       <li data-toggle="modal" data-target="#modal-default " onclick="load_modal(3)"><a class="dropdown-item" href="#">Create</a></li>
     </ul>
   </div>`;
-            cell2.textContent = row.MEETINGSESSION;
+            cell2.textContent = row.MEETINGID;
             cell3.textContent = row.MEETINGDATE;
             cell4.textContent = row.MEETINGDOCUMENTS;
             cell5.textContent = row.MMDOCUMENTS;

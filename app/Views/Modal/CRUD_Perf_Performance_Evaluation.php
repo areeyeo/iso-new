@@ -52,12 +52,12 @@
                         </div>
                         <div class="form-group mt-3">
                             <h6>Criteria</h6>
-                            <input class="form-control gray-text" type="text" name="criteria" id="criteria"></input>
+                            <textarea class="form-control gray-text" rows="3" placeholder="Text..." name="criteria" id="criteria"></textarea>
                         </div>
                         <div class="form-group mt-3">
                             <h6>Result</h6>
                             <select class="form-select form-control" aria-label="Default select example">
-                                <option selected>Select menu</option>
+                                <option selected>Select Result</option>
                                 <option value="1">Pass</option>
                                 <option value="2">Fail</option>
                             </select>

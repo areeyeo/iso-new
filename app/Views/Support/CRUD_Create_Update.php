@@ -1,22 +1,6 @@
 <title>Documented Information Version</title>
 <!DOCTYPE html>
 <html lang="en">
-<style>
-    .select2-container--default .select2-selection--multiple {
-        border: 1px solid #ced4da !important;
-    }
-
-    .select2-selection__choice {
-        background-color: #E2F0FF !important;
-        border: 1px solid #E2F0FF !important;
-        color: #0062FF !important;
-    }
-
-    .select2-selection__choice__remove {
-        color: #0062FF !important;
-    }
-</style>
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
