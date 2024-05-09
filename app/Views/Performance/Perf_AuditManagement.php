@@ -1,4 +1,8 @@
 <style>
+    tbody {
+        background-color: #ffffff;
+    }
+    
     .fc-header-toolbar .fc-button {
         background-color: #BBDCFF;
         color: #ffffff;
@@ -57,7 +61,7 @@ $data = [
                     <div class="card">
                         <div class="p-4" style="background-color: #ccc; height: 80px; display: flex; align-items: center; justify-content: space-between;">
                             <div style="display: flex; align-items: center;">
-                                <h5 style="margin-right: 10px;">Audit Program</h5>
+                                <h5 style="margin-right: 10px;">Audit Plan</h5>
                             </div>
                             <div>
                                 <button type="button" class="btn btn-dark btn-sm" onclick="OpenAuditManagementProgram()">All</button>
@@ -65,12 +69,9 @@ $data = [
                         </div>
                         <div class="card-body" style="overflow-y: auto; max-height: 600px;">
                             <div style="display: flex;justify-content: flex-end;align-items: center;">
-                                <span>Program Today:&nbsp;</span>
-                                <span style="font-size: smaller; color: #007bff;">
-                                    Tuesday, 01 January 2024
-                                </span>
+                                <span>Audit Plan Today:&nbsp;</span>
+                                <span id="current-date" style="font-size: smaller; color: #007bff;"></span>
                             </div>
-
                             <?php foreach ($data as $item) : ?>
                                 <div class="card-body mt-3" style="background-color: #E2F0FF; border-radius: 4px;">
                                     <div class="d-flex justify-content-between">
@@ -162,6 +163,13 @@ $data = [
         });
         calendar.render();
     });
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    var currentDate = new Date();
+    var options = { year: 'numeric', month: 'long', day: 'numeric' };
+    document.getElementById('current-date').textContent = currentDate.toLocaleDateString('en-EN', options);
+});
 </script>
 <script>
     function OpenAuditManagementProgram() {

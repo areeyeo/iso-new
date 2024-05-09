@@ -1,16 +1,26 @@
+<!-- Select2 CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+<style>
+  .select2-container--default .select2-selection--multiple {
+    border: 1px solid #ced4da !important;
+  }
+
+  .select2-selection__choice {
+    background-color: #E2F0FF !important;
+    border: 1px solid #E2F0FF !important;
+    color: #0062FF !important;
+  }
+
+  .select2-selection__choice__remove {
+    color: #0062FF !important;
+  }
+</style>
 <div class="modal-dialog modal-lg">
   <div class="modal-content">
-    <!-- <div class="overlay">
-      <i class="fas fa-2x fa-sync fa-spin"></i>
-    </div> -->
     <div class="modal-header bg-primary">
       <h4 class="modal-title" id="title_modal" name="title_modal">Audit Report</h4>
     </div>
     <div class="modal-body">
-      <!-- <div class="progress mb-3" style="display: none;">
-        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="0"
-          aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
-      </div> -->
       <form class="mb-3" id="form_crud" action="javascript:void(0)" method="post" enctype="multipart/form-data">
         <div>
           <h6>Description</h6>
@@ -24,8 +34,13 @@
           <h6 class="gray-text" name="description" id="description"></h6>
         </div>
         <div class="form-group mt-3">
-          <h6>Name</h6>
-          <input class="form-control gray-text" type="text" placeholder="Text..." name="name" id="name"></input>
+          <h6>Report About</h6>
+          <input class="form-control gray-text" type="text" placeholder="Text..." name="reportabout" id="reportabout"></input>
+        </div>
+        <div class="form-group mt-3">
+          <h6>Program Name</h6>
+          <select id="tags-projectnamereport" multiple="multiple" class="form-control">
+          </select>
         </div>
         <div class="form-group">
           <h6>Attach File</h6>
@@ -46,12 +61,18 @@
     </div>
   </div>
 </div>
-
-
-
+<!-- Select2 JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
 <script>
   $(document).ready(function() {
-    $(".overlay").hide();
+    var selectData = ["AP_001 โปรเจคตัวอย่างที่ 1", "AP_002 โปรเจคตัวอย่างที่ 2", "AP_003 โปรเจคตัวอย่างที่ 3", "AP_004 โปรเจคตัวอย่างที่ 4", "AP_005 โปรเจคตัวอย่างที่ 5"];
+    $('#tags-projectnamereport').select2({
+      data: selectData,
+      placeholder: "Select or Search",
+      tags: false,
+      tokenSeparators: [',', ' '],
+      width: '100%'
+    });
   });
 
   $("#form_crud").on('submit', function(e) {
