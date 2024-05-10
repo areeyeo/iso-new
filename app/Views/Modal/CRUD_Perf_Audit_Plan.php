@@ -170,12 +170,12 @@
 
     .tab {
       overflow: hidden;
-      border: 1px solid #8ec4ff;
-      background-color: #8ec4ff;
+      border: 1px solid #e2f0ff;
+      background-color: #e2f0ff;
+      height: 54px;
       border-radius: 10px 10px 0px 0px;
     }
 
-    /* Style the buttons inside the tab */
     .tab button {
       background-color: inherit;
       float: left;
@@ -187,17 +187,16 @@
       font-size: 17px;
     }
 
-    /* Change background color of buttons on hover */
     .tab button:hover {
       background-color: #B7DAFF;
+      border-radius: 10px;
     }
 
-    /* Create an active/current tablink class */
     .tab button.active {
       background-color: #B7DAFF;
+      border-radius: 10px;
     }
 
-    /* Style the tab content */
     .tabcontent {
       display: none;
       padding: 6px 12px;
@@ -216,6 +215,7 @@
     </div> -->
       <div class="modal-header bg-primary">
         <h4 class="modal-title" id="title_modal" name="title_modal">Audit Plan</h4>
+        <span style="font-size: 20pt; cursor: pointer;" data-dismiss="modal"><i class="fas fa-times"></i>&nbsp;</span>
       </div>
       <div class="modal-body">
         <form class="mb-3" id="form_crud" action="javascript:void(0)" method="post" enctype="multipart/form-data">

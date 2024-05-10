@@ -2,7 +2,7 @@
     tbody {
         background-color: #ffffff;
     }
-    
+
     .fc-header-toolbar .fc-button {
         background-color: #BBDCFF;
         color: #ffffff;
@@ -28,6 +28,25 @@
     :hover.fc-event-main {
         background-color: #3384FF;
         border-radius: 8%;
+    }
+
+    input[type="date"]::-webkit-calendar-picker-indicator {
+        display: none;
+    }
+
+    input[type="date"] {
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 8px 12px;
+        font-size: 16px;
+        outline: none;
+        width: 125px;
+        height: 35px;
+    }
+
+    input[type="date"]:focus {
+        border-color: #007bff;
+        box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
     }
 </style>
 <?php
@@ -70,8 +89,10 @@ $datatest = [
                         <div class="card-body" style="overflow-y: auto; max-height: 600px;">
                             <div style="display: flex;justify-content: flex-end;align-items: center;">
                                 <span>Audit Plan Today:&nbsp;</span>
-                                <span id="current-date" style="font-size: smaller; color: #007bff;"></span>
+                                <input type="date" id="date-picker" class="styled-date">
+                                <!-- <span id="current-date" style="font-size: smaller; color: #007bff;"></span> -->
                             </div>
+                            
                             <?php foreach ($datatest as $item) : ?>
                                 <div class="card-body mt-3" style="background-color: #E2F0FF; border-radius: 4px;">
                                     <div class="d-flex justify-content-between">
@@ -108,6 +129,12 @@ $datatest = [
 <div id="section2">
     <?php include("Perf_AuditManagementProgram.php"); ?>
 </div>
+<script>
+    var datePicker = document.getElementById('date-picker');
+
+    var today = new Date().toISOString().split('T')[0];
+    datePicker.value = today;
+</script>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         var calendarEl = document.getElementById('calendar');
@@ -166,10 +193,14 @@ $datatest = [
 </script>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-    var currentDate = new Date();
-    var options = { year: 'numeric', month: 'long', day: 'numeric' };
-    document.getElementById('current-date').textContent = currentDate.toLocaleDateString('en-EN', options);
-});
+        var currentDate = new Date();
+        var options = {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        };
+        document.getElementById('current-date').textContent = currentDate.toLocaleDateString('en-EN', options);
+    });
 </script>
 <script>
     function OpenAuditManagementProgram() {

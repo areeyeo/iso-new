@@ -94,34 +94,36 @@
         white-space: nowrap;
     }
 
-    .accordion {
-        margin: 0 auto;
-    }
-
     .accordion-item {
-        border: 1px solid #dee2e6;
-        border-radius: 0.25rem;
-        margin-bottom: 0.5rem;
-        overflow: hidden;
+        border-bottom: 1px solid #ddd;
     }
 
-    .accordion-header {
-        background-color: #f8f9fa;
-        padding: 0.75rem 1rem;
+    .accordion-title {
+        padding: 20px;
+        background-color: #BEDEFF;
+        color: #818181;
+        font-size: 1.2em;
         cursor: pointer;
-        border-bottom: 1px solid #dee2e6;
+        position: relative;
+        border-radius: 10px;
+        transition: background-color 0.3s;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
 
-    .accordion-header:hover {
-        background-color: #e9ecef;
+    .accordion-title:hover {
+        background-color: #E1F0FF;
+    }
+
+    .accordion-item.active .accordion-title {
+        background-color: #E1F0FF;
     }
 
     .accordion-content {
-        padding: 1rem;
-        background-color: #fff;
+        padding: 10px;
         display: none;
-        max-height: 0;
         overflow: hidden;
+        max-height: 0;
+        transition: max-height 0.5s ease-out;
     }
 
     .accordion-item.active .accordion-content {
@@ -129,15 +131,43 @@
         max-height: 500px;
     }
 
-    .accordion-header::after {
-        content: "\02795";
-        font-size: 0.75rem;
-        float: right;
-        margin-left: 5px;
+    .accordion-item.active .accordion-content {
+        animation: fadeIn 0.5s ease-out;
     }
 
-    .accordion-item.active .accordion-header::after {
-        content: "\2796";
+    .accordion-title::before {
+        content: '+';
+        display: inline-block;
+        margin-right: 10px;
+        font-size: 1.2em;
+        transition: transform 0.5s ease;
+        transform-origin: center;
+    }
+
+    .accordion-title::before {
+        content: '+';
+        display: inline-block;
+        margin-right: 10px;
+        font-size: 1.2em;
+        transition: transform 0.3s ease;
+        transform-origin: center;
+    }
+
+    .accordion-item.active .accordion-title::before {
+        content: '-';
+        transform: rotate(180deg);
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
 </style>
 
@@ -274,110 +304,106 @@
                         </button>
                     </div>
                     <hr>
-                    <div id="accordion">
-                        <div class="card">
-                            <div class="card-header d-flex" id="headingOneFollow" style="background-color: #E2F0FF;">
-                                <h5 class="mb-0">
-                                    <button class="btn btn-link btn-lg collapsed" data-toggle="collapse" data-target="#collapseOneFollow" aria-expanded="false" aria-controls="collapseOneFollow" onclick="toggleAccordion(this.querySelector('i'))">
-                                        <i class="fas fa-chevron-down"></i>&nbsp;&nbsp;Inconsistent
-                                    </button>
-                                </h5>
+                    <div class="accordion">
+                        <div class="accordion-item">
+                            <div class="accordion-title">Inconsistent</div>
+                            <div class="accordion-content">
+                                <table id="examplefollow1" class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center">ACTION</th>
+                                            <th>NO.</th>
+                                            <th>NON-INCONSISTENT ISSUE</th>
+                                            <th>CORRECTIVE ACTION</th>
+                                            <th>RESPONSIBLE PERSON</th>
+                                            <th>START DATE</th>
+                                            <th>END DATE</th>
+                                            <th>STATUS</th>
+                                            <th>ANNUAL</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    </tbody>
+                                </table>
                             </div>
-                            <div id="collapseOneFollow" class="collapse show" aria-labelledby="headingOneFollow" data-parent="#accordion">
-                                <div class="card-body">
-                                    <div class="table-wrapper">
-                                        <table id="examplefollow1" class="table table-hover">
-                                            <thead>
-                                                <tr>
-                                                    <th class="text-center">ACTION</th>
-                                                    <th>NO.</th>
-                                                    <th>NON-INCONSISTENT ISSUE</th>
-                                                    <th>CORRECTIVE ACTION</th>
-                                                    <th>RESPONSIBLE PERSON</th>
-                                                    <th>START DATE</th>
-                                                    <th>END DATE</th>
-                                                    <th>STATUS</th>
-                                                    <th>ANNUAL</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                            </tbody>
-                                        </table>
-                                    </div>
-
+                        </div>
+                        <div class="accordion-item mt-3">
+                            <div class="accordion-title">Observation</div>
+                            <div class="accordion-content">
+                                <div class="table-wrapper">
+                                    <table id="examplefollow2" class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th class="text-center">ACTION</th>
+                                                <th>NO.</th>
+                                                <th>NON-OBSERVATION ISSUE</th>
+                                                <th>CORRECTIVE ACTION</th>
+                                                <th>RESPONSIBLE PERSON</th>
+                                                <th>START DATE</th>
+                                                <th>END DATE</th>
+                                                <th>STATUS</th>
+                                                <th>ANNUAL</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>
-                        <div class="card">
-                            <div class="card-header" id="headingTwoFollow" style="background-color: #E2F0FF;">
-                                <h5 class="mb-0">
-                                    <button class="btn btn-link btn-lg collapsed" data-toggle="collapse" data-target="#collapseTwoFollow" aria-expanded="false" aria-controls="collapseTwoFollow" onclick="toggleAccordion(this.querySelector('i'))">
-                                        <i class="fas fa-chevron-down"></i>&nbsp;&nbsp;Observation
-                                    </button>
-                                </h5>
-                            </div>
-                            <div id="collapseTwoFollow" class="collapse" aria-labelledby="headingTwoFollow" data-parent="#accordion">
-                                <div class="card-body">
-                                    <div class="table-wrapper">
-                                        <table id="examplefollow2" class="table table-hover">
-                                            <thead>
-                                                <tr>
-                                                    <th class="text-center">ACTION</th>
-                                                    <th>NO.</th>
-                                                    <th>NON-OBSERVATION ISSUE</th>
-                                                    <th>CORRECTIVE ACTION</th>
-                                                    <th>RESPONSIBLE PERSON</th>
-                                                    <th>START DATE</th>
-                                                    <th>END DATE</th>
-                                                    <th>STATUS</th>
-                                                    <th>ANNUAL</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-header d-flex" id="headingThreeFollow" style="background-color: #E2F0FF;">
-                                <h5 class="mb-0">
-                                    <button class="btn btn-link btn-lg collapsed" data-toggle="collapse" data-target="#collapsethreefollow" aria-expanded="false" aria-controls="collapsethreefollow" onclick="toggleAccordion(this.querySelector('i'))">
-                                        <i class="fas fa-chevron-down"></i>&nbsp;&nbsp;Opportunity
-                                    </button>
-                                </h5>
-                            </div>
-                            <div id="collapsethreefollow" class="collapse" aria-labelledby="headingThreeFollow" data-parent="#accordion">
-                                <div class="card-body">
-                                    <div class="table-wrapper">
-                                        <table id="examplefollow3" class="table table-hover">
-                                            <thead>
-                                                <tr>
-                                                    <th class="text-center">ACTION</th>
-                                                    <th>NO.</th>
-                                                    <th>NON-OPPORTUNITY ISSUE</th>
-                                                    <th>CORRECTIVE ACTION</th>
-                                                    <th>RESPONSIBLE PERSON</th>
-                                                    <th>START DATE</th>
-                                                    <th>END DATE</th>
-                                                    <th>STATUS</th>
-                                                    <th>ANNUAL</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                            </tbody>
-                                        </table>
-                                    </div>
+                        <div class="accordion-item mt-3">
+                            <div class="accordion-title">Opportunity</div>
+                            <div class="accordion-content">
+                                <div class="table-wrapper">
+                                    <table id="examplefollow3" class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th class="text-center">ACTION</th>
+                                                <th>NO.</th>
+                                                <th>NON-OPPORTUNITY ISSUE</th>
+                                                <th>CORRECTIVE ACTION</th>
+                                                <th>RESPONSIBLE PERSON</th>
+                                                <th>START DATE</th>
+                                                <th>END DATE</th>
+                                                <th>STATUS</th>
+                                                <th>ANNUAL</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
+        </div>
     </section>
 
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const items = document.querySelectorAll('.accordion-item');
+
+            items.forEach(item => {
+                const title = item.querySelector('.accordion-title');
+                title.addEventListener('click', () => {
+                    items.forEach(otherItem => {
+                        if (otherItem !== item && otherItem.classList.contains('active')) {
+                            otherItem.classList.remove('active');
+                            otherItem.querySelector('.accordion-content').style.display = 'none';
+                        }
+                    });
+
+                    item.classList.toggle('active');
+                    const content = item.querySelector('.accordion-content');
+                    content.style.display = content.style.display === 'block' ? 'none' : 'block';
+                });
+            });
+        });
+    </script>
     <script>
         var Data = [{
                 "INCONSISTENT": "-",
