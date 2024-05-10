@@ -4,10 +4,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Offcanvas Example</title>
-  <!-- Bootstrap CSS -->
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <style>
     #dataTable tbody tr {
       background-color: white;
@@ -24,10 +20,8 @@
       position: fixed;
       top: 0;
       right: -400px;
-      /* Hide offcanvas by default */
       background-color: white;
       z-index: 1051;
-      /* Bootstrap modal backdrop z-index is 1030 */
       transition: right 0.3s ease-in-out;
     }
 
@@ -59,7 +53,6 @@
       /* Hide offcanvas by default */
       background-color: white;
       z-index: 1051;
-      /* Bootstrap modal backdrop z-index is 1030 */
       transition: right 0.3s ease-in-out;
     }
 
@@ -91,7 +84,6 @@
       /* Hide offcanvas by default */
       background-color: white;
       z-index: 1051;
-      /* Bootstrap modal backdrop z-index is 1030 */
       transition: right 0.3s ease-in-out;
     }
 
@@ -175,6 +167,44 @@
     .slider.round:before {
       border-radius: 50%;
     }
+
+    .tab {
+      overflow: hidden;
+      border: 1px solid #8ec4ff;
+      background-color: #8ec4ff;
+      border-radius: 10px 10px 0px 0px;
+    }
+
+    /* Style the buttons inside the tab */
+    .tab button {
+      background-color: inherit;
+      float: left;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      padding: 14px 16px;
+      transition: 0.3s;
+      font-size: 17px;
+    }
+
+    /* Change background color of buttons on hover */
+    .tab button:hover {
+      background-color: #B7DAFF;
+    }
+
+    /* Create an active/current tablink class */
+    .tab button.active {
+      background-color: #B7DAFF;
+    }
+
+    /* Style the tab content */
+    .tabcontent {
+      display: none;
+      padding: 6px 12px;
+      border: 1px solid #ccc;
+      border-radius: 0px 0px 10px 10px;
+      border-top: none;
+    }
   </style>
 </head>
 
@@ -219,22 +249,15 @@
               </div>
             </div>
           </div>
-          <ul class="nav nav-tabs">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#" onclick="showTab('tab1')">Initial Data</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#" onclick="showTab('tab2')">Schedule Plan</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#" onclick="showTab('tab3')">Audit Checklist</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#" onclick="showTab('tab4')">Audit Report</a>
-            </li>
-          </ul>
-          <!-- tab initial data-->
-          <div id="tab1Content" style="display: block;">
+
+          <div class="tab">
+            <button class="tablinks active" onclick="openTabAuditPlan(event, 'initialdata')">Initial Data</button>
+            <button class="tablinks" onclick="openTabAuditPlan(event, 'scheduleplan')">Schedule Plan</button>
+            <button class="tablinks" onclick="openTabAuditPlan(event, 'auditchecklist')">Audit Checklist</button>
+            <button class="tablinks" onclick="openTabAuditPlan(event, 'auditreport')">Audit Report</button>
+          </div>
+
+          <div id="initialdata" class="tabcontent">
             <div class="container">
               <div class="d-flex justify-content-between align-items-center mt-3 mb-3">
                 <h5>Initial Data</h5>
@@ -297,8 +320,7 @@
             </div>
           </div>
 
-          <!-- tab schedule plan -->
-          <div id="tab2Content" style="display: none;">
+          <div id="scheduleplan" class="tabcontent">
             <div class="container">
               <div class="d-flex justify-content-between align-items-center mb-3">
                 <h5 class="mt-3">Schedule Plan</h5>
@@ -321,8 +343,7 @@
             </div>
           </div>
 
-          <!-- tab audit checklist -->
-          <div id="tab3Content" style="display: none;">
+          <div id="auditchecklist" class="tabcontent">
             <div class="container">
               <div class="d-flex justify-content-between align-items-center mb-3">
                 <h5 class="mt-3">Audit Checklist</h5>
@@ -346,8 +367,7 @@
             </div>
           </div>
 
-          <!-- tab audit report -->
-          <div id="tab4Content" style="display: none;">
+          <div id="auditreport" class="tabcontent">
             <div class="container">
               <div class="d-flex justify-content-between align-items-center mb-3">
                 <h5 class="mt-3">Audit Report</h5>
@@ -475,12 +495,12 @@
     </div>
   </div>
   <div id="offcanvasBackdropreport" class="offcanvas-backdrop-report"></div>
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 
   <!-- overlay modal -->
   <script>
@@ -516,6 +536,26 @@
     }
   </script>
 
+  <script>
+    window.onload = function() {
+      openTabAuditPlan(event, 'initialdata');
+    };
+
+    function openTabAuditPlan(evt, cityName) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+      document.getElementById(cityName).style.display = "block";
+      evt.currentTarget.className += " active";
+    }
+  </script>
+
   <!-- show tab switch -->
   <script>
     function showTab(tabId) {
@@ -523,7 +563,7 @@
         tab.style.display = 'none';
       });
 
-      document.querySelectorAll('.nav-link').forEach(item => {
+      document.getElementById('nav-link').forEach(item => {
         item.classList.remove('active');
       });
 
@@ -751,15 +791,8 @@
       offcanvasBackdropreport.classList.remove('show');
     }
   </script>
-  <script>
-    document.getElementById('customSwitch1').addEventListener('change', function() {
-      if (this.checked) {
-        console.log("Switch เปิด");
-      } else {
-        console.log("Switch ปิด");
-      }
-    });
-  </script>
+
+  <!-- edit mode -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       const switchElement = document.querySelector('.switch input[type="checkbox"]');

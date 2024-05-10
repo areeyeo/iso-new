@@ -1,53 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<style>
-    .accordion {
-        margin: 0 auto;
-    }
-
-    .accordion-item {
-        border: 1px solid #dee2e6;
-        border-radius: 0.25rem;
-        margin-bottom: 0.5rem;
-        overflow: hidden;
-    }
-
-    .accordion-header {
-        background-color: #f8f9fa;
-        padding: 0.75rem 1rem;
-        cursor: pointer;
-        border-bottom: 1px solid #dee2e6;
-    }
-
-    .accordion-header:hover {
-        background-color: #e9ecef;
-    }
-
-    .accordion-content {
-        padding: 1rem;
-        background-color: #fff;
-        display: none;
-        max-height: 0;
-        overflow: hidden;
-    }
-
-    .accordion-item.active .accordion-content {
-        display: block;
-        max-height: 500px;
-    }
-
-    .accordion-header::after {
-        content: "\02795";
-        font-size: 0.75rem;
-        float: right;
-        margin-left: 5px;
-    }
-
-    .accordion-item.active .accordion-header::after {
-        content: "\2796";
-    }
-</style>
-
 <body>
     <div class="card">
         <div class="card-body">
@@ -57,154 +9,75 @@
                     <button type="button" class="btn btn-dark" onclick="OpenAuditManagement()"><i class="fas fa-book"></i>&nbsp;&nbsp;Audit Program Main</button>
                 </div>
                 <hr>
-                <div id="accordion">
-                    <div class="card">
-                        <div class="card-header d-flex" id="headingOne" style="background-color: #E2F0FF;">
-                            <h5 class="mb-0">
-                                <button class="btn btn-link btn-lg collapsed" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne" onclick="toggleAccordion(this.querySelector('i'))">
-                                    <i class="fas fa-chevron-down"></i>&nbsp;&nbsp;Audit Program
-                                </button>
-                            </h5>
-                            <button type="button" class="btn btn-outline-primary" style="margin-inline-start: auto;" data-toggle="modal" data-target="#modal-default" onclick="load_modal(3)">
-                                <i class="fas fa-edit"></i>&nbsp;&nbsp;Create Program
-                            </button>
+                <div>
+                    <ul class="nav nav-pills" id="tabs-tab" role="tablist">
+                        <li class="nav-item-tab" style="padding-right: 10px;">
+                            <a class="nav-link active" id="Create-Update-tab" data-toggle="pill" href="#Create-Update" role="tab" aria-controls="Create-Update" aria-selected="true">
+                                Audit Program
+                            </a>
+                        </li>
+                        <li class="nav-item-tab">
+                            <a class="nav-link" id="Management-Doc-tab" data-toggle="pill" href="#Management-Doc" role="tab" aria-controls="Management-Doc" aria-selected="false" onclick="getTableData2();">
+                                Audit Plan
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="tab-content mt-3">
+                    <div class="tab-pane fade show active" id="Create-Update" role="tabpanel" aria-labelledby="org-strategy-tab">
+                        <div class="table-wrapper">
+                            <table id="example1" class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center">ACTION</th>
+                                        <th>NO.</th>
+                                        <th>AP NO.</th>
+                                        <th>PROGRAM NAME</th>
+                                        <th>START DATE</th>
+                                        <th>END DATE</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
                         </div>
-                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-                            <div class="card-body">
-                                <div class="table-wrapper">
-                                    <table id="example1" class="table table-hover">
-                                        <thead>
-                                            <tr>
-                                                <th class="text-center">ACTION</th>
-                                                <th>NO.</th>
-                                                <th>AP NO.</th>
-                                                <th>PROGRAM NAME</th>
-                                                <th>START DATE</th>
-                                                <th>END DATE</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                        </tbody>
-                                    </table>
-                                </div>
+                    </div>
+                    <div class="tab-pane fade show" id="Management-Doc" role="tabpanel" aria-labelledby="Management-Doc-tab">
+                        <div class="table-wrapper">
+                            <table id="example2" class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center">ACTION</th>
+                                        <th>AP NO.</th>
+                                        <th>PROGRAM NAME</th>
+                                        <th>SCOPE</th>
+                                        <th>OBJECTIVE</th>
+                                        <th>CRITERIA</th>
+                                        <th>AUDIT LEAD</th>
+                                        <th>AUDIT TEAM</th>
+                                        <th>FILE</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
 
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-header" id="headingTwo" style="background-color: #E2F0FF;">
-                            <h5 class="mb-0">
-                                <button class="btn btn-link btn-lg collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" onclick="toggleAccordion(this.querySelector('i'))">
-                                    <i class="fas fa-chevron-down"></i>&nbsp;&nbsp;Audit Plan
-                                </button>
-                            </h5>
-                        </div>
-                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-                            <div class="card-body">
-                                <div class="table-wrapper">
-                                    <table id="example2" class="table table-hover">
-                                        <thead>
-                                            <tr>
-                                                <th class="text-center">ACTION</th>
-                                                <th>AP NO.</th>
-                                                <th>PROGRAM NAME</th>
-                                                <th>SCOPE</th>
-                                                <th>OBJECTIVE</th>
-                                                <th>CRITERIA</th>
-                                                <th>AUDIT LEAD</th>
-                                                <th>AUDIT TEAM</th>
-                                                <th>FILE</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-header d-flex" id="headingThree" style="background-color: #E2F0FF;">
-                            <h5 class="mb-0">
-                                <button class="btn btn-link btn-lg collapsed" data-toggle="collapse" data-target="#collapsethree" aria-expanded="false" aria-controls="collapsethree" onclick="toggleAccordion(this.querySelector('i'))">
-                                    <i class="fas fa-chevron-down"></i>&nbsp;&nbsp;Audit Checklist
-                                </button>
-                            </h5>
-                            <button type="button" class="btn btn-outline-primary" style=" margin-inline-start: auto;" data-toggle="modal" data-target="#modal-default" onclick="load_modal(10)">
-                                <i class="fas fa-edit"></i>&nbsp;&nbsp;Create Checklist
-                            </button>
-                        </div>
-                        <div id="collapsethree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-                            <div class="card-body">
-                                <div class="table-wrapper">
-                                    <table id="example3" class="table table-hover">
-                                        <thead>
-                                            <tr>
-                                                <th class="text-center">ACTION</th>
-                                                <th>LIST</th>
-                                                <th>AP NO.</th>
-                                                <th>PROGRAM NAME</th>
-                                                <th>FILE</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                        </tbody>
-                                    </table>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-header d-flex" id="headingFour" style="background-color: #E2F0FF;">
-                            <h5 class="mb-0">
-                                <button class="btn btn-link btn-lg collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour" onclick="toggleAccordion(this.querySelector('i'))">
-                                    <i class="fas fa-chevron-down"></i>&nbsp;&nbsp;Audit Report
-                                </button>
-                            </h5>
-                            <button type="button" class="btn btn-outline-primary" style=" margin-inline-start: auto;" data-toggle="modal" data-target="#modal-default" onclick="load_modal(11)">
-                                <i class="fas fa-edit"></i>&nbsp;&nbsp;Create Report
-                            </button>
-                        </div>
-                        <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
-                            <div class="card-body">
-                                <table id="example4" class="table table-hover">
-                                    <thead>
-                                        <tr>
-                                            <th class="text-center">ACTION</th>
-                                            <th>RPT NO.</th>
-                                            <th>AP NO.</th>
-                                            <th>PROGRAM NAME</th>
-                                            <th>FILE</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
-    <script>
-        function collapseAll() {
-            var acc = document.querySelectorAll('.collapse');
-            acc.forEach(function(item) {
-                item.classList.remove('show');
-            });
-        }
 
-        document.addEventListener('DOMContentLoaded', function() {
-            collapseAll();
-        });
-    </script>
+    <!-- change page -->
     <script>
         function OpenAuditManagement() {
             window.location.href = "internal_audit";
         }
     </script>
+
+    <!-- table audit program -->
     <script>
         var Data = [{
                 "APNO": "AP_001",
@@ -249,6 +122,8 @@
             cell6.textContent = row.ENDDATE;
         });
     </script>
+
+    <!-- table audit plan -->
     <script>
         var Data = [{
                 "APNO": "AP_001",
@@ -306,87 +181,16 @@
             }
         }
     </script>
+
     <script>
-        var Data = [{
-                "LIST": "รายการตรวจที่ 1",
-                "APNO": "AP_001",
-                "PROGRAMNAME": "-",
-                "FILE": "-",
-            },
-            {
-                "LIST": "รายการตรวจที่ 2",
-                "APNO": "AP_001",
-                "PROGRAMNAME": "-",
-                "FILE": "-",
-            },
-        ];
-
-        var example3TableBody = document.getElementById("example3").getElementsByTagName("tbody")[0];
-
-        Data.forEach(function(row, index) {
-            var newRow = example3TableBody.insertRow();
-            var cell1 = newRow.insertCell(0);
-            var cell2 = newRow.insertCell(1);
-            var cell3 = newRow.insertCell(2);
-            var cell4 = newRow.insertCell(3);
-            var cell5 = newRow.insertCell(4);
-
-            cell1.innerHTML = `<div class="dropdown">
-    <i class="fas fa-ellipsis-v pointer text-primary" id="dropdownMenuButton${index}" data-toggle="dropdown" aria-expanded="false"></i>
-    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton${index}">
-      <li data-toggle="modal" data-target="#modal-default" onclick="load_modal(10)"><a class="dropdown-item" href="#">Edit</a></li>
-      <li><a class="dropdown-item" href="#">Copy</a></li>
-      <li><a class="dropdown-item" href="#">Delete</a></li>
-      <li><hr class="dropdown-divider"></li>
-      <li data-toggle="modal" data-target="#modal-default" onclick="load_modal(10)"><a class="dropdown-item" href="#">Create</a></li>
-    </ul>
-  </div>`;
-            cell2.textContent = row.LIST;
-            cell3.textContent = row.APNO;
-            cell4.textContent = row.PROGRAMNAME;
-            cell5.textContent = row.FILE;
+        $('#Create-Update-tab').on('click', function() {
+            console.log('Create-Update-tab');
+            $('#btn-Document').show();
         });
-    </script>
-    <script>
-        var Data = [{
-                "RPTNO": "RPT_001",
-                "APNO": "RPT_001",
-                "PROGRAMNAME": "-",
-                "FILE": "-",
-            },
-            {
-                "RPTNO": "RPT_002",
-                "APNO": "RPT_002",
-                "PROGRAMNAME": "-",
-                "FILE": "-",
-            },
-        ];
-
-        var example4TableBody = document.getElementById("example4").getElementsByTagName("tbody")[0];
-
-        Data.forEach(function(row, index) {
-            var newRow = example4TableBody.insertRow();
-            var cell1 = newRow.insertCell(0);
-            var cell2 = newRow.insertCell(1);
-            var cell3 = newRow.insertCell(2);
-            var cell4 = newRow.insertCell(3);
-            var cell5 = newRow.insertCell(4);
-
-            cell1.innerHTML = `<div class="dropdown">
-    <i class="fas fa-ellipsis-v pointer text-primary" id="dropdownMenuButton${index}" data-toggle="dropdown" aria-expanded="false"></i>
-    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton${index}">
-      <li data-toggle="modal" data-target="#modal-default" onclick="load_modal(11)"><a class="dropdown-item" href="#">Edit</a></li>
-      <li><a class="dropdown-item" href="#">Copy</a></li>
-      <li><a class="dropdown-item" href="#">Delete</a></li>
-      <li><hr class="dropdown-divider"></li>
-      <li data-toggle="modal" data-target="#modal-default" onclick="load_modal(11)"><a class="dropdown-item" href="#">Create</a></li>
-    </ul>
-  </div>`;
-            cell2.textContent = row.RPTNO;
-            cell3.textContent = row.APNO;
-            cell4.textContent = row.PROGRAMNAME;
-            cell5.textContent = row.FILE;
-        });
+        $('#Management-Doc-tab').on('click', function() {
+            console.log('Management-Doc-tab');
+            $('#btn-Document').hide();
+        })
     </script>
 </body>
 

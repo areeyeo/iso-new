@@ -31,7 +31,7 @@
     }
 </style>
 <?php
-$data = [
+$datatest = [
     ['no' => 'AP001', 'projectname' => 'test1', 'period' => '01  Jan 2024 - 31 Dec 2024'],
     ['no' => 'AP002', 'projectname' => 'test1', 'period' => '01  Jan 2024 - 31 Dec 2024'],
     ['no' => 'AP003', 'projectname' => 'test1', 'period' => '01  Jan 2024 - 31 Dec 2024'],
@@ -72,7 +72,7 @@ $data = [
                                 <span>Audit Plan Today:&nbsp;</span>
                                 <span id="current-date" style="font-size: smaller; color: #007bff;"></span>
                             </div>
-                            <?php foreach ($data as $item) : ?>
+                            <?php foreach ($datatest as $item) : ?>
                                 <div class="card-body mt-3" style="background-color: #E2F0FF; border-radius: 4px;">
                                     <div class="d-flex justify-content-between">
                                         <div>
