@@ -7,6 +7,7 @@
   <title>Offcanvas Example</title>
   <!-- Bootstrap CSS -->
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <style>
     #dataTable tbody tr {
       background-color: white;
@@ -112,6 +113,68 @@
     .offcanvas-backdrop-report.show {
       display: block;
     }
+
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 40px;
+      height: 20px;
+    }
+
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      -webkit-transition: .4s;
+      transition: .4s;
+      border-radius: 20px;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 16px;
+      width: 16px;
+      left: 2px;
+      bottom: 2px;
+      background-color: white;
+      -webkit-transition: .4s;
+      transition: .2s;
+      border-radius: 50%;
+    }
+
+    input:checked+.slider {
+      background-color: #61F70D;
+    }
+
+    input:focus+.slider {
+      box-shadow: 0 0 1px #61F70D;
+    }
+
+    input:checked+.slider:before {
+      -webkit-transform: translateX(16px);
+      -ms-transform: translateX(16px);
+      transform: translateX(16px);
+    }
+
+    /* Rounded sliders */
+    .slider.round {
+      border-radius: 20px;
+    }
+
+    .slider.round:before {
+      border-radius: 50%;
+    }
   </style>
 </head>
 
@@ -173,26 +236,32 @@
           <!-- tab initial data-->
           <div id="tab1Content" style="display: block;">
             <div class="container">
-              <h5 class="mt-3">Initial Data</h5>
-              <div class="form-check form-switch">
-                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-                <label class="form-check-label" for="flexSwitchCheckDefault">Default switch checkbox input</label>
+              <div class="d-flex justify-content-between align-items-center mt-3 mb-3">
+                <h5>Initial Data</h5>
+                <div>
+                  <span><i class="fas fa-edit"></i>&nbsp;Edit Mode</span>&nbsp;
+                  <label class="switch mt-3">
+                    <input type="checkbox">
+                    <span class="slider round"></span>
+                  </label>&nbsp;
+                  <span class="switch-status">OFF</span>
+                </div>
               </div>
               <div class="form-group mt-3">
                 <h6>Audit Objective</h6>
-                <input class="form-control gray-text" type="text" placeholder="Text..." name="auditobjectives" id="auditobjectives"></input>
+                <input class="form-control gray-text tabInitialData" type="text" placeholder="Text..." name="auditobjectives" id="auditobjectives" disabled></input>
               </div>
               <div class="row mt-3">
                 <div class="col-6">
                   <div class="form-group">
                     <h6>Audit Scope</h6>
-                    <textarea class="form-control gray-text" rows="2" placeholder="Text..." name="auditscope" id="auditscope"></textarea>
+                    <textarea class="form-control gray-text tabInitialData" rows="2" placeholder="Text..." name="auditscope" id="auditscope" disabled></textarea>
                   </div>
                 </div>
                 <div class="col-6">
                   <div class="form-group">
                     <h6>Audit Criteria</h6>
-                    <textarea class="form-control gray-text" rows="2" placeholder="Text..." name="auditcriteria" id="auditcriteria"></textarea>
+                    <textarea class="form-control gray-text tabInitialData" rows="2" placeholder="Text..." name="auditcriteria" id="auditcriteria" disabled></textarea>
                   </div>
                 </div>
               </div>
@@ -200,12 +269,12 @@
                 <div class="col-6">
                   <div class="form-group mt-3">
                     <h6>Audit Lead</h6>
-                    <input class="form-control gray-text" type="text" placeholder="Text..." name="auditlead" id="auditlead"></input>
+                    <input class="form-control gray-text tabInitialData" type="text" placeholder="Text..." name="auditlead" id="auditlead" disabled></input>
                   </div>
                   <div class="form-group">
                     <h6>Attach File Audit Plan</h6>
                     <div class="custom-file">
-                      <input type="file" class="custom-file-input" id="exampleInputFile" accept=".docx, .pdf, .xlsx , .doc" data-max-size="20971520" name="file">
+                      <input type="file" class="custom-file-input tabInitialData" id="exampleInputFile" accept=".docx, .pdf, .xlsx , .doc" data-max-size="20971520" name="file" disabled>
                       <label class="custom-file-label" for="customFile">Choose file</label>
                     </div>
                     <h6 class="gray-text">.doc .xls .pdf (20 MB per file)</h6>
@@ -214,9 +283,16 @@
                 <div class="col-6">
                   <div class="form-group mt-3">
                     <h6>Audit Team</h6>
-                    <textarea onInput="handleInput(event)" class="form-control gray-text" rows="5" placeholder="Text..." name="auditteam" id="auditteam"></textarea>
+                    <textarea onInput="handleInput(event)" class="form-control gray-text tabInitialData" rows="5" placeholder="Text..." name="auditteam" id="auditteam" disabled></textarea>
                   </div>
                 </div>
+              </div>
+              <input type="text" id="url_route" name="url_route" hidden>
+              <input type="text" id="check_type" name="check_type" hidden>
+              <input type="text" id="id_" name="id_" hidden>
+              <div class="modal-footer d-flex justify-content-center">
+                <button type="submit" class="btn btn-success" name="submit" value="Submit">SAVE</button>&nbsp;&nbsp;
+                <button type="button" class="btn btn-danger" data-dismiss="modal">CANCEL</button>
               </div>
             </div>
           </div>
@@ -294,14 +370,6 @@
                 </tbody>
               </table>
             </div>
-          </div>
-
-          <input type="text" id="url_route" name="url_route" hidden>
-          <input type="text" id="check_type" name="check_type" hidden>
-          <input type="text" id="id_" name="id_" hidden>
-          <div class="modal-footer">
-            <button type="submit" class="btn btn-success" name="submit" value="Submit">SAVE</button>
-            <button type="button" class="btn btn-danger" data-dismiss="modal">CANCEL</button>
           </div>
         </form>
       </div>
@@ -407,6 +475,12 @@
     </div>
   </div>
   <div id="offcanvasBackdropreport" class="offcanvas-backdrop-report"></div>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
   <!-- overlay modal -->
   <script>
@@ -623,11 +697,11 @@
       cell5.innerHTML = `<div class="dropdown">
                               <i class="fas fa-ellipsis-v pointer text-primary" id="dropdownMenuButton${index}" data-toggle="dropdown" aria-expanded="false"></i>
                               <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton${index}">
-                                <li><a class="dropdown-item" href="#">Edit</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="toggleOffcanvasreport()">Edit</a></li>
                                 <li><a class="dropdown-item" href="#">Copy</a></li>
                                 <li><a class="dropdown-item" href="#">Delete</a></li>
                                 <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="#">Create</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="toggleOffcanvasreport()">Create</a></li>
                               </ul>
                           </div>`;
     });
@@ -677,6 +751,37 @@
       offcanvasBackdropreport.classList.remove('show');
     }
   </script>
+  <script>
+    document.getElementById('customSwitch1').addEventListener('change', function() {
+      if (this.checked) {
+        console.log("Switch เปิด");
+      } else {
+        console.log("Switch ปิด");
+      }
+    });
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const switchElement = document.querySelector('.switch input[type="checkbox"]');
+      const initialDataInputs = document.querySelectorAll('.tabInitialData');
+      const switchStatusElement = document.querySelector('.switch-status');
+
+      switchElement.addEventListener('change', function() {
+        const switchStatus = this.checked;
+
+        initialDataInputs.forEach(input => {
+          input.disabled = !switchStatus;
+
+          if (this.checked) {
+            switchStatusElement.textContent = 'ON';
+          } else {
+            switchStatusElement.textContent = 'OFF';
+          }
+        });
+      });
+    });
+  </script>
+
 </body>
 
 </html>
