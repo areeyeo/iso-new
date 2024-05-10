@@ -261,7 +261,7 @@
             <div class="container">
               <div class="d-flex justify-content-between align-items-center mt-3 mb-3">
                 <h5>Initial Data</h5>
-                <div>
+                <div style="color: #666666;">
                   <span><i class="fas fa-edit"></i>&nbsp;Edit Mode</span>&nbsp;
                   <label class="switch mt-3">
                     <input type="checkbox">

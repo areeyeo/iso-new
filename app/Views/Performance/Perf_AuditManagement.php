@@ -90,7 +90,6 @@ $datatest = [
                             <div style="display: flex;justify-content: flex-end;align-items: center;">
                                 <span>Audit Plan Today:&nbsp;</span>
                                 <input type="date" id="date-picker" class="styled-date">
-                                <!-- <span id="current-date" style="font-size: smaller; color: #007bff;"></span> -->
                             </div>
                             
                             <?php foreach ($datatest as $item) : ?>
