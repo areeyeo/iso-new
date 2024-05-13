@@ -26,6 +26,12 @@
                 </div>
                 <div class="tab-content mt-3">
                     <div class="tab-pane fade show active" id="Audit-Program" role="tabpanel" aria-labelledby="Audit-Program-tab">
+                        <div class="d-flex justify-content-end">
+                            <button type="button" class="btn btn-outline-primary mb-3" onclick="load_modal(3)" data-toggle="modal" data-target="#modal-default">
+                                <i class="fas fa-edit"></i>&nbsp;&nbsp;Create Program
+                            </button>
+                        </div>
+
                         <div class="table-wrapper">
                             <table id="example1" class="table table-hover">
                                 <thead>
@@ -134,7 +140,7 @@
                 "CRITERIA": "TEXT",
                 "AUDITLEAD": "TEXT",
                 "AUDITTEAM": ["name1", "name2", "name3"],
-                "FILE": "TEXT",
+                "FILE": "qqq.pdf",
             },
             {
                 "APNO": "AP_002",
@@ -144,7 +150,7 @@
                 "CRITERIA": "TEXT",
                 "AUDITLEAD": "TEXT",
                 "AUDITTEAM": ["name1", "name2"],
-                "FILE": "TEXT",
+                "FILE": "qqq.pdf",
             },
         ];
 

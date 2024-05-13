@@ -73,7 +73,7 @@ $datatest = [
                         </div>
                         <div class="card-body" style="overflow-y: auto; max-height: 600px;">
                             <div style="display: flex;justify-content: flex-end;align-items: center;">
-                                <span>Audit Plan Today:&nbsp;</span>
+                                <span>Audit Planning Date:&nbsp;</span>
                                 <input class="form-control gray-text #" type="date" placeholder="Text..." name="dateplan" id="dateplan"></input>
                             </div>
 
@@ -183,13 +183,11 @@ $datatest = [
 <!-- format date -->
 <script>
     document.addEventListener('DOMContentLoaded', function() {
+        var input = document.getElementById('dateplan');
+        var options = { day: 'numeric', month: 'long', year: 'numeric' };
         var currentDate = new Date();
-        var options = {
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric'
-        };
-        document.getElementById('current-date').textContent = currentDate.toLocaleDateString('en-EN', options);
+        var formattedDate = currentDate.toLocaleDateString('en-US', options);
+        input.value = formattedDate;
     });
 </script>
 

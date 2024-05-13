@@ -236,7 +236,7 @@
         var Data = [{
             "MEETINGID": "1/2024",
             "MEETINGDATE": "1 Jan 2024",
-            "MEETINGDOCUMENTS": "เอกสารหนังสือเชิญประชุมครั้งที่ 1",
+            "MEETINGDOCUMENTS": ["เอกสารหนังสือเชิญประชุมครั้งที่ 1", "เอกสารเพิ่มเติม"],
             "MMDOCUMENTS": "MOM_Project_Update_25042024.pdf",
         }, 
         {
@@ -273,8 +273,16 @@
   </div>`;
             cell2.textContent = row.MEETINGID;
             cell3.textContent = row.MEETINGDATE;
-            cell4.textContent = row.MEETINGDOCUMENTS;
+            displayArrayInCell(cell4, row.MEETINGDOCUMENTS);
             cell5.textContent = row.MMDOCUMENTS;
         });
+
+        function displayArrayInCell(cell, dataArray) {
+            if (Array.isArray(dataArray) && dataArray.length > 1) {
+                cell.innerHTML = dataArray.join('<br>');
+            } else {
+                cell.textContent = Array.isArray(dataArray) ? dataArray[0] : dataArray;
+            }
+        }
     </script>
 </body>
