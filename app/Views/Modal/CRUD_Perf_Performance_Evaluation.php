@@ -51,6 +51,10 @@
                             <input class="form-control gray-text" type="date" name="when_evaluated" id="when_evaluated"></input>
                         </div>
                         <div class="form-group mt-3">
+                            <h6>Actual</h6>
+                            <input class="form-control gray-text" type="date" name="actual" id="actual"></input>
+                        </div>
+                        <div class="form-group mt-3">
                             <h6>Criteria</h6>
                             <textarea class="form-control gray-text" rows="3" placeholder="Text..." name="criteria" id="criteria"></textarea>
                         </div>
@@ -63,9 +67,6 @@
                             </select>
                         </div>
                     </div>
-                    <!-- <input type="text" id="url_route" name="url_route" hidden>
-                    <input type="text" id="check_type" name="check_type" hidden>
-                    <input type="text" id="id_" name="id_" hidden> -->
                     <div class="mb-4" style="display: flex; justify-content: center;">
                         <button type="submit" class="btn btn-success" name="submit" value="Submit" style="margin-right: 20%;">SAVE</button>
                         <button type="button" class="btn btn-danger" data-dismiss="modal">CANCEL</button>

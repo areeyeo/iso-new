@@ -63,6 +63,7 @@
 </div>
 <!-- Select2 JavaScript -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+<!-- multi select -->
 <script>
   $(document).ready(function() {
     var selectData = ["AP_001 โปรเจคตัวอย่างที่ 1", "AP_002 โปรเจคตัวอย่างที่ 2", "AP_003 โปรเจคตัวอย่างที่ 3", "AP_004 โปรเจคตัวอย่างที่ 4", "AP_005 โปรเจคตัวอย่างที่ 5"];

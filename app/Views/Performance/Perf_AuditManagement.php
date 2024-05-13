@@ -30,23 +30,8 @@
         border-radius: 8%;
     }
 
-    input[type="date"]::-webkit-calendar-picker-indicator {
-        display: none;
-    }
-
-    input[type="date"] {
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        padding: 8px 12px;
-        font-size: 16px;
-        outline: none;
-        width: 125px;
-        height: 35px;
-    }
-
-    input[type="date"]:focus {
-        border-color: #007bff;
-        box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+    #dateplan {
+        width: 155px;
     }
 </style>
 <?php
@@ -89,9 +74,9 @@ $datatest = [
                         <div class="card-body" style="overflow-y: auto; max-height: 600px;">
                             <div style="display: flex;justify-content: flex-end;align-items: center;">
                                 <span>Audit Plan Today:&nbsp;</span>
-                                <input type="date" id="date-picker" class="styled-date">
+                                <input class="form-control gray-text #" type="date" placeholder="Text..." name="dateplan" id="dateplan"></input>
                             </div>
-                            
+
                             <?php foreach ($datatest as $item) : ?>
                                 <div class="card-body mt-3" style="background-color: #E2F0FF; border-radius: 4px;">
                                     <div class="d-flex justify-content-between">
@@ -128,12 +113,16 @@ $datatest = [
 <div id="section2">
     <?php include("Perf_AuditManagementProgram.php"); ?>
 </div>
-<script>
-    var datePicker = document.getElementById('date-picker');
 
-    var today = new Date().toISOString().split('T')[0];
-    datePicker.value = today;
+<!-- display date today -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var currentDate = new Date().toISOString().split('T')[0];
+        document.getElementById('dateplan').value = currentDate;
+    });
 </script>
+
+<!-- management calendar -->
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         var calendarEl = document.getElementById('calendar');
@@ -190,6 +179,8 @@ $datatest = [
         calendar.render();
     });
 </script>
+
+<!-- format date -->
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         var currentDate = new Date();
@@ -201,6 +192,8 @@ $datatest = [
         document.getElementById('current-date').textContent = currentDate.toLocaleDateString('en-EN', options);
     });
 </script>
+
+<!-- management section -->
 <script>
     function OpenAuditManagementProgram() {
         document.getElementById('section1').style.display = 'none';

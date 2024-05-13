@@ -50,7 +50,6 @@
       position: fixed;
       top: 0;
       right: -400px;
-      /* Hide offcanvas by default */
       background-color: white;
       z-index: 1051;
       transition: right 0.3s ease-in-out;
@@ -81,7 +80,6 @@
       position: fixed;
       top: 0;
       right: -400px;
-      /* Hide offcanvas by default */
       background-color: white;
       z-index: 1051;
       transition: right 0.3s ease-in-out;
@@ -497,7 +495,7 @@
   <div id="offcanvasBackdropreport" class="offcanvas-backdrop-report"></div>
 
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -536,6 +534,7 @@
     }
   </script>
 
+  <!-- load data first tab  -->
   <script>
     window.onload = function() {
       openTabAuditPlan(event, 'initialdata');
@@ -648,7 +647,7 @@
                                   <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton${index}">
                                     <li onclick="toggleOffcanvas()"><a class="dropdown-item" href="#">Edit</a></li>
                                     <li onclick="toggleOffcanvas()"><a class="dropdown-item" href="#">View</a></li>
-                                    <li onclick="toggleOffcanvas()"><a class="dropdown-item" href="#">Delete</a></li>
+                                    <li><a class="dropdown-item" href="#">Delete</a></li>
                                   </ul>
                             </div>`;
       }
@@ -716,7 +715,7 @@
   <script>
     var Data = [{
       "REPORT": "รายงานแผนการตรวจสอบ",
-      "NOTE": "-",
+      "NOTE": "text",
       "FILE": "123456.pdf",
     }, ];
 

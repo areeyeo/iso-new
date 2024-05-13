@@ -91,6 +91,7 @@
     </div>
   </div>
 </div>
+<!-- backdrop -->
 <script>
   $(document).ready(function() {
     $(".overlay").hide();
@@ -102,6 +103,8 @@
     action_(urlRouteInput.value, 'form_crud');
   });
 </script>
+
+<!-- show input -->
 <script>
   $(document).ready(function() {
     $('#followuptype').change(function() {

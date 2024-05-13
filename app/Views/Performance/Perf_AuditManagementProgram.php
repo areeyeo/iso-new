@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <body>
     <div class="card">
         <div class="card-body">
@@ -12,19 +13,19 @@
                 <div>
                     <ul class="nav nav-pills" id="tabs-tab" role="tablist">
                         <li class="nav-item-tab" style="padding-right: 10px;">
-                            <a class="nav-link active" id="Create-Update-tab" data-toggle="pill" href="#Create-Update" role="tab" aria-controls="Create-Update" aria-selected="true">
+                            <a class="nav-link active" id="Audit-Program-tab" data-toggle="pill" href="#Audit-Program" role="tab" aria-controls="Audit-Program" aria-selected="true">
                                 Audit Program
                             </a>
                         </li>
                         <li class="nav-item-tab">
-                            <a class="nav-link" id="Management-Doc-tab" data-toggle="pill" href="#Management-Doc" role="tab" aria-controls="Management-Doc" aria-selected="false" onclick="getTableData2();">
+                            <a class="nav-link" id="Audit-Plan-tab" data-toggle="pill" href="#Audit-Plan" role="tab" aria-controls="Audit-Plan" aria-selected="false" onclick="getTableData2();">
                                 Audit Plan
                             </a>
                         </li>
                     </ul>
                 </div>
                 <div class="tab-content mt-3">
-                    <div class="tab-pane fade show active" id="Create-Update" role="tabpanel" aria-labelledby="org-strategy-tab">
+                    <div class="tab-pane fade show active" id="Audit-Program" role="tabpanel" aria-labelledby="Audit-Program-tab">
                         <div class="table-wrapper">
                             <table id="example1" class="table table-hover">
                                 <thead>
@@ -42,7 +43,7 @@
                             </table>
                         </div>
                     </div>
-                    <div class="tab-pane fade show" id="Management-Doc" role="tabpanel" aria-labelledby="Management-Doc-tab">
+                    <div class="tab-pane fade show" id="Audit-Plan" role="tabpanel" aria-labelledby="Audit-Plan-tab">
                         <div class="table-wrapper">
                             <table id="example2" class="table table-hover">
                                 <thead>
@@ -81,13 +82,13 @@
     <script>
         var Data = [{
                 "APNO": "AP_001",
-                "PROGRAMNAME": "-",
+                "PROGRAMNAME": "TEXT",
                 "STARTDATE": "01/01/2024",
                 "ENDDATE": "01/01/2024",
             },
             {
                 "APNO": "AP_002",
-                "PROGRAMNAME": "-",
+                "PROGRAMNAME": "TEXT",
                 "STARTDATE": "01/01/2024",
                 "ENDDATE": "01/01/2024",
             },
@@ -127,23 +128,23 @@
     <script>
         var Data = [{
                 "APNO": "AP_001",
-                "PROGRAMNAME": "-",
-                "SCOPE": "-",
-                "OBJECTIVE": "-",
-                "CRITERIA": "-",
-                "AUDITLEAD": "-",
+                "PROGRAMNAME": "TEXT",
+                "SCOPE": "TEXT",
+                "OBJECTIVE": "TEXT",
+                "CRITERIA": "TEXT",
+                "AUDITLEAD": "TEXT",
                 "AUDITTEAM": ["name1", "name2", "name3"],
-                "FILE": "-",
+                "FILE": "TEXT",
             },
             {
                 "APNO": "AP_002",
-                "PROGRAMNAME": "-",
-                "SCOPE": "-",
-                "OBJECTIVE": "-",
-                "CRITERIA": "-",
-                "AUDITLEAD": "-",
+                "PROGRAMNAME": "TEXT",
+                "SCOPE": "TEXT",
+                "OBJECTIVE": "TEXT",
+                "CRITERIA": "TEXT",
+                "AUDITLEAD": "TEXT",
                 "AUDITTEAM": ["name1", "name2"],
-                "FILE": "-",
+                "FILE": "TEXT",
             },
         ];
 
@@ -182,13 +183,14 @@
         }
     </script>
 
+    <!-- switch tabs -->
     <script>
-        $('#Create-Update-tab').on('click', function() {
-            console.log('Create-Update-tab');
+        $('#Audit-Program-tab').on('click', function() {
+            console.log('Audit-Program-tab');
             $('#btn-Document').show();
         });
-        $('#Management-Doc-tab').on('click', function() {
-            console.log('Management-Doc-tab');
+        $('#Audit-Plan-tab').on('click', function() {
+            console.log('Audit-Plan-tab');
             $('#btn-Document').hide();
         })
     </script>

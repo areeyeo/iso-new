@@ -383,6 +383,7 @@
         </div>
     </section>
 
+    <!-- open close tab -->
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const items = document.querySelectorAll('.accordion-item');
@@ -404,38 +405,40 @@
             });
         });
     </script>
+
+    <!-- table data inconsistent -->
     <script>
         var Data = [{
-                "INCONSISTENT": "-",
-                "CORRECTIVE": "-",
-                "RESPONSIBLEPERSON": "-",
+                "INCONSISTENT": "TEXT",
+                "CORRECTIVE": "TEXT",
+                "RESPONSIBLEPERSON": "TEXT",
                 "STARTDATE": "01/01/2024",
                 "ENDDATE": "01/01/2024",
                 "STATUS": "รอดำเนินการ",
                 "ANNUAL": "2567",
             },
             {
-                "INCONSISTENT": "-",
-                "CORRECTIVE": "-",
-                "RESPONSIBLEPERSON": "-",
+                "INCONSISTENT": "TEXT",
+                "CORRECTIVE": "TEXT",
+                "RESPONSIBLEPERSON": "TEXT",
                 "STARTDATE": "01/01/2024",
                 "ENDDATE": "01/01/2024",
                 "STATUS": "เกินกำหนด",
                 "ANNUAL": "2567",
             },
             {
-                "INCONSISTENT": "-",
-                "CORRECTIVE": "-",
-                "RESPONSIBLEPERSON": "-",
+                "INCONSISTENT": "TEXT",
+                "CORRECTIVE": "TEXT",
+                "RESPONSIBLEPERSON": "TEXT",
                 "STARTDATE": "01/01/2024",
                 "ENDDATE": "01/01/2024",
                 "STATUS": "กำลังดำเนินการ",
                 "ANNUAL": "2567",
             },
             {
-                "INCONSISTENT": "-",
-                "CORRECTIVE": "-",
-                "RESPONSIBLEPERSON": "-",
+                "INCONSISTENT": "TEXT",
+                "CORRECTIVE": "TEXT",
+                "RESPONSIBLEPERSON": "TEXT",
                 "STARTDATE": "01/01/2024",
                 "ENDDATE": "01/01/2024",
                 "STATUS": "ดำเนินการเสร็จสิ้น",
@@ -480,38 +483,40 @@
             cell9.textContent = row.ANNUAL;
         });
     </script>
+
+    <!-- table data observation -->
     <script>
         var Data = [{
-                "OBSERVATION": "-",
-                "CORRECTIVE": "-",
-                "RESPONSIBLEPERSON": "-",
+                "OBSERVATION": "TEXT",
+                "CORRECTIVE": "TEXT",
+                "RESPONSIBLEPERSON": "TEXT",
                 "STARTDATE": "01/01/2024",
                 "ENDDATE": "01/01/2024",
                 "STATUS": "รอดำเนินการ",
                 "ANNUAL": "2567",
             },
             {
-                "OBSERVATION": "-",
-                "CORRECTIVE": "-",
-                "RESPONSIBLEPERSON": "-",
+                "OBSERVATION": "TEXT",
+                "CORRECTIVE": "TEXT",
+                "RESPONSIBLEPERSON": "TEXT",
                 "STARTDATE": "01/01/2024",
                 "ENDDATE": "01/01/2024",
                 "STATUS": "เกินกำหนด",
                 "ANNUAL": "2567",
             },
             {
-                "OBSERVATION": "-",
-                "CORRECTIVE": "-",
-                "RESPONSIBLEPERSON": "-",
+                "OBSERVATION": "TEXT",
+                "CORRECTIVE": "TEXT",
+                "RESPONSIBLEPERSON": "TEXT",
                 "STARTDATE": "01/01/2024",
                 "ENDDATE": "01/01/2024",
                 "STATUS": "กำลังดำเนินการ",
                 "ANNUAL": "2567",
             },
             {
-                "OBSERVATION": "-",
-                "CORRECTIVE": "-",
-                "RESPONSIBLEPERSON": "-",
+                "OBSERVATION": "TEXT",
+                "CORRECTIVE": "TEXT",
+                "RESPONSIBLEPERSON": "TEXT",
                 "STARTDATE": "01/01/2024",
                 "ENDDATE": "01/01/2024",
                 "STATUS": "ดำเนินการเสร็จสิ้น",
@@ -556,38 +561,40 @@
             cell9.textContent = row.ANNUAL;
         });
     </script>
+
+    <!-- table data opportunity -->
     <script>
         var Data = [{
-                "OPPORTUNITY": "-",
-                "CORRECTIVE": "-",
-                "RESPONSIBLEPERSON": "-",
+                "OPPORTUNITY": "TEXT",
+                "CORRECTIVE": "TEXT",
+                "RESPONSIBLEPERSON": "TEXT",
                 "STARTDATE": "01/01/2024",
                 "ENDDATE": "01/01/2024",
                 "STATUS": "รอดำเนินการ",
                 "ANNUAL": "2567",
             },
             {
-                "OPPORTUNITY": "-",
-                "CORRECTIVE": "-",
-                "RESPONSIBLEPERSON": "-",
+                "OPPORTUNITY": "TEXT",
+                "CORRECTIVE": "TEXT",
+                "RESPONSIBLEPERSON": "TEXT",
                 "STARTDATE": "01/01/2024",
                 "ENDDATE": "01/01/2024",
                 "STATUS": "เกินกำหนด",
                 "ANNUAL": "2567",
             },
             {
-                "OPPORTUNITY": "-",
-                "CORRECTIVE": "-",
-                "RESPONSIBLEPERSON": "-",
+                "OPPORTUNITY": "TEXT",
+                "CORRECTIVE": "TEXT",
+                "RESPONSIBLEPERSON": "TEXT",
                 "STARTDATE": "01/01/2024",
                 "ENDDATE": "01/01/2024",
                 "STATUS": "กำลังดำเนินการ",
                 "ANNUAL": "2567",
             },
             {
-                "OPPORTUNITY": "-",
-                "CORRECTIVE": "-",
-                "RESPONSIBLEPERSON": "-",
+                "OPPORTUNITY": "TEXT",
+                "CORRECTIVE": "TEXT",
+                "RESPONSIBLEPERSON": "TEXT",
                 "STARTDATE": "01/01/2024",
                 "ENDDATE": "01/01/2024",
                 "STATUS": "ดำเนินการเสร็จสิ้น",

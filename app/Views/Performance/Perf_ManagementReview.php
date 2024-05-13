@@ -207,6 +207,8 @@
     <script src="<?= base_url('plugins/codemirror/mode/css/css.js'); ?>"></script>
     <script src="<?= base_url('plugins/codemirror/mode/xml/xml.js'); ?>"></script>
     <script src="<?= base_url('plugins/codemirror/mode/htmlmixed/htmlmixed.js'); ?>"></script>
+
+    <!-- load modal -->
     <script>
         function load_modal(check, check_type, data_encode) {
             console.log('Function is called with check:', check, 'and check_type:', check_type);
@@ -228,6 +230,8 @@
             }
         }
     </script>
+
+    <!-- table data mom -->
     <script>
         var Data = [{
             "MEETINGID": "1/2024",
