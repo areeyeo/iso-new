@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 use App\Models\RequirementModels;
 
-class Impr_ImprovementsOverviewController extends BaseController
+class Impr_NonconformityActionController extends BaseController
 {
     public function index($id_version = null, $num_ver = null)
     {
@@ -18,13 +18,13 @@ class Impr_ImprovementsOverviewController extends BaseController
             'review_date' => date('D/M/Y'),
             'approved_date' => date('D/M/Y'),
             'announce_date' => date('D/M/Y'),
-            'status' => 1,
+            'status' => 3,
             'type_version' => 1,
             'num_ver' => 1,
         ];
         
         echo view('layout/header');
-        echo view('Improvement/Impr_ImprovementsOverview', $data);
+        echo view('Improvement/Impr_NonconformityAction', $data);
     }
     
 }

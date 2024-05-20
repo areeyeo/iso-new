@@ -1,4 +1,4 @@
-<title>Improvements (Overview) Version</title>
+<title>Nonconformity & Action Version</title>
 <!-- DataTables -->
 <link rel="stylesheet" href="<?= base_url('plugins/datatables-bs4/css/dataTables.bootstrap4.min.css'); ?>">
 <link rel="stylesheet" href="<?= base_url('plugins/datatables-responsive/css/responsive.bootstrap4.min.css'); ?>">
@@ -115,14 +115,14 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Improvements (Overview)
+                        <h1>Nonconformity & Action
                             <button type="button" class="btn btn-secondary btn-xs" data-toggle="modal" data-target="#modal-default" id="load-modal-button" onclick="load_modal(1)">Requirement</button>
                         </h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="<?= site_url('/'); ?>">Home</a></li>
-                            <li class="breadcrumb-item active">Improvements (Overview)</li>
+                            <li class="breadcrumb-item active">Nonconformity & Action</li>
                             <li class="breadcrumb-item active"><a>Version <?php echo $data['num_ver']; ?></a></li>
                         </ol>
                     </div>
@@ -251,6 +251,7 @@
                 </div>
             </div>
         </section>
+
         <!-- Main content -->
         <section class="content">
             <div class="container-fluid">
@@ -259,10 +260,10 @@
                         <div class="form-group">
                             <div class="tab-content" id="tabs-tabContent">
                                 <div class="d-flex justify-content-between align-items-center mb-3">
-                                    <h4>Improvements List</h4>
+                                    <h4>Nonconformity & Action</h4>
                                     <div>
                                         <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#modal-default " onclick="load_modal(2)">
-                                            <span><i class="fas fa-edit"></i>&nbsp;&nbsp;Create Improvements List</span>
+                                            <span><i class="fas fa-edit"></i>&nbsp;&nbsp;Create</span>
                                         </button>
                                     </div>
                                 </div>
@@ -297,7 +298,7 @@
             <?= $this->include("Modal/Requirement_Modal"); ?>
         </div>
         <div id="modal2">
-            <?= $this->include("Modal/CRUD_Impr_Improvements_Overview"); ?>
+            <?= $this->include("Modal/CRUD_Impr_Nonconformity_Action"); ?>
         </div>
     </div>
 
