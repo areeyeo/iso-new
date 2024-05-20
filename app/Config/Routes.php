@@ -264,6 +264,8 @@ $routes->get('performance_evaluation', 'Perf_PerformanceEvaluationController::in
 $routes->get('internal_audit', 'Perf_InternalAuditController::index');
 $routes->get('management_review', 'Perf_ManagementReviewController::index');
 
+$routes->get('improvements_overview', 'Impr_ImprovementsOverviewController::index');
+
 $routes->get('risk_Criteria_Context_Consequence', 'Setting_RiskCriteriaContextController::indexConsequence');
 $routes->get('risk_Criteria_Context_Likelihood', 'Setting_RiskCriteriaContextController::indexLikelihood');
 $routes->get('risk_Criteria_Context_Risk_Level', 'Setting_RiskCriteriaContextController::indexRiskLevel');

@@ -36,14 +36,11 @@
 </style>
 <?php
 $datatest = [
-    ['no' => 'AP001', 'projectname' => 'test1', 'period' => '01  Jan 2024 - 31 Dec 2024'],
-    ['no' => 'AP002', 'projectname' => 'test1', 'period' => '01  Jan 2024 - 31 Dec 2024'],
-    ['no' => 'AP003', 'projectname' => 'test1', 'period' => '01  Jan 2024 - 31 Dec 2024'],
-    ['no' => 'AP004', 'projectname' => 'test1', 'period' => '01  Jan 2024 - 31 Dec 2024'],
-    ['no' => 'AP005', 'projectname' => 'test1', 'period' => '01  Jan 2024 - 31 Dec 2024'],
-    ['no' => 'AP006', 'projectname' => 'test1', 'period' => '01  Jan 2024 - 31 Dec 2024'],
-    ['no' => 'AP007', 'projectname' => 'test1', 'period' => '01  Jan 2024 - 31 Dec 2024'],
-    ['no' => 'AP008', 'projectname' => 'test1', 'period' => '01  Jan 2024 - 31 Dec 2024'],
+    ['projectname' => 'test1', 'eventname' => 'ประชุมเปิดการตรวจสอบ (Open Meeting)', 'detail' => 'abcdefghijklmnopqrstuvwsyz', 'auditee' => 'Areeya Dengjaroen', 'time' => '09:00 - 12:00'],
+    ['projectname' => 'test1', 'eventname' => 'ประชุมเปิดการตรวจสอบ (Open Meeting)', 'detail' => 'abcdefghijklmnopqrstuvwsyz', 'auditee' => 'Areeya Dengjaroen', 'time' => '09:00 - 12:00'],
+    ['projectname' => 'test1', 'eventname' => 'ประชุมเปิดการตรวจสอบ (Open Meeting)', 'detail' => 'abcdefghijklmnopqrstuvwsyz', 'auditee' => 'Areeya Dengjaroen', 'time' => '09:00 - 12:00'],
+    ['projectname' => 'test1', 'eventname' => 'ประชุมเปิดการตรวจสอบ (Open Meeting)', 'detail' => 'abcdefghijklmnopqrstuvwsyz', 'auditee' => 'Areeya Dengjaroen', 'time' => '09:00 - 12:00'],
+    ['projectname' => 'test1', 'eventname' => 'ประชุมเปิดการตรวจสอบ (Open Meeting)', 'detail' => 'abcdefghijklmnopqrstuvwsyz', 'auditee' => 'Areeya Dengjaroen', 'time' => '09:00 - 12:00'],
 ];
 ?>
 <!-- Section 1 -->
@@ -71,7 +68,7 @@ $datatest = [
                                 <button type="button" class="btn btn-dark btn-sm" onclick="OpenAuditManagementProgram()">All</button>
                             </div>
                         </div>
-                        <div class="card-body" style="overflow-y: auto; max-height: 600px;">
+                        <div class="card-body" style="overflow-y: auto; max-height: 700px;">
                             <div style="display: flex;justify-content: flex-end;align-items: center;">
                                 <span>Audit Planning Date:&nbsp;</span>
                                 <input class="form-control gray-text #" type="date" placeholder="Text..." name="dateplan" id="dateplan"></input>
@@ -81,8 +78,8 @@ $datatest = [
                                 <div class="card-body mt-3" style="background-color: #E2F0FF; border-radius: 4px;">
                                     <div class="d-flex justify-content-between">
                                         <div>
-                                            <span style="color: #666666;">AP No.&nbsp;</span>
-                                            <span id="no" style="color: #007BFF; font-weight: 600;"><?php echo $item['no']; ?></span>
+                                            <span style="color: #666666; font-size: large;">Project Name:&nbsp;</span>
+                                            <span id="projectname" style="color: #007BFF; font-size: large;"><?php echo $item['projectname']; ?></span>
                                         </div>
                                         <div>
                                             <span style="color: #007BFF; cursor: pointer;" data-toggle="modal" data-target="#modal-default" id="load-modal-button" onclick="load_modal(9)">
@@ -91,12 +88,20 @@ $datatest = [
                                         </div>
                                     </div>
                                     <div>
-                                        <span style="color: #666666;">Project Name:&nbsp;</span>
-                                        <span id="projectname" style="color: #007BFF;"><?php echo $item['projectname']; ?></span>
+                                        <span style="color: #666666;">Event Name:&nbsp;</span>
+                                        <span id="period" style="color: #007BFF;"><?php echo $item['eventname']; ?></span>
                                     </div>
                                     <div>
-                                        <span style="color: #666666;">Period:&nbsp;</span>
-                                        <span id="period" style="color: #007BFF;"><?php echo $item['period']; ?></span>
+                                        <span style="color: #666666;">Detail:&nbsp;</span>
+                                        <span id="period" style="color: #007BFF;"><?php echo $item['detail']; ?></span>
+                                    </div>
+                                    <div>
+                                        <span style="color: #666666;">Auditee:&nbsp;</span>
+                                        <span id="period" style="color: #007BFF;"><?php echo $item['auditee']; ?></span>
+                                    </div>
+                                    <div>
+                                        <span style="color: #666666;">Time:&nbsp;</span>
+                                        <span id="period" style="color: #007BFF;"><?php echo $item['time']; ?></span>
                                     </div>
                                 </div>
                             <?php endforeach; ?>
@@ -184,7 +189,11 @@ $datatest = [
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         var input = document.getElementById('dateplan');
-        var options = { day: 'numeric', month: 'long', year: 'numeric' };
+        var options = {
+            day: 'numeric',
+            month: 'long',
+            year: 'numeric'
+        };
         var currentDate = new Date();
         var formattedDate = currentDate.toLocaleDateString('en-US', options);
         input.value = formattedDate;

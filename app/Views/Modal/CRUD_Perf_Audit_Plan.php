@@ -5,13 +5,28 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
+    #dataTable {
+      border-collapse: separate;
+      border-spacing: 0;
+      border: 2px solid #dee2e6;
+      border-radius: 10px;
+    }
+
+    #dataTable th,
+    #dataTable td {
+      border: none;
+    }
+
     #dataTable tbody tr {
       background-color: white;
     }
 
     #dataTable thead th {
-      background-color: #8ec4ff;
-      color: #143e6c;
+      background-color: #f7f7f7;
+    }
+
+    #dataTable tr:hover {
+      background-color: #f1f1f1;
     }
 
     .offcanvas {
@@ -327,11 +342,11 @@
               <table id="dataTable" class="table table-hover">
                 <thead>
                   <tr>
-                    <th style="border-radius: 10px 0px 0px 0px;">No.</th>
-                    <th>Date</th>
-                    <th>Time</th>
-                    <th>Topic</th>
-                    <th>Auditee</th>
+                    <th style="border-radius: 10px 0px 0px 0px;">NO.</th>
+                    <th>DATE</th>
+                    <th>TIME</th>
+                    <th>EVENT NAME</th>
+                    <th>AUDITEE</th>
                     <th style="border-radius: 0px 10px 0px 0px;">Action</th>
                   </tr>
                 </thead>
@@ -377,7 +392,7 @@
               <table class="table table table-hover" id="dataTableReport">
                 <thead>
                   <tr>
-                    <th>NO.</th>
+                    <th>AR NO.</th>
                     <th>REPORT ABOUT</th>
                     <th>NOTE</th>
                     <th>FILE</th>
@@ -415,8 +430,8 @@
         <input class="form-control gray-text" type="time" placeholder="Text..." name="enddate" id="enddate"></input>
       </div>
       <div class="form-group mt-3">
-        <h6>Topic</h6>
-        <input class="form-control gray-text" type="text" placeholder="Text..." name="topic" id="topic"></input>
+        <h6>Event Name</h6>
+        <input class="form-control gray-text" type="text" placeholder="Text..." name="eventname" id="eventname"></input>
       </div>
       <div class="form-group mt-3">
         <h6>Deteils</h6>
@@ -582,13 +597,13 @@
       {
         "Data": "1",
         "TIME": "09:00 - 12:00",
-        "TOPIC": "ประชุมเปิดการตรวจสอบ (Open Meeting)",
+        "EVENTNAME": "ประชุมเปิดการตรวจสอบ (Open Meeting)",
         "AUDITEE": "All",
       },
       {
         "Data": "1",
         "TIME": "13:00 - 15:00",
-        "TOPIC": "สัมภาษณ์ผู้บริหาร (Top Management)",
+        "EVENTNAME": "สัมภาษณ์ผู้บริหาร (Top Management)",
         "AUDITEE": "Top Management",
       },
       {
@@ -600,19 +615,19 @@
       {
         "Data": "1",
         "TIME": "09:00 - 10:00",
-        "TOPIC": "มาตรการควบคุมความเสี่ยงสำหรับระบบเครือข่าย",
+        "EVENTNAME": "มาตรการควบคุมความเสี่ยงสำหรับระบบเครือข่าย",
         "AUDITEE": "IT",
       },
       {
         "Data": "1",
         "TIME": "10:00 - 12:00",
-        "TOPIC": "มาตรการควบคุมความเสี่ยงสำหรับระบบกองทุนให้กู้ยืม",
+        "EVENTNAME": "มาตรการควบคุมความเสี่ยงสำหรับระบบกองทุนให้กู้ยืม",
         "AUDITEE": "Accountant",
       },
       {
         "Data": "1",
         "TIME": "13:00 - 16:00",
-        "TOPIC": "สรุปประจำวัน (Daily Progress Report)",
+        "EVENTNAME": "สรุปประจำวัน (Daily Progress Report)",
         "AUDITEE": "All",
       },
     ];
@@ -630,7 +645,7 @@
       cell1.textContent = row.NO;
       cell2.textContent = row.DATE;
       displayArrayInCell(cell3, row.TIME);
-      displayArrayInCell(cell4, row.TOPIC);
+      displayArrayInCell(cell4, row.EVENTNAME);
       displayArrayInCell(cell5, row.AUDITEE);
 
       if (row.ROWTYPE === 'date') {
@@ -714,6 +729,7 @@
   <!-- table report -->
   <script>
     var Data = [{
+      "ARNO": "AR_001",
       "REPORT": "รายงานแผนการตรวจสอบ",
       "NOTE": "text",
       "FILE": "123456.pdf",
@@ -729,7 +745,7 @@
       var cell4 = newRow.insertCell(3);
       var cell5 = newRow.insertCell(4);
 
-      cell1.innerHTML = index + 1;
+      cell1.textContent = row.ARNO;
       cell2.textContent = row.REPORT;
       cell3.textContent = row.NOTE;
       cell4.textContent = row.FILE;

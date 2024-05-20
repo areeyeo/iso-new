@@ -1,4 +1,20 @@
+<!-- Select2 CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
 <style>
+  .select2-container--default .select2-selection--multiple {
+    border: 1px solid #ced4da !important;
+  }
+
+  .select2-selection__choice {
+    background-color: #E2F0FF !important;
+    border: 1px solid #E2F0FF !important;
+    color: #0062FF !important;
+  }
+
+  .select2-selection__choice__remove {
+    color: #0062FF !important;
+  }
+
   #ipinconsistent,
   #ipobservation,
   #ipopportunity {
@@ -24,12 +40,17 @@
           <h6 class="gray-text" name="description" id="description"></h6>
         </div>
         <div class="form-group mt-3">
+          <h6>Audit Report No.</h6>
+          <select id="tags-reportname" multiple="multiple" class="form-control">
+          </select>
+        </div>
+        <div class="form-group mt-3">
           <h6>Follow-up Type</h6>
           <select class="form-select form-control" aria-label="Default select example" name="followuptype" id="followuptype">
             <option selected>Select Follow-up Type</option>
             <option value="1">Inconsistent Issues</option>
             <option value="2">Observation Issues</option>
-            <option value="3">Opportunity for Improvement Issues</option>
+            <option value="3">Opportunity Issues</option>
           </select>
         </div>
         <div class="form-group mt-3" id="ipinconsistent">
@@ -70,7 +91,7 @@
           <div class="col-6">
             <div class="form-group">
               <h6>Annual</h6>
-              <input class="form-control gray-text" type="text" name="annual" id="annual"></input>
+              <input class="form-control gray-text" type="number" id="annual" name="annual" min="1900" max="2100" placeholder="yyyy" required>
             </div>
           </div>
           <div class="col-6">
@@ -91,6 +112,9 @@
     </div>
   </div>
 </div>
+<!-- Select2 JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+
 <!-- backdrop -->
 <script>
   $(document).ready(function() {
@@ -122,5 +146,26 @@
         $('#ipopportunity').show();
       }
     });
+  });
+</script>
+
+<!-- select seacrh -->
+<script>
+  $(document).ready(function() {
+    var selectData = ["AR_001 รายงานโปรเจคตัวอย่างที่ 1", "AR_002 รายงานโปรเจคตัวอย่างที่ 2", "AR_003 รายงานโปรเจคตัวอย่างที่ 3", "AR_004 รายงานโปรเจคตัวอย่างที่ 4", "AR_005 รายงานโปรเจคตัวอย่างที่ 5"];
+    $('#tags-reportname').select2({
+      data: selectData,
+      placeholder: "Select or Search",
+      tags: false,
+      tokenSeparators: [',', ' '],
+      width: '100%',
+      maximumSelectionLength: 1
+    });
+  });
+
+  $("#form_crud").on('submit', function(e) {
+    e.preventDefault();
+    const urlRouteInput = document.getElementById("url_route");
+    action_(urlRouteInput.value, 'form_crud');
   });
 </script>

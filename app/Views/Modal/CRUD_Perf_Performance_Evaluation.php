@@ -31,11 +31,11 @@
                         <div <div class="form-group mt-3 row">
                             <div class="col-6">
                                 <div style=" font-size: 13pt;">Start Date</div>
-                                <div style=" color: #666666; font-size: 11pt;" class="mb-3" name="startdate_detail" id="startdate_detail">01 January 2024</div>
+                                <div style=" color: #666666; font-size: 11pt;" name="startdate_detail" id="startdate_detail">01 January 2024</div>
                             </div>
                             <div class="col-6">
                                 <div style=" font-size: 13pt;">End Date</div>
-                                <div style=" color: #666666; font-size: 11pt;" class="mb-3" name="enddate_detail" id="enddate_detail">01 January 2024</div>
+                                <div style=" color: #666666; font-size: 11pt;" name="enddate_detail" id="enddate_detail">01 January 2024</div>
                             </div>
                         </div>
                         <div class="form-group mt-3">
@@ -47,8 +47,8 @@
                             <div style=" color: #666666; font-size: 11pt;" class="mb-3" name="methods_detail" id="methods_detail">short sentence examples</div>
                         </div>
                         <div class="form-group mt-3">
-                            <h6>When to Evaluated</h6>
-                            <input class="form-control gray-text" type="date" name="when_evaluated" id="when_evaluated"></input>
+                            <div style=" font-size: 13pt;">When to Evaluated</div>
+                            <div style=" color: #666666; font-size: 11pt;" class="mb-3" name="when_evaluated_detail" id="when_evaluated_detail">01 January 2024</div>
                         </div>
                         <div class="form-group mt-3">
                             <h6>Actual</h6>

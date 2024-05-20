@@ -112,9 +112,6 @@
         </div>
     </div>
 </div>
-
-
-
 <script>
     $(document).ready(function() {
         $(".overlay").hide();

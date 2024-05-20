@@ -312,7 +312,7 @@
                                     <thead>
                                         <tr>
                                             <th class="text-center">ACTION</th>
-                                            <th>NO.</th>
+                                            <th>AR NO.</th>
                                             <th>NON-INCONSISTENT ISSUE</th>
                                             <th>CORRECTIVE ACTION</th>
                                             <th>RESPONSIBLE PERSON</th>
@@ -335,7 +335,7 @@
                                         <thead>
                                             <tr>
                                                 <th class="text-center">ACTION</th>
-                                                <th>NO.</th>
+                                                <th>AR NO.</th>
                                                 <th>NON-OBSERVATION ISSUE</th>
                                                 <th>CORRECTIVE ACTION</th>
                                                 <th>RESPONSIBLE PERSON</th>
@@ -359,7 +359,7 @@
                                         <thead>
                                             <tr>
                                                 <th class="text-center">ACTION</th>
-                                                <th>NO.</th>
+                                                <th>AR NO.</th>
                                                 <th>NON-OPPORTUNITY ISSUE</th>
                                                 <th>CORRECTIVE ACTION</th>
                                                 <th>RESPONSIBLE PERSON</th>
@@ -409,6 +409,7 @@
     <!-- table data inconsistent -->
     <script>
         var Data = [{
+                "ARNO": "AR_001 รายงานโปรเจคตัวอย่างที่ 1",
                 "INCONSISTENT": "TEXT",
                 "CORRECTIVE": "TEXT",
                 "RESPONSIBLEPERSON": "TEXT",
@@ -418,15 +419,17 @@
                 "ANNUAL": "2567",
             },
             {
+                "ARNO": "AR_001 รายงานโปรเจคตัวอย่างที่ 1",
                 "INCONSISTENT": "TEXT",
                 "CORRECTIVE": "TEXT",
                 "RESPONSIBLEPERSON": "TEXT",
                 "STARTDATE": "01/01/2024",
                 "ENDDATE": "01/01/2024",
-                "STATUS": "เกินกำหนด",
+                "STATUS": "ดำเนินการไม่เสร็จสิ้น",
                 "ANNUAL": "2567",
             },
             {
+                "ARNO": "AR_001 รายงานโปรเจคตัวอย่างที่ 1",
                 "INCONSISTENT": "TEXT",
                 "CORRECTIVE": "TEXT",
                 "RESPONSIBLEPERSON": "TEXT",
@@ -436,6 +439,7 @@
                 "ANNUAL": "2567",
             },
             {
+                "ARNO": "AR_001 รายงานโปรเจคตัวอย่างที่ 1",
                 "INCONSISTENT": "TEXT",
                 "CORRECTIVE": "TEXT",
                 "RESPONSIBLEPERSON": "TEXT",
@@ -470,14 +474,14 @@
       <li data-toggle="modal" data-target="#modal-default" onclick="load_modal(3)"><a class="dropdown-item" href="#">Create</a></li>
     </ul>
   </div>`;
-            cell2.textContent = index + 1;
+            cell2.textContent = row.ARNO;
             cell3.textContent = row.INCONSISTENT;
             cell4.textContent = row.CORRECTIVE;
             cell5.textContent = row.RESPONSIBLEPERSON;
             cell6.textContent = row.STARTDATE;
             cell7.textContent = row.ENDDATE;
             cell8.innerHTML = row.STATUS === 'รอดำเนินการ' ? '<span class="badge badge-dark">รอดำเนินการ</span>' :
-                row.STATUS === 'เกินกำหนด' ? '<span class="badge badge-danger">เกินกำหนด</span>' :
+                row.STATUS === 'ดำเนินการไม่เสร็จสิ้น' ? '<span class="badge badge-danger">ดำเนินการไม่เสร็จสิ้น</span>' :
                 row.STATUS === 'กำลังดำเนินการ' ? '<span class="badge badge-warning">กำลังดำเนินการ</span>' :
                 row.STATUS === 'ดำเนินการเสร็จสิ้น' ? '<span class="badge badge-success">ดำเนินการเสร็จสิ้น</span>' : '';
             cell9.textContent = row.ANNUAL;
@@ -487,6 +491,7 @@
     <!-- table data observation -->
     <script>
         var Data = [{
+            "ARNO": "AR_001 รายงานโปรเจคตัวอย่างที่ 1",
                 "OBSERVATION": "TEXT",
                 "CORRECTIVE": "TEXT",
                 "RESPONSIBLEPERSON": "TEXT",
@@ -496,15 +501,17 @@
                 "ANNUAL": "2567",
             },
             {
+                "ARNO": "AR_001 รายงานโปรเจคตัวอย่างที่ 1",
                 "OBSERVATION": "TEXT",
                 "CORRECTIVE": "TEXT",
                 "RESPONSIBLEPERSON": "TEXT",
                 "STARTDATE": "01/01/2024",
                 "ENDDATE": "01/01/2024",
-                "STATUS": "เกินกำหนด",
+                "STATUS": "ดำเนินการไม่เสร็จสิ้น",
                 "ANNUAL": "2567",
             },
             {
+                "ARNO": "AR_001 รายงานโปรเจคตัวอย่างที่ 1",
                 "OBSERVATION": "TEXT",
                 "CORRECTIVE": "TEXT",
                 "RESPONSIBLEPERSON": "TEXT",
@@ -514,6 +521,7 @@
                 "ANNUAL": "2567",
             },
             {
+                "ARNO": "AR_001 รายงานโปรเจคตัวอย่างที่ 1",
                 "OBSERVATION": "TEXT",
                 "CORRECTIVE": "TEXT",
                 "RESPONSIBLEPERSON": "TEXT",
@@ -548,14 +556,14 @@
       <li data-toggle="modal" data-target="#modal-default" onclick="load_modal(3)"><a class="dropdown-item" href="#">Create</a></li>
     </ul>
   </div>`;
-            cell2.textContent = index + 1;
+            cell2.textContent = row.ARNO;
             cell3.textContent = row.OBSERVATION;
             cell4.textContent = row.CORRECTIVE;
             cell5.textContent = row.RESPONSIBLEPERSON;
             cell6.textContent = row.STARTDATE;
             cell7.textContent = row.ENDDATE;
             cell8.innerHTML = row.STATUS === 'รอดำเนินการ' ? '<span class="badge badge-dark">รอดำเนินการ</span>' :
-                row.STATUS === 'เกินกำหนด' ? '<span class="badge badge-danger">เกินกำหนด</span>' :
+                row.STATUS === 'ดำเนินการไม่เสร็จสิ้น' ? '<span class="badge badge-danger">ดำเนินการไม่เสร็จสิ้น</span>' :
                 row.STATUS === 'กำลังดำเนินการ' ? '<span class="badge badge-warning">กำลังดำเนินการ</span>' :
                 row.STATUS === 'ดำเนินการเสร็จสิ้น' ? '<span class="badge badge-success">ดำเนินการเสร็จสิ้น</span>' : '';
             cell9.textContent = row.ANNUAL;
@@ -565,6 +573,7 @@
     <!-- table data opportunity -->
     <script>
         var Data = [{
+            "ARNO": "AR_001 รายงานโปรเจคตัวอย่างที่ 1",
                 "OPPORTUNITY": "TEXT",
                 "CORRECTIVE": "TEXT",
                 "RESPONSIBLEPERSON": "TEXT",
@@ -574,15 +583,17 @@
                 "ANNUAL": "2567",
             },
             {
+                "ARNO": "AR_001 รายงานโปรเจคตัวอย่างที่ 1",
                 "OPPORTUNITY": "TEXT",
                 "CORRECTIVE": "TEXT",
                 "RESPONSIBLEPERSON": "TEXT",
                 "STARTDATE": "01/01/2024",
                 "ENDDATE": "01/01/2024",
-                "STATUS": "เกินกำหนด",
+                "STATUS": "ดำเนินการไม่เสร็จสิ้น",
                 "ANNUAL": "2567",
             },
             {
+                "ARNO": "AR_001 รายงานโปรเจคตัวอย่างที่ 1",
                 "OPPORTUNITY": "TEXT",
                 "CORRECTIVE": "TEXT",
                 "RESPONSIBLEPERSON": "TEXT",
@@ -592,6 +603,7 @@
                 "ANNUAL": "2567",
             },
             {
+                "ARNO": "AR_001 รายงานโปรเจคตัวอย่างที่ 1",
                 "OPPORTUNITY": "TEXT",
                 "CORRECTIVE": "TEXT",
                 "RESPONSIBLEPERSON": "TEXT",
@@ -626,7 +638,7 @@
       <li data-toggle="modal" data-target="#modal-default" onclick="load_modal(3)"><a class="dropdown-item" href="#">Create</a></li>
     </ul>
   </div>`;
-            cell2.textContent = index + 1;
+            cell2.textContent = row.ARNO;
             cell3.textContent = row.OPPORTUNITY;
             cell4.textContent = row.CORRECTIVE;
             cell5.textContent = row.RESPONSIBLEPERSON;
@@ -634,7 +646,7 @@
             cell7.textContent = row.ENDDATE;
             cell8.textContent = row.STATUS;
             cell8.innerHTML = row.STATUS === 'รอดำเนินการ' ? '<span class="badge badge-dark">รอดำเนินการ</span>' :
-                row.STATUS === 'เกินกำหนด' ? '<span class="badge badge-danger">เกินกำหนด</span>' :
+                row.STATUS === 'ดำเนินการไม่เสร็จสิ้น' ? '<span class="badge badge-danger">ดำเนินการไม่เสร็จสิ้น</span>' :
                 row.STATUS === 'กำลังดำเนินการ' ? '<span class="badge badge-warning">กำลังดำเนินการ</span>' :
                 row.STATUS === 'ดำเนินการเสร็จสิ้น' ? '<span class="badge badge-success">ดำเนินการเสร็จสิ้น</span>' : '';
             cell9.textContent = row.ANNUAL;
