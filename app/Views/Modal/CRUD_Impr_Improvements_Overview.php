@@ -81,8 +81,8 @@
                     <input class="form-control gray-text" type="text" placeholder="Text..." name="improvementslist" id="improvementslist"></input>
                 </div>
                 <div class="form-group mt-3">
-                    <h6>Responsible Person</h6>
-                    <input class="form-control gray-text" type="text" placeholder="Text..." name="responsibleperson" id="responsibleperson"></input>
+                    <h6>Recorder</h6>
+                    <input class="form-control gray-text" type="text" placeholder="Text..." name="recorder" id="recorder"></input>
                 </div>
                 <div class="form-group">
                     <h6>Attach file</h6>

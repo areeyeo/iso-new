@@ -15,16 +15,17 @@
     color: #0062FF !important;
   }
 
-  #ipinconsistent,
+  #ipnonconformity,
   #ipobservation,
-  #ipopportunity {
+  #ipopportunity,
+  #zzzz {
     display: none;
   }
 </style>
 <div class="modal-dialog modal-lg">
   <div class="modal-content">
     <div class="modal-header bg-primary">
-      <h4 class="modal-title" id="title_modal" name="title_modal">Nonconformity & Action</h4>
+      <h4 class="modal-title" id="title_modal" name="title_modal">Audit Result</h4>
     </div>
     <div class="modal-body">
       <form class="mb-3" id="form_crud" action="javascript:void(0)" method="post" enctype="multipart/form-data">
@@ -45,40 +46,41 @@
           </select>
         </div>
         <div class="form-group mt-3">
-          <h6>Corrective Action</h6>
-          <textarea class="form-control gray-text" rows="3" placeholder="Text..." name="correctiveaction" id="correctiveaction"></textarea>
+          <h6>Audit Result Type</h6>
+          <select class="form-select form-control" aria-label="Default select example" name="auditresulttype" id="auditresulttype">
+            <option selected>Select Audit Result Type</option>
+            <option value="1">Nonconformity Issues</option>
+            <option value="2">Observation Issues</option>
+            <option value="3">Opportunity Issues</option>
+          </select>
+        </div>
+        <div class="form-group mt-3" id="ipnonconformity">
+          <h6>Nonconformity Issue</h6>
+          <input class="form-control gray-text" type="text" placeholder="Text..." name="nonconformity" id="nonconformity"></input>
+        </div>
+        <div class="form-group mt-3" id="ipobservation">
+          <h6>Observation Issue</h6>
+          <input class="form-control gray-text" type="text" placeholder="Text..." name="observation" id="observation"></input>
+        </div>
+        <div class="form-group mt-3" id="ipopportunity">
+          <h6>Opportunity Issue</h6>
+          <input class="form-control gray-text" type="text" placeholder="Text..." name="opportunity" id="opportunity"></input>
+        </div>
+        <div class="form-group mt-3" id="zzzz">
+          <h6>Level of Nonconformity</h6>
+          <select class="form-select form-control" aria-label="Default select example" name="levelnonconformity" id="levelnonconformity">
+            <option selected>Select Level of Nonconformity</option>
+            <option value="major">Major</option>
+            <option value="minor">Minor</option>
+          </select>
         </div>
         <div class="form-group mt-3">
-          <h6>Responsible Person</h6>
-          <input class="form-control gray-text" type="text" placeholder="Text..." name="responsibleperson" id="responsibleperson"></input>
+          <h6>Detail</h6>
+          <textarea class="form-control gray-text" rows="3" placeholder="Text..." name="detail" id="detail"></textarea>
         </div>
-        <div class="row mt-3">
-          <div class="col-6">
-            <div class="form-group">
-              <h6>Start date</h6>
-              <input class="form-control gray-text" type="date" name="start_date" id="start_date"></input>
-            </div>
-          </div>
-          <div class="col-6">
-            <div class="form-group">
-              <h6>End date</h6>
-              <input class="form-control gray-text" type="date" name="end_date" id="end_date"></input>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-6">
-            <div class="form-group">
-              <h6>Annual</h6>
-              <input class="form-control gray-text" type="number" id="annual" name="annual" min="1900" max="2100" placeholder="yyyy" required>
-            </div>
-          </div>
-          <div class="col-6">
-            <div class="form-group">
-              <h6>Finish Date</h6>
-              <input class="form-control gray-text" type="date" name="end_date" id="end_date"></input>
-            </div>
-          </div>
+        <div class="form-group mt-3">
+          <h6>Requirements/Control</h6>
+          <input class="form-control gray-text" placeholder="Text..." name="control" id="control"></input>
         </div>
         <input type="text" id="url_route" name="url_route" hidden>
         <input type="text" id="check_type" name="check_type" hidden>
@@ -110,15 +112,17 @@
 <!-- show input -->
 <script>
   $(document).ready(function() {
-    $('#followuptype').change(function() {
+    $('#auditresulttype').change(function() {
       var selectedOption = $(this).val();
 
-      $('#ipinconsistent').hide();
+      $('#ipnonconformity').hide();
       $('#ipobservation').hide();
       $('#ipopportunity').hide();
+      $('#zzzz').hide();
 
       if (selectedOption === '1') {
-        $('#ipinconsistent').show();
+        $('#ipnonconformity').show();
+        $('#zzzz').show();
       } else if (selectedOption === '2') {
         $('#ipobservation').show();
       } else if (selectedOption === '3') {

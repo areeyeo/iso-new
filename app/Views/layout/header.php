@@ -288,7 +288,7 @@
                         </li>
                         <li class="nav-item">
                             <a href="<?= site_url(''); ?>" class="nav-link">
-                                <i class="fas fa-circle fa-lg nav-icon"></i>
+                                <i class="fas fa-cogs fa-lg nav-icon"></i>
                                 <p>
                                     Operation
                                     <i class="right fas fa-angle-right"></i>
@@ -414,58 +414,6 @@
                         <div>
                             <hr>
                         </div>
-                        <li class="nav-header">Management setting</li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-cogs"></i>
-                                <p>
-                                    Risk Criteria Context
-                                    <i class="right fas fa-angle-right"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <?php $contextLinks = [
-                                    ['text' => 'Consequence Level', 'url' => 'risk_Criteria_Context_Consequence'],
-                                    ['text' => 'Likelihood Level', 'url' => 'risk_Criteria_Context_Likelihood'],
-                                    ['text' => 'Risk Level', 'url' => 'risk_Criteria_Context_Risk_Level'],
-                                    ['text' => 'Risk Options', 'url' => 'risk_Criteria_Context_Risk_Option']
-                                ]; ?>
-                                <?php foreach ($contextLinks as $link) : ?>
-                                    <li class="nav-item">
-                                        <a href="<?= site_url($link['url']); ?>" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p><?= $link['text']; ?></p>
-                                        </a>
-                                    </li>
-                                <?php endforeach; ?>
-                            </ul>
-                        </li>
-
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-cogs"></i>
-                                <p>
-                                    Risk Criteria Informa...
-                                    <i class="right fas fa-angle-right"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <?php $isLinks = [
-                                    ['text' => 'Consequence Level', 'url' => 'risk_Criteria_IS_Consequence'],
-                                    ['text' => 'Likelihood Level', 'url' => 'risk_Criteria_IS_Likelihood'],
-                                    ['text' => 'Risk Level', 'url' => 'risk_Criteria_IS_Risk_Level'],
-                                    ['text' => 'Risk Options', 'url' => 'risk_Criteria_IS_Risk_Option']
-                                ]; ?>
-                                <?php foreach ($isLinks as $link) : ?>
-                                    <li class="nav-item">
-                                        <a href="<?= site_url($link['url']); ?>" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p><?= $link['text']; ?></p>
-                                        </a>
-                                    </li>
-                                <?php endforeach; ?>
-                            </ul>
-                        </li>
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->

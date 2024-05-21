@@ -130,127 +130,6 @@
             </div>
         </section>
 
-        <!-- section version -->
-        <section class="content">
-            <div class="container-fluid">
-                <div class="card">
-                    <div class="card-header">
-                        <h2 class="card-title">Details</h2>
-                        <div class="card-tools">
-                            <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                                <i class="fas fa-minus"></i>
-                            </button>
-                            <button class="badge badge-edit" style="background-color: #FFFFFF;  border: 1px solid #ADB5BD;"><a href="<?= site_url('context/context_analysis/index/') ?>" style="color: #ADB5BD;">Version</a></button>
-                            <button class="badge badge-edit" style="background-color: #FFFFFF;  border: 1px solid #ADB5BD;">
-                                <a href="<?= site_url('context/ISObjective/timeline_log/') ?>" style="color: #ADB5BD;">History</a>
-                            </button>
-                            <button class="badge badge-edit" style="background-color: #007BFF; color: #ffffff; border: 1px solid #007BFF" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action</button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <div class="dropdown-submenu">
-                                    <a class="dropdown-item dropdown-toggle" href="#">Status</a>
-                                    <div class="dropdown-menu">
-                                        <!-- Second-level dropdown items -->
-                                        <a class="dropdown-item" href="#" onclick="confirm_Alert('ต้องการที่จะ Pending Reviewed หรือไม่', 'context/status_update/id_version ?>/1')">Pending Review</a>
-                                        <div class="dropdown-divider"></div>
-
-                                        <a class="dropdown-item" href="#" onclick="confirm_Alert('ต้องการที่จะ Review หรือไม่', 'context/status_update/id_version ?>/2')">Review</a>
-                                        <div class="dropdown-divider"></div>
-
-                                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-default" id="load-modal-button">Reject Review</a>
-
-                                        <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="#" onclick="confirm_Alert('ต้องการที่จะ Pending Approve หรือไม่', 'context/status_update/id_version ?>/3')">Pending
-                                            Approve</a>
-                                        <div class="dropdown-divider"></div>
-
-                                        <a class="dropdown-item" href="#" onclick="confirm_Alert('ต้องการที่จะ Approved หรือไม่', 'context/status_update/id_version ?>/4')">Approved</a>
-                                        <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-default" id="load-modal-button" onclick="load_modal(4)">Reject Approved</a>
-                                    </div>
-                                </div>
-                                <div class="dropdown-divider"></div>
-                                <div class="dropdown-submenu">
-                                    <a class="dropdown-item dropdown-toggle" href="#">Update</a>
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item">Update review date</a>
-                                        <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item">Revise</a>
-                                    </div>
-                                </div>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" data-toggle="modal" data-target="#modal-default" id="load-modal-button">Create Note</a>
-                            </div>
-
-                            <i class="fas fa-cog" data-toggle="modal" data-target="#modal-default" id="load-modal-button" onclick="load_modal(1)"></i>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <div class="container-fluid">
-                            <div class="row justify-content-center mb-2">
-                                <div class="col-sm-3 ">
-                                    <h6>Version:
-                                        <span class="blue-text">
-                                            <?php echo $data['num_ver']; ?>
-                                        </span>
-                                    </h6>
-                                </div>
-                                <div class="col-sm-3 ">
-                                    <h6>Status:
-                                        <?php
-                                        if ($data['status'] == 0) {
-                                            echo "<span class='badge bg-secondary'>Draft</span>";
-                                        } else if ($data['status'] == 1) {
-                                            echo "<span class='badge bg-info'>Pending Review</span>";
-                                        } else if ($data['status'] == 2) {
-                                            echo "<span class='badge bg-warning'>Review</span>";
-                                        } else if ($data['status'] == 3) {
-                                            echo "<span class='badge bg-info'>Pending Approved</span>";
-                                        } else if ($data['status'] == 4) {
-                                            echo "<span class='badge bg-success'>Approved</span>";
-                                        } else if ($data['status'] == 5) {
-                                            echo "<span class='badge bg-danger'>Reject_Review</span>";
-                                        } else if ($data['status'] == 6) {
-                                            echo "<span class='badge bg-danger'>Reject_Approved</span>";
-                                        }
-                                        ?>
-                                    </h6>
-                                </div>
-                                <div class="col-sm-3 ">
-                                    <h6>Approved Date:
-                                        <span class="gray-text">
-                                            <?php echo $data['approved_date']; ?>
-                                        </span>
-                                    </h6>
-                                </div>
-                            </div>
-                            <div class="row justify-content-center mb-2">
-                                <div class="col-sm-3 ">
-                                    <h6>Modified Date:
-                                        <span class="gray-text">
-                                            <?php echo $data['modified_date']; ?>
-                                        </span>
-                                    </h6>
-                                </div>
-                                <div class="col-sm-3 ">
-                                    <h6>Last Reviewed:
-                                        <span class="gray-text">
-                                            <?php echo $data['review_date']; ?>
-                                        </span>
-                                    </h6>
-                                </div>
-                                <div class="col-sm-3 ">
-                                    <h6>Announce Date:
-                                        <span class="gray-text">
-                                            <?php echo $data['announce_date']; ?>
-                                        </span>
-                                    </h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
         <!-- Main content -->
         <section class="content">
             <div class="container-fluid">
@@ -273,7 +152,7 @@
                                                 <th class="text-center">ACTION</th>
                                                 <th>NO.</th>
                                                 <th>IMPROVEMENTS LIST</th>
-                                                <th>RESPONSIBLE PERSON</th>
+                                                <th>RECORDER</th>
                                                 <th>FILE</th>
                                             </tr>
                                         </thead>
@@ -357,7 +236,7 @@
     <script>
         var Data = [{
             "IMPROVEMENTSLIST": "ปรับปรุงกระบวนการ (Process Improvements)",
-            "RESPONSIBLEPERSON": "Areeya Dengjaroen",
+            "RECORDER": "Areeya Dengjaroen",
             "FILE": ["เอกสารเพิ่มเติม.pdf"],
         }, ];
         var example1TableBody = document.getElementById("example1").getElementsByTagName("tbody")[0];
@@ -373,16 +252,16 @@
             cell1.innerHTML = `<div class="dropdown">
     <i class="fas fa-ellipsis-v pointer text-primary" id="dropdownMenuButtonPlanning${index}" data-toggle="dropdown" aria-expanded="false"></i>
     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButtonPlanning${index}">
-      <li data-toggle="modal" data-target="#modal-default " onclick="load_modal(3)"><a class="dropdown-item" href="#">Edit</a></li>
+      <li data-toggle="modal" data-target="#modal-default " onclick="load_modal(2)"><a class="dropdown-item" href="#">Edit</a></li>
       <li><a class="dropdown-item" href="#">Copy</a></li>
       <li><a class="dropdown-item" href="#">Delete</a></li>
       <li><hr class="dropdown-divider"></li>
-      <li data-toggle="modal" data-target="#modal-default " onclick="load_modal(3)"><a class="dropdown-item" href="#">Create</a></li>
+      <li data-toggle="modal" data-target="#modal-default " onclick="load_modal(2)"><a class="dropdown-item" href="#">Create</a></li>
     </ul>
   </div>`;
             cell2.textContent = index + 1;
             cell3.textContent = row.IMPROVEMENTSLIST;
-            cell4.textContent = row.RESPONSIBLEPERSON;
+            cell4.textContent = row.RECORDER;
             cell5.textContent = row.FILE;
         });
 

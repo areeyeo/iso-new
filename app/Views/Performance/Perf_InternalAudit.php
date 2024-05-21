@@ -133,20 +133,18 @@
             <div class="container-fluid">
                 <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                     <li class="nav-item" role="presentation">
-                        <a class="nav-link title-topic active" id="pills-audit-management-tab" data-toggle="pill" data-target="#pills-audit-management" type="button" role="tab" aria-follow-ups="pills-audit-management" aria-selected="true">
-                            Audit Manegement</a>
+                        <a class="nav-link title-topic active" id="pills-audit-management-tab" data-toggle="pill" href="#pills-audit-management" role="tab" aria-controls="pills-audit-management" aria-selected="true">Audit Management</a>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link title-topic btn" id="pills-follow-up-tab" data-toggle="pill" data-target="#pills-follow-up" type="button" role="tab" aria-follow-ups="pills-follow-up" aria-selected="false">
-                            Follow-up</button>
+                        <a class="nav-link title-topic" id="pills-audit-result-tab" data-toggle="pill" href="#pills-audit-result" role="tab" aria-controls="pills-audit-result" aria-selected="false">Audit Result</a>
                     </li>
                 </ul>
                 <div class="tab-content" id="pills-tabContent">
                     <div class="tab-pane fade show active" id="pills-audit-management" role="tabpanel" aria-labelledby="pills-audit-management-tab">
                         <?php include("Perf_AuditManagement.php"); ?>
                     </div>
-                    <div class="tab-pane fade" id="pills-follow-up" role="tabpanel" aria-labelledby="pills-follow-up-tab">
-                        <?php include("Perf_Followup.php"); ?>
+                    <div class="tab-pane fade" id="pills-audit-result" role="tabpanel" aria-labelledby="pills-audit-result-tab">
+                        <?php include("Perf_Audit_Result.php"); ?>
                     </div>
                 </div>
             </div>
@@ -181,7 +179,7 @@
             <?= $this->include("Modal/CRUD_Perf_Audit_Report"); ?>
         </div>
         <div id="modal10">
-            <?= $this->include("Modal/CRUD_Perf_Audit_Followup"); ?>
+            <?= $this->include("Modal/CRUD_Perf_Audit_Result"); ?>
         </div>
     </div>
     <!-- DataTables  & Plugins -->
@@ -212,6 +210,7 @@
     <script src="<?= base_url('plugins/codemirror/mode/css/css.js'); ?>"></script>
     <script src="<?= base_url('plugins/codemirror/mode/xml/xml.js'); ?>"></script>
     <script src="<?= base_url('plugins/codemirror/mode/htmlmixed/htmlmixed.js'); ?>"></script>
+
     <script>
         function load_modal(check, data_, status) {
             modal1 = document.getElementById("modal1");
@@ -431,8 +430,7 @@
                 modal9.style.display = "block";
                 modal10.style.display = "none";
 
-            }
-            else if (check == '12') {
+            } else if (check == '12') {
                 //--show modal audit program-//
                 modal1.style.display = "none";
                 modal2.style.display = "none";

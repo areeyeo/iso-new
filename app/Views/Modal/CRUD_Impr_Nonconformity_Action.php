@@ -1,69 +1,32 @@
+<!-- Select2 CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
 <style>
-    .custom-file {
-        margin-bottom: 10px;
+    .select2-container--default .select2-selection--multiple {
+        border: 1px solid #ced4da !important;
     }
 
-    .file-names-container {
-        overflow: hidden;
+    .select2-selection__choice {
+        background-color: #E2F0FF !important;
+        border: 1px solid #E2F0FF !important;
+        color: #0062FF !important;
     }
 
-    .file-name {
-        width: 370px;
-        border: 1px solid #007bff;
-        /* color: #007bff; */
-        padding: 8px;
-        border-radius: 5px;
-        background-color: #fff;
-        display: inline-block;
-        margin-right: 10px;
-        margin-bottom: 10px;
-        white-space: nowrap;
+    .select2-selection__choice__remove {
+        color: #0062FF !important;
     }
 
-    .file-info {
-        display: flex;
-        align-items: center;
-    }
-
-    .filename {
-        max-width: '200px';
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        margin-right: 5px;
-        color: #495057;
-    }
-
-    .file-icon {
-        margin-right: 3px;
-        color: #007bff;
-
-    }
-
-    .file-icon-bin {
-        margin-left: auto;
-        color: #007bff;
-    }
-
-    .tooltip-inner {
-        background-color: #F8F9FA;
-        border: 1px solid #CED4DA;
-        color: black;
+    #ipinconsistent,
+    #ipobservation,
+    #ipopportunity {
+        display: none;
     }
 </style>
 <div class="modal-dialog modal-lg">
     <div class="modal-content">
-        <!-- <div class="overlay">
-      <i class="fas fa-2x fa-sync fa-spin"></i>
-    </div> -->
         <div class="modal-header bg-primary">
             <h4 class="modal-title" id="title_modal" name="title_modal">Nonconformity & Action</h4>
         </div>
         <div class="modal-body">
-            <!-- <div class="progress mb-3" style="display: none;">
-        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="0"
-          aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
-      </div> -->
             <form class="mb-3" id="form_crud" action="javascript:void(0)" method="post" enctype="multipart/form-data">
                 <div>
                     <h6>Description</h6>
@@ -77,20 +40,76 @@
                     <h6 class="gray-text" name="description" id="description"></h6>
                 </div>
                 <div class="form-group mt-3">
-                    <h6>Improvements List</h6>
-                    <input class="form-control gray-text" type="text" placeholder="Text..." name="improvementslist" id="improvementslist"></input>
+                    <h6>Audit Report No.</h6>
+                    <input class="form-control gray-text" type="text" placeholder="Text..." name="auditreport" id="auditreport"></input>
+                </div>
+                <div class="form-group mt-3" id="ipinconsistent">
+                    <h6>Nonconformity Issue</h6>
+                    <input class="form-control gray-text" type="text" placeholder="Text..." name="nonconformity" id="nonconformity"></input>
+                </div>
+                <div class="form-group mt-3" id="ipobservation">
+                    <h6>Observation Issue</h6>
+                    <input class="form-control gray-text" type="text" placeholder="Text..." name="observation" id="observation"></input>
+                </div>
+                <div class="form-group mt-3" id="ipopportunity">
+                    <h6>Opportunity Issue</h6>
+                    <input class="form-control gray-text" type="text" placeholder="Text..." name="opportunity" id="opportunity"></input>
                 </div>
                 <div class="form-group mt-3">
+                    <h6>Corrective Action</h6>
+                    <textarea class="form-control gray-text" rows="3" placeholder="Text..." name="correctiveaction" id="correctiveaction"></textarea>
+                </div>
+
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <h6>Level of Nonconformity</h6>
+                            <input class="form-control gray-text" type="text" placeholder="Text..." name="levelnonconformity" id="levelnonconformity"></input>
+                        </div>
+
+                        <div class="form-group">
+                            <h6>Requirements/Control</h6>
+                            <input class="form-control gray-text" type="text" placeholder="Text..." name="control" id="control"></input>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <h6>Detail</h6>
+                            <textarea class="form-control gray-text" rows="4" placeholder="Text..." name="detail" id="detail"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
                     <h6>Responsible Person</h6>
                     <input class="form-control gray-text" type="text" placeholder="Text..." name="responsibleperson" id="responsibleperson"></input>
                 </div>
-                <div class="form-group">
-                    <h6>Attach file</h6>
-                    <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="exampleInputFile" accept=".docx, .pdf, .xlsx , .doc" data-max-size="20971520" name="file">
-                        <label class="custom-file-label" for="customFile">Choose file</label>
+                <div class="row mt-3">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <h6>Start date</h6>
+                            <input class="form-control gray-text" type="date" name="start_date" id="start_date"></input>
+                        </div>
                     </div>
-                    <h6 class="gray-text">.doc .xls .pdf (20 MB per file)</h6>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <h6>End date</h6>
+                            <input class="form-control gray-text" type="date" name="end_date" id="end_date"></input>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <h6>Annual</h6>
+                            <input class="form-control gray-text" type="number" id="annual" name="annual" min="1900" max="2100" placeholder="yyyy" required>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <h6>Finish Date</h6>
+                            <input class="form-control gray-text" type="date" name="end_date" id="end_date"></input>
+                        </div>
+                    </div>
                 </div>
                 <input type="text" id="url_route" name="url_route" hidden>
                 <input type="text" id="check_type" name="check_type" hidden>
@@ -103,9 +122,54 @@
         </div>
     </div>
 </div>
+<!-- Select2 JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+
+<!-- backdrop -->
 <script>
     $(document).ready(function() {
         $(".overlay").hide();
+    });
+
+    $("#form_crud").on('submit', function(e) {
+        e.preventDefault();
+        const urlRouteInput = document.getElementById("url_route");
+        action_(urlRouteInput.value, 'form_crud');
+    });
+</script>
+
+<!-- show input -->
+<script>
+    $(document).ready(function(checktype) {
+
+        if (checktype === 'nonconformity') {
+            $('#ipinconsistent').show();
+            $('#ipobservation').hide();
+            $('#ipopportunity').hide();
+        } else if (checktype === 'observation') {
+            $('#ipobservation').show();
+            $('#ipinconsistent').hide();
+            $('#ipopportunity').hide();
+        } else if (checktype === 'opportunity') {
+            $('#ipopportunity').show();
+            $('#ipinconsistent').hide();
+            $('#ipobservation').hide();
+        }
+    });
+</script>
+
+<!-- select seacrh -->
+<script>
+    $(document).ready(function() {
+        var selectData = ["AR_001 รายงานโปรเจคตัวอย่างที่ 1", "AR_002 รายงานโปรเจคตัวอย่างที่ 2", "AR_003 รายงานโปรเจคตัวอย่างที่ 3", "AR_004 รายงานโปรเจคตัวอย่างที่ 4", "AR_005 รายงานโปรเจคตัวอย่างที่ 5"];
+        $('#tags-reportname').select2({
+            data: selectData,
+            placeholder: "Select or Search",
+            tags: false,
+            tokenSeparators: [',', ' '],
+            width: '100%',
+            maximumSelectionLength: 1
+        });
     });
 
     $("#form_crud").on('submit', function(e) {
