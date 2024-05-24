@@ -100,29 +100,6 @@
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="<?= site_url('/'); ?>">Home</a></li>
                             <li class="breadcrumb-item active">Internal Audit</li>
-                            <li class="breadcrumb-item topic active">
-                                <?php
-                                $active_tab = 'audit-management';
-                                if (isset($_GET['active_tab'])) {
-                                    $active_tab = $_GET['active_tab'];
-                                }
-                                if ($active_tab == 'audit-management') {
-                                    echo 'Audit Manegement';
-                                } elseif ($active_tab == 'follow-up') {
-                                    echo 'Follow-up';
-                                }
-                                ?>
-                            </li>
-                            <li class="breadcrumb-item version active">
-                                <?php
-                                $active_tab = isset($_GET['active_tab']) ? $_GET['active_tab'] : 'audit-management';
-                                if ($active_tab == 'audit-management' && isset($data['num_ver'])) {
-                                    echo ' Version ' . $data['num_ver'];
-                                } elseif ($active_tab == 'follow-up' && isset($data['num_ver'])) {
-                                    echo ' Version ' . $data['num_ver'];
-                                }
-                                ?>
-                            </li>
                         </ol>
                     </div>
                 </div>

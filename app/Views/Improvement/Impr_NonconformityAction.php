@@ -199,13 +199,12 @@
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="<?= site_url('/'); ?>">Home</a></li>
                             <li class="breadcrumb-item active">Nonconformity & Action</li>
-                            <li class="breadcrumb-item active"><a>Version <?php echo $data['num_ver']; ?></a></li>
                         </ol>
                     </div>
                 </div>
             </div>
         </section>
-        <!-- section followup -->
+        <!-- section audit result -->
         <section class="content-header">
             <div class="container-fluid">
                 <div class="card">
@@ -296,7 +295,6 @@
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
@@ -350,8 +348,6 @@
             modal2 = document.getElementById("modal2");
             $(".modal-body #iss").empty();
 
-            other_function(check_type);
-            
             if (check == '1') {
                 modal1.style.display = "block";
                 modal2.style.display = "none";
@@ -462,7 +458,7 @@
             cell1.innerHTML = `<div class="dropdown">
     <i class="fas fa-ellipsis-v pointer text-primary" id="dropdownMenuButton${index}" data-toggle="dropdown" aria-expanded="false"></i>
     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton${index}">
-    <li data-toggle="modal" data-target="#modal-default" onclick="load_modal({ check: 2, check_type: 'nonconformity' })"><a class="dropdown-item" href="#">Edit</a></li>
+    <li data-toggle="modal" data-target="#modal-default" onclick="load_modal(2)"><a class="dropdown-item" href="#">Edit</a></li>
       <li><a class="dropdown-item" href="#">Copy</a></li>
       <li><a class="dropdown-item" href="#">Delete</a></li>
     </ul>

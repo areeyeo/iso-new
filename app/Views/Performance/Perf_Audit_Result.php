@@ -173,7 +173,7 @@
 
 <body>
 
-    <!-- section followup -->
+    <!-- section audit result -->
     <section>
         <div class="card">
             <div class="card-body">
@@ -277,7 +277,7 @@
         });
     </script>
 
-    <!-- table data inconsistent -->
+    <!-- table data nonconformity -->
     <script>
         var Data = [{
                 "ARNO": "AR_001 รายงานโปรเจคตัวอย่างที่ 1",
