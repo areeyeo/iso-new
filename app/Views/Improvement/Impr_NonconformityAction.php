@@ -551,7 +551,7 @@
             cell1.innerHTML = `<div class="dropdown">
     <i class="fas fa-ellipsis-v pointer text-primary" id="dropdownMenuButton${index}" data-toggle="dropdown" aria-expanded="false"></i>
     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton${index}">
-      <li data-toggle="modal" data-target="#modal-default" onclick="load_modal({ check: 2, check_type: 'observation' })"><a class="dropdown-item" href="#">Edit</a></li>
+      <li data-toggle="modal" data-target="#modal-default" onclick="load_modal(2)"><a class="dropdown-item" href="#">Edit</a></li>
       <li><a class="dropdown-item" href="#">Copy</a></li>
       <li><a class="dropdown-item" href="#">Delete</a></li>
     </ul>
@@ -643,7 +643,7 @@
             cell1.innerHTML = `<div class="dropdown">
     <i class="fas fa-ellipsis-v pointer text-primary" id="dropdownMenuButton${index}" data-toggle="dropdown" aria-expanded="false"></i>
     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton${index}">
-        <li data-toggle="modal" data-target="#modal-default" onclick="load_modal({ check: 2, check_type: 'opportunity' })"><a class="dropdown-item" href="#">Edit</a></li>
+        <li data-toggle="modal" data-target="#modal-default" onclick="load_modal(2)"><a class="dropdown-item" href="#">Edit</a></li>
         <li><a class="dropdown-item" href="#">Copy</a></li>
         <li><a class="dropdown-item" href="#">Delete</a></li>
     </ul>

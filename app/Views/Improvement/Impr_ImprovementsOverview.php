@@ -235,10 +235,21 @@
     <!-- table data mom -->
     <script>
         var Data = [{
-            "IMPROVEMENTSLIST": "ปรับปรุงกระบวนการ (Process Improvements)",
-            "RECORDER": "Areeya Dengjaroen",
-            "FILE": ["เอกสารเพิ่มเติม.pdf"],
-        }, ];
+                "IMPROVEMENTSLIST": "ปรับปรุงกระบวนการ (Process Improvements)",
+                "RECORDER": "Areeya Dengjaroen",
+                "FILE": ["เอกสารเพิ่มเติม.pdf"],
+            },
+            {
+                "IMPROVEMENTSLIST": "ปรับปรุงกระบวนการ (Process Improvements)",
+                "RECORDER": "Areeya Dengjaroen",
+                "FILE": ["เอกสารเพิ่มเติม.pdf"],
+            },
+            {
+                "IMPROVEMENTSLIST": "ปรับปรุงกระบวนการ (Process Improvements)",
+                "RECORDER": "Areeya Dengjaroen",
+                "FILE": ["เอกสารเพิ่มเติม.pdf"],
+            },
+        ];
         var example1TableBody = document.getElementById("example1").getElementsByTagName("tbody")[0];
 
         Data.forEach(function(row, index) {

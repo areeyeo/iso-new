@@ -189,21 +189,23 @@
                         <div class="accordion-item">
                             <div class="accordion-title">Nonconformity</div>
                             <div class="accordion-content">
-                                <table id="examplefollow1" class="table table-hover">
-                                    <thead>
-                                        <tr>
-                                            <th class="text-center">ACTION</th>
-                                            <th>AR NO.</th>
-                                            <th>NONCONFORMITY ISSUE</th>
-                                            <th>LEVEL OF NONCONFORMITY</th>
-                                            <th>DETAIL</th>
-                                            <th>REQUIREMENTS/CONTROL</th>
+                                <div class="table-wrapper">
+                                    <table id="examplefollow1" class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th class="text-center">ACTION</th>
+                                                <th>AR NO.</th>
+                                                <th>NONCONFORMITY ISSUE</th>
+                                                <th>LEVEL OF NONCONFORMITY</th>
+                                                <th>DETAIL</th>
+                                                <th>REQUIREMENTS/CONTROL</th>
 
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                    </tbody>
-                                </table>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                         <div class="accordion-item mt-3">
@@ -226,30 +228,32 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="accordion-item mt-3">
-                            <div class="accordion-title">Opportunity</div>
-                            <div class="accordion-content">
-                                <div class="table-wrapper">
-                                    <table id="examplefollow3" class="table table-hover">
-                                        <thead>
-                                            <tr>
-                                                <th class="text-center">ACTION</th>
-                                                <th>AR NO.</th>
-                                                <th>OPPORTUNITY ISSUE</th>
-                                                <th>DETAIL</th>
-                                                <th>REQUIREMENTS/CONTROL</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                        </tbody>
-                                    </table>
-                                </div>
+                    </div>
+                    <div class="accordion-item mt-3">
+                        <div class="accordion-title">Opportunity</div>
+                        <div class="accordion-content">
+                            <div class="table-wrapper">
+                                <table id="examplefollow3" class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center">ACTION</th>
+                                            <th>AR NO.</th>
+                                            <th>OPPORTUNITY ISSUE</th>
+                                            <th>DETAIL</th>
+                                            <th>REQUIREMENTS/CONTROL</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
+
+        </div>
+        </div>
         </div>
         </div>
     </section>
