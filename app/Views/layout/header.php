@@ -37,9 +37,15 @@
         font-size: 1rem;
     }
 
-    [class*=sidebar-light-] .nav-sidebar>.nav-item.menu-open>.nav-link {
-        background-color: #007BFF;
-        color: white;
+    [class*=sidebar-light-] .nav-sidebar>.nav-item.menu-open>.nav-link,
+    [class*=sidebar-light-] .nav-sidebar>.nav-item:hover>.nav-link {
+        background-color: #E3F1FF;
+        color: #007BFF;
+    }
+
+    [class*=sidebar-light-] .nav-treeview>.nav-item>.nav-link:hover {
+        background-color: #E3F1FF;
+        color: #007BFF;
     }
 </style>
 
