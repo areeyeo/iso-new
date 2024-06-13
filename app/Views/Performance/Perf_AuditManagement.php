@@ -78,8 +78,8 @@ $datatest = [
                                 <div class="card-body mt-3" style="background-color: #E2F0FF; border-radius: 4px;">
                                     <div class="d-flex justify-content-between">
                                         <div>
-                                            <span style="color: #666666; font-size: large;">Project Name:&nbsp;</span>
-                                            <span id="projectname" style="color: #007BFF; font-size: large;"><?php echo $item['projectname']; ?></span>
+                                            <span style="color: #666666; font-size: 10pt;">Project Name:&nbsp;</span>
+                                            <span id="projectname" style="color: #007BFF; font-size: 10pt;"><?php echo $item['projectname']; ?></span>
                                         </div>
                                         <div>
                                             <span style="color: #007BFF; cursor: pointer;" data-toggle="modal" data-target="#modal-default" id="load-modal-button" onclick="load_modal(9)">
@@ -88,20 +88,20 @@ $datatest = [
                                         </div>
                                     </div>
                                     <div>
-                                        <span style="color: #666666;">Event Name:&nbsp;</span>
-                                        <span id="period" style="color: #007BFF;"><?php echo $item['eventname']; ?></span>
+                                        <span style="color: #666666; font-size: 10pt;">Event Name:&nbsp;</span>
+                                        <span id="period" style="color: #007BFF; font-size: 10pt;"><?php echo $item['eventname']; ?></span>
                                     </div>
                                     <div>
-                                        <span style="color: #666666;">Detail:&nbsp;</span>
-                                        <span id="period" style="color: #007BFF;"><?php echo $item['detail']; ?></span>
+                                        <span style="color: #666666; font-size: 10pt;">Detail:&nbsp;</span>
+                                        <span id="period" style="color: #007BFF; font-size: 10pt;"><?php echo $item['detail']; ?></span>
                                     </div>
                                     <div>
-                                        <span style="color: #666666;">Auditee:&nbsp;</span>
-                                        <span id="period" style="color: #007BFF;"><?php echo $item['auditee']; ?></span>
+                                        <span style="color: #666666; font-size: 10pt;">Auditee:&nbsp;</span>
+                                        <span id="period" style="color: #007BFF; font-size: 10pt;"><?php echo $item['auditee']; ?></span>
                                     </div>
                                     <div>
-                                        <span style="color: #666666;">Time:&nbsp;</span>
-                                        <span id="period" style="color: #007BFF;"><?php echo $item['time']; ?></span>
+                                        <span style="color: #666666; font-size: 10pt;">Time:&nbsp;</span>
+                                        <span id="period" style="color: #007BFF; font-size: 10pt;"><?php echo $item['time']; ?></span>
                                     </div>
                                 </div>
                             <?php endforeach; ?>
