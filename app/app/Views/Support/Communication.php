@@ -266,7 +266,7 @@
                                                     <th>COMMUNICATE WITH WHOM</th>
                                                     <th>WHEN TO COMMUNICATE</th>
                                                     <th>HOW TO COMMUNICATE</th>
-                                                    <th>ATTACHMENT FILE</th>
+                                                    <th>ATTACH FILE</th>
                                                 </tr>
                                             </thead>
                                             <tbody>

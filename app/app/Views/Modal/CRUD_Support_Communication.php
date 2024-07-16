@@ -127,7 +127,7 @@
               </div>
             </div>
             <div class="form-group">
-              <h6>Attachment file</h6>
+              <h6>Attach file</h6>
               <div class="custom-file">
                 <input type="file" class="custom-file-input" id="attachmentfile" accept=".docx, .pdf, .xlsx , .doc" data-max-size="20971520" name="attachmentfile">
                 <label class="custom-file-label" for="customFile">Choose file</label>

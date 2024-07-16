@@ -29,6 +29,9 @@
         margin-bottom: 10px;
     }
     
+    div.dataTables_scrollHead table.dataTable{
+        width: 100% !important;
+    }
 </style>
 
 <!-- Main content -->
