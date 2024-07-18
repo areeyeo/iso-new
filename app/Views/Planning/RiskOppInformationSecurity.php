@@ -18,6 +18,7 @@
 
     .table thead th {
         border-bottom: none;
+        white-space: nowrap;
     }
 
     .custom-select {
@@ -27,10 +28,6 @@
         font-size: 14px;
         padding: .375rem .75rem;
         margin-bottom: 10px;
-    }
-    
-    div.dataTables_scrollHead table.dataTable{
-        width: 100% !important;
     }
 </style>
 
@@ -776,6 +773,7 @@
 </script>
 <script>
     var countTable2 = 0;
+
     function getTableData2() {
         if (countTable2 === 0) {
 
