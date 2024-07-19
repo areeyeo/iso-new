@@ -236,7 +236,7 @@
                 </div>
             </div>
             <div class="tab-pane fade show" id="opportunity-is" role="tabpanel" aria-labelledby="opportunity-is-tab">
-                <table id="opp_is_table" class="table table-hover" width="1500">
+                <table id="opp_is_table" class="table table-hover">
                     <thead>
                         <tr>
                             <th class="text-center">ACTION</th>
@@ -263,7 +263,14 @@
 <script>
     $(document).ready(function() {
         getTableData1();
-    })
+        getTableData2();
+        setTimeout(function() {
+            var table1 = $('#risk-is-table-full').DataTable();
+            table1.columns.adjust().draw();
+            var table2 = $('#opp_is_table').DataTable();
+            table2.columns.adjust().draw();
+        }, 2000);
+    });
 </script>
 <script>
     var countTable1 = 0;
@@ -800,6 +807,47 @@
                 "searching": false,
                 "ordering": false,
                 "scrollX": true,
+                'columnDefs': [{
+                        'width': '100px',
+                        'targets': 0
+                    },
+                    {
+                        'width': '50px',
+                        'targets': 1
+                    },
+                    {
+                        'width': '300px',
+                        'targets': 2
+                    },
+                    {
+                        'width': '150px',
+                        'targets': 3
+                    },
+                    {
+                        'width': '300px',
+                        'targets': 4
+                    },
+                    {
+                        'width': '120px',
+                        'targets': 5
+                    },
+                    {
+                        'width': '150px',
+                        'targets': 6
+                    },
+                    {
+                        'width': '150px',
+                        'targets': 7
+                    },
+                    {
+                        'width': '150px',
+                        'targets': 8
+                    },
+                    {
+                        'width': '250px',
+                        'targets': 9
+                    }
+                ],
                 "drawCallback": function(settings) {
                     var daData = settings.json.data;
                     if (daData.length == 0) {
@@ -893,7 +941,7 @@
                     {
                         'data': null,
                         'class': 'text-left',
-                        'width': 300,
+                        'width': 150,
                         'render': function(data, type, row, meta) {
                             var html = '';
                             data.opp_data.forEach(element => {
@@ -908,8 +956,8 @@
                     },
                     {
                         'data': null,
-                        'class': 'text-left',
-                        'width': 200,
+                        'class': 'text-center',
+                        'width': 150,
                         'render': function(data, type, row, meta) {
                             var html = '';
                             data.opp_data.forEach(element => {
@@ -924,8 +972,8 @@
                     },
                     {
                         'data': null,
-                        'class': 'text-left',
-                        'width': 200,
+                        'class': 'text-center',
+                        'width': 150,
                         'render': function(data, type, row, meta) {
                             var html = '';
                             data.opp_data.forEach(element => {
@@ -941,7 +989,7 @@
                     {
                         'data': null,
                         'class': 'text-left',
-                        'width': 300,
+                        'width': 250,
                         'render': function(data, type, row, meta) {
                             var html = '';
                             data.opp_data.forEach(element => {
