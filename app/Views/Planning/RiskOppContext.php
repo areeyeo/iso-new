@@ -1,78 +1,78 @@
 <title>RA & RTP Result IS</title>
 <style>
-        table {
-            table-layout: fixed;
-            width: 100%;
-        }
+    table {
+        table-layout: fixed;
+        width: 100%;
+    }
 
-        tr:nth-child(even) {
-            background-color: #F5F5F5;
-        }
+    tr:nth-child(even) {
+        background-color: #F5F5F5;
+    }
 
-        th {
-            background-color: #F5F6FA;
-            text-align: center !important;
-            border-bottom: none;
-        }
+    th {
+        background-color: #F5F6FA;
+        text-align: center !important;
+        border-bottom: none;
+    }
 
-        tbody {
-            border-bottom: 10px solid #ccc;
-            text-align: center;
-        }
+    tbody {
+        border-bottom: 10px solid #ccc;
+        text-align: center;
+    }
 
-        .table thead th {
-            border-bottom: none;
-            white-space: nowrap;
-            text-align: center !important;
-        }
+    .table thead th {
+        border-bottom: none;
+        white-space: nowrap;
+        text-align: center !important;
+    }
 
-        .custom-select {
-            background-color: #fff;
-            border: 1px solid #007BFF;
-            color: #007BFF;
-            font-size: 14px;
-            padding: .375rem .75rem;
-            margin-bottom: 10px;
-        }
+    .custom-select {
+        background-color: #fff;
+        border: 1px solid #007BFF;
+        color: #007BFF;
+        font-size: 14px;
+        padding: .375rem .75rem;
+        margin-bottom: 10px;
+    }
 
-        .dt-column-1 {
-            width: 100px !important;
-        }
+    .dt-column-1 {
+        width: 100px !important;
+    }
 
-        .dt-column-2 {
-            width: 50px !important;
-        }
+    .dt-column-2 {
+        width: 50px !important;
+    }
 
-        .dt-column-3 {
-            width: 200px !important;
-        }
+    .dt-column-3 {
+        width: 200px !important;
+    }
 
-        .dt-column-4 {
-            width: 200px !important;
-        }
+    .dt-column-4 {
+        width: 200px !important;
+    }
 
-        .dt-column-5 {
-            width: 500px !important;
-            white-space: normal;
-        }
+    .dt-column-5 {
+        width: 500px !important;
+        white-space: normal;
+    }
 
-        .dt-column-6 {
-            width: 150px !important;
-        }
+    .dt-column-6 {
+        width: 150px !important;
+    }
 
-        .dt-column-7 {
-            width: 150px !important;
-        }
+    .dt-column-7 {
+        width: 150px !important;
+    }
 
-        .dt-column-8 {
-            width: 150px !important;
-        }
+    .dt-column-8 {
+        width: 150px !important;
+    }
 
-        .dt-column-9 {
-            width: 300px !important;
-            white-space: normal;
-        }
-    </style>
+    .dt-column-9 {
+        width: 300px !important;
+        white-space: normal;
+    }
+</style>
 
 
 <!-- Main content -->
@@ -818,16 +818,42 @@
                 "searching": false,
                 "ordering": false,
                 "scrollX": true,
-                "columnDefs": [
-                    { "width": "100px", "targets": 0 },
-                    { "width": "50px", "targets": 1 },
-                    { "width": "200px", "targets": 2 },
-                    { "width": "200px", "targets": 3 },
-                    { "width": "200px", "targets": 4 },
-                    { "width": "500px", "targets": 5 },
-                    { "width": "150px", "targets": 6 },
-                    { "width": "150px", "targets": 7 },
-                    { "width": "300px", "targets": 8 }
+                "columnDefs": [{
+                        "width": "100px",
+                        "targets": 0
+                    },
+                    {
+                        "width": "50px",
+                        "targets": 1
+                    },
+                    {
+                        "width": "200px",
+                        "targets": 2
+                    },
+                    {
+                        "width": "200px",
+                        "targets": 3
+                    },
+                    {
+                        "width": "200px",
+                        "targets": 4
+                    },
+                    {
+                        "width": "500px",
+                        "targets": 5
+                    },
+                    {
+                        "width": "150px",
+                        "targets": 6
+                    },
+                    {
+                        "width": "150px",
+                        "targets": 7
+                    },
+                    {
+                        "width": "300px",
+                        "targets": 8
+                    }
                 ],
                 'columns': [{
                         'data': null,
