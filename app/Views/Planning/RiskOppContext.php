@@ -634,7 +634,7 @@
                                 }
                                 if (data.residual != null) {
                                     if (parseInt(data.residual) >= element.minimum && parseInt(data.residual) <= element.maximum) {
-                                        $('td:eq(19)', row).css('background-color', element.risk_color);
+                                        $('td:eq(20)', row).css('background-color', element.risk_color);
                                     }
                                 }
                             });
@@ -657,7 +657,7 @@
                                 }
                                 if (data.residual != null) {
                                     if (parseInt(data.residual) >= element.minimum && parseInt(data.residual) <= element.maximum) {
-                                        $('td:eq(19)', row).css('color', element.text_color);
+                                        $('td:eq(20)', row).css('color', element.text_color);
                                     }
                                 }
                             })
@@ -672,7 +672,7 @@
                                 }
                                 if (data.residual != null) {
                                     if (parseInt(data.residual) >= element.minimum && parseInt(data.residual) <= element.maximum) {
-                                        $('td:eq(9)', row).css('background-color', element.risk_color);
+                                        $('td:eq(10)', row).css('background-color', element.risk_color);
                                     }
                                 }
                             });
@@ -1002,4 +1002,24 @@
             $('[data-toggle="tooltip"]').tooltip();
         }
     }
+</script>
+<script>
+    $(document).ready(function() {
+        $('#risk-context-table-full, #opp_context_table').on('show.bs.dropdown', function(e) {
+            var $dropdown = $(e.relatedTarget).next('.dropdown-menu');
+            $('body').append($dropdown.detach());
+            var eOffset = $(e.relatedTarget).offset();
+            $dropdown.css({
+                'display': 'block',
+                'top': eOffset.top + $(e.relatedTarget).outerHeight(),
+                'left': eOffset.left
+            });
+        });
+
+        $('#risk-context-table-full, #opp_context_table').on('hide.bs.dropdown', function(e) {
+            var $dropdown = $(e.relatedTarget).next('.dropdown-menu');
+            $(e.relatedTarget).after($dropdown.detach());
+            $dropdown.hide();
+        });
+    });
 </script>
