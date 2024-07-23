@@ -1,6 +1,11 @@
 <title>RA & RTP Result IS</title>
 
 <style>
+    table {
+        table-layout: fixed;
+        width: 100%;
+    }
+
     tr:nth-child(even) {
         background-color: #F5F5F5;
     }
@@ -28,6 +33,191 @@
         font-size: 14px;
         padding: .375rem .75rem;
         margin-bottom: 10px;
+    }
+
+    /* Column 1: ACTION */
+    .ri-column-1 {
+        width: 100px !important;
+    }
+
+    /* Column 2: NO. */
+    .ri-column-2 {
+        width: 50px !important;
+    }
+
+    /* Column 3: TYPE */
+    .ri-column-3 {
+        width: 200px !important;
+    }
+
+    /* Column 4: ASSET GROUP */
+    .ri-column-4 {
+        width: 200px !important;
+    }
+
+    /* Column 5: THREAT */
+    .ri-column-5 {
+        width: 300px !important;
+        white-space: normal;
+    }
+
+    /* Column 6: VULNERABILITY */
+    .ri-column-6 {
+        width: 300px !important;
+    }
+
+    /* Column 7: EXISTING CONTROLS */
+    .ri-column-7 {
+        width: 300px !important;
+    }
+
+    /* Column 8: CONSEQUENCE */
+    .ri-column-8 {
+        width: 250px !important;
+    }
+
+    /* Column 9: IMPACT */
+    .ri-column-9 {
+        width: 100px !important;
+        white-space: normal;
+    }
+
+    /* Column 10: LIKELIHOOD */
+    .ri-column-10 {
+        width: 150px !important;
+    }
+
+    /* Column 11: RISK LEVEL */
+    .ri-column-11 {
+        width: 150px !important;
+    }
+
+    /* Column 12: RISK ASSESSMENT LEVEL */
+    .ri-column-12 {
+        width: 180px !important;
+    }
+
+    /* Column 13: RISK OPTIONS */
+    .ri-column-13 {
+        width: 200px !important;
+        white-space: normal;
+    }
+
+    /* Column 14: NAME OF RISK TREATMENT PLAN */
+    .ri-column-14 {
+        width: 250px !important;
+    }
+
+    /* Column 15: EVALUATION */
+    .ri-column-15 {
+        width: 150px !important;
+    }
+
+    /* Column 16: RISK OWNER */
+    .ri-column-16 {
+        width: 150px !important;
+    }
+
+    /* Column 17: START DATE */
+    .ri-column-17 {
+        width: 150px !important;
+    }
+
+    /* Column 18: END DATE */
+    .ri-column-18 {
+        width: 150px !important;
+    }
+
+    /* Column 19: APPROVE */
+    .ri-column-19 {
+        width: 150px !important;
+    }
+
+    /* Column 20: RTP STATUS */
+    .ri-column-20 {
+        width: 150px !important;
+    }
+
+    /* Column 21: FILE */
+    .ri-column-21 {
+        width: 250px !important;
+    }
+
+    /* Column 22: CONSEQUENCE (repeated) */
+    .ri-column-22 {
+        width: 250px !important;
+    }
+
+    /* Column 23: IMPACT (repeated) */
+    .ri-column-23 {
+        width: 150px !important;
+    }
+
+    /* Column 24: LIKELIHOOD (repeated) */
+    .ri-column-24 {
+        width: 150px !important;
+    }
+
+    /* Column 25: RESIDUAL */
+    .ri-column-25 {
+        width: 150px !important;
+    }
+
+    /* Column 26: RTP NO. */
+    .ri-column-26 {
+        width: 150px !important;
+    }
+
+    /* Column 1: ACTION */
+    .op-is-column-1 {
+        width: 100px !important;
+    }
+
+    /* Column 2: NO. */
+    .op-is-column-2 {
+        width: 50px !important;
+    }
+
+    /* Column 3: TYPE */
+    .op-is-column-3 {
+        width: 200px !important;
+    }
+
+    /* Column 4: ASSET GROUP */
+    .op-is-column-4 {
+        width: 200px !important;
+    }
+
+    /* Column 5: QUANTITY OF PLANNING */
+    .op-is-column-5 {
+        width: 250px !important;
+        white-space: normal;
+    }
+
+    /* Column 6: OPPORTUNITY PLANNINGS */
+    .op-is-column-6 {
+        width: 300px !important;
+    }
+
+    /* Column 7: RISK OWNER */
+    .op-is-column-7 {
+        width: 150px !important;
+    }
+
+    /* Column 8: START DATE */
+    .op-is-column-8 {
+        width: 150px !important;
+    }
+
+    /* Column 9: END DATE */
+    .op-is-column-9 {
+        width: 150px !important;
+    }
+
+    /* Column 10: FILE */
+    .op-is-column-10 {
+        width: 300px !important;
+        white-space: normal;
     }
 </style>
 
@@ -202,32 +392,32 @@
                     <table id="risk-is-table-full" class="table table-hover">
                         <thead>
                             <tr>
-                                <th class="text-center">ACTION</th>
-                                <th>NO.</th>
-                                <th>TYPE</th>
-                                <th>ASSET GROUP</th>
-                                <th>THREAT</th>
-                                <th>VULNERABILITY</th>
-                                <th>EXISTING CONTROLS</th>
-                                <th class="text-center">CONSEQUENCE</th>
-                                <th>IMPACT</th>
-                                <th>LIKELIHOOD</th>
-                                <th>RISK LEVEL</th>
-                                <th id="display_element_risk">RISK ASSESSMENT LEVEL</th>
-                                <th>RISK OPTIONS</th>
-                                <th>NAME OF RISK TREATMENT PLAN</th>
-                                <th>EVALUATION</th>
-                                <th>RISK OWNER</th>
-                                <th id="display_element_startdate">START DATE</th>
-                                <th id="display_element_enddate">END DATE</th>
-                                <th id="display_element_approve">APPROVE</th>
-                                <th id="display_element_rtp">RTP STATUS</th>
-                                <th id="display_element_file">FILE</th>
-                                <th class="text-center" id="display_element">CONSEQUENCE</th>
-                                <th id="display_element_impact">IMPACT</th>
-                                <th id="display_element_likelihood">LIKELIHOOD</th>
-                                <th>RESIDUAL</th>
-                                <th>RTP NO.</th>
+                                <th class="text-center ri-column-1">ACTION</th>
+                                <th class="ri-column-2">NO.</th>
+                                <th class="ri-column-3">TYPE</th>
+                                <th class="ri-column-4">ASSET GROUP</th>
+                                <th class="ri-column-5">THREAT</th>
+                                <th class="ri-column-6">VULNERABILITY</th>
+                                <th class="ri-column-7">EXISTING CONTROLS</th>
+                                <th class="text-center ri-column-8">CONSEQUENCE</th>
+                                <th class="ri-column-9">IMPACT</th>
+                                <th class="ri-column-10">LIKELIHOOD</th>
+                                <th class="ri-column-11">RISK LEVEL</th>
+                                <th id="display_element_risk" class="ri-column-12">RISK ASSESSMENT LEVEL</th>
+                                <th class="ri-column-13">RISK OPTIONS</th>
+                                <th class="ri-column-14">NAME OF RISK TREATMENT PLAN</th>
+                                <th class="ri-column-15">EVALUATION</th>
+                                <th class="ri-column-16">RISK OWNER</th>
+                                <th id="display_element_startdate" class="ri-column-17">START DATE</th>
+                                <th id="display_element_enddate" class="ri-column-18">END DATE</th>
+                                <th id="display_element_approve" class="ri-column-19">APPROVE</th>
+                                <th id="display_element_rtp" class="ri-column-20">RTP STATUS</th>
+                                <th id="display_element_file" class="ri-column-21">FILE</th>
+                                <th class="text-center ri-column-22" id="display_element">CONSEQUENCE</th>
+                                <th class="ri-column-23" id="display_element_impact">IMPACT</th>
+                                <th class="ri-column-24" id="display_element_likelihood">LIKELIHOOD</th>
+                                <th class="ri-column-25">RESIDUAL</th>
+                                <th class="ri-column-26">RTP NO.</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -239,16 +429,16 @@
                 <table id="opp_is_table" class="table table-hover">
                     <thead>
                         <tr>
-                            <th class="text-center">ACTION</th>
-                            <th>NO.</th>
-                            <th>TYPE</th>
-                            <th>ASSET GROUP</th>
-                            <th>QUANTITY OF PLANNING</th>
-                            <th class="text-center">OPPORTUNITY PLANNINGS</th>
-                            <th class="text-center">RISK OWNNER</th>
-                            <th class="text-center">START DATE</th>
-                            <th class="text-center">END DATE</th>
-                            <th class="text-center">FILE</th>
+                            <th class="text-center op-is-column-1">ACTION</th>
+                            <th class="op-is-column-2">NO.</th>
+                            <th class="op-is-column-3">TYPE</th>
+                            <th class="op-is-column-4">ASSET GROUP</th>
+                            <th class="op-is-column-5">QUANTITY OF PLANNING</th>
+                            <th class="text-center op-is-column-6">OPPORTUNITY PLANNINGS</th>
+                            <th class="text-center op-is-column-7">RISK OWNER</th>
+                            <th class="text-center op-is-column-8">START DATE</th>
+                            <th class="text-center op-is-column-9">END DATE</th>
+                            <th class="text-center op-is-column-10">FILE</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -272,6 +462,7 @@
         }, 2000);
     });
 </script>
+
 <script>
     var countTable1 = 0;
     var data_lenght = 0;
@@ -331,7 +522,8 @@
                 },
                 'columns': [{
                         'data': null,
-                        'class': 'text-center',
+                        'class': 'text-center ri-column-1',
+                        'width': 100,
                         'render': function(data, type, row, meta) {
                             var number_index = +meta.settings.oAjaxData.start + 1;
                             const encodedRowData = encodeURIComponent(JSON.stringify(row));
@@ -354,53 +546,56 @@
                     },
                     {
                         'data': null,
-                        'class': 'text-center',
+                        'class': 'text-center ri-column-2',
+                        'width': 500,
                         'render': function(data, type, row, meta) {
                             return '<div style="color: rgba(0, 123, 255, 1);">' + (meta.settings.oAjaxData.start += 1) + '</div>';
                         }
                     },
                     {
                         'data': null,
-                        'class': 'text-center',
+                        'class': 'text-center ri-column-3',
+                        'width': 200,
                         'render': function(data, type, row, meta) {
                             return '<div style="color: rgba(0, 123, 255, 1);">' + data.type + '</div>';
                         }
                     },
                     {
                         'data': null,
-                        'class': 'text-center',
+                        'class': 'text-center ri-column-4',
+                        'width': 200,
                         'render': function(data, type, row, meta) {
                             return '<div style="color: rgba(0, 123, 255, 1);">' + data.asset_group + '</div>';
                         }
                     },
                     {
                         'data': null,
-                        'class': 'text-center',
-                        'width': 200,
+                        'class': 'text-center ri-column-5',
+                        'width': 300,
                         'render': function(data, type, row, meta) {
                             return '<div style="color: rgba(0, 123, 255, 1);">' + data.threat + '</div>';
                         }
                     },
                     {
                         'data': null,
-                        'class': 'text-center',
-                        'width': 200,
+                        'class': 'text-center ri-column-6',
+                        'width': 300,
                         'render': function(data, type, row, meta) {
                             return '<div style="color: rgba(0, 123, 255, 1);">' + data.vulnerability + '</div>';
                         }
                     },
                     {
                         'data': null,
-                        'class': 'text-center',
-                        'width': 200,
+                        'class': 'text-center ri-column-7',
+                        'width': 300,
                         'render': function(data, type, row, meta) {
                             return '<div style="color: rgba(0, 123, 255, 1);">' + data.existing_controls + '</div>';
                         }
                     },
                     {
                         'data': null,
-                        'class': 'text-left',
-                        'width': 200,
+                        'class': 'text-left ri-column-8',
+                        'width': 250,
                         'render': function(data, type, row, meta) {
                             var html_consequence = '';
                             var data_consequence = data.consequence.split(',')
@@ -413,7 +608,8 @@
                     },
                     {
                         'data': null,
-                        'class': 'text-center',
+                        'class': 'text-center ri-column-9',
+                        'width': 100,
                         'visible': table_show,
                         'render': function(data, type, row, meta) {
                             var max_value = 0;
@@ -429,14 +625,14 @@
                     },
                     {
                         'data': null,
-                        'class': 'text-center',
+                        'class': 'text-center ri-column-10',
                         'render': function(data, type, row, meta) {
                             return '<div style="color: rgba(0, 123, 255, 1);">' + data.likelihood + '</div>';
                         }
                     },
                     {
                         'data': null,
-                        'class': 'text-center',
+                        'class': 'text-center ri-column-11',
                         'width': 100,
                         'render': function(data, type, row, meta) {
                             return data.risk_level;
@@ -444,8 +640,8 @@
                     },
                     {
                         'data': null,
-                        'class': 'text-center',
-                        'width': 200,
+                        'class': 'text-center ri-column-12',
+                        'width': 180,
                         'visible': table_show,
                         'render': function(data, type, row, meta) {
                             return '<div style="color: rgba(0, 123, 255, 1);">' + data.risk_assessment_level + '</div>';
@@ -453,7 +649,7 @@
                     },
                     {
                         'data': null,
-                        'class': 'text-center',
+                        'class': 'text-center ri-column-13',
                         'width': 200,
                         'render': function(data, type, row, meta) {
                             return '<div style="color: rgba(0, 123, 255, 1);">' + (data.risk_options ?? '') + '</div>';
@@ -461,15 +657,15 @@
                     },
                     {
                         'data': null,
-                        'class': 'text-center',
-                        'width': 200,
+                        'class': 'text-center ri-column-14',
+                        'width': 500,
                         'render': function(data, type, row, meta) {
                             return '<div style="color: rgba(0, 123, 255, 1);">' + (data.name_of_risk_treatment_plan ?? '') + '</div>';
                         }
                     },
                     {
                         'data': null,
-                        'class': 'text-center',
+                        'class': 'text-center ri-column-15',
                         'width': 200,
                         'render': function(data, type, row, meta) {
                             return '<div style="color: rgba(0, 123, 255, 1);">' + (data.evaluation ?? '') + '</div>';
@@ -477,7 +673,7 @@
                     },
                     {
                         'data': null,
-                        'class': 'text-center',
+                        'class': 'text-center ri-column-16',
                         'width': 200,
                         'render': function(data, type, row, meta) {
                             return '<div style="color: rgba(0, 123, 255, 1);">' + (data.risk_ownner ?? '') + '</div>';
@@ -485,7 +681,7 @@
                     },
                     {
                         'data': null,
-                        'class': 'text-center',
+                        'class': 'text-center ri-column-17',
                         'width': 100,
                         'visible': table_show,
                         'render': function(data, type, row, meta) {
@@ -494,7 +690,7 @@
                     },
                     {
                         'data': null,
-                        'class': 'text-center',
+                        'class': 'text-center ri-column-18',
                         'width': 100,
                         'visible': table_show,
                         'render': function(data, type, row, meta) {
@@ -503,7 +699,7 @@
                     },
                     {
                         'data': null,
-                        'class': 'text-center',
+                        'class': 'text-center ri-column-19',
                         'width': 100,
                         'visible': table_show,
                         'render': function(data, type, row, meta) {
@@ -512,7 +708,7 @@
                     },
                     {
                         'data': null,
-                        'class': 'text-center',
+                        'class': 'text-center ri-column-20',
                         'width': 200,
                         'visible': table_show,
                         'render': function(data, type, row, meta) {
@@ -531,7 +727,7 @@
                     },
                     {
                         'data': null,
-                        'class': 'text-center',
+                        'class': 'text-center ri-column-21',
                         'width': 200,
                         'visible': table_show,
                         'render': function(data, type, row, meta) {
@@ -550,8 +746,8 @@
                     },
                     {
                         'data': null,
-                        'class': 'text-left',
-                        'width': 200,
+                        'class': 'text-left ri-column-22',
+                        'width': 250,
                         'visible': table_show,
                         'render': function(data, type, row, meta) {
                             var html_consequence = '';
@@ -570,7 +766,7 @@
                     },
                     {
                         'data': null,
-                        'class': 'text-center',
+                        'class': 'text-center ri-column-23',
                         'visible': table_show,
                         'render': function(data, type, row, meta) {
                             var max_value = 0;
@@ -591,7 +787,7 @@
                     },
                     {
                         'data': null,
-                        'class': 'text-center',
+                        'class': 'text-center ri-column-24',
                         'visible': table_show,
                         'render': function(data, type, row, meta) {
                             return '<div style="color: rgba(0, 123, 255, 1);">' + (data.likelihood_after ?? '') + '</div>';
@@ -599,14 +795,14 @@
                     },
                     {
                         'data': null,
-                        'class': 'text-center',
+                        'class': 'text-center ri-column-25',
                         'render': function(data, type, row, meta) {
                             return (data.residual ?? '');
                         }
                     },
                     {
                         'data': null,
-                        'class': 'text-center',
+                        'class': 'text-center ri-column-26',
                         'render': function(data, type, row, meta) {
                             return '<div style="color: rgba(0, 123, 255, 1);">' + (data.rtp_no ?? '') + '</div>';
                         }
@@ -720,6 +916,7 @@
         });
     });
 </script>
+
 <script>
     function confirm_Alert(text, url) {
         Swal.fire({
@@ -778,6 +975,7 @@
         });
     }
 </script>
+
 <script>
     var countTable2 = 0;
 
@@ -871,7 +1069,7 @@
                 },
                 'columns': [{
                         'data': null,
-                        'class': 'text-center',
+                        'class': 'text-center op-is-column-1',
                         'render': function(data, type, row, meta) {
                             var number_index = +meta.settings.oAjaxData.start + 1;
                             const encodedRowData = encodeURIComponent(JSON.stringify(row));
@@ -894,29 +1092,29 @@
                     },
                     {
                         'data': null,
-                        'class': 'text-center',
+                        'class': 'text-center op-is-column-2',
                         'render': function(data, type, row, meta) {
                             return '<div style="color: rgba(0, 123, 255, 1);">' + (meta.settings.oAjaxData.start += 1) + '</div>';
                         }
                     },
                     {
                         'data': null,
-                        'class': 'text-center',
+                        'class': 'text-center op-is-column-3',
                         'render': function(data, type, row, meta) {
                             return '<div style="color: rgba(0, 123, 255, 1);">' + data.type + '</div>';
                         }
                     },
                     {
                         'data': null,
-                        'class': 'text-center',
+                        'class': 'text-center op-is-column-4',
                         'render': function(data, type, row, meta) {
                             return '<div style="color: rgba(0, 123, 255, 1);">' + data.asset_group + '</div>';
                         }
                     },
                     {
                         'data': null,
-                        'class': 'text-center',
-                        'width': 150,
+                        'class': 'text-center op-is-column-5',
+                        'width': 250,
                         'render': function(data, type, row, meta) {
                             var length = data.opp_data.length;
                             return '<div style="color: rgba(0, 123, 255, 1);">' + length + '</div>';
@@ -924,7 +1122,7 @@
                     },
                     {
                         'data': null,
-                        'class': 'text-left',
+                        'class': 'text-left op-is-column-6',
                         'width': 300,
                         'render': function(data, type, row, meta) {
                             var html = '';
@@ -940,7 +1138,7 @@
                     },
                     {
                         'data': null,
-                        'class': 'text-left',
+                        'class': 'text-left op-is-column-7',
                         'width': 150,
                         'render': function(data, type, row, meta) {
                             var html = '';
@@ -956,7 +1154,7 @@
                     },
                     {
                         'data': null,
-                        'class': 'text-center',
+                        'class': 'text-center op-is-column-8',
                         'width': 150,
                         'render': function(data, type, row, meta) {
                             var html = '';
@@ -972,7 +1170,7 @@
                     },
                     {
                         'data': null,
-                        'class': 'text-center',
+                        'class': 'text-center op-is-column-9',
                         'width': 150,
                         'render': function(data, type, row, meta) {
                             var html = '';
@@ -988,8 +1186,8 @@
                     },
                     {
                         'data': null,
-                        'class': 'text-left',
-                        'width': 250,
+                        'class': 'text-left op-is-column-10',
+                        'width': 300,
                         'render': function(data, type, row, meta) {
                             var html = '';
                             data.opp_data.forEach(element => {
